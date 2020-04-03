@@ -1,6 +1,8 @@
 //TODO
 - Women character giving advices in each level
-- Inventary
+- ** Choose Character 
+- ** Inventary
+- ** Special powers or access with some inventary objects
 - Save Game 
 - Google Autentication 
 - Change Design

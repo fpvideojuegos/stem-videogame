@@ -22,7 +22,8 @@ const DB = {
         obj1: false,
         obj2: false,
         obj3: false,
-        obj4: false
+        obj4: false, 
+        obj5: false
     },
     worlds: {
         Level1: {            
@@ -56,7 +57,7 @@ const DB = {
             stars: 0
         }
     },
-    skipIntro: true
+    skipIntro: true,
 }
 
  export default {
