@@ -1,3 +1,6 @@
 //TODO
 - Women character giving advices in each level
 - Inventary
+- Save Game 
+- Google Autentication 
+- Change Design
