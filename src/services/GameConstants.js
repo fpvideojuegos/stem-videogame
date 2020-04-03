@@ -1,7 +1,7 @@
 /* Las constantes del juego */
 const GameConstants = {
     DB: {
-        DBNAME: 'gamedatav0_04'
+        DBNAME: 'gamedatav0_05'
     },
     Levels: {
         MENU: 'Menu',
