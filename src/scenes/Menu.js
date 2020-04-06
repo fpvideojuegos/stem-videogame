@@ -36,16 +36,19 @@ class Menu extends BasicScene {
         if (this.levelFrom!=GameConstants.Levels.CREDITS &&
             this.levelFrom!=GameConstants.Levels.LEVELSELECT &&
             this.levelFrom!=GameConstants.Levels.SCORES &&
-            this.levelFrom!=GameConstants.Levels.SETTINGSLEVEL) {
-
+            this.levelFrom!=GameConstants.Levels.SETTINGSLEVEL &&
+            this.levelFrom!=GameConstants.Levels.SELECTCHARACTERLEVEL) {
                 this.playMenuScenesBSO();
         }
         
+        this.selectCharacterButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SELECTCHARACTER')).setTint(0x808489).setInteractive();
+        this.selectCharacterButton.setPosition(this.selectCharacterButton.width - 50, 50);
+        this.changeSceneFromButton(this.selectCharacterButton, GameConstants.Levels.SELECTCHARACTERLEVEL);
+
         this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();
         this.settingsButton.setPosition(width - this.settingsButton.width - 50, 50);
         this.changeSceneFromButton(this.settingsButton, GameConstants.Levels.SETTINGSLEVEL);
-      
-                        
+
         const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        
         startButton.setInteractive();
         this.changeSceneFromButton(startButton, GameConstants.Levels.LEVELSELECT);

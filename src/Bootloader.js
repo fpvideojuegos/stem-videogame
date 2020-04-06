@@ -26,7 +26,6 @@ class Bootloader extends Phaser.Scene {
             this.load.image("layer_0" + i, "img/backgrounds/parallax_intro/layer_0" + i + "_854x480.png");
         }
 
-       
         // player is a sprite sheet made by 24x48 pixels
         this.load.spritesheet("daniela_intro", "img/daniela/danielaintro.png", {
             frameWidth: 124,
@@ -87,7 +86,6 @@ class Bootloader extends Phaser.Scene {
         this.load.tilemapTiledJSON("Level6", "../src/worlds/level6/level6.json");
         this.load.image("spritesheet", "../src/worlds/level6/spritesheet.png");
         
-        
         //BACKGROUNDS
         //Menu
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
@@ -112,9 +110,7 @@ class Bootloader extends Phaser.Scene {
 
         //Level 5 
         this.load.image("bg_Level5", "img/backgrounds/bg_level5.png");
-        
-        
-        
+
         //Level 6
         this.load.image("bg_Level6", "img/backgrounds/bg_volcano.png");
         this.load.image('map_1', 'img/objects/map/map_1.png');

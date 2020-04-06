@@ -468,12 +468,14 @@ class BasicScene extends Phaser.Scene {
                             ( (target!=GameConstants.Levels.LEVELSELECT && 
                             target!=GameConstants.Levels.SCORES &&
                             target!=GameConstants.Levels.SETTINGSLEVEL && 
-                            target!=GameConstants.Levels.CREDITS) &&
+                            target!=GameConstants.Levels.CREDITS &&
+                            target!=GameConstants.Levels.SELECTCHARACTERLEVEL) &&
                             (target==GameConstants.Levels.MENU && 
                                 (scene.key!=GameConstants.Levels.LEVELSELECT && 
                                 scene.key!=GameConstants.Levels.SCORES &&
                                 scene.key!=GameConstants.Levels.SETTINGSLEVEL &&
-                                scene.key!=GameConstants.Levels.CREDITS)
+                                scene.key!=GameConstants.Levels.CREDITS &&
+                                scene.key!=GameConstants.Levels.SELECTCHARACTERLEVEL)
                             )) || (scene.key==GameConstants.Levels.LEVELSELECT && target!=GameConstants.Levels.MENU) 
                             || (target==GameConstants.Levels.INTROSTORY) 
                             || (target==GameConstants.Levels.LEVELSELECT && scene.key!=GameConstants.Levels.MENU)

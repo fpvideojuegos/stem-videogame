@@ -7,6 +7,7 @@ const GameConstants = {
         MENU: 'Menu',
         SETTINGSLEVEL: 'SettingsLevel',
         LEVELSELECT: 'LevelSelect',
+        SELECTCHARACTERLEVEL: 'SelectCharacterLevel',
         CREDITS: 'Credits',
         SCORES: 'Scores',
         BONUSLEVEL: 'BonusLevel',
