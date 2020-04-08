@@ -90,12 +90,14 @@ class Bootloader extends Phaser.Scene {
         //Menu
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
         //Level1
-        this.load.image('bg_Level1', 'img/backgrounds/desert_bg.jpg');
+        this.load.image('bg_Level1', 'img/backgrounds/desert_bg.jpg'); //freepik
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
         //Level2
-        this.load.image('bg_Level2', 'img/backgrounds/bg_forest.png');
+        this.load.image('bg_Level2', 'img/backgrounds/bg_forest_purple.png');
+        //https://swapnilrane24.itch.io/nature-background
+        
         //https://www.gameart2d.com/free-platformer-game-tileset.html
         //Level 3 
         this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
