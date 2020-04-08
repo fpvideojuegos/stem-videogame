@@ -69,7 +69,7 @@ const config = {
             debug: false
         },
     },
-    scene: [Loader, Bootloader, AudioLoader, Menu, SettingsLevel, BonusLevel, LevelSelect, Credits, IntroStory, Scores, Level1, Level2, Level3, Level4, Level5, Level6,   UI]
+    scene: [Loader, Bootloader, AudioLoader, Menu, SettingsLevel, SelectCharacterLevel, BonusLevel, LevelSelect, Credits, IntroStory, Scores, Level1, Level2, Level3, Level4, Level5, Level6,   UI]
 };
 
 const game = new Phaser.Game(config);
