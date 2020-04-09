@@ -20,9 +20,9 @@ import Loader from './Loader.js';
 import TG from './plugins/TG.js';
 
 const config = {
-    title: "HISTORICAL ADVENTURES OF DANIELA",
-    url: "https://twitter.com/gamedev_innicia",
-    version: '0.0.3',
+    title: "BAMAK QUEST",
+    url: "https://twitter.com/fpvideojuegos",
+    version: '0.0.1',
     type: Phaser.AUTO,
     backgroundColor: "#000000",
     pixelArt: true,
@@ -30,11 +30,11 @@ const config = {
     banner:{        
         text:"#000000",
         background:[
-            "#f4e541",
-            "#ed2a3a",
-            "#29c2ed",
-            "#c929ed",
-            "#42f4bf"]
+            "#3a0e85",
+            "#501aac",
+            "#683ab7",
+            "#8259c8",
+            "#a484dd"]
     },
     scale: {
         parent: "container",

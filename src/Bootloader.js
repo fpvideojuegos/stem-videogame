@@ -120,8 +120,8 @@ class Bootloader extends Phaser.Scene {
         this.load.image('map_3', 'img/objects/map/map_3.png');
         
         //Credits
-        this.load.image('Credits', 'img/backgrounds/credits_800w.png');        
-        this.load.image('creditsPage2', 'img/backgrounds/credits_page2.png');
+        this.load.image('Credits', 'img/backgrounds/bamak_credits_en_1.png');        
+        this.load.image('creditsPage2', 'img/backgrounds/bamak_credits_en_2.png');
 
         // Settings 
         this.load.image("es_flag", "img/settings/es.png");
@@ -268,7 +268,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
         this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");        
         this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");
-        this.load.audio("Main_BSO","sounds/bso/Main_BSO.ogg");
+        this.load.audio("Main_BSO","sounds/bso/menusong_v1.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 
         // Progress
