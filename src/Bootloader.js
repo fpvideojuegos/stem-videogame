@@ -100,7 +100,7 @@ class Bootloader extends Phaser.Scene {
         
         //https://www.gameart2d.com/free-platformer-game-tileset.html
         //Level 3 
-        this.load.image('bg_Level3', 'img/backgrounds/background_level3.png');
+        this.load.image('bg_Level3', 'img/backgrounds/background_level3_forest.jpg');
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
         //this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
@@ -268,7 +268,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
         this.load.audio("Level5_BSO","sounds/bso/Level5_BSO.ogg");        
         this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");
-        this.load.audio("Main_BSO","sounds/bso/menusong_v1.ogg");
+        this.load.audio("Main_BSO","sounds/bso/menusong_v2.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 
         // Progress
