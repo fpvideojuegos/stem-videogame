@@ -22,7 +22,7 @@ class Bootloader extends Phaser.Scene {
 
         //Parallax Background Intro
         //https://opengameart.org/content/3-parallax-backgrounds
-        for (let i = 1; i <= 8; i++) {
+        for (let i = 1; i <= 7; i++) {
             this.load.image("layer_0" + i, "img/backgrounds/parallax_intro/layer_0" + i + "_854x480.png");
         }
 
