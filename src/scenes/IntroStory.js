@@ -45,7 +45,7 @@ class IntroStory extends Phaser.Scene {
 
        //Background Parallax 
        this.bgparallax=[];
-       for(let i=8;i>=1;i--){
+       for(let i=7;i>=1;i--){
         this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
 
        }
@@ -172,7 +172,7 @@ class IntroStory extends Phaser.Scene {
                     this.time.addEvent({
                         delay: 700,
                         callback: () => {                                        
-                            for (let i=1;i<=8;i++){
+                            for (let i=1;i<=7;i++){
                                 this.bgparallax[i].setAlpha(0);
                              } 
                         },
@@ -197,7 +197,7 @@ class IntroStory extends Phaser.Scene {
 
         
         //for(let i=this.bgparallax.length-1;i>=1;i--){
-        for (let i=1;i<=8;i++){
+        for (let i=1;i<=7;i++){
             this.bgparallax[i].tilePositionX += (0.80 - (i*0.10));
          } 
         //}
