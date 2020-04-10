@@ -11,7 +11,7 @@ const GameConstants = {
         CREDITS: 'Credits',
         SCORES: 'Scores',
         BONUSLEVEL: 'BonusLevel',
-        INTROSTORY: 'IntroStory',        
+        INTROLEVEL1: 'IntroLevel1',        
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
@@ -28,8 +28,10 @@ const GameConstants = {
             BSO: 'LevelIntro_BSO'
         },
         LEVEL1: {
+            AGATHA: 'Level1_AGATHA_01',
             FINDBRACELET: 'Level1_LOLO_MagicBracelet_03',
-            BSO: 'Level1_BSO'
+            BSO: 'Level1_BSO',
+            AMBIENCE: 'Desert'
         },
         LEVEL2: {
             DANIELA_QUESTION: 'Level2_DANIELA_WhereDidYouGetThat_05',
@@ -284,6 +286,7 @@ const GameConstants = {
     Textures: {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
+        BG_INTROLEVEL1: 'bg_IntroLevel1',
         BG_LEVEL2: 'bg_Level2',
         BG_LEVEL3: 'bg_Level3',
         BG_LEVEL4:  'bg_Level4',        

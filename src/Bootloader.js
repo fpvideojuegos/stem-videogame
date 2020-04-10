@@ -27,15 +27,15 @@ class Bootloader extends Phaser.Scene {
         }
 
         // player is a sprite sheet made by 24x48 pixels
-        this.load.spritesheet("daniela_intro", "img/daniela/danielaintro.png", {
-            frameWidth: 124,
-            frameHeight: 132
+        this.load.spritesheet("agatha_intro", "img/intro/agathaChristie_spritesheet.png", {
+            frameWidth: 254,
+            frameHeight: 286
         });
 
         // player is a sprite sheet made by 24x48 pixels
-        this.load.spritesheet("lolo_intro", "img/lolo/lolo_intro.png", {
-            frameWidth: 64,
-            frameHeight: 64
+        this.load.spritesheet("bus_intro", "img/intro/bus.png", {
+            frameWidth: 256,
+            frameHeight: 149
         });
 
         //BONUS LEVEL
@@ -91,6 +91,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
         //Level1
         this.load.image('bg_Level1', 'img/backgrounds/desert_bg.jpg'); //freepik
+        this.load.image('bg_IntroLevel1', 'img/backgrounds/desert_bg_854x480.jpg'); //freepik
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
@@ -262,7 +263,7 @@ class Bootloader extends Phaser.Scene {
         //BSO Tony Blisset
         this.load.audio("BonusLevel_BSO", "sounds/bso/BonusLevel_BSO.ogg");
         this.load.audio("LevelIntro_BSO", "sounds/bso/LevelIntro_BSO.ogg");
-        this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");        
+        this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");                
         this.load.audio("Level2_BSO","sounds/bso/Level2_BSO.ogg");        
         this.load.audio("Level3_BSO","sounds/bso/Level3_BSO.ogg");        
         this.load.audio("Level4_BSO","sounds/bso/Level4_BSO.ogg");
@@ -270,6 +271,9 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Level6_BSO","sounds/bso/Level6_BSO.ogg");
         this.load.audio("Main_BSO","sounds/bso/menusong_v3.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
+
+        //Ambience
+        this.load.audio("Desert", "sounds/effects/desert-simple.ogg");                
 
         // Progress
         this.load.on('progress', (value) => {

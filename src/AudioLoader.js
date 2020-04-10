@@ -18,6 +18,8 @@ class AudioLoader extends Phaser.Scene {
 
         //Level 1
         this.loadAudio(currentLanguage + "_Level1_LOLO_MagicBracelet_03");
+        this.loadAudio(currentLanguage + "_Level1_AGATHA_01");
+
 
         //Level 2
         this.loadAudio(currentLanguage + "_Level2_DANIELA_WhereDidYouGetThat_05");

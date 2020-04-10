@@ -56,9 +56,6 @@ class Menu extends BasicScene {
         startButton.setInteractive();
         this.changeSceneFromButton(startButton, GameConstants.Levels.LEVELSELECT);
 
-        const introButton = this.add.dynamicBitmapText(220, y * 2, 'pixel', this.TG.tr('MENU.INTRO'), 24);                
-        introButton.setInteractive();
-        this.changeSceneFromButton(introButton, GameConstants.Levels.INTROSTORY);
 
         const scoresButton = this.add.dynamicBitmapText(400, y * 2, 'pixel', this.TG.tr('MENU.SCORES'), 24);                        
         scoresButton.setInteractive();
@@ -70,8 +67,7 @@ class Menu extends BasicScene {
 
         // change the position of the buttons
         let buttons = [
-            startButton,
-            introButton,
+            startButton,            
             scoresButton,
             creditsButton
         ];

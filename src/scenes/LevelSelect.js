@@ -117,7 +117,7 @@ class LevelSelect extends BasicScene {
         levelButton.on('pointerdown', () => {
             switch (level) {
                 case 1: 
-                    this.changeScene(this, GameConstants.Levels.LEVEL1, 0);
+                    this.changeScene(this, GameConstants.Levels.INTROLEVEL1, 0);
                     break;
                 case 2: 
                     this.changeScene(this, GameConstants.Levels.LEVEL2, 0);

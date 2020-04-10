@@ -1,13 +1,13 @@
 import GameConstants from '../services/GameConstants.js';
 
 
-class IntroStory extends Phaser.Scene {
+class IntroLevel1 extends Phaser.Scene {
     constructor() {
-        super({key: 'IntroStory'});
+        super({key: 'IntroLevel1'});
     }
     
     preload() {
-        console.log('Scene: IntroStory');
+        console.log('Scene: Introlevel1');
         
 
     }
@@ -17,7 +17,7 @@ class IntroStory extends Phaser.Scene {
 
 
         //Music Background
-        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL0.BSO);
+        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 0.6});
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
@@ -26,6 +26,7 @@ class IntroStory extends Phaser.Scene {
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
+        
         //Opción de MENU en niveles
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
         skipButton.setPosition(this.width - skipButton.width - 30, 20);
@@ -44,50 +45,55 @@ class IntroStory extends Phaser.Scene {
         //this.bg = this.add.tileSprite(0, 0, this.width, this.height, 'bg_park').setOrigin(0);
 
        //Background Parallax 
-       this.bgparallax=[];
+       /*this.bgparallax=[];
        for(let i=7;i>=1;i--){
         this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
 
-       }
+       }*/
+       this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_INTROLEVEL1).setOrigin(0);
        
-        // setting player animation
+        // setting women animation
         this.anims.create({
             key: "run",
-            frames: this.anims.generateFrameNumbers("daniela_intro", {
+            frames: this.anims.generateFrameNumbers("agatha_intro", {
                 start: 0,
                 end: 1
             }),
-            frameRate: 8,
-            repeat: -1
-        });
-
-                // setting player animation
-        this.anims.create({
-            key: "fly",
-            frames: this.anims.generateFrameNumbers("lolo_intro", {
-                start: 0,
-                end: 5
-            }),
-            frameRate: 8,
+            frameRate: 3,
             repeat: -1
         });
 
 
 
-
-       // adding Daniela
-       this.player = this.physics.add.sprite(200,325, "daniela_intro");
+       // adding women
+       this.player = this.physics.add.sprite(200,150, "agatha_intro");
        this.player.setDepth(2);
        this.player.flipX = true;
        this.player.body.setAllowGravity(false);
        this.player.anims.play("run");
 
-       // adding lolo
-       this.lolo = this.physics.add.sprite(130,240, "lolo_intro");
-       this.lolo.setDepth(2);
-       this.lolo.flipX = true;
-       this.lolo.body.setAllowGravity(false);
-       this.lolo.anims.play("fly");
+
+              
+        // setting women animation
+        this.anims.create({
+            key: "drive",
+            frames: this.anims.generateFrameNumbers("bus_intro", {
+                start: 0,
+                end: 3
+            }),
+            frameRate: 4,
+            repeat: -1
+        });
+
+
+
+       // adding women
+       this.bus = this.physics.add.sprite(200,365, "bus_intro");
+       this.bus.setDepth(2);       
+       this.bus.body.setAllowGravity(false);
+       this.bus.anims.play("drive");
+
+
 
 
        //TEXTOS
@@ -98,16 +104,16 @@ class IntroStory extends Phaser.Scene {
         this.textDialog.setAlpha(0);
 
         //SOUNDS
-        this.sound_LEVELINTRO_WHERE_ARE_YOU = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL0.DANIELA_MUM);
+        this.sound_AGATHA = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.AGATHA, {volume: 1.2});
         
-        this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL0.DANIELA_ANSWER);
+        
 
         //Show texts
         this.time.addEvent({
             delay: 4000,
             callback: () => {
                 this.textDialog.setAlpha(1);
-                this.sound_LEVELINTRO_WHERE_ARE_YOU.play();
+                this.sound_AGATHA.play();
             },
             callbackScope: this
         });
@@ -122,13 +128,13 @@ class IntroStory extends Phaser.Scene {
             callback: () => {
                 this.textDialog.setAlpha(0);
                 this.textDialog2.setAlpha(1);
-                this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS.play();
+                //this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS.play();
             },
             callbackScope: this
         });
 
         //Time Door
-        this.door = this.physics.add.sprite(600,300,'timedoor');
+        this.door = this.physics.add.sprite(700,300,'timedoor');
         this.door.body.setImmovable(true);
         this.door.body.setAllowGravity(false);
         this.door.setAlpha(0);
@@ -147,7 +153,7 @@ class IntroStory extends Phaser.Scene {
             delay: 17000,
             callback: () => {                 
                 this.textDialog2.setAlpha(0);
-                this.door.setAlpha(1);                                
+                this.door.setAlpha(0);                                
             },
             callbackScope: this
         });
@@ -163,7 +169,7 @@ class IntroStory extends Phaser.Scene {
 
         this.passthedoor = false;
         //Atraviesa la puerta
-        this.physics.add.overlap(this.player, this.door, () => {
+        this.physics.add.overlap(this.bus, this.door, () => {
                 if (!this.passthedoor){ 
                     this.passthedoor=true;
                     
@@ -172,9 +178,9 @@ class IntroStory extends Phaser.Scene {
                     this.time.addEvent({
                         delay: 700,
                         callback: () => {                                        
-                            for (let i=1;i<=7;i++){
+                            /*for (let i=1;i<=7;i++){
                                 this.bgparallax[i].setAlpha(0);
-                             } 
+                             }*/ 
                         },
                         callbackScope: this
                     });
@@ -195,16 +201,17 @@ class IntroStory extends Phaser.Scene {
     update(time, delta) {        
         //this.bg.tilePositionX += 0.5;
 
+        this.backgroundimg.tilePositionX += 0.5;
+
         
         //for(let i=this.bgparallax.length-1;i>=1;i--){
-        for (let i=1;i<=7;i++){
+        /*for (let i=1;i<=7;i++){
             this.bgparallax[i].tilePositionX += (0.80 - (i*0.10));
          } 
-        //}
+        //}*/
 
         if (this.run) {
-            this.player.setVelocityX(150);
-            this.lolo.setVelocityX(150);
+            this.bus.setVelocityX(150);            
         }
        
     }
@@ -215,4 +222,4 @@ class IntroStory extends Phaser.Scene {
     }
 }
 
-export default IntroStory;
+export default IntroLevel1;

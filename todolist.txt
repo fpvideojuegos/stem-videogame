@@ -6,3 +6,9 @@
 - Save Game 
 - Google Autentication 
 - Change Design
+
+
+- Sounds:
+Foot steps (desert)
+Intro each level with skip and woman talking with instructions
+
