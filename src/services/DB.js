@@ -14,6 +14,7 @@ const DB = {
     daniela: {
         costume: 'daniela'
     },
+    player: 'player2',
     currentLevel: 'Level1',
     maxLevel: 'Level1', //Last Level achieved
     extralifes : 0,

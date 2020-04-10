@@ -1,7 +1,7 @@
 import BasicScene from "./BasicScene.js";
-import Daniela from '../player/Daniela.js';
+import DB from "../services/DB.js";
 import GameConstants from "../services/GameConstants.js";
-import UI from "./UI.js";
+
 
 
 class SelectCharacterLevel extends BasicScene {
@@ -31,12 +31,30 @@ class SelectCharacterLevel extends BasicScene {
         menuButton.on('pointerdown', () => { 
             this.changeScene(this, GameConstants.Levels.MENU,0);
         });
+
+        // Player frames for choosing player
+        const player2 = this.add.image(80, 80 , GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5); 
+        player2.setInteractive();
+        player2.on('pointerdown', () => { 
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB.player = 'player2';
+            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
+
+        const player3 = this.add.image(80, 160 , GameConstants.Sprites.Player3.KEY, 'player3_2').setScale(1.5); 
+        player3.setInteractive();
+        player3.on('pointerdown', () => {
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB.player = 'player3 ';
+            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.changeScene(this, GameConstants.Levels.MENU,0);
+        });
     }
 
     update(time, delta) {
         
     }
-
 }
 
 export default SelectCharacterLevel;
