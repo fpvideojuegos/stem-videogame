@@ -26,6 +26,29 @@
             },
             {
                 "type": "atlas",
+                "key": "player2",
+                "textureURL": "players/player2.png",
+                "atlasURL": "players/player2_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "player2Data",
+                "url": "players/player2_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "player3",
+                "textureURL": "players/player3.png",
+                "atlasURL": "players/player3_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "player3Data",
+                "url": "players/player3_anim.json"
+            },
+
+            {
+                "type": "atlas",
                 "key": "lolo_normal",
                 "textureURL": "lolo/lolo_normal.png",
                 "atlasURL": "lolo/lolo_normal_atlas.json"

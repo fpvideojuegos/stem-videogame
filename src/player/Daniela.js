@@ -9,6 +9,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         super(config.scene, config.x, config.y, config.key);
 
         this.key = config.key;
+        console.log(this.key);
         // Health
         //Check for extra Lifes
         this.DB = store.get(GameConstants.DB.DBNAME);        
@@ -35,7 +36,17 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
             this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
             this.animCLIMB = GameConstants.Anims.DanielaTroglo.CLIMB;
-            } else {
+        }else if (this.key === GameConstants.Sprites.Player2) {
+            this.animIDLE = GameConstants.Anims.Player2.IDLE;
+            this.animDOWN = GameConstants.Anims.Player2.DOWN;
+            this.animWALK = GameConstants.Anims.Player2.WALK;
+            this.animCLIMB = GameConstants.Anims.Player2.CLIMB;
+        }else if (this.key === GameConstants.Sprites.Player3) {
+            this.animIDLE = GameConstants.Anims.Player3.IDLE;
+            this.animDOWN = GameConstants.Anims.Player3.DOWN;
+            this.animWALK = GameConstants.Anims.Player3.WALK;
+            this.animCLIMB = GameConstants.Anims.Player3.CLIMB;        
+        } else {
             this.animIDLE = GameConstants.Anims.Daniela.IDLE;
             this.animDOWN = GameConstants.Anims.Daniela.DOWN;
             this.animWALK = GameConstants.Anims.Daniela.WALK;
@@ -70,7 +81,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         this.prevAnim = 'idle';
 
-        if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+        if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
             this.body.setSize(20, 30);
             this.body.setOffset(6, 2);
         } else {
@@ -237,8 +248,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         } else {
             // Desacelerar en el aire
             this.run(acceleration);
-        }
-        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);
+        }        
+        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);        
         if (this.lolo) this.lolo.flipX = this.flipX;
     }
 
@@ -265,7 +276,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
     animation(direction, animation) {
         if (direction === GameConstants.Anims.Direction.DOWN) {
-            if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+            if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
                 this.body.setSize(20, 20);
                 this.body.setOffset(6, 12);
             } else {
@@ -273,7 +284,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                 this.body.setOffset(0, 15);
             }
         } else {
-            if (this.key !== GameConstants.Sprites.DanielaTroglo) {
+            if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
                 this.body.setSize(10, 30);
                 this.body.setOffset(11, 2);
             } else {
