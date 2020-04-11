@@ -1,7 +1,7 @@
 /* Las constantes del juego */
 const GameConstants = {
     DB: {
-        DBNAME: 'gamedatav0_05'
+        DBNAME: 'gamedatav0_06'
     },
     Levels: {
         MENU: 'Menu',
@@ -31,7 +31,8 @@ const GameConstants = {
             AGATHA: 'Level1_AGATHA_01',
             FINDBRACELET: 'Level1_LOLO_MagicBracelet_03',
             BSO: 'Level1_BSO',
-            AMBIENCE: 'Desert'
+            AMBIENCE: 'Desert',
+            BUS: 'Bus'
         },
         LEVEL2: {
             DANIELA_QUESTION: 'Level2_DANIELA_WhereDidYouGetThat_05',

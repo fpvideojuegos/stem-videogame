@@ -29,21 +29,15 @@ class Level1 extends BasicScene {
         //Creacion de objetos invisibles que dañaran a daniela
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 50, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL1.FINDBRACELET'));
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
-
-        //Sounds
-        this.soundLEVEL1_LOLO_findBracelet = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.FINDBRACELET);
-        this.addEventForMusic(this.soundLEVEL1_LOLO_findBracelet);
+        
+        //Sounds        
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
 
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
+        //this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
 
         //Create Bracelet
         this.bracelets = this.createEndLevelObject(GameConstants.Sprites.Bracelet.KEY);
@@ -57,7 +51,7 @@ class Level1 extends BasicScene {
         this.physics.add.collider(this.daniela, this.magicbracelet, () => {
             this.musicbg.stop();
             this.magicbracelet.destroy();
-            this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
+            //this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
             this.daniela.nextScene();
         });
       

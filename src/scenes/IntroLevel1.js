@@ -21,13 +21,17 @@ class IntroLevel1 extends Phaser.Scene {
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
-        //Music Falling
+        this.musicBg2 = this.sound.add(GameConstants.Sound.LEVEL1.BUS, {volume: 0.4});
+        this.musicBg2.play();
+        this.musicBg2.setLoop(true);
+
+        //Music Bus
         this.musicFalling = this.sound.add('falling');
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
         
-        //Opción de MENU en niveles
+        //Skip to Level 
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
         skipButton.setPosition(this.width - skipButton.width - 30, 20);
         skipButton.setInteractive().setDepth(2);
@@ -36,23 +40,22 @@ class IntroLevel1 extends Phaser.Scene {
             this.cameras.main.fade(700, 0, 0, 0);
             this.cameras.main.on('camerafadeoutcomplete', () => {                        
                 this.musicBg.stop();
+                this.musicBg2.stop();
                 this.scene.start(GameConstants.Levels.LEVEL1);
             });
             
         });
 
-        //Daniela Running
-        //this.bg = this.add.tileSprite(0, 0, this.width, this.height, 'bg_park').setOrigin(0);
-
+        
        //Background Parallax 
        /*this.bgparallax=[];
        for(let i=7;i>=1;i--){
         this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
-
        }*/
+
        this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_INTROLEVEL1).setOrigin(0);
        
-        // setting women animation
+        //women animation setting
         this.anims.create({
             key: "run",
             frames: this.anims.generateFrameNumbers("agatha_intro", {
@@ -65,16 +68,15 @@ class IntroLevel1 extends Phaser.Scene {
 
 
 
-       // adding women
-       this.player = this.physics.add.sprite(200,150, "agatha_intro");
-       this.player.setDepth(2);
-       this.player.flipX = true;
-       this.player.body.setAllowGravity(false);
-       this.player.anims.play("run");
+       // adding women Sprite
+       this.woman = this.physics.add.sprite(200,150, "agatha_intro").setAlpha(0);
+       this.woman.setDepth(2);       
+       this.woman.body.setAllowGravity(false);
+       this.woman.anims.play("run");
 
 
               
-        // setting women animation
+        // Bus animation setting 
         this.anims.create({
             key: "drive",
             frames: this.anims.generateFrameNumbers("bus_intro", {
@@ -87,7 +89,7 @@ class IntroLevel1 extends Phaser.Scene {
 
 
 
-       // adding women
+       // adding bus Sprite
        this.bus = this.physics.add.sprite(200,365, "bus_intro");
        this.bus.setDepth(2);       
        this.bus.body.setAllowGravity(false);
@@ -95,43 +97,42 @@ class IntroLevel1 extends Phaser.Scene {
 
 
 
+       //TEXTS
+        //Text Dialog        
+        this.textInstructions = this.add.dynamicBitmapText(30, this.height-50, 'pixel', '')
+                                                        .setScrollFactor(0)
+                                                        .setDepth(3) 
+                                                        .setAlpha(1);
 
-       //TEXTOS
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, this.height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_MUM'));                
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
-        this.textDialog.setAlpha(0);
+        let textie = '';        
+        for (let i = 1; i <= 7; i++) {
+            this.time.addEvent({
+                delay: 3500 + (i*2000),
+                callback: () => {                    
+                    textie+=this.TG.tr('LEVEL1.AGATHA_' + i) + "\n\n";
+                    this.textInstructions.setText(textie);
+                    if(i % 2 == 0) textie='';
+                }
+              })
+        }
 
         //SOUNDS
-        this.sound_AGATHA = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.AGATHA, {volume: 1.2});
+        this.sound_AGATHA = this.sound.add( this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL1.AGATHA, {volume: 2});
         
+
         
 
         //Show texts
         this.time.addEvent({
             delay: 4000,
-            callback: () => {
-                this.textDialog.setAlpha(1);
+            callback: () => {                
+                this.woman.setAlpha(1);
                 this.sound_AGATHA.play();
             },
             callbackScope: this
         });
         
-        this.textDialog2 = this.add.dynamicBitmapText(30, this.height-50, 'pixel', this.TG.tr('LEVELINTRO.DANIELA_ANSWER'));                
-        this.textDialog2.setScrollFactor(0);
-        this.textDialog2.setDepth(3);
-        this.textDialog2.setAlpha(0);
-
-        this.time.addEvent({
-            delay: 10000,
-            callback: () => {
-                this.textDialog.setAlpha(0);
-                this.textDialog2.setAlpha(1);
-                //this.sound_LEVELINTRO_I_ARRIVE_IN_5MINS.play();
-            },
-            callbackScope: this
-        });
+        
 
         //Time Door
         this.door = this.physics.add.sprite(700,300,'timedoor');
@@ -141,26 +142,10 @@ class IntroLevel1 extends Phaser.Scene {
         
 
         this.time.addEvent({
-            delay: 14000,
-            callback: () => {                                
-                this.textDialog2.setAlpha(0);
-            },
-            callbackScope: this
-        });
-
-
-        this.time.addEvent({
-            delay: 17000,
-            callback: () => {                 
-                this.textDialog2.setAlpha(0);
-                this.door.setAlpha(0);                                
-            },
-            callbackScope: this
-        });
-
-        this.time.addEvent({
-            delay: 19000,
-            callback: () => {                 
+            delay: 21000,
+            callback: () => { 
+                this.textInstructions.setAlpha(0);
+                this.woman.setAlpha(0);
                 this.musicFalling.play();               
                 this.run = true;
             },
@@ -188,7 +173,8 @@ class IntroLevel1 extends Phaser.Scene {
                 
                 
                     this.cameras.main.on('camerafadeoutcomplete', () => {
-                        this.musicBg.stop();                                               
+                        this.musicBg.stop();
+                        this.musicBg2.stop();                                               
                         this.scene.start(GameConstants.Levels.LEVEL1);            
                     });
                 }

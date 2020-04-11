@@ -274,6 +274,8 @@ class Bootloader extends Phaser.Scene {
 
         //Ambience
         this.load.audio("Desert", "sounds/effects/desert-simple.ogg");                
+        this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
+        
 
         // Progress
         this.load.on('progress', (value) => {
