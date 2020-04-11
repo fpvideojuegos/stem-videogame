@@ -18,6 +18,8 @@ class Level1 extends BasicScene {
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
         this.createCoins();
+        //Clues
+        this.createClues();
         //HealthText
         this.createHealthText();
         //Tilemap
@@ -26,10 +28,17 @@ class Level1 extends BasicScene {
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
         this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE, GameConstants.Layers.LANDSCAPE, false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         //Creacion de objetos invisibles que dañaran a daniela
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
         
+        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
+        this.textDialog.setScrollFactor(0);
+        this.textDialog.setDepth(3);
+
+
+
         //Sounds        
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
@@ -45,15 +54,19 @@ class Level1 extends BasicScene {
         this.magicbracelet = this.bracelets[0];
         this.magicbracelet.setScale(0.75);
         this.magicbracelet.body.setAllowGravity(false);
+        this.magicbracelet.setAlpha(0);
         this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
 
         //Collider for Bracelet
-        this.physics.add.collider(this.daniela, this.magicbracelet, () => {
+        this.playercollide = this.physics.add.collider(this.daniela, this.magicbracelet, () => {
             this.musicbg.stop();
+            this.ambiencebg.stop();
             this.magicbracelet.destroy();
             //this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
             this.daniela.nextScene();
         });
+
+        this.playercollide.active=false;
       
     }
 
@@ -62,6 +75,11 @@ class Level1 extends BasicScene {
          Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
+
+        if (this.daniela.cluesCollected === 0){
+            this.playercollide.active=true;
+            this.magicbracelet.setAlpha(1);
+        }
     }
 }
 

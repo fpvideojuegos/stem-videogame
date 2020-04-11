@@ -56,6 +56,8 @@ class AudioLoader extends Phaser.Scene {
         this.load.audio("fruitpickup", "sounds/fruitPickUp.ogg");
         this.load.audio("powerUp", "sounds/Powerup.ogg");
 
+        this.load.audio("cluepickup","sounds/effects/cluepickup.ogg");
+
         
 
         //SOUNDS
@@ -66,7 +68,7 @@ class AudioLoader extends Phaser.Scene {
         this.load.audio("falling", "sounds/backgrounds/falling.mp3");
         
         this.load.audio("soundJump", "sounds/jump.mp3");
-        this.load.audio("danielaAuch", "sounds/ups4_onomatopeya_17.ogg");        
+        this.load.audio("danielaAuch", "sounds/ayyyyy.ogg");        
         this.load.audio("levelUp", "sounds/backgrounds/LevelUp.ogg");
 
     } 

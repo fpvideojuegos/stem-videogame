@@ -337,6 +337,30 @@ class BasicScene extends Phaser.Scene {
         //  console.warn(this.extraPointsGroup)
     }
 
+
+    /**
+     * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Clues.OBJECT_NAME} necesarios para terminar el nivel
+     *
+     * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Clues.KEY})
+     */
+    createClues(spriteKey = GameConstants.Sprites.Clues.KEY) {        
+        
+        this.clues = this.createEnemies(GameConstants.Sprites.Clues.OBJECT_NAME, GameConstants.Sprites.Clues.OBJECT_ID, spriteKey);
+        this.cluesGroup = new ExtraPoints(this.physics.world, this, [], this.clues);
+        this.daniela.cluesCollected = this.clues.length;
+        //this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
+        this.physics.add.overlap(this.daniela, this.cluesGroup, function (player, object) {
+            this.daniela.collectClues(this.cluesGroup, object);
+        }, null, this);
+
+        this.cluesCounter = this.add.image(30, 50 , GameConstants.Sprites.Clues.KEY)
+        .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
+        this.cluesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.daniela.cluesCollected)
+        .setScrollFactor(0).setDepth(3);
+        
+        
+    }
+
     /**
      * Crea el background en función de la textura recibida como parámetro.
      *
@@ -396,12 +420,13 @@ class BasicScene extends Phaser.Scene {
      *
      * @returns Phaser.Tilemaps. DynamicTilemapLayer
      */
-    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true) {        
+    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true, depth = 0) {        
         this.levelTiles[this.levelTiles.length] = this.map.addTilesetImage(tileSet);
         let level = this.levelTiles[this.levelTiles.length - 1];
         this.levelLayers[this.levelLayers.length] = this.map.createDynamicLayer(dynamicLayer, level, 0, 0);
         let levelLayer = this.levelLayers[this.levelLayers.length - 1];
         levelLayer.setCollisionByExclusion([-1]);
+        levelLayer.setDepth(depth);
         if (collisionWithPlayerAndEnemies) {
             this.physics.add.collider(this.daniela, levelLayer);
             Object.keys(this.enemyGroups).forEach(enemyGroup => {

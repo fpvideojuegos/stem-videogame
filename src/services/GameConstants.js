@@ -70,7 +70,8 @@ const GameConstants = {
             FRUITPICKUP: 'fruitpickup',
             POWERUP: 'powerUp',
             LOLO_AUCH: 'lolo_auch',
-            BSO: 'BonusLevel_BSO'
+            BSO: 'BonusLevel_BSO',
+            CLUEPICKUP: 'cluepickup'
         },
         SOUNDS: {
             CAVEBATS: 'CaveBats',
@@ -165,6 +166,12 @@ const GameConstants = {
             ID: 'extrapoint',
             OBJECT_NAME: 'ExtraPoints',
             OBJECT_ID: 'extrapoint'
+        },
+        Clues: {
+            KEY: 'clue',
+            ID: 'clue',
+            OBJECT_NAME: 'Clues',
+            OBJECT_ID: 'clue'
         },
         Star:{
             KEY: 'star'
@@ -387,6 +394,7 @@ const GameConstants = {
     Layers: {
         WORLD: 'World',
         LANDSCAPE: 'Landscape',
+        LANDSCAPEFRONT: 'LandscapeFront',
         SPIKES: 'Spikes',
         LIMITS: 'Limits'
     },

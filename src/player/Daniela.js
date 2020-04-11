@@ -21,6 +21,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         //boolean to avoid multiple overlap when collecting coins
         this.hitCoin = false;
+        this.hitClue = false;
 
 
         //Time
@@ -29,6 +30,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.secondsLevel = 600;
         //Extra point recogidas
         this.extraPoints = 0;
+        
+        //Collected clues
+        this. cluesCollected = 3;
 
         //Animaciones en funcion del Sprite
         if (this.key === GameConstants.Sprites.DanielaTroglo) {
@@ -115,6 +119,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_JUMP);
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
         this.coinpickup = this.scene.sound.add(GameConstants.Sound.BONUSLEVEL.COINPICKUP);
+        this.cluepickup = this.scene.sound.add(GameConstants.Sound.BONUSLEVEL.CLUEPICKUP);
+
 
         this.lolo = null;
     }
@@ -378,6 +384,44 @@ class Daniela extends Phaser.GameObjects.Sprite {
             });
         }
     }
+
+
+
+    collectClues(group, object){
+
+        if (!this.hitClue) {
+            
+            this.cluepickup.play();
+            this.hitClue = true;                       
+            this.cluesCollected--;    
+            this.scene.cluesCounterText.setText(this.cluesCollected);
+
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.hitClue = false;                    
+                }
+            });
+        }
+    }
+
+
+
+
 
 }
 export default Daniela;

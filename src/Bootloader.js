@@ -207,6 +207,9 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('extrapoint', 'img/objects/extrapoint/extrapoint.png', 'img/objects/extrapoint/extrapoint_atlas.json');
         this.load.animation('extrapointAnim', 'img/objects/extrapoint/extrapoint_anim.json');
 
+        //Clues
+        this.load.image('clue', "img/objects/loupe.png");
+
         //Star
         this.load.image("star", "img/objects/star.png");
 
