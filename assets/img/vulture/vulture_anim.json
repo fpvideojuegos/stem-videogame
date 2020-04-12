@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "vulture_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "vulture",
+                    "frame": "vulture_0"
+                },
+                {
+                    "key": "vulture",
+                    "frame": "vulture_1"
+                },
+                {
+                    "key": "vulture",
+                    "frame": "vulture_2"
+                },
+                {
+                    "key": "vulture",
+                    "frame": "vulture_3"
+                },
+                {
+                    "key": "vulture",
+                    "frame": "vulture_4"
+                },
+                {
+                    "key": "vulture",
+                    "frame": "vulture_5"
+                }
+            ]
+        }
+    ]
+}

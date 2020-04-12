@@ -93,7 +93,7 @@ const GameConstants = {
             OBJECT_ID: 'obj1'
         },
         Bats: {
-            KEY: 'bats',
+            KEY: 'vulture',
             ID: 'bat',
             OBJECT_NAME: 'Bats',
             OBJECT_ID: 'Bat'
@@ -309,7 +309,7 @@ const GameConstants = {
         PLATFORM_FOREST: 'platform'
     },
     Anims: {
-        BATS: 'bat_move',
+        BATS: 'vulture_move',
         BEES: 'bee_fly',
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
