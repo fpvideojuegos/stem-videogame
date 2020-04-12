@@ -27,7 +27,7 @@ class Loader extends Phaser.Scene {
         let y = height / 2 + 30;
         var progressBar = this.add.graphics();
         var progressBox = this.add.graphics();
-        progressBox.fillStyle(0xffffff, 0.5);
+        progressBox.fillStyle(0x452576, 0.5);
         progressBox.fillRect(x - 140, y - 10, 320, 50);
 
         var loadingText = this.make.text({
@@ -36,7 +36,7 @@ class Loader extends Phaser.Scene {
             text: 'Loading...',
             style: {
                 font: '20px monospace',
-                fill: '#ffffff'
+                fill: '#C262E8'
             }
         });
         loadingText.setOrigin(0.5, 0.5);
@@ -47,7 +47,7 @@ class Loader extends Phaser.Scene {
             text: '0%',
             style: {
                 font: '18px monospace',
-                fill: '#ffffff'
+                fill: '#C262E8'
             }
         });
         percentText.setOrigin(0.5, 0.5);
@@ -56,7 +56,7 @@ class Loader extends Phaser.Scene {
         this.registry.events.on('load_progress', (value) => {
             percentText.setText(parseInt(value * 100) + '%');
             progressBar.clear();
-            progressBar.fillStyle(0xffffff, 1);
+            progressBar.fillStyle(0xC262E8, 1);
             progressBar.fillRect(x - 130, y, 300 * value, 30);
         });
     }

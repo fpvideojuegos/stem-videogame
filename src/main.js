@@ -24,7 +24,7 @@ const config = {
     url: "https://twitter.com/fpvideojuegos",
     version: '0.0.1',
     type: Phaser.AUTO,
-    backgroundColor: "#000000",
+    backgroundColor: "#19013E",
     pixelArt: true,
     zoom: 1,
     banner:{        

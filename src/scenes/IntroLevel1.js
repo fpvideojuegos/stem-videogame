@@ -53,7 +53,7 @@ class IntroLevel1 extends Phaser.Scene {
         this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
        }*/
 
-       this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_INTROLEVEL1).setOrigin(0);
+       this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL1).setOrigin(0);       
        
         //women animation setting
         this.anims.create({

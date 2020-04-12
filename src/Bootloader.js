@@ -90,8 +90,7 @@ class Bootloader extends Phaser.Scene {
         //Menu
         this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
         //Level1
-        this.load.image('bg_Level1', 'img/backgrounds/desert_bg.jpg'); //freepik
-        this.load.image('bg_IntroLevel1', 'img/backgrounds/desert_bg_854x480.jpg'); //freepik
+        this.load.image('bg_Level1', 'img/backgrounds/desert_bg.png'); //freepik        
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
@@ -207,8 +206,8 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('extrapoint', 'img/objects/extrapoint/extrapoint.png', 'img/objects/extrapoint/extrapoint_atlas.json');
         this.load.animation('extrapointAnim', 'img/objects/extrapoint/extrapoint_anim.json');
 
-        //Clues
-        this.load.image('clue', "img/objects/loupe.png");
+        //Loupes
+        this.load.image('loupe', "img/objects/loupe.png");
 
         //Star
         this.load.image("star", "img/objects/star.png");

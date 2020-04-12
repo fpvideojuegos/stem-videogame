@@ -12,14 +12,14 @@ class Level1 extends BasicScene {
     create() {
         //Daniela Creation
         this.createDaniela(GameConstants.Sprites.Player3, false);
-        //Background
-        this.createBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus,defaultStatus,defaultStatus,defaultStatus,{x:0.65, y:0.65});
+        //Background        
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.25,y:1.25});
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
         this.createCoins();
-        //Clues
-        this.createClues();
+        //Objects to Collect
+        this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
         //Tilemap
@@ -76,7 +76,7 @@ class Level1 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
 
-        if (this.daniela.cluesCollected === 0){
+        if (this.daniela.collectablesCollected === 0){
             this.playercollide.active=true;
             this.magicbracelet.setAlpha(1);
         }

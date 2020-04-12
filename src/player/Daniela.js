@@ -21,8 +21,13 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         //boolean to avoid multiple overlap when collecting coins
         this.hitCoin = false;
-        this.hitClue = false;
+        this.hitObj = false;
 
+        //for alarm music        
+        this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
+        this.healthAlarm.setVolume(.2);
+        this.healthAlarm.setLoop(true);
+        this.alarmON = false;
 
         //Time
         this.seconds = 1;
@@ -31,8 +36,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
         //Extra point recogidas
         this.extraPoints = 0;
         
-        //Collected clues
-        this. cluesCollected = 3;
+        //Collected objects
+        this. collectablesCollected = 3;
 
         //Animaciones en funcion del Sprite
         if (this.key === GameConstants.Sprites.DanielaTroglo) {
@@ -118,8 +123,10 @@ class Daniela extends Phaser.GameObjects.Sprite {
         //Sounds create
         this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_JUMP);
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
-        this.coinpickup = this.scene.sound.add(GameConstants.Sound.BONUSLEVEL.COINPICKUP);
-        this.cluepickup = this.scene.sound.add(GameConstants.Sound.BONUSLEVEL.CLUEPICKUP);
+        this.coinpickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COINPICKUP);
+        this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
+        
+
 
 
         this.lolo = null;
@@ -320,8 +327,20 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.health--;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
         if (this.health === 0) {
+            //Turn alarm music off
+            this.alarmON = false;
+            this.healthAlarm.stop();            
+            //gameOver
             this.gameOver = true;
             this.emit(GameConstants.Events.GAME_OVER);
+        }else if (this.health == 1){
+            //Turn alarm music on
+            this.alarmON = true;
+            this.healthAlarm.play();            
+        }else{
+            //Turn alarm music off    
+            this.alarmON = false;
+            this.healthAlarm.stop();            
         }
     }
 
@@ -387,14 +406,14 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
 
 
-    collectClues(group, object){
+    collectCollectables(group, object){
 
-        if (!this.hitClue) {
+        if (!this.hitCollectable) {
             
-            this.cluepickup.play();
-            this.hitClue = true;                       
-            this.cluesCollected--;    
-            this.scene.cluesCounterText.setText(this.cluesCollected);
+            this.collectablepickup.play();
+            this.hitCollectable = true;                       
+            this.collectablesCollected--;    
+            this.scene.collectablesCounterText.setText(this.collectablesCollected);
 
             this.scene.tweens.add({
                 targets: object,
@@ -413,7 +432,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             this.scene.time.addEvent({
                 delay: 1000,
                 callback: () => {
-                    this.hitClue = false;                    
+                    this.hitCollectable = false;                    
                 }
             });
         }

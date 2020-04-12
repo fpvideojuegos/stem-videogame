@@ -339,23 +339,22 @@ class BasicScene extends Phaser.Scene {
 
 
     /**
-     * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Clues.OBJECT_NAME} necesarios para terminar el nivel
+     * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Collectables.OBJECT_NAME} necesarios para terminar el nivel
      *
-     * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Clues.KEY})
+     * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
      */
-    createClues(spriteKey = GameConstants.Sprites.Clues.KEY) {        
-        
-        this.clues = this.createEnemies(GameConstants.Sprites.Clues.OBJECT_NAME, GameConstants.Sprites.Clues.OBJECT_ID, spriteKey);
-        this.cluesGroup = new ExtraPoints(this.physics.world, this, [], this.clues);
-        this.daniela.cluesCollected = this.clues.length;
+    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY) {                
+        this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, GameConstants.Sprites.Collectables.OBJECT_ID, spriteKey);
+        this.collectablesGroup = new ExtraPoints(this.physics.world, this, [], this.collectables);
+        this.daniela.collectablesCollected = this.collectables.length;
         //this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
-        this.physics.add.overlap(this.daniela, this.cluesGroup, function (player, object) {
-            this.daniela.collectClues(this.cluesGroup, object);
+        this.physics.add.overlap(this.daniela, this.collectablesGroup, function (player, object) {
+            this.daniela.collectCollectables(this.collectablesGroup, object);
         }, null, this);
 
-        this.cluesCounter = this.add.image(30, 50 , GameConstants.Sprites.Clues.KEY)
+        this.collectablesCounter = this.add.image(30, 50 , spriteKey)
         .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
-        this.cluesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.daniela.cluesCollected)
+        this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.daniela.collectablesCollected)
         .setScrollFactor(0).setDepth(3);
         
         

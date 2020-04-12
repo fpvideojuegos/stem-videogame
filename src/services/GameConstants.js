@@ -65,20 +65,21 @@ const GameConstants = {
             WEDIDIT: 'LevelAll_DANIELA_WeDidIt_04',
             RECOVERONELIFE: 'LevelAll_LOLO_RecoverOnleLife_16'
         },
-        BONUSLEVEL: {
-            COINPICKUP: 'coinpickup',
+        BONUSLEVEL: {            
             FRUITPICKUP: 'fruitpickup',
             POWERUP: 'powerUp',
             LOLO_AUCH: 'lolo_auch',
-            BSO: 'BonusLevel_BSO',
-            CLUEPICKUP: 'cluepickup'
+            BSO: 'BonusLevel_BSO'            
         },
         SOUNDS: {
             CAVEBATS: 'CaveBats',
             DANIELA_JUMP: 'soundJump',
             DANIELA_AUCH: 'danielaAuch',
             LEVELUP : 'levelUp',
-            BIRD_SINGING : 'BirdSinging'
+            BIRD_SINGING : 'BirdSinging',
+            COINPICKUP: 'coinpickup',
+            COLLECTABLEPICKUP: 'collectablePickup',
+            ALARM_ON : 'alarmOn'
         },
         MAIN:{
             BSO: 'Main_BSO'
@@ -164,17 +165,20 @@ const GameConstants = {
         ExtraPoint: {
             KEY: 'extrapoint',
             ID: 'extrapoint',
-            OBJECT_NAME: 'ExtraPoints',
+            OBJECT_NAME: 'ExtraPoints', 
             OBJECT_ID: 'extrapoint'
         },
-        Clues: {
-            KEY: 'clue',
-            ID: 'clue',
-            OBJECT_NAME: 'Clues',
-            OBJECT_ID: 'clue'
+        Collectables: {
+            KEY: 'collectable',
+            ID: 'collectable',
+            OBJECT_NAME: 'Collectables',
+            OBJECT_ID: 'collectable'
         },
         Star:{
             KEY: 'star'
+        },
+        Loupe:{
+            KEY: 'loupe'
         },
         PlayAgain: {
             KEY: 'playagain'
