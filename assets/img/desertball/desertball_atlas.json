@@ -1,0 +1,111 @@
+{
+  "frames": {
+    "desertball_0": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 36,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 2,
+        "w": 36,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "desertball_1": {
+      "frame": {
+        "x": 0,
+        "y": 38,
+        "w": 38,
+        "h": 36
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 0,
+        "w": 38,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "desertball_2": {
+      "frame": {
+        "x": 0,
+        "y": 76,
+        "w": 36,
+        "h": 38
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 4,
+        "w": 36,
+        "h": 38
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "desertball_3": {
+      "frame": {
+        "x": 0,
+        "y": 114,
+        "w": 38,
+        "h": 36
+      },
+      "rotated": true,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 8,
+        "w": 38,
+        "h": 36
+      },
+      "sourceSize": {
+        "w": 44,
+        "h": 44
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.5",
+    "image": "desertball",
+    "format": "RGBA8888",
+    "size": {
+      "w": 36,
+      "h": 152
+    },
+    "scale": 1
+  }
+}

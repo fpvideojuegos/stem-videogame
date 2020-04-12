@@ -148,7 +148,7 @@ const GameConstants = {
             OBJECT_ID: 'Mosquito'
         },
         Wheel: {
-            KEY: 'wheel',
+            KEY: 'desertball',
             ID: 'wheel',
             OBJECT_NAME: 'Wheels',
             OBJECT_ID: 'Wheel'
@@ -318,7 +318,7 @@ const GameConstants = {
         STICK: 'stick_move',
         MAGICFRUIT: 'magicfruit_shine',
         MOSQUITOS: 'mosquito_move',
-        WHEEL: 'wheel_move',
+        WHEEL: 'desertball_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
         EXTRAPOINT: 'extrapoint_rotate',

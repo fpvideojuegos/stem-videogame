@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "desertball_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "desertball",
+                    "frame": "desertball_0"
+                },
+                {
+                    "key": "desertball",
+                    "frame": "desertball_1"
+                },
+                {
+                    "key": "desertball",
+                    "frame": "desertball_2"
+                },
+                {
+                    "key": "desertball",
+                    "frame": "desertball_3"
+                }
+            ]
+        }
+    ]
+}

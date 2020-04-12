@@ -343,7 +343,8 @@ class BasicScene extends Phaser.Scene {
      *
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
      */
-    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY) {                
+    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY) {        
+        
         this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, GameConstants.Sprites.Collectables.OBJECT_ID, spriteKey);
         this.collectablesGroup = new ExtraPoints(this.physics.world, this, [], this.collectables);
         this.daniela.collectablesCollected = this.collectables.length;
