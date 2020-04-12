@@ -21,7 +21,7 @@ class FlyingEnemy extends Phaser.Physics.Arcade.Group {
             bat.body.setAllowGravity(false);
             // bat.body.collideWorldBounds = true;
             bat.body.setSize(16, 16);
-            bat.setScale(1.25);
+            //bat.setScale(1);
             bat.setDepth(1);
             //Para evitar que salga del mundo            
             bat.body.setCollideWorldBounds(true);

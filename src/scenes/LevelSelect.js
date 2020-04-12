@@ -43,7 +43,7 @@ class LevelSelect extends BasicScene {
             .setTint(0x808489).setInteractive();    
         this.bonusButton.setPosition(width - this.bonusButton.width - 40, 30);    
         this.bonusButton.on('pointerdown', () => {                        
-            this.changeScene(this, GameConstants.Levels.BONUSLEVEL,0);
+            //this.changeScene(this, GameConstants.Levels.BONUSLEVEL,0);
         });
 
 
@@ -120,19 +120,19 @@ class LevelSelect extends BasicScene {
                     this.changeScene(this, GameConstants.Levels.INTROLEVEL1, 0);
                     break;
                 case 2: 
-                    this.changeScene(this, GameConstants.Levels.LEVEL2, 0);
+                    //this.changeScene(this, GameConstants.Levels.LEVEL2, 0);
                     break;
                 case 3:
-                    this.changeScene(this, GameConstants.Levels.LEVEL3, 0);
+                    //this.changeScene(this, GameConstants.Levels.LEVEL3, 0);
                     break;
                 case 4:
-                    this.changeScene(this, GameConstants.Levels.LEVEL4, 0);
+                    //this.changeScene(this, GameConstants.Levels.LEVEL4, 0);
                     break;
                 case 5:
-                    this.changeScene(this, GameConstants.Levels.LEVEL5, 0);
+                    //this.changeScene(this, GameConstants.Levels.LEVEL5, 0);
                     break;
                 case 6:
-                    this.changeScene(this, GameConstants.Levels.LEVEL6, 0);
+                    //this.changeScene(this, GameConstants.Levels.LEVEL6, 0);
                     break;
             }
         });

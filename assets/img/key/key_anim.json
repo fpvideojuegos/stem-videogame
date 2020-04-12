@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "key_shine",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "key",
+                    "frame": "key_0"
+                },
+                {
+                    "key": "key",
+                    "frame": "key_1"
+                },
+                {
+                    "key": "key",
+                    "frame": "key_2"
+                },
+                {
+                    "key": "key",
+                    "frame": "key_3"
+                }
+            ]
+        }
+    ]
+}

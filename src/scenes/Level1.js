@@ -49,19 +49,19 @@ class Level1 extends BasicScene {
         //this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
 
         //Create Bracelet
-        this.bracelets = this.createEndLevelObject(GameConstants.Sprites.Bracelet.KEY);
-        this.physics.world.enable(this.bracelets);
-        this.magicbracelet = this.bracelets[0];
-        this.magicbracelet.setScale(0.75);
-        this.magicbracelet.body.setAllowGravity(false);
-        this.magicbracelet.setAlpha(0);
-        this.anims.play(GameConstants.Anims.BRACELET, this.magicbracelet);
+        this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
+        this.physics.world.enable(this.keys);
+        this.keylevel = this.keys[0];
+        this.keylevel.setScale(1.25);
+        this.keylevel.body.setAllowGravity(false);
+        this.keylevel.setAlpha(0);
+        this.anims.play(GameConstants.Anims.KEY, this.keylevel);
 
         //Collider for Bracelet
-        this.playercollide = this.physics.add.collider(this.daniela, this.magicbracelet, () => {
+        this.playercollide = this.physics.add.collider(this.daniela, this.keylevel, () => {
             this.musicbg.stop();
             this.ambiencebg.stop();
-            this.magicbracelet.destroy();
+            this.keylevel.destroy();
             //this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
             this.daniela.nextScene();
         });
@@ -78,7 +78,7 @@ class Level1 extends BasicScene {
 
         if (this.daniela.collectablesCollected === 0){
             this.playercollide.active=true;
-            this.magicbracelet.setAlpha(1);
+            this.keylevel.setAlpha(1);
         }
     }
 }

@@ -133,7 +133,7 @@ class BasicScene extends Phaser.Scene {
                     this.daniela.animControl.down = false;
                 });
 
-                this.createLolo(this.daniela,createLolo);
+                //this.createLolo(this.daniela,createLolo);
                 
                 return this.daniela;
             } else {

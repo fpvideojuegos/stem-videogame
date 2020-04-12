@@ -162,6 +162,9 @@ const GameConstants = {
         Bracelet: {
             KEY: 'bracelet'        
         },
+        Key: {
+            KEY: 'key'
+        },
         ExtraPoint: {
             KEY: 'extrapoint',
             ID: 'extrapoint',
@@ -321,6 +324,7 @@ const GameConstants = {
         WHEEL: 'desertball_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
+        KEY: 'key_shine',
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',

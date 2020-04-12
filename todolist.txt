@@ -9,6 +9,25 @@
 
 
 - Sounds:
-Foot steps (desert)
+- Foot steps (desert)
+- Vulture Sounds
+
 Intro each level with skip and woman talking with instructions
-Music intense when 1 lives
+OK Music intense when 1 lives
+
+
+Last level needs 2 inventory objects of each level
+
+
+- Shoots 
+
+
+level1 desert
+level2 island
+level3 forest
+level4 library
+level5 space
+final level (needs all the inventory objects)
+
+
+- Gamepad con la parte de control circular
