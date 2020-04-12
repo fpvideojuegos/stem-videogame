@@ -10,9 +10,9 @@ class Level5 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL6;
     }
 
-    preload() {
+    /*preload() {
         this.scene.launch('UI');
-    }
+    }*/
     
     create() {
         //Daniela Creation

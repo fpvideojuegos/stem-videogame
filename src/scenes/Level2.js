@@ -1,7 +1,6 @@
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
 
-
 class Level2 extends BasicScene {
     constructor() {
         super({
@@ -10,9 +9,9 @@ class Level2 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL3;
     }
 
-    preload() {
+    /*preload() {
         this.scene.launch('UI');
-    }
+    }*/
     
     create() {
         //Daniela Creation
