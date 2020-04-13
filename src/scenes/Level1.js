@@ -68,8 +68,7 @@ class Level1 extends BasicScene {
 
         this.playercollide.active=false;
       
-        this.climb = this.findTransparentObjects('Climb', 'Climb');
-        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');
+        this.climb = this.findTransparentObjects('Climb', 'Climb');        
             
         this.physics.add.overlap(this.daniela, this.climb, this.climbArea, null, this);
     
@@ -99,16 +98,7 @@ class Level1 extends BasicScene {
             this.keylevel.setAlpha(1);
         }
 
-        //Always not in Ladder
-        this.daniela.isInLiana = false;
-        this.daniela.body.setAllowGravity(true); 
 
-
-        
-        
-        /*if (!this.daniela.isInLiana && !this.isOverLiana()){
-            this.daniela.body.setAllowGravity(true);
-        }*/
     }//update
 }
 

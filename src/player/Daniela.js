@@ -169,8 +169,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
         this.jumpTimer -= delta;
 
         //Call it if Daniela is not in the liana
-        if (!this.isInLiana) {
-            this.animation(GameConstants.Anims.Direction.IDLE, this.animIDLE);
+        if (!this.isInLiana) {            
             if (control.down) {
                 this.animation(GameConstants.Anims.Direction.DOWN, this.animDOWN);
                 if (!this.jumping || this.body.blocked.down) {
@@ -191,7 +190,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     if (this.body.velocity.x > 5 && !this.jumping) {
                         this.animation(GameConstants.Anims.Direction.RIGHT, this.animWALK);
                     } else if (this.body.velocity.x < -5 && !this.jumping) {
-                        this.animation(GameConstants.Anims.Direction.LEFT, this.animWALKK);
+                        this.animation(GameConstants.Anims.Direction.LEFT, this.animWALK);
                     }
                     if (Math.abs(this.body.velocity.x) < 10) {
                         // Detener por completo cuando la velocidad es menor de 10
@@ -317,8 +316,8 @@ class Daniela extends Phaser.GameObjects.Sprite {
             }
 
         }
-
-        if (this.prevAnimJump !== direction) {
+        
+        if (this.prevAnimJump !== direction) {            
             this.anims.play(animation);
             if (direction === GameConstants.Anims.Direction.JUMP) {
                 this.soundJump.play();
