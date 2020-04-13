@@ -31,20 +31,7 @@ class IntroLevel1 extends Phaser.Scene {
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
         
-        //Skip to Level 
-        const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
-        skipButton.setPosition(this.width - skipButton.width - 30, 20);
-        skipButton.setInteractive().setDepth(2);
-
-        skipButton.on('pointerdown', () => { 
-            this.cameras.main.fade(700, 0, 0, 0);
-            this.cameras.main.on('camerafadeoutcomplete', () => {                        
-                this.musicBg.stop();
-                this.musicBg2.stop();
-                this.scene.start(GameConstants.Levels.LEVEL1);
-            });
-            
-        });
+        
 
         
        //Background Parallax 
@@ -178,6 +165,23 @@ class IntroLevel1 extends Phaser.Scene {
                         this.scene.start(GameConstants.Levels.LEVEL1);            
                     });
                 }
+        });
+
+
+        //Skip to Level 
+        const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
+        skipButton.setPosition(this.width - skipButton.width - 30, 20);
+        skipButton.setInteractive().setDepth(2);
+
+        skipButton.on('pointerdown', () => { 
+            this.cameras.main.fade(700, 0, 0, 0);
+            this.cameras.main.on('camerafadeoutcomplete', () => {                        
+                this.musicBg.stop();
+                this.musicBg2.stop();
+                this.sound_AGATHA.stop();
+                this.scene.start(GameConstants.Levels.LEVEL1);
+            });
+            
         });
 
 
