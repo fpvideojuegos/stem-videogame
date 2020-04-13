@@ -423,8 +423,8 @@ const GameConstants = {
     Settings: {
         FLAG_ES: 'es_flag',
         FLAG_EN: 'en_flag',
-        FLAG_IT: 'it_flag',
-        FLAG_DE: 'de_flag'
+        FLAG_FR: 'fr_flag',
+        FLAG_RU: 'ru_flag'
     }
 
 };

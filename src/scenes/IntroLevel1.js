@@ -111,7 +111,7 @@ class IntroLevel1 extends Phaser.Scene {
 
         //Show texts
         this.time.addEvent({
-            delay: 4000,
+            delay: 4500,
             callback: () => {                
                 this.woman.setAlpha(1);
                 this.sound_AGATHA.play();
@@ -129,7 +129,7 @@ class IntroLevel1 extends Phaser.Scene {
         
 
         this.time.addEvent({
-            delay: 21000,
+            delay: 24000,
             callback: () => { 
                 this.textInstructions.setAlpha(0);
                 this.woman.setAlpha(0);

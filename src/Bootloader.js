@@ -126,8 +126,9 @@ class Bootloader extends Phaser.Scene {
         // Settings 
         this.load.image("es_flag", "img/settings/es.png");
         this.load.image("en_flag", "img/settings/gb.png");
-        this.load.image("it_flag", "img/settings/it.png");
-        this.load.image("de_flag", "img/settings/de.png");
+        this.load.image("fr_flag", "img/settings/fr.png");
+        this.load.image("ru_flag", "img/settings/ru.png");
+
 
         // Enemies
         //FlyingEnemy

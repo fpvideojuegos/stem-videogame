@@ -36,10 +36,10 @@ class SettingsLevel extends BasicScene {
         this.setFlagsSetting(this.flag1, "en");
         this.flag2 = this.add.image(130, 200, GameConstants.Settings.FLAG_ES).setOrigin(0).setScale(2).setDepth(1);
         this.setFlagsSetting(this.flag2, "es");
-        this.flag3 = this.add.image(180, 200, GameConstants.Settings.FLAG_IT).setOrigin(0).setScale(2).setDepth(1);
-        this.setFlagsSetting(this.flag3, "it");
-        this.flag4 = this.add.image(230, 200, GameConstants.Settings.FLAG_DE).setOrigin(0).setScale(2).setDepth(1);
-        this.setFlagsSetting(this.flag4, "de");
+        this.flag3 = this.add.image(180, 200, GameConstants.Settings.FLAG_FR).setOrigin(0).setScale(2).setDepth(1);
+        this.setFlagsSetting(this.flag3, "fr");
+        this.flag4 = this.add.image(230, 200, GameConstants.Settings.FLAG_RU).setOrigin(0).setScale(2).setDepth(1);
+        this.setFlagsSetting(this.flag4, "ru");
 
         //Reset Scores and Levels DB Button
         this.resetDBLabel = this.add.dynamicBitmapText(80,250, 'pixel', this.TG.tr('SETTINGLEVEL.RESET'), 24).setTint(0x808489);
