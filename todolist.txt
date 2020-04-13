@@ -13,8 +13,9 @@
 - Vulture Sounds
 
 Intro each level with skip and woman talking with instructions
-OK Music intense when 1 lives
+-done OK Music intense when 1 lives
 
+- Tecla ESC o ENTER  para hace SKIP en intro
 
 Last level needs 2 inventory objects of each level
 

@@ -256,6 +256,12 @@ const GameConstants = {
             OBJECT_NAME: 'Dinowaters',
             OBJECT_ID: 'Dinowater'
         },
+        Rinobeetle:{
+            KEY: 'rinobeetle',
+            ID: 'rinobeetle',
+            OBJECT_NAME: 'Rinobeetles',
+            OBJECT_ID: 'Rinobeetle'
+        },
         Dinobird: {
             KEY: 'dinobird',
             ID: 'dinobird',
@@ -274,7 +280,8 @@ const GameConstants = {
     Enemies_Layers:{
         Level1 : {
             BATS : 'Bats',
-            WHEELS: 'Wheels'
+            WHEELS: 'Wheels',
+            RINOBEETLE: 'Rinobeetles'
         },
         Level2: {
             BEES: 'Bees',
@@ -330,6 +337,7 @@ const GameConstants = {
         JOYSTICK: 'joystick_move',
         CROCODILE:'swim',
         DINOWATER: 'dinowater_move',
+        RINOBEETLE: 'rinobeetle_move',
         DINOBIRD: 'dinobird_move',
         MAMUT:{
             SLEEP: 'mamut_sleep',

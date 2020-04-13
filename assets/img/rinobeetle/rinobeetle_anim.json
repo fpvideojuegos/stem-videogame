@@ -1,0 +1,36 @@
+{
+    "anims": [
+        {
+            "key": "rinobeetle_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 9,
+            "frames": [
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_0"
+                },
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_1"
+                },
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_2"
+                },
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_3"
+                },
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_4"
+                },
+                {
+                    "key": "rinobeetle",
+                    "frame": "rinobeetle_5"
+                }
+            ]
+        }
+    ]
+}
