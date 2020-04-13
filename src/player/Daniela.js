@@ -221,6 +221,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         } else {
             this.animation(GameConstants.Anims.Direction.CLIMB, this.animCLIMB);
             //Determines how Daniela is going to move in the liana
+            
+            /*Temp Disabled jumping betweens ladders
+
             if (control.jump && control.left) {
                 this.x -= 20;
                 this.body.setAllowGravity(true);
@@ -238,7 +241,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     this.body.velocity.x = 200;
                     this.isInLiana = false;
                 }
-            }
+            }*/
             if (control.left) {
                 this.x -= 20;
                 this.body.setAllowGravity(true);                                                

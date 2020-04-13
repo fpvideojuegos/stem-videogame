@@ -69,12 +69,16 @@ class Level1 extends BasicScene {
         this.playercollide.active=false;
       
         this.climb = this.findTransparentObjects('Climb', 'Climb');        
+        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
+        
             
         this.physics.add.overlap(this.daniela, this.climb, this.climbArea, null, this);
+        this.physics.add.overlap(this.daniela, this.climbout, this.climbAreaOut, null, this);
+        
     
         }//create
     
-        //Ladder climbing
+        //**TODO Ladder climbing To BASICSCENE
         climbArea(daniela, area){                 
                 daniela.x = area.x;
                 daniela.body.setAllowGravity(false);
@@ -83,10 +87,16 @@ class Level1 extends BasicScene {
                 daniela.body.velocity.y = 0;            
         }
         
+        climbAreaOut(daniela, area){                
+            console.log("OUT");
+            this.daniela.body.setAllowGravity(true);
+            this.daniela.isInLiana = false;
+            
+        }
 
 
 
-    update(time, delta) {
+    update(time, delta) {        
 
         this.daniela.update(time, delta);
          Object.keys(this.enemyGroups).forEach(enemy => {
@@ -97,6 +107,10 @@ class Level1 extends BasicScene {
             this.playercollide.active=true;
             this.keylevel.setAlpha(1);
         }
+        
+
+        
+
 
 
     }//update

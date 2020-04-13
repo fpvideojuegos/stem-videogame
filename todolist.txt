@@ -31,3 +31,6 @@ final level (needs all the inventory objects)
 
 
 - Gamepad con la parte de control circular
+
+
+**Fallo con la animación WALK 
