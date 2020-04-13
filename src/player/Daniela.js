@@ -170,6 +170,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
         //Call it if Daniela is not in the liana
         if (!this.isInLiana) {
+            this.animation(GameConstants.Anims.Direction.IDLE, this.animIDLE);
             if (control.down) {
                 this.animation(GameConstants.Anims.Direction.DOWN, this.animDOWN);
                 if (!this.jumping || this.body.blocked.down) {
@@ -239,11 +240,21 @@ class Daniela extends Phaser.GameObjects.Sprite {
                     this.isInLiana = false;
                 }
             }
+            if (control.left) {
+                this.x -= 20;
+                this.body.setAllowGravity(true);                                                
+                this.isInLiana = false;
+            }
+            if (control.right) {
+                this.x += 20;
+                this.body.setAllowGravity(true);                                                
+                this.isInLiana = false;
+            }
             if (control.jump) {
-                this.body.velocity.y = -50;
+                this.body.velocity.y = -100;
             }
             if (control.down) {
-                this.body.velocity.y = 50;
+                this.body.velocity.y = 100;
             }
 
         }
