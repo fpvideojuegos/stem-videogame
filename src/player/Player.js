@@ -114,9 +114,10 @@ class Player extends Phaser.GameObjects.Sprite {
 
         // Control
         this.cursor = this.scene.input.keyboard.createCursorKeys();
+        this.spacebar = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.gamepad = null;
         this.scene.input.gamepad.once('down', (pad) => {
-            this.gamepad = pad;
+            this.gamepad = pad;            
         });
 
 
@@ -145,7 +146,7 @@ class Player extends Phaser.GameObjects.Sprite {
         let control = {
             left: this.cursor.left.isDown || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
             right: this.cursor.right.isDown || this.animControl.right || ((this.gamepad !== null) ? this.gamepad.right : false),
-            jump: this.cursor.up.isDown || this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
+            jump: this.cursor.up.isDown || this.spacebar.isDown ||this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
             down: this.cursor.down.isDown || this.animControl.down || ((this.gamepad !== null) ? this.gamepad.down : false)
         }
 

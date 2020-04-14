@@ -167,22 +167,28 @@ class IntroLevel1 extends Phaser.Scene {
                 }
         });
 
+        
+        this.skip = false;
 
         //Skip to Level 
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
         skipButton.setPosition(this.width - skipButton.width - 30, 20);
         skipButton.setInteractive().setDepth(2);
-
         skipButton.on('pointerdown', () => { 
-            this.cameras.main.fade(700, 0, 0, 0);
-            this.cameras.main.on('camerafadeoutcomplete', () => {                        
-                this.musicBg.stop();
-                this.musicBg2.stop();
-                this.sound_AGATHA.stop();
-                this.scene.start(GameConstants.Levels.LEVEL1);
-            });
-            
+            this.skipIntro();
         });
+
+        //Press any key to Skip
+        this.input.keyboard.on('keydown', () => { this.skipIntro(); });
+        
+        //Press A GamePad button to Skip
+        this.gamepad = null;
+        this.input.gamepad.once('down', (pad) => {
+            this.gamepad = pad;            
+        });
+
+
+        
 
 
 
@@ -190,6 +196,10 @@ class IntroLevel1 extends Phaser.Scene {
 
     update(time, delta) {        
         //this.bg.tilePositionX += 0.5;
+
+        if (this.gamepad && !this.skip){
+            if (this.gamepad.A) this.skipIntro();
+        }
 
         this.backgroundimg.tilePositionX += 0.5;
 
@@ -206,8 +216,15 @@ class IntroLevel1 extends Phaser.Scene {
        
     }
 
-    runToDoor(){
-
+    skipIntro(){
+        this.skip = true;
+        this.cameras.main.fade(700, 0, 0, 0);
+        this.cameras.main.on('camerafadeoutcomplete', () => {                        
+            this.musicBg.stop();
+            this.musicBg2.stop();
+            this.sound_AGATHA.stop();
+            this.scene.start(GameConstants.Levels.LEVEL1);
+        });
 
     }
 }

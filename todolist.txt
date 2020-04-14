@@ -8,19 +8,20 @@
 - Change Design
 
 
-- Sounds:
+Sounds:
 - Foot steps (desert)
 - Vulture Sounds
 
 Intro each level with skip and woman talking with instructions
--done OK Music intense when 1 lives
+-OK Music intense when 1 lives
 
-- Tecla ESC o ENTER  para hace SKIP en intro
+-any key to SKIP intro
 
-Last level needs 2 inventory objects of each level
+- Last level needs 2 inventory objects of each level
 
 
-- Shoots 
+- Shoots ??
+
 
 
 level1 desert
