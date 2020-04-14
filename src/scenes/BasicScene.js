@@ -66,6 +66,7 @@ class BasicScene extends Phaser.Scene {
         if (createMap) {
             this.createMap();
         }
+        
 
         //find Player objetct at the map      
         this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
@@ -154,6 +155,7 @@ class BasicScene extends Phaser.Scene {
         this.map = this.make.tilemap({
             key: this.key
         });
+        console.log(this.map);
         //Los bordes del mundo serán las dimensiones del mapa cargado
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         return this.map;

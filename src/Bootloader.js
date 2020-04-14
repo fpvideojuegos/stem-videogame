@@ -60,8 +60,8 @@ class Bootloader extends Phaser.Scene {
         //https://opengameart.org/content/2d-platformer-forest-pack
 
         //Level2
-        this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
-        this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');
+        /*this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
+        this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');*/
         //Level3
         this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
         this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
@@ -88,15 +88,16 @@ class Bootloader extends Phaser.Scene {
         
         //BACKGROUNDS
         //Menu
-        this.load.image('bg_Menu', 'img/backgrounds/dibujoPortadaEscaneado.png');
+        this.load.image('bg_Menu', 'img/backgrounds/bg_forest_purple.png');
         //Level1
         this.load.image('bg_Level1', 'img/backgrounds/desert_bg.png'); //freepik        
         //Se cambiara por un dibujo de los niños de una cueva
         //Ahora mismo esta de ejemplo
         //http://kidskunst.info/46/05451-2d-game-background-cave.htm
         //Level2
-        this.load.image('bg_Level2', 'img/backgrounds/bg_forest_purple.png');
-        //https://swapnilrane24.itch.io/nature-background
+        this.load.image('bg_Level2', 'img/backgrounds/magic-cliffs.png');
+        https://ansimuz.itch.io/magic-cliffs-environment
+
         
         //https://www.gameart2d.com/free-platformer-game-tileset.html
         //Level 3 
@@ -279,7 +280,7 @@ class Bootloader extends Phaser.Scene {
         this.load.json('fontJSON', 'font/font.json');
         this.load.image('font', 'font/font.png');
 
-
+        
         //BSO         
         this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");                        
         this.load.audio("Main_BSO","sounds/bso/menusong_v3.ogg");

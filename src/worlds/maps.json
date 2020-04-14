@@ -5,12 +5,22 @@
             {
                 "type": "tilemapTiledJSON",
                 "key": "Level1",
-                "url": "level1/cavemap.json"
+                "url": "level1/level1.json"
             },
             {
                 "type": "image",
-                "key": "caveStones",
-                "url": "level1/caveStones.png"
+                "key": "level1tileset",
+                "url": "level1/level1tileset.png"
+            },
+            {
+                "type": "tilemapTiledJSON",
+                "key": "Level2",
+                "url": "level2/level2.json"
+            },
+            {
+                "type": "image",
+                "key": "level2tileset",
+                "url": "level2/level2tileset.png"
             }
         ]
     }

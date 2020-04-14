@@ -715,11 +715,11 @@
         {
          "columns":30,
          "firstgid":1,
-         "image":"caveStones.png",
+         "image":"level1tileset.png",
          "imageheight":960,
          "imagewidth":960,
          "margin":0,
-         "name":"caveStones",
+         "name":"level1tileset",
          "spacing":0,
          "tilecount":900,
          "tileheight":32,

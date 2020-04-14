@@ -387,7 +387,8 @@ const GameConstants = {
         CONSEGUIDO: 'Bien!! Lo hemos Conseguido!!'
     },
     Tiles: {
-        CAVE_STONE: 'caveStones',
+        LEVEL1_TILESET: 'level1tileset',
+        LEVEL2_TILESET: 'level2tileset',
         FOREST_PACK : 'forestPack_32x32',
         GRASS_TILES: 'grasstiles',        
         JUNGLE : 'jungle',

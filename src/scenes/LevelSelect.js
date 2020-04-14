@@ -29,7 +29,7 @@ class LevelSelect extends BasicScene {
         let y = height / 2 -50;
         
         // background        
-        this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
+        this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_MENU).setOrigin(0).setScale(1);        
       
      //bg sound
     //Only play BG MUSIC  if come from other levels different from Menu
@@ -120,7 +120,7 @@ class LevelSelect extends BasicScene {
                     this.changeScene(this, GameConstants.Levels.INTROLEVEL1, 0);
                     break;
                 case 2: 
-                    //this.changeScene(this, GameConstants.Levels.LEVEL2, 0);
+                    this.changeScene(this, GameConstants.Levels.LEVEL2, 0);
                     break;
                 case 3:
                     //this.changeScene(this, GameConstants.Levels.LEVEL3, 0);

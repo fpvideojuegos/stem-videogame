@@ -10,8 +10,8 @@ class Level1 extends BasicScene {
     }
 
     create() {
-        //Daniela Creation
-        this.createPlayer(GameConstants.Sprites.Player3);
+        //Player Creation
+        this.createPlayer(GameConstants.Sprites.Player3); //**TODO Select from DB
         //Background        
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.25,y:1.25});
         //Finding enemies in json map
@@ -23,13 +23,13 @@ class Level1 extends BasicScene {
         //HealthText
         this.createHealthText();
         //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET); //With World Layer by default
 
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE, GameConstants.Layers.LANDSCAPE, false);
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.CAVE_STONE, GameConstants.Layers.LANDSCAPEFRONT, false,4);
-        //Creacion de objetos invisibles que dañaran a daniela
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPE, false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
+        //Creacion de objetos invisibles que dañaran a player
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
         

@@ -27,7 +27,7 @@ class Menu extends BasicScene {
         let y = height / 2 -50;
         
         // background        
-        this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_LEVEL2).setOrigin(0).setScale(1);        
+        this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_MENU).setOrigin(0).setScale(1);        
         //this.bg = this.add.image(x, y, GameConstants.Textures.BG_MENU).setScale(0.25);        
         const videogameTitle = this.add.dynamicBitmapText(x-250, y, 'pixel', this.TG.tr('MENU.TITLE'), 30).setTint(0x000000).setOrigin(0);        
         const videogameSubTitle = this.add.dynamicBitmapText(x-150, y+60, 'pixel', this.TG.tr('MENU.SUBTITLE'), 20).setTint(0x000000).setOrigin(0);        

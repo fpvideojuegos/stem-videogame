@@ -9,83 +9,109 @@ class Level2 extends BasicScene {
         this.target = GameConstants.Levels.LEVEL3;
     }
 
-    /*preload() {
-        this.scene.launch('UI');
-    }*/
-    
     create() {
         //Daniela Creation
-        this.createDaniela(GameConstants.Sprites.Daniela.KEY, false);
-        //Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:1.25,y:1.25});
+        this.createPlayer(GameConstants.Sprites.Player3);//**TODO Select from DB
+        //Background        
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
         //Finding enemies in json map
-        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
+        //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
         this.createCoins();
+        //Objects to Collect
+        //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
         //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK);
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Landscape', false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET);
 
         //PRIVATE SCENE ELEMENTS
-        let wall =  this.paintLayerAndCreateCollision(GameConstants.Tiles.FOREST_PACK, 'Wall');
-        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
+        //Creacion de elementos decorativos
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
+        //Creacion de objetos invisibles que dañaran a daniela
+        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+
         
-        //MUSIC and AUDIOS
-        this.audioLevel2_LOLO_LookWhatIHaveFound_13 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_ANSWER);
-        this.addEventForMusic(this.audioLevel2_LOLO_LookWhatIHaveFound_13);
-        this.audioLevel2_LOLO_YouHaveToFindTheLever_15 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL2.LOLO_TASK);
-        this.addEventForMusic(this.audioLevel2_LOLO_YouHaveToFindTheLever_15,false,10000);
-        this.music = this.sound.add(GameConstants.Sound.LEVEL2.BSO, {volume: 0.4});
-        this.addEventForMusic(this.music,true);
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
-        
-        
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL2.FINDCLOTHES') + "\n\n" + this.TG.tr('LEVEL2.FINDLEVER'),10 );
+        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
 
+
+
+        //Sounds        
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
+        this.addEventForMusic(this.musicbg,true);
+        //background ambiance effect
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.addEventForMusic(this.ambiencebg,true);
         
 
-        //Create CaveManClothes
-        this.cavemanclothes = this.createEndLevelObject(GameConstants.Sprites.Cavemen_Clothes.KEY);        
-        this.physics.world.enable(this.cavemanclothes);
-        this.cavemanclothe = this.cavemanclothes[0];
-        this.cavemanclothe.setScale(2.75);
-        this.cavemanclothe.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.CAVEMAN_CLOTHES, this.cavemanclothe);
+        //Create Bracelet
+        this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
+        this.physics.world.enable(this.keys);
+        this.keylevel = this.keys[0];
+        this.keylevel.setScale(1.25);
+        this.keylevel.body.setAllowGravity(false);
+        this.keylevel.setAlpha(0);
+        this.anims.play(GameConstants.Anims.KEY, this.keylevel);
+
+        //Collider for Bracelet
+        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
+            this.musicbg.stop();
+            this.ambiencebg.stop();
+            this.keylevel.destroy();            
+            this.player.nextScene();
+        });
+
+        this.playercollide.active=false;
+      
+        this.climb = this.findTransparentObjects('Climb', 'Climb');        
+        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
         
-        //Create Joystick
-        this.joysticks = this.map.createFromObjects('ActionButton', 'openwall', GameConstants.Sprites.Joystick.KEY);
-        this.physics.world.enable(this.joysticks);
-        this.joystick = this.joysticks[0];
-        this.joystick.setScale(1.5);
-        this.joystick.body.setAllowGravity(false);
-        this.anims.play(GameConstants.Anims.JOYSTICK, this.joystick);
+            
+        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
+        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
+        
+    
+        }//create
+    
+        //**TODO Ladder climbing To BASICSCENE
+        climbArea(daniela, area){                 
+                daniela.x = area.x;
+                daniela.body.setAllowGravity(false);
+                daniela.isInLiana = true;
+                daniela.body.velocity.x = 0;
+                daniela.body.velocity.y = 0;            
+        }
+        
+        climbAreaOut(daniela, area){                
+            console.log("OUT");
+            this.player.body.setAllowGravity(true);
+            this.player.isInLiana = false;
+            
+        }
 
-        //Wall collider        
-        this.physics.add.collider(this.daniela, this.joystick, () => {
-            this.joystick.destroy();
-            wall.setCollisionByExclusion([0]);
-            wall.alpha=0;
-        });
 
-        this.physics.add.collider(this.daniela, this.cavemanclothe, () => {
-            this.music.stop();
-            this.cavemanclothe.destroy();
-            this.soundLOLO_Bien_lo_hemos_conseguido.play();            
-            this.daniela.nextScene();
-        });
 
-    }
+    update(time, delta) {        
 
-    update(time, delta) {
-        this.daniela.update(time, delta);
-        Object.keys(this.enemyGroups).forEach(enemy => {
+        this.player.update(time, delta);
+         Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
-    }
+
+        if (this.player.collectablesCollected === 0){
+            this.playercollide.active=true;
+            this.keylevel.setAlpha(1);
+        }
+        
+
+        
+
+
+
+    }//update
 }
+
 export default Level2;

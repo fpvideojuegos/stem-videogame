@@ -23,16 +23,16 @@ Intro each level with skip and woman talking with instructions
 - Shoots ??
 
 
+level3 forest BERTA 
+level1 desert AGATHA
+level4 library MARIA ZAMBRANO
+level2 island Amelia Earhart
+level5 space K
 
-level1 desert
-level2 island
-level3 forest
-level4 library
-level5 space
 final level (needs all the inventory objects)
 
 
-- Gamepad con la parte de control circular
+- Gamepad con la parte de control circular AXIS
 
 
 **Fallo con la animación WALK 
