@@ -11,7 +11,7 @@ class Level1 extends BasicScene {
 
     create() {
         //Daniela Creation
-        this.createDaniela(GameConstants.Sprites.Player3, false);
+        this.createPlayer(GameConstants.Sprites.Player3);
         //Background        
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.25,y:1.25});
         //Finding enemies in json map
@@ -45,8 +45,7 @@ class Level1 extends BasicScene {
         //background ambiance effect
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
-
-        //this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
+        
 
         //Create Bracelet
         this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
@@ -58,12 +57,11 @@ class Level1 extends BasicScene {
         this.anims.play(GameConstants.Anims.KEY, this.keylevel);
 
         //Collider for Bracelet
-        this.playercollide = this.physics.add.collider(this.daniela, this.keylevel, () => {
+        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
             this.musicbg.stop();
             this.ambiencebg.stop();
-            this.keylevel.destroy();
-            //this.addEventForMusic(this.soundLOLO_Bien_lo_hemos_conseguido);
-            this.daniela.nextScene();
+            this.keylevel.destroy();            
+            this.player.nextScene();
         });
 
         this.playercollide.active=false;
@@ -72,8 +70,8 @@ class Level1 extends BasicScene {
         this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
         
             
-        this.physics.add.overlap(this.daniela, this.climb, this.climbArea, null, this);
-        this.physics.add.overlap(this.daniela, this.climbout, this.climbAreaOut, null, this);
+        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
+        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
         
     
         }//create
@@ -89,8 +87,8 @@ class Level1 extends BasicScene {
         
         climbAreaOut(daniela, area){                
             console.log("OUT");
-            this.daniela.body.setAllowGravity(true);
-            this.daniela.isInLiana = false;
+            this.player.body.setAllowGravity(true);
+            this.player.isInLiana = false;
             
         }
 
@@ -98,12 +96,12 @@ class Level1 extends BasicScene {
 
     update(time, delta) {        
 
-        this.daniela.update(time, delta);
+        this.player.update(time, delta);
          Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
 
-        if (this.daniela.collectablesCollected === 0){
+        if (this.player.collectablesCollected === 0){
             this.playercollide.active=true;
             this.keylevel.setAlpha(1);
         }

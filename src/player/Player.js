@@ -1,10 +1,10 @@
 /**
- * GameObject Daniela
+ * GameObject Player
  * @since 0.0.0
  */
 import GameConstants from "../services/GameConstants.js";
 
-class Daniela extends Phaser.GameObjects.Sprite {
+class Player extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
 
@@ -128,13 +128,9 @@ class Daniela extends Phaser.GameObjects.Sprite {
         
 
 
-
-        this.lolo = null;
+     
     }
 
-    followedBy(lolo) {
-        this.lolo = lolo;
-    }
 
     update(time,delta) {
 
@@ -145,16 +141,6 @@ class Daniela extends Phaser.GameObjects.Sprite {
         }
         
 
-        if (this.lolo) {
-            if (this.flipX) {
-                this.lolo.flipX = true;
-                this.lolo.x += ((this.x - this.lolo.x) * 0.1) - 5;
-            } else {
-                this.lolo.flipX = false;
-                this.lolo.x += ((this.x - this.lolo.x) * 0.1) + 5;
-            }
-            this.lolo.y += ((this.y - this.lolo.y) * 0.1) - 5;
-        }
 
         let control = {
             left: this.cursor.left.isDown || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
@@ -275,8 +261,7 @@ class Daniela extends Phaser.GameObjects.Sprite {
             // Desacelerar en el aire
             this.run(acceleration);
         }        
-        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);        
-        if (this.lolo) this.lolo.flipX = this.flipX;
+        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);                
     }
 
     jump() {
@@ -456,4 +441,4 @@ class Daniela extends Phaser.GameObjects.Sprite {
 
 
 }
-export default Daniela;
+export default Player;

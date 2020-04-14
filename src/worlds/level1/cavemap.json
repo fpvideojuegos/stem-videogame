@@ -514,19 +514,19 @@
         {
          "draworder":"topdown",
          "id":11,
-         "name":"daniela",
+         "name":"player",
          "objects":[
                 {
                  "height":0,
                  "id":51,
-                 "name":"daniela",
+                 "name":"player",
                  "point":true,
                  "rotation":0,
-                 "type":"daniela",
+                 "type":"player",
                  "visible":true,
                  "width":0,
-                 "x":136.515151515152,
-                 "y":233.030303030303
+                 "x":135.181818181819,
+                 "y":237.030303030303
                 }],
          "opacity":1,
          "type":"objectgroup",

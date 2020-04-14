@@ -1,5 +1,5 @@
 import BasicScene from "./BasicScene.js";
-import Daniela from '../player/Daniela.js';
+import Player from '../player/Player.js';
 import GameConstants from "../services/GameConstants.js";
 import UI from "./UI.js";
 

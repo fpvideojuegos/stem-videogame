@@ -34,8 +34,7 @@ class AudioLoader extends Phaser.Scene {
         
         this.load.path = './assets/';
 
-        //BONUS LEVEL
-        this.load.audio("lolo_auch", "sounds/pain.mp3");
+        //BONUS LEVEL        
         this.load.audio("coinpickup", "sounds/coinpickup.mp3");
         
         this.load.audio("fruitpickup", "sounds/fruitPickUp.ogg");

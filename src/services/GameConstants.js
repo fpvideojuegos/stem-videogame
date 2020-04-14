@@ -29,36 +29,23 @@ const GameConstants = {
         },
         LEVEL1: {
             AGATHA: 'Level1_AGATHA_01',
-            FINDBRACELET: 'Level1_LOLO_MagicBracelet_03',
             BSO: 'Level1_BSO',
             AMBIENCE: 'Desert',
             BUS: 'Bus'
         },
         LEVEL2: {
-            DANIELA_QUESTION: 'Level2_DANIELA_WhereDidYouGetThat_05',
-            FINDCLOTHES: 'Level2_LOLO_ToBeAbleToContinue_06',
-            LOLO_ANSWER: 'Level2_LOLO_LookWhatIHaveFound_13',
-            LOLO_NOTE: 'Level2_LOLO_LookForTheMap_14',
-            LOLO_TASK: 'Level2_LOLO_YouHaveToFindTheLever_15',
             BSO: 'Level2_BSO'
         },
         Level3: {
-            DANIELA_QUESTION: 'Level3_DANIELA_WhatAProblem_07',
-            LOLO_ANSWER: 'Level3_LOLO_YouHaveToGiveMammoth_08',
             BSO: 'Level3_BSO'
         },
         Level4: {
             BSO: 'Level4_BSO'
         },
         LEVEL5: {
-            LOLO_TASK: 'Level5_LOLO_YouWillHaveToCatch_09',
-            DANIELA_FRUITS: 'Level5_DANIELA_ThatFruitLooksSoGood_10',
-            LOLO_NOTE: 'Level5_LOLO_InOrderToCatchTheFruit_11',
             BSO: 'Level5_BSO'
         },
         LEVEL6: {
-            DANIELA: 'Level6_DANIELA_OhIBurntMyself_12',
-            LOLO_TASK: 'Level2_LOLO_LookForTheMap_14',
             BSO: 'Level6_BSO'
         },
         LEVELALL: {
@@ -205,8 +192,8 @@ const GameConstants = {
             OBJECT_NAME: 'EndLevel',
             OBJECT_ID: 'positionEnd'
         },
-        Daniela: {
-            KEY: 'daniela'
+        Player: {
+            KEY: 'player'
         },
         DanielaTroglo: {
             KEY: 'daniela-troglodita'

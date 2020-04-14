@@ -1,5 +1,4 @@
-import Daniela from "../player/Daniela.js";
-import Lolo from "../gameObjects/Lolo.js";
+import Player from "../player/Player.js";
 import GameConstants from "../services/GameConstants.js";
 import FlyingEnemy from "../gameObjects/FlyingEnemy.js";
 import FloorEnemy from "../gameObjects/FloorEnemy.js";
@@ -12,7 +11,7 @@ import Invisible from "../gameObjects/Invisible.js";
  *
  * Clase dedicada a optimizar y reducir el código necesario por cada escena que se cree. Se desarrollarán los métodos
  * y eventos necesarios para cambiar de escenas, así como para la creación de elementos triviales como el personaje
- * principal {Daniela}, el tilemap {Tilemap}, etc..
+ * principal {Player}, el tilemap {Tilemap}, etc..
  * @since 0.0.0
  */
 class BasicScene extends Phaser.Scene {
@@ -22,9 +21,8 @@ class BasicScene extends Phaser.Scene {
         this.key = key.key;
         //Variables accesibles desde una clase hija
         this.map = null;
-        this.bg = null;
-        this.lolo = null;
-        this.daniela = null;
+        this.bg = null;        
+        this.player = null;
         this.bats = [];
         this.bees = [];
         this.wheels = [];
@@ -51,15 +49,14 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
-     *  Busca a el objeto {@lnk Daniela} en el mapa y crea el personaje en la escena actual. Además, añade los evenos necesarios para el control de {@link Daniela}.
+     *  Busca a el objeto {@lnk Player} en el mapa y crea el personaje en la escena actual. Además, añade los evenos necesarios para el control de {@link Player}.
      *  Si no había un mapa inicializado previamente, éste se creará en función a {@link GameConstants.Levels} del constructor inicial.
      *
-     * @param costume - Imagen del sprite que mostrará el personaje {Daniela} . (Default = {GameConstants.Sprites.Daniela.KEY})
-     * @param createLolo - Condición por la cual creará al personaje lolo Normal true o Troglodita false (Default = true)
+     * @param costume - Imagen del sprite que mostrará el personaje {Player} . (Default = {GameConstants.Sprites.Player.KEY})
      * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
-     * @param cameraFollow - Inidica si la camara seguirá a Daniela o no (default = true).
+     * @param cameraFollow - Inidica si la camara seguirá a Player o no (default = true).
      */
-    createDaniela(costume = GameConstants.Sprites.Daniela.KEY, createLolo = true, createMap = true, cameraFollow = true) {
+    createPlayer(costume = GameConstants.Sprites.Player.KEY, createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
@@ -70,112 +67,90 @@ class BasicScene extends Phaser.Scene {
             this.createMap();
         }
 
-        //Busca el objeto daniela en el map
-        this.map.findObject(GameConstants.Sprites.Daniela.KEY, (d) => {
-            if (d.type === GameConstants.Sprites.Daniela.KEY) {
-                //Crear Daniela
-                this.daniela = new Daniela({
+        //find Player objetct at the map      
+        this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
+            if (d.type === GameConstants.Sprites.Player.KEY) {
+                //Create Player
+                this.player = new Player({
                     scene: this,
                     x: d.x,
                     y: d.y,
                     key: costume
                 }).setScale(2);
-                this.daniela.on(GameConstants.Events.GAME_OVER, () => {
-                    this.changeScene(this.daniela.scene, GameConstants.Levels.LEVELSELECT, 2000);
+                this.player.on(GameConstants.Events.GAME_OVER, () => {
+                    this.changeScene(this.player.scene, GameConstants.Levels.LEVELSELECT, 2000);
                 });
                 //Evento paso de Nivel
-                this.daniela.on(GameConstants.Events.LEVEL_FINISHED, () => {
+                this.player.on(GameConstants.Events.LEVEL_FINISHED, () => {
                     this.showScores();
                 });
 
                 //Evento de Vuelve al Menu    
                 this.registry.events.on(GameConstants.Events.MENU, () => {
-                    this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 0);
+                    this.changeScene(this.player.scene, GameConstants.Levels.MENU, 0);
                 });
 
 
                 //Play Again Event
                 this.registry.events.on(GameConstants.Events.PLAYAGAIN, () => {
                     this.sound.stopAll();                    
-                    this.changeScene(this.daniela.scene, this.daniela.scene, 0);
+                    this.changeScene(this.player.scene, this.player.scene, 0);
                 });
 
                 //Eventos de Controles
                 this.registry.events.on('controlLeftON', () => {
-                    this.daniela.animControl.left = true;
+                    this.player.animControl.left = true;
                 });
 
                 this.registry.events.on('controlLeftOFF', () => {
-                    this.daniela.animControl.left = false;
+                    this.player.animControl.left = false;
                 });
 
                 this.registry.events.on('controlRightON', () => {
-                    this.daniela.animControl.right = true;
+                    this.player.animControl.right = true;
                 });
 
                 this.registry.events.on('controlRightOFF', () => {
-                    this.daniela.animControl.right = false;
+                    this.player.animControl.right = false;
                 });
 
                 this.registry.events.on('controlJumpON', () => {
-                    this.daniela.animControl.jump = true;
+                    this.player.animControl.jump = true;
                 });
 
                 this.registry.events.on('controlJumpOFF', () => {
-                    this.daniela.animControl.jump = false;
+                    this.player.animControl.jump = false;
                 });
 
                 this.registry.events.on('controlDownON', () => {
-                    this.daniela.animControl.down = true;
+                    this.player.animControl.down = true;
                 });
 
                 this.registry.events.on('controlDownOFF', () => {
-                    this.daniela.animControl.down = false;
+                    this.player.animControl.down = false;
                 });
-
-                //this.createLolo(this.daniela,createLolo);
                 
-                return this.daniela;
+                
+                return this.player;
             } else {
-                console.error("No se ha encontrado a daniela en el tilemap");
+                console.error("No se ha encontrado a player en el tilemap");
             }
         });
 
         if (cameraFollow) {
             this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-            this.cameras.main.startFollow(this.daniela);
+            this.cameras.main.startFollow(this.player);
         }
 
     }
 
-    /**
-     * Crea el personaje del Loro LOLO que sigue a Daniela. Por defecto, este personaje se crea al llamar a {@method createDaniela()},
-     * por lo que no es necesario llamar a esta funcion si se ha usado la anterior.
-     *
-     * @param daniela - Objetivo a seguir. (Default {@link Daniela})
-     * @returns {Lolo}
-     */
-    createLolo(daniela = this.daniela, normal) {
-        let clothes;
-        if (normal)  clothes = GameConstants.Sprites.Lolo_Normal.KEY;
-        else clothes = GameConstants.Sprites.Lolo_Troglodita.KEY;
-        this.lolo = new Lolo({
-            scene: this,
-            x: daniela.x - 50,
-            y: daniela.y - 50,
-            key: clothes,
-            normal_anim : normal
-        }).setScale(1);
-        this.daniela.followedBy(this.lolo);
-        return this.lolo;
-    }
 
     /**
      * Crea el objeto tilemap a partir de la key de la escena obtenida del constructor. Añade los límites a la escena en función del tamaño del mapa.
      *
      * @returns {Phaser.Tilemaps.Tilemap}
      */
-    createMap() {
+    createMap() {        
         this.map = this.make.tilemap({
             key: this.key
         });
@@ -204,9 +179,9 @@ class BasicScene extends Phaser.Scene {
      * grupo correspondiente. Añadirá por defecto overlap con dicho grupo.
      *
      * @param enemyLayerLevel - Nombre de la capa en Tiled donde buscará los enemigos.
-     * @param overlapWithDaniela - Activará el overlap con {@Link Daniela} y el grupo de enemigos. (Default = true)
+     * @param overlapWithPlayer - Activará el overlap con {@Link Player} y el grupo de enemigos. (Default = true)
      */
-    findAndLoadEnemiesFromMap(enemyLayerLevel, overlapWithDaniela = true) {
+    findAndLoadEnemiesFromMap(enemyLayerLevel, overlapWithPlayer = true) {
         Object.keys(enemyLayerLevel).forEach(enemy => {
             switch (enemyLayerLevel[enemy]) {
                 case GameConstants.Sprites.Bats.OBJECT_NAME:
@@ -219,8 +194,7 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.wheelsGroup = new FloorEnemy(this.physics.world, this, [], this.wheels, 100);
                     this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
                     break;
-                case GameConstants.Sprites.Rinobeetle.OBJECT_NAME:
-                    console.log("rINO");
+                case GameConstants.Sprites.Rinobeetle.OBJECT_NAME:                    
                     this.rinobeetles = this.createEnemies(GameConstants.Sprites.Rinobeetle.OBJECT_NAME, GameConstants.Sprites.Rinobeetle.OBJECT_ID, GameConstants.Sprites.Rinobeetle.KEY);
                     this.enemyGroups.rinobeetlesGroup = new FloorEnemy(this.physics.world, this, [], this.rinobeetles, 40);
                     this.anims.play(GameConstants.Anims.RINOBEETLE, this.rinobeetles);
@@ -284,10 +258,10 @@ class BasicScene extends Phaser.Scene {
                     console.warn("La capa de enemigos " + enemyLayerLevel[enemy] + " no se en cuentra entre los disponibles. Añádela al switch para poder usarla.");
             }
 
-            if (overlapWithDaniela) {
+            if (overlapWithPlayer) {
                 Object.keys(this.enemyGroups).forEach(enemyGroup => {
-                    this.physics.add.overlap(this.daniela, this.enemyGroups[enemyGroup], () => {
-                        this.daniela.enemyCollision();
+                    this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], () => {
+                        this.player.enemyCollision();
                     });
 
                 });
@@ -302,21 +276,21 @@ class BasicScene extends Phaser.Scene {
      *
      * @param layerName - Nombre de la capa en Tiled
      * @param objectName - Nombre del objeto en Tiled
-     * @param hitDaniela - Condición por la cual hará overlap con daniela y restará vida (Default = false).
+     * @param hitPlayer - Condición por la cual hará overlap con player y restará vida (Default = false).
      * @param collisionWithEnemies - Condición por la cual hará collider con los enemigos y estos se comportarán según su lógica de colisiones (Default = false)
      *
      * @returns {Phaser.Physics.Arcade.StaticGroup}
      */
-    findTransparentObjects(layerName, objectName, hitDaniela = false, collisionWithEnemies = false) {
+    findTransparentObjects(layerName, objectName, hitPlayer = false, collisionWithEnemies = false) {
         let group = this.physics.add.staticGroup();
         this.map.findObject(layerName, obj => {
             if (obj.name === objectName) {
                 group.add(new Invisible(this, obj.x, obj.y, obj.width, obj.height, obj.type));
             }
         });
-        if (hitDaniela) {
-            this.physics.add.overlap(this.daniela, group, () => {
-                this.daniela.enemyCollision();
+        if (hitPlayer) {
+            this.physics.add.overlap(this.player, group, () => {
+                this.player.enemyCollision();
             });
         }
         if (collisionWithEnemies) {
@@ -336,8 +310,8 @@ class BasicScene extends Phaser.Scene {
         this.extraPoints = this.createEnemies(GameConstants.Sprites.ExtraPoint.OBJECT_NAME, GameConstants.Sprites.ExtraPoint.OBJECT_ID, spriteKey);
         this.extraPointsGroup = new ExtraPoints(this.physics.world, this, [], this.extraPoints);
         this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
-        this.physics.add.overlap(this.daniela, this.extraPointsGroup, function (player, object) {
-            this.daniela.collectExtraPoints(this.extraPointsGroup, object);
+        this.physics.add.overlap(this.player, this.extraPointsGroup, function (player, object) {
+            this.player.collectExtraPoints(this.extraPointsGroup, object);
         }, null, this);
         //  console.log(this.extraPoints);
         //  console.warn(this.extraPointsGroup)
@@ -353,15 +327,15 @@ class BasicScene extends Phaser.Scene {
         
         this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, GameConstants.Sprites.Collectables.OBJECT_ID, spriteKey);
         this.collectablesGroup = new ExtraPoints(this.physics.world, this, [], this.collectables);
-        this.daniela.collectablesCollected = this.collectables.length;
+        this.player.collectablesCollected = this.collectables.length;
         //this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
-        this.physics.add.overlap(this.daniela, this.collectablesGroup, function (player, object) {
-            this.daniela.collectCollectables(this.collectablesGroup, object);
+        this.physics.add.overlap(this.player, this.collectablesGroup, function (player, object) {
+            this.player.collectCollectables(this.collectablesGroup, object);
         }, null, this);
 
         this.collectablesCounter = this.add.image(30, 50 , spriteKey)
         .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
-        this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.daniela.collectablesCollected)
+        this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.player.collectablesCollected)
         .setScrollFactor(0).setDepth(3);
         
         
@@ -434,7 +408,7 @@ class BasicScene extends Phaser.Scene {
         levelLayer.setCollisionByExclusion([-1]);
         levelLayer.setDepth(depth);
         if (collisionWithPlayerAndEnemies) {
-            this.physics.add.collider(this.daniela, levelLayer);
+            this.physics.add.collider(this.player, levelLayer);
             Object.keys(this.enemyGroups).forEach(enemyGroup => {
                 this.physics.add.collider(this.enemyGroups[enemyGroup], levelLayer);
             });
@@ -457,7 +431,7 @@ class BasicScene extends Phaser.Scene {
         this.textHealth = this.add.dynamicBitmapText(x, y, font, this.TG.tr(toTranslate));
         this.textHealth.setScrollFactor(scrollFactor);
         this.textHealth.setDepth(depth);
-        this.textHealth.setText(this.TG.tr(toTranslate) + this.daniela.health)
+        this.textHealth.setText(this.TG.tr(toTranslate) + this.player.health)
     }
 
     /**
@@ -572,21 +546,21 @@ class BasicScene extends Phaser.Scene {
     }
 
     showScores() {
-        this.daniela.scene.physics.pause();
+        this.player.scene.physics.pause();
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
         //Ceros a la izquiera de la puntuacion
-        const score = Phaser.Utils.String.Pad(parseInt(this.daniela.secondsLevel * this.daniela.health) + this.daniela.extraPoints, 6, '0', 1);
+        const score = Phaser.Utils.String.Pad(parseInt(this.player.secondsLevel * this.player.health) + this.player.extraPoints, 6, '0', 1);
 
         //Num de estrellas
         //Estrella 1 Si 3 Vidas
-        const star1show = this.daniela.health === 3;
+        const star1show = this.player.health === 3;
         //Estrella 2 Si ExtraPoint > 30 
-        const star2show = this.daniela.extraPoints >= 30;
+        const star2show = this.player.extraPoints >= 30;
         //Estrella 3 Si Segundos > 420
-        const star3show = this.daniela.secondsLevel >= 480;
+        const star3show = this.player.secondsLevel >= 480;
 
         let numstars = 0;
         if (star1show) numstars++;
@@ -608,7 +582,7 @@ class BasicScene extends Phaser.Scene {
         store.set(GameConstants.DB.DBNAME, this.DB);
 
         //SCORES
-        const scoreLabel = this.daniela.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height / 2) - 150, 'pixel', 'SCORE:' + score, 24)
+        const scoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height / 2) - 150, 'pixel', 'SCORE:' + score, 24)
             .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
 
         this.LevelUpmusic = this.sound.add(GameConstants.Sound.SOUNDS.LEVELUP);
@@ -629,17 +603,17 @@ class BasicScene extends Phaser.Scene {
             });
         }
 
-        const menuLabel = this.daniela.scene.add.dynamicBitmapText((this.width / 2) - 100, (this.height) - 200, 'pixel', 'MENU', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const menuLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) - 100, (this.height) - 200, 'pixel', 'MENU', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
         menuLabel.setInteractive();
         menuLabel.on('pointerdown', () => {
-            this.changeScene(this.daniela.scene, GameConstants.Levels.MENU, 0);
+            this.changeScene(this.player.scene, GameConstants.Levels.MENU, 0);
         });
 
-        const nextLevelLabel = this.daniela.scene.add.dynamicBitmapText((this.width / 2) + 100, (this.height) - 200, 'pixel', 'NEXT', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const nextLevelLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) + 100, (this.height) - 200, 'pixel', 'NEXT', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
         nextLevelLabel.setInteractive();
 
         nextLevelLabel.on('pointerdown', () => {
-            this.changeScene(this.daniela.scene, this.daniela.scene.target, 500);
+            this.changeScene(this.player.scene, this.player.scene.target, 500);
         });        
 
     }
