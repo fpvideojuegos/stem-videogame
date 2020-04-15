@@ -1,40 +1,40 @@
 {
     "MENU": {
-        "TITLE": "BÚSQUEDA DE BAMAK (RU) ",
-        "SUBTITLE": "UNA AVENTURA STEM",
-        "SELECTCHARACTER": "ELIGE \nPERSONAJE",
-        "SETTINGS": "AJUSTES",
-        "PLAY": "JUGAR",
-        "INTRO": "INTRO",
-        "SCORES": "PUNTOS",
-        "CREDITS": "CRÉDITOS"
+        "TITLE": "БАМАК КВЕСТ",
+        "SUBTITLE": "STEM ПРИКЛЮЧЕНИЕ",
+        "SELECTCHARACTER": "ВЫБРАТЬ ПЕРСОНАЖА",
+        "SETTINGS": "НАСТРОЙКИ",
+        "PLAY": "ИГРАТЬ",
+        "INTRO": "ВСТУПЛЕНИЕ",
+        "SCORES": "РЕЙТИНГ",
+        "CREDITS": "СОЗДАТЕЛИ"
     },
     "LEVELSELECT":{
-        "MENU": "MENÚ",
-        "BONUS": "NIVEL EXTRA",
-        "LEVELS": "NIVELES",
-        "LEVEL": "NIVEL",
-        "LEVELDONE": "Nivel completado",
-        "LEVELFINISHED": "Nivel alcanzado con estrellas completas",
-        "LEVELNOTDONE": "Nivel no terminado todavía"      
+        "MENU": "МЕНЮ",
+        "BONUS": "ЭКСТРА УРОВЕНЬ",
+        "LEVELS": "УРОВНИ",
+        "LEVEL": "УРОВЕНЬ",
+        "LEVELDONE": "Уровень пройден",
+        "LEVELFINISHED": "Все достижения на уровне выполнены",
+        "LEVELNOTDONE": "Уровень ещё не закончен"      
     },
     "SETTINGLEVEL": {
-        "SOUND": "SONIDO",
-        "LANGUAGE": "CAMBIAR IDIOMA",
-        "RESET": "REINICIAR JUEGO",
-        "DONE": "HECHO"
+        "SOUND": "ЗВУК",
+        "LANGUAGE": "ВЫБОР ЯЗЫКА",
+        "RESET": "НАЧАТЬ ИГРУ ЗАНОВО",
+        "DONE": "ЗАВЕРШЕНО"
     },
     "LEVELINTRO":{
-        "SKIP": "SALTAR"
+        "SKIP": "ПРОПУСТИТЬ"
     },
     "LEVEL1": {        
-        "AGATHA_1": "HOLA SOY AGATHA CHRISTIE,",
-        "AGATHA_2": "ACABAS DE LLEGAR A UN DESIERTO EN AUTOBÚS",
-        "AGATHA_3": "Y SE HA PARADO EN MEDIO DE LA NADA",
-        "AGATHA_4": "TIENES QUE ECONTRAR 10 PISTAS PARA CONSEGUIR ",
-        "AGATHA_5": "LA LLAVE QUE TE PERMITIRÁ SALIR DE ESTE NIVEL.",
-        "AGATHA_6": "TEN CUIDADO CON LOS PELIGROS DEL DESIERTO.",
-        "AGATHA_7": "SUERTE"
+        "AGATHA_1": "ПРИВЕТ, Я АГАТА КРИСТИ,",
+        "AGATHA_2": "ТЫ ТОЛЬКО ЧТО ПРИБЫЛ В ПУСТЫНЮ НА АВТОБУСЕ",
+        "AGATHA_3": "И ОН ОСТАНОВИЛСЯ В АБСОЛЮТНОЙ ГЛУШИ",
+        "AGATHA_4": "ТЫ ДОЛЖЕН НАЙТИ 10 ПОДСКАЗОК ЧТОБЫ ПОЛУЧИТЬ ",
+        "AGATHA_5": "КЛЮЧ, КОТОРЫЙ ПОЗВОЛИТ ТЕБЕ ВЫБРАТЬСЯ ИЗ ЭТОГО УРОВНЯ.",
+        "AGATHA_6": "БУДЬ ОСТОРОЖЕН С ОПАСНОСТЯМИ, ПОДЖИДАЮЩИМИ ТЕБЯ В ПУСТЫНЕ!",
+        "AGATHA_7": "УДАЧИ!!"
     },
     "LEVEL2": {       
     },
@@ -45,8 +45,8 @@
     "LEVEL6":{        
     },
     "COMMONTEXT":{
-        "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO!!",
-        "LIVES": "VIDAS "
+        "WEDIDIT": "УРА, У НАС ПОЛУЧИЛОСЬ",
+        "LIVES": "ЖИЗНИ"
     },
     "UI": {               
     }
