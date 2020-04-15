@@ -7,9 +7,7 @@ import GameConstants from "../services/GameConstants.js";
 class Player extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
-
-        this.key = config.key;
-        console.log(this.key);
+        this.key = config.key.trim();        
         // Health
         //Check for extra Lifes
         this.DB = store.get(GameConstants.DB.DBNAME);        
@@ -39,27 +37,18 @@ class Player extends Phaser.GameObjects.Sprite {
         //Collected objects
         this. collectablesCollected = 3;
 
-        //Animaciones en funcion del Sprite
-        if (this.key === GameConstants.Sprites.DanielaTroglo) {
-            this.animIDLE = GameConstants.Anims.DanielaTroglo.IDLE;
-            this.animDOWN = GameConstants.Anims.DanielaTroglo.DOWN;
-            this.animWALK = GameConstants.Anims.DanielaTroglo.WALK;
-            this.animCLIMB = GameConstants.Anims.DanielaTroglo.CLIMB;
-        }else if (this.key === GameConstants.Sprites.Player2) {
+        //Animaciones en funcion del Sprite Player //TODO Hacer con bucle en función del núm de players        
+        if (this.key == GameConstants.Sprites.Player2.KEY) {            
             this.animIDLE = GameConstants.Anims.Player2.IDLE;
             this.animDOWN = GameConstants.Anims.Player2.DOWN;
             this.animWALK = GameConstants.Anims.Player2.WALK;
             this.animCLIMB = GameConstants.Anims.Player2.CLIMB;
-        }else if (this.key === GameConstants.Sprites.Player3) {
+        }else if (this.key == GameConstants.Sprites.Player3.KEY) {
             this.animIDLE = GameConstants.Anims.Player3.IDLE;
             this.animDOWN = GameConstants.Anims.Player3.DOWN;
             this.animWALK = GameConstants.Anims.Player3.WALK;
             this.animCLIMB = GameConstants.Anims.Player3.CLIMB;        
-        } else {
-            this.animIDLE = GameConstants.Anims.Daniela.IDLE;
-            this.animDOWN = GameConstants.Anims.Daniela.DOWN;
-            this.animWALK = GameConstants.Anims.Daniela.WALK;
-        }
+        } 
 
         // Configuración del GameObject
         config.scene.physics.world.enable(this);
@@ -86,11 +75,11 @@ class Player extends Phaser.GameObjects.Sprite {
         this.friction = 10;
 
         // Animación inicial
-        this.anims.play(this.animIDLE);
+        this.anims.play(this.animIDLE);        
 
         this.prevAnim = 'idle';
 
-        if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
+        if (this.key !== GameConstants.Sprites.Player2.KEY && this.key !== GameConstants.Sprites.Player3.KEY) {
             this.body.setSize(20, 30);
             this.body.setOffset(6, 2);
         } else {
@@ -288,21 +277,11 @@ class Player extends Phaser.GameObjects.Sprite {
 
     animation(direction, animation) {
         if (direction === GameConstants.Anims.Direction.DOWN) {
-            if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
-                this.body.setSize(20, 20);
-                this.body.setOffset(6, 12);
-            } else {
                 this.body.setSize(20, 25);
                 this.body.setOffset(0, 15);
-            }
         } else {
-            if (this.key !== GameConstants.Sprites.DanielaTroglo && this.key !== GameConstants.Sprites.Player2 && this.key !== GameConstants.Sprites.Player3) {
-                this.body.setSize(10, 30);
-                this.body.setOffset(11, 2);
-            } else {
                 this.body.setSize(10, 40);
                 this.body.setOffset(4, 0);                
-            }
 
         }
         

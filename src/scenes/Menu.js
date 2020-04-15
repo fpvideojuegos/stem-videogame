@@ -18,7 +18,7 @@ class Menu extends BasicScene {
         
     }
 
-    create() {        
+    create() {            
 
         // background positions   
         var width = this.cameras.main.width;

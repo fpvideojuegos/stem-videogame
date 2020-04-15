@@ -398,7 +398,7 @@ const GameConstants = {
     Layers: {
         WORLD: 'World',
         LANDSCAPE: 'Landscape',
-        LANDSCAPEFRONT: 'LandscapeFront',
+        LANDSCAPEFRONT: 'LandscapeFront',        
         SPIKES: 'Spikes',
         LIMITS: 'Limits'
     },

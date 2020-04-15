@@ -56,10 +56,11 @@ class BasicScene extends Phaser.Scene {
      * @param createMap - Condicion para crear el mapa si previamente no se ha llamado a {@method createMap()}
      * @param cameraFollow - Inidica si la camara seguirá a Player o no (default = true).
      */
-    createPlayer(costume = GameConstants.Sprites.Player.KEY, createMap = true, cameraFollow = true) {
+    createPlayer(createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.currentLevel = this.key;
+        let costume = this.DB.player;        
         store.set(GameConstants.DB.DBNAME, this.DB);
 
         //Crea el mapa
@@ -70,7 +71,7 @@ class BasicScene extends Phaser.Scene {
 
         //find Player objetct at the map      
         this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
-            if (d.type === GameConstants.Sprites.Player.KEY) {
+            if (d.type === GameConstants.Sprites.Player.KEY) {                
                 //Create Player
                 this.player = new Player({
                     scene: this,
@@ -417,6 +418,7 @@ class BasicScene extends Phaser.Scene {
         }
         return levelLayer;
     }
+
 
     /**
      * Genera el texto para las vidas

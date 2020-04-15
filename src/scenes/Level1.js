@@ -11,35 +11,29 @@ class Level1 extends BasicScene {
 
     create() {
         //Player Creation
-        this.createPlayer(GameConstants.Sprites.Player3); //**TODO Select from DB
-        //Background        
+        this.createPlayer(); 
+        //Create Repeated Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.25,y:1.25});
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
         this.createCoins();
-        //Objects to Collect
+        //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
         //Tilemap
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET); //With World Layer by default
-
-        //PRIVATE SCENE ELEMENTS
-        //Creacion de elementos decorativos
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPE, false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
-        //Creacion de objetos invisibles que dañaran a player
-        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
-
         
-        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
-
-
-
-        //Sounds        
+        //Creacion de objetos invisibles que dañaran a player 
+        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+        
+        
+        //Sounds ** ADD TO BasicScene
+        //this.createMusicBg()
+        //this.createAmbienceBg()
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
@@ -47,7 +41,7 @@ class Level1 extends BasicScene {
         this.addEventForMusic(this.ambiencebg,true);
         
 
-        //Create Bracelet
+        //Create End Object Hide
         this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
         this.physics.world.enable(this.keys);
         this.keylevel = this.keys[0];
@@ -56,16 +50,18 @@ class Level1 extends BasicScene {
         this.keylevel.setAlpha(0);
         this.anims.play(GameConstants.Anims.KEY, this.keylevel);
 
-        //Collider for Bracelet
-        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
+        //Final Object to next Level
+        this.playerFinalCollide = this.physics.add.collider(this.player, this.keylevel, () => {
             this.musicbg.stop();
             this.ambiencebg.stop();
             this.keylevel.destroy();            
             this.player.nextScene();
         });
 
-        this.playercollide.active=false;
+        this.playerFinalCollide.active=false;
       
+        //**TODO Create at the Basic Scene
+        //this.createLadders()
         this.climb = this.findTransparentObjects('Climb', 'Climb');        
         this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
         
@@ -102,13 +98,10 @@ class Level1 extends BasicScene {
         });
 
         if (this.player.collectablesCollected === 0){
-            this.playercollide.active=true;
+            this.playerFinalCollide.active=true;
             this.keylevel.setAlpha(1);
         }
         
-
-        
-
 
 
     }//update

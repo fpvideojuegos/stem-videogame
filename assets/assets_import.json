@@ -2,9 +2,9 @@
     "assets": {
         "files": [{
             "type": "pack",
-            "key": "daniela_assets",
-            "dataKey": "daniela_assets",
-            "url": "./daniela_assets.json"
+            "key": "player_assets",
+            "dataKey": "player_assets",
+            "url": "./player_assets.json"
         }]
     }
 }

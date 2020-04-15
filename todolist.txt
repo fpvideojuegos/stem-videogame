@@ -1,7 +1,8 @@
+----------------------------------------------
+JONATHAN:
+----------------------------------------------
 //TODO
 - Women character giving advices in each level
-- ** Choose Character 
-- ** Inventary
 - ** Special powers or access with some inventary objects
 - Save Game 
 - Google Autentication 
@@ -36,3 +37,74 @@ final level (needs all the inventory objects)
 
 
 **Fallo con la animación WALK 
+
+
+TODO. overlapTiles para quitar Spikes
+
+
+TODO BasicLevel
+*** this.createPlayer select from DB
+**Create Parallax Background
+**createRepeatedBackground (por defecto el Level que corresponda)
+** this.findAndLoadEnemiesFromMap (por defecto el Level que corresponda)
+** 
+
+
+
+
+
+----------------------------------------------
+JONATHAN:
+----------------------------------------------
+SELECCIÓN DE PERSONAJE
+1- Leer de un player.json todos los players y mostrarlo en pantalla
+con su nombre debajo
+    Players: {
+        Player1: {            
+            name: 'Manolo',
+            key : 'player1'            
+        },
+        Player2: {            
+            name: 'Pepito',
+            key : 'player2'            
+        },
+        Player3: {            
+            name: 'Juanito',
+            key : 'player3'            
+        }
+    }
+
+?? Como leer un json y recorrerlo con Javascript (muy sencillo)
+Rectangulo que rodee al player actual
+Nombre del actual en rojo
+el resto de nombres en blanco
+
+
+** Inventary *** 
+En cada nivel va a ver 2 objetos inventariables
+5 niveles, 10 objetos
+1 objeto para nivel final
+
+1 objeto superpoder 10seg : (usables)
+Velocidad , inmunidad, pequeño, baja gravedad, super salto
+
+** Guardar partidas
+Panta Inicial antes de Menu (LoadGameScene)
+Menu para crear nuevas partidas o usar una partida creada
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

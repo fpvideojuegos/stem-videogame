@@ -11,7 +11,7 @@ class Level2 extends BasicScene {
 
     create() {
         //Daniela Creation
-        this.createPlayer(GameConstants.Sprites.Player3);//**TODO Select from DB
+        this.createPlayer();
         //Background        
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
         //Finding enemies in json map
