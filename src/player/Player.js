@@ -342,7 +342,7 @@ class Player extends Phaser.GameObjects.Sprite {
     }    
 
     nextScene() {
-        this.scene.textDialog.setText(this.scene.TG.tr('COMMONTEXT.WEDIDIT'));
+        //this.scene.textDialog.setText(this.scene.TG.tr('COMMONTEXT.WEDIDIT'));
 
         this.emit(GameConstants.Events.LEVEL_FINISHED);
 
