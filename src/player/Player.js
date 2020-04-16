@@ -7,7 +7,7 @@ import GameConstants from "../services/GameConstants.js";
 class Player extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
-        this.key = config.key.trim();        
+        this.key = config.key;
         // Health
         //Check for extra Lifes
         this.DB = store.get(GameConstants.DB.DBNAME);        

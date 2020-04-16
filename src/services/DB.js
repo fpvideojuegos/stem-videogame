@@ -26,6 +26,19 @@ const DB = {
         obj4: false, 
         obj5: false
     },
+    currentPlayer: {
+        player: {
+            player2: {
+                name: 'nombre2',
+                key: 'player2'
+            },
+            player3: {
+                name: 'nombre3',
+                key: 'player3'
+            }
+        }
+
+    },
     worlds: {
         Level1: {            
             completed: false,
