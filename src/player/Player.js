@@ -43,7 +43,7 @@ class Player extends Phaser.GameObjects.Sprite {
             this.animDOWN = GameConstants.Anims.Player2.DOWN;
             this.animWALK = GameConstants.Anims.Player2.WALK;
             this.animCLIMB = GameConstants.Anims.Player2.CLIMB;
-        }else if (this.key == GameConstants.Sprites.Player3.KEY) {
+        } else if (this.key == GameConstants.Sprites.Player3.KEY) {
             this.animIDLE = GameConstants.Anims.Player3.IDLE;
             this.animDOWN = GameConstants.Anims.Player3.DOWN;
             this.animWALK = GameConstants.Anims.Player3.WALK;
