@@ -53,7 +53,6 @@ class LevelSelect extends BasicScene {
 
         menuButton.on('pointerdown', () => { 
             this.changeScene(this, GameConstants.Levels.MENU,0);
-            
         });
         
         const levelsLabel = this.add.dynamicBitmapText(80, 20, 'pixel', this.TG.tr('LEVELSELECT.LEVELS'), 24);        

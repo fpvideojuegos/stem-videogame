@@ -1,0 +1,12 @@
+{
+    "player": [
+        {
+            "name": "nombre2",
+            "key": "player2"
+        },
+        {
+            "name": "nombre3",
+            "key": "player3"
+        }
+    ]
+}
