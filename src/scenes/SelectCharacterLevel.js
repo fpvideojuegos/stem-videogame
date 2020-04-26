@@ -4,6 +4,7 @@ import GameConstants from "../services/GameConstants.js";
 
 
 
+
 class SelectCharacterLevel extends BasicScene {
     constructor() {
         super({key: 'SelectCharacterLevel'});
@@ -40,6 +41,14 @@ class SelectCharacterLevel extends BasicScene {
 
         this.player3 = this.add.image(160, 80, GameConstants.Sprites.Player3.KEY, 'player3_2').setScale(1.5).setDepth(1);
         this.setCurrentPlayer(this.player3, 'player3');
+
+        //loop the players_sprites 
+        this.players = GameConstants.Players_Sprites;                    
+        for (let player in this.players) {                
+                console.log(player.name);                
+                console.log(player.key);
+        }
+
 
     }
 

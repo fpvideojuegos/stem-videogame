@@ -413,6 +413,24 @@ const GameConstants = {
         FLAG_EN: 'en_flag',
         FLAG_FR: 'fr_flag',
         FLAG_RU: 'ru_flag'
+    }, 
+    Players_Sprites:{
+        player2:{
+            key: "player2",
+            name: "Nombre2",
+            IDLE: 'player2_idle',
+            WALK: 'player2_walk',
+            DOWN: 'player2_down',
+            CLIMB: 'player2_climb'
+        },
+        player3:{
+            key: "player2",
+            name: "Nombre2",
+            IDLE: 'player3_idle',
+            WALK: 'player3_walk',
+            DOWN: 'player3_down',
+            CLIMB: 'player3_climb'
+        }
     }
 
 };
