@@ -36,20 +36,35 @@ class SelectCharacterLevel extends BasicScene {
         /*this.currentPlayer = this.TG.getActualLang();*/
 
         // Player frames for choosing player //TODO -> Make it as array + foreach
-        this.player2 = this.add.image(80, 80, GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5).setDepth(1);
+        /*this.player2 = this.add.image(80, 80, GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5).setDepth(1);
         this.setCurrentPlayer(this.player2, 'player2');
 
         this.player3 = this.add.image(160, 80, GameConstants.Sprites.Player3.KEY, 'player3_2').setScale(1.5).setDepth(1);
-        this.setCurrentPlayer(this.player3, 'player3');
+        this.setCurrentPlayer(this.player3, 'player3');*/
 
-        //loop the players_sprites 
+        //loop the players_sprites
+        let i = 2; //Testing
+        let posX = 80;
+        let posY = 80;
         this.players = GameConstants.Players_Sprites;                    
-        for (let player in this.players) {                
-                console.log(player.name);                
-                console.log(player.key);
+        for (let player in this.players) {
+            //this.player2 = this.add.image(posX, posY, GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5).setDepth(1);
+            //this.setCurrentPlayer(this.player2, 'player2');
+
+            //This solud work, but don't
+            this.players.name = this.add.image(posX, posY, GameConstants.Sprites.players.name.KEY, 'player2_2').setScale(1.5).setDepth(1);
+            this.setCurrentPlayer(this.players.name, 'player2');
+
+            //Testing
+            console.log(this.players.name);                
+            console.log(this.players.key);
+            
+            posX += 80;
+            if(posX %= 480){
+                posX = 80;
+                posY += 80;
+            }
         }
-
-
     }
 
     update(time, delta) {

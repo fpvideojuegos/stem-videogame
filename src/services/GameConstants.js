@@ -424,8 +424,8 @@ const GameConstants = {
             CLIMB: 'player2_climb'
         },
         player3:{
-            key: "player2",
-            name: "Nombre2",
+            key: "player",
+            name: "Nombre3",
             IDLE: 'player3_idle',
             WALK: 'player3_walk',
             DOWN: 'player3_down',
