@@ -40,13 +40,12 @@ class SelectCharacterLevel extends BasicScene {
         let posY = 80;
         this.players = GameConstants.Players_Sprites;           
         Object.entries(this.players).forEach(([key, player]) => {            
-            let thePlayer = this.add.image(posX, posY, player.key).setScale(1.5).setDepth(1);
-            this.setCurrentPlayer(thePlayer, player);
-            
-            posX += 80;
-            if(posX %= 480){
-                posX = 80;
-                posY += 80;
+            let thePlayer = this.add.image(posX, posY, player.key, player.key + "_2").setScale(1.5).setDepth(1);            
+            this.setCurrentPlayer(thePlayer, player);            
+            posX += 150;
+            if(posX >= 480){                
+                posX = 150;
+                posY += 150;
             }
         });
     }
@@ -55,7 +54,13 @@ class SelectCharacterLevel extends BasicScene {
         
     }
 
-    /* */
+    /**
+     * Give the image interactive properties and also round in red if selected
+     * 
+     * @param thePlayer image object
+     * @param playerInfo json properties
+     * 
+     */
     setCurrentPlayer(thePlayer, playerInfo) {
         thePlayer.setInteractive();
         thePlayer.on('pointerdown', () => {             
