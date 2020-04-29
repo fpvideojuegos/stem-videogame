@@ -11,9 +11,6 @@
          void 0);
 
 const DB = {
-    daniela: {
-        costume: 'daniela'
-    },
     player: 'player2',
     currentLevel: 'Level1',
     maxLevel: 'Level1', //Last Level achieved
@@ -71,6 +68,7 @@ const DB = {
             stars: 0
         }
     },
+    
     skipIntro: true,
 }
 

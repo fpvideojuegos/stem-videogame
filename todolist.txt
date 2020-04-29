@@ -36,9 +36,6 @@ final level (needs all the inventory objects)
 - Gamepad con la parte de control circular AXIS
 
 
-**Fallo con la animación WALK 
-
-
 TODO. overlapTiles para quitar Spikes
 
 
@@ -79,8 +76,10 @@ Rectangulo que rodee al player actual
 Nombre del actual en rojo
 el resto de nombres en blanco
 
+OK - Repasar y comentarios en inglés
 
-** Inventary *** 
+
+** INVENTARY *** 
 En cada nivel va a ver 2 objetos inventariables
 5 niveles, 10 objetos
 1 objeto para nivel final
@@ -88,10 +87,28 @@ En cada nivel va a ver 2 objetos inventariables
 1 objeto superpoder 10seg : (usables)
 Velocidad , inmunidad, pequeño, baja gravedad, super salto
 
-** Guardar partidas
+** GUARDAR VIDAS *****
 Panta Inicial antes de Menu (LoadGameScene)
 Menu para crear nuevas partidas o usar una partida creada
 
+** EXTRA LIFES ******
+En cada nivel vas a poder un objeto heart (corazon) . Que te va a sumar un punto de vida.
+Inicialmente están a 5. Si encuentra esa vida . Lifes + 1;
+Si pasas de nivel, si las vidas > 5 . DB extralifes = 1;
+
+1. Añadir con Tiled al tilemap del Level1 y después prueba con Level2
+un grupo de objetos heart, y un objeto heart en una posición
+
+2. En el Level1
+currentExtraLifes
+
+//ExtraLifes
+this.createExtraLifes();
+Este método será creado en BasicScene
+muy parecido a lo que hace createCoins 
+
+Importante en el método showScores() 
+será donde tenga que grabar en BD si hay una vida extra
 
 
 

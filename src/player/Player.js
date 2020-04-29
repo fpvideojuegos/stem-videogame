@@ -284,6 +284,9 @@ class Player extends Phaser.GameObjects.Sprite {
         this.prevAnimJump = direction;
     }
 
+    /**
+     * Delete health
+     */
     loseHealth() {
         //delete extra lifes if exists
         if (this.health>5){

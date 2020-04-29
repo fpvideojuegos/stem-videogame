@@ -558,6 +558,52 @@
         }, 
         {
          "draworder":"topdown",
+         "id":31,
+         "name":"heart",
+         "objects":[
+                {
+                 "height":0,
+                 "id":150,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"heart",
+                 "visible":true,
+                 "width":0,
+                 "x":1774,
+                 "y":330
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":32,
+         "name":"Inventory",
+         "objects":[
+                {
+                 "height":0,
+                 "id":152,
+                 "name":"speed",
+                 "point":true,
+                 "rotation":0,
+                 "type":"speed",
+                 "visible":true,
+                 "width":0,
+                 "x":3504,
+                 "y":282
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":15,
          "name":"Spikes",
          "objects":[
@@ -738,8 +784,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":31,
- "nextobjectid":150,
+ "nextlayerid":33,
+ "nextobjectid":154,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",
