@@ -37,18 +37,12 @@ class Player extends Phaser.GameObjects.Sprite {
         //Collected objects
         this. collectablesCollected = 3;
 
-        //Animaciones en funcion del Sprite Player //TODO Hacer con bucle en función del núm de players        
-        if (this.key == GameConstants.Sprites.Player2.KEY) {            
-            this.animIDLE = GameConstants.Anims.Player2.IDLE;
-            this.animDOWN = GameConstants.Anims.Player2.DOWN;
-            this.animWALK = GameConstants.Anims.Player2.WALK;
-            this.animCLIMB = GameConstants.Anims.Player2.CLIMB;
-        } else if (this.key == GameConstants.Sprites.Player3.KEY) {
-            this.animIDLE = GameConstants.Anims.Player3.IDLE;
-            this.animDOWN = GameConstants.Anims.Player3.DOWN;
-            this.animWALK = GameConstants.Anims.Player3.WALK;
-            this.animCLIMB = GameConstants.Anims.Player3.CLIMB;        
-        } 
+        //Animaciones en funcion del Sprite Player               
+        this.animIDLE = GameConstants.Players_Sprites[this.key].IDLE;
+        this.animDOWN = GameConstants.Players_Sprites[this.key].DOWN;
+        this.animWALK = GameConstants.Players_Sprites[this.key].WALK;
+        this.animCLIMB = GameConstants.Players_Sprites[this.key].CLIMB;
+        
 
         // Configuración del GameObject
         config.scene.physics.world.enable(this);
@@ -79,12 +73,8 @@ class Player extends Phaser.GameObjects.Sprite {
 
         this.prevAnim = 'idle';
 
-        if (this.key !== GameConstants.Sprites.Player2.KEY && this.key !== GameConstants.Sprites.Player3.KEY) {
-            this.body.setSize(20, 30);
-            this.body.setOffset(6, 2);
-        } else {
-            this.body.setSize(20, 40);
-        }
+        this.body.setSize(20, 25);
+        this.body.setOffset(0, 15);
 
         this.setDepth(3);
 

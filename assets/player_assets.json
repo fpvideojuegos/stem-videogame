@@ -23,7 +23,19 @@
                 "type": "animation",
                 "key": "player3Data",
                 "url": "players/player3_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "knight",
+                "textureURL": "players/knight.png",
+                "atlasURL": "players/knight_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "knightData",
+                "url": "players/knight_anim.json"
             }
+            
         ]
     }
 }

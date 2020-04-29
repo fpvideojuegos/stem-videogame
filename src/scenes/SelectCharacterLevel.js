@@ -33,38 +33,22 @@ class SelectCharacterLevel extends BasicScene {
             this.changeScene(this, GameConstants.Levels.MENU,0);
         });
 
-        /*this.currentPlayer = this.TG.getActualLang();*/
-
-        // Player frames for choosing player //TODO -> Make it as array + foreach
-        /*this.player2 = this.add.image(80, 80, GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5).setDepth(1);
-        this.setCurrentPlayer(this.player2, 'player2');
-
-        this.player3 = this.add.image(160, 80, GameConstants.Sprites.Player3.KEY, 'player3_2').setScale(1.5).setDepth(1);
-        this.setCurrentPlayer(this.player3, 'player3');*/
 
         //loop the players_sprites
         let i = 2; //Testing
         let posX = 80;
         let posY = 80;
-        this.players = GameConstants.Players_Sprites;                    
-        for (let player in this.players) {
-            //this.player2 = this.add.image(posX, posY, GameConstants.Sprites.Player2.KEY, 'player2_2').setScale(1.5).setDepth(1);
-            //this.setCurrentPlayer(this.player2, 'player2');
-
-            //This solud work, but don't
-            this.players.name = this.add.image(posX, posY, GameConstants.Sprites.players.name.KEY, 'player2_2').setScale(1.5).setDepth(1);
-            this.setCurrentPlayer(this.players.name, 'player2');
-
-            //Testing
-            console.log(this.players.name);                
-            console.log(this.players.key);
+        this.players = GameConstants.Players_Sprites;           
+        Object.entries(this.players).forEach(([key, player]) => {            
+            let thePlayer = this.add.image(posX, posY, player.key).setScale(1.5).setDepth(1);
+            this.setCurrentPlayer(thePlayer, player);
             
             posX += 80;
             if(posX %= 480){
                 posX = 80;
                 posY += 80;
             }
-        }
+        });
     }
 
     update(time, delta) {
@@ -72,36 +56,36 @@ class SelectCharacterLevel extends BasicScene {
     }
 
     /* */
-    setCurrentPlayer(player, key) {
-        player.setInteractive();
-        player.on('pointerdown', () => {             
-            this.DB = store.get(GameConstants.DB.DBNAME);
-            this.DB.player = key;
-            store.set(GameConstants.DB.DBNAME, this.DB);
-            this.changeScene(this, GameConstants.Levels.MENU,0);
+    setCurrentPlayer(thePlayer, playerInfo) {
+        thePlayer.setInteractive();
+        thePlayer.on('pointerdown', () => {             
+            this.selectPlayer(playerInfo.key);
         });
-        if (this.DB.player === key) { /* Si el player es el seleccionado, aparece con un background rojo + nombre en rojo */
-            this.add.rectangle(player.x - 14, player.y - 24, player.width - 2, player.height - 2, 0xff0000).setOrigin(0).setScale(1.5).setDepth(0);
-            const nombre = this.add.dynamicBitmapText(player.x - 14, player.y + 40, 'pixel', key, 8).setTint(0xff0000);
-            nombre.setInteractive();
-            nombre.on('pointerdown', () => {             
-                this.DB = store.get(GameConstants.DB.DBNAME);
-                this.DB.player = key;
-                store.set(GameConstants.DB.DBNAME, this.DB);
-                this.changeScene(this, GameConstants.Levels.MENU,0);
+        if (this.DB.player === playerInfo.key) { /* Si el player es el seleccionado, aparece con un background rojo + nombre en rojo */
+            this.add.rectangle(thePlayer.x - 14, thePlayer.y - 24, thePlayer.width - 2, thePlayer.height - 2, 0xff0000).setOrigin(0).setScale(1.5).setDepth(0);
+            const nameTxt = this.add.dynamicBitmapText(thePlayer.x - 14, thePlayer.y + 40, 'pixel', playerInfo.name, 8).setTint(0xff0000);
+            nameTxt.setInteractive();
+            nameTxt.on('pointerdown', () => {             
+                this.selectPlayer(playerInfo.key);
             });
         } else {
-            const nombre = this.add.dynamicBitmapText(player.x - 14, player.y + 40, 'pixel', key, 8);
-            nombre.setInteractive();
-            nombre.on('pointerdown', () => {             
-                this.DB = store.get(GameConstants.DB.DBNAME);
-                this.DB.player = key;
-                store.set(GameConstants.DB.DBNAME, this.DB);
-                this.changeScene(this, GameConstants.Levels.MENU,0);
+            const nameTxt = this.add.dynamicBitmapText(thePlayer.x - 14, thePlayer.y + 40, 'pixel', playerInfo.name, 8);
+            nameTxt.setInteractive();
+            nameTxt.on('pointerdown', () => {             
+                this.selectPlayer(playerInfo.key);
             });
         }
         
     }
+
+    selectPlayer(key){
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB.player = key;
+        store.set(GameConstants.DB.DBNAME, this.DB);
+        this.changeScene(this, GameConstants.Levels.MENU,0);
+
+    }
+
 }
 
 export default SelectCharacterLevel;
