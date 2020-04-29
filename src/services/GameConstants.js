@@ -330,30 +330,6 @@ const GameConstants = {
             SLEEP: 'mamut_sleep',
             HAPPY: 'mamut_happy'
         }, 
-        Daniela: {
-            IDLE: 'daniela_idle',
-            WALK: 'daniela_walk',
-            DOWN: 'daniela_down',
-            CLIMB: 'daniela_climb'
-        },
-        DanielaTroglo: {
-            IDLE: 'daniela-troglodita_idle',
-            WALK: 'daniela-troglodita_walk',
-            DOWN: 'daniela-troglodita_down',
-            CLIMB: 'daniela-troglodita_climb'
-        },
-        Player2: {
-            IDLE: 'player2_idle',
-            WALK: 'player2_walk',
-            DOWN: 'player2_down',
-            CLIMB: 'player2_climb'
-        },
-        Player3: {
-            IDLE: 'player3_idle',
-            WALK: 'player3_walk',
-            DOWN: 'player3_down',
-            CLIMB: 'player3_climb'
-        },
         LOLO: {
             NORMAL_FLY: 'lolo_normal_fly',
             TROGLODITA_FLY: 'lolo_troglodita_fly'
