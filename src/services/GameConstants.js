@@ -438,6 +438,14 @@ const GameConstants = {
             WALK: "knight_walk",
             DOWN: "knight_down",
             CLIMB: "knight_climb"
+        },
+        dave:{
+            key: "dave",
+            name: "Dave (by Gael)",
+            IDLE: "dave_idle",
+            WALK: "dave_walk",
+            DOWN: "dave_down",
+            CLIMB: "dave_climb"
         }
     }
 
