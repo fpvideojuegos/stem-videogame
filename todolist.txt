@@ -76,22 +76,11 @@ Rectangulo que rodee al player actual
 Nombre del actual en rojo
 el resto de nombres en blanco
 
-OK - Repasar y comentarios en inglés
+OK - ***** Repasar posiciones y comentarios en inglés
 
 
-** INVENTARY *** 
-En cada nivel va a ver 2 objetos inventariables
-5 niveles, 10 objetos
-1 objeto para nivel final
 
-1 objeto superpoder 10seg : (usables)
-Velocidad , inmunidad, pequeño, baja gravedad, super salto
-
-** GUARDAR VIDAS *****
-Panta Inicial antes de Menu (LoadGameScene)
-Menu para crear nuevas partidas o usar una partida creada
-
-** EXTRA LIFES ******
+** 1. EXTRA LIFES ******
 En cada nivel vas a poder un objeto heart (corazon) . Que te va a sumar un punto de vida.
 Inicialmente están a 5. Si encuentra esa vida . Lifes + 1;
 Si pasas de nivel, si las vidas > 5 . DB extralifes = 1;
@@ -111,7 +100,25 @@ Importante en el método showScores()
 será donde tenga que grabar en BD si hay una vida extra
 
 
+** 2. INVENTARY *** 
+En cada nivel va a ver 2 tipos de objetos inventariables
+1 de ellos es lo necesita para el nivel final.
+el otro es un superpoder que solo puede usar 1 vez. 
+TOTAL: 
+5 niveles, 10 objetos (5 para nivel final, 5 superpoderes)
 
+1 objeto superpoder 10seg: (usables)
+Velocidad , inmunidad, pequeño, baja gravedad, super salto
+5 funciones que podremos usar 1 vez durante 10 segundo
+automáticamente se nos pone a falso.
+
+
+
+** 3. GUARDAR VIDAS *****
+Panta Inicial antes de Menu (LoadGameScene)
+Menu para crear nuevas partidas o usar una partida creada
+
+*** 4. ALGÚN EXTRA MÁS ******* 
 
 
 
