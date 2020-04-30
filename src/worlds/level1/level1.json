@@ -740,8 +740,8 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":912,
-                 "y":360.666666666667
+                 "x":860,
+                 "y":380.666666666667
                 }, 
                 {
                  "height":0,
@@ -766,6 +766,18 @@
                  "width":0,
                  "x":1232,
                  "y":130
+                }, 
+                {
+                 "height":0,
+                 "id":154,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":426,
+                 "y":352
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -785,7 +797,7 @@
          "y":0
         }],
  "nextlayerid":33,
- "nextobjectid":154,
+ "nextobjectid":155,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

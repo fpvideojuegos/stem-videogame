@@ -345,12 +345,11 @@ class Player extends Phaser.GameObjects.Sprite {
 
     collectExtraPoints(group, object){
 
-        if (!this.hitCoin) {
+        if (!this.hitCoin) {            
             
-            this.extraPoints++;    
             this.coinpickup.play();
-
-            this.hitCoin = true;            
+            this.hitCoin = true;
+            this.extraPoints++;   
 
             this.scene.tweens.add({
                 targets: object,
@@ -367,7 +366,7 @@ class Player extends Phaser.GameObjects.Sprite {
             });
 
             this.scene.time.addEvent({
-                delay: 100,
+                delay: 1000,
                 callback: () => {
                     this.hitCoin = false;
                 }

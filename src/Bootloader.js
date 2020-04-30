@@ -270,6 +270,9 @@ class Bootloader extends Phaser.Scene {
         this.load.image('inventoryBtn', 'img/objects/InventoryBtn.png');
         this.load.image('inventory', 'img/objects/inventory.png');
 
+        //Collectable icon
+        this.load.image('collectable','img/objects/basket.png');
+
         //CONTROLS (For input Touch Versions)
         this.load.image('controlUp', 'img/ui/controlUp.png');
         this.load.image('controlDown', 'img/ui/controlDown.png');

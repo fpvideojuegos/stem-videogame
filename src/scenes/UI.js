@@ -29,22 +29,35 @@ class UI extends Phaser.Scene {
         }
 
         //Opción de MENU en niveles
-        const menuButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
-        menuButton.setInteractive();
+        this.menuButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'));        
+        this.menuButton.setInteractive();
 
-        menuButton.on('pointerdown', () => { 
+        this.menuButton.on('pointerdown', () => { 
             this.registry.events.emit(GameConstants.Events.MENU);                       
         });
 
+        //Botón "Reiniciar el nivel"
+        this.playAgainButton = this.add.image(this.width - 140, 15 , GameConstants.Sprites.PlayAgain.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.65); 
+        this.playAgainButton.setInteractive();
+        this.playAgainButton.on('pointerdown', () => { 
+            this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
+        });        
+
         //Añadido 01/04/2020
-        //Cofre que lleva a la ventana de inventario
-        const inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
+        //Backpack for inventary
+        this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
-        inventoryBtn.setInteractive();
+        this.inventoryBtn.setInteractive();
 
         //Añadido 01/04/2020
         //Ventana de inventario
-        inventoryBtn.on('pointerdown', () => {
+        this.inventoryBtn.on('pointerdown', () => {
+            //hide UI buttons
+            this.playAgainButton.alpha = 0;
+            this.inventoryBtn.alpha = 0;
+            this.menuButton.alpha = 0;
+
             // Pausa la escena del level, sea cual sea
             this.backlevel = this.scene.get(this.scenename);
             this.backlevel.physics.pause();
@@ -91,16 +104,15 @@ class UI extends Phaser.Scene {
             });
         });
 
-        //Botón "Reiniciar el nivel"
-        const playAgainButton = this.add.image(this.width - 140, 15 , GameConstants.Sprites.PlayAgain.KEY)
-                    .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.65); 
-        playAgainButton.setInteractive();
-        playAgainButton.on('pointerdown', () => { 
-            this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
-        });
+  
     }
 
     closeInventory(mask, inventoryBack){
+        //show ui buttons
+        this.playAgainButton.alpha = 1;
+        this.inventoryBtn.alpha = 1;
+        this.menuButton.alpha = 1;
+
         mask.hide();
         inventoryBack.destroy();
         this.backlevel.physics.resume();

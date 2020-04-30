@@ -336,7 +336,7 @@ class BasicScene extends Phaser.Scene {
             this.player.collectCollectables(this.collectablesGroup, object);
         }, null, this);
 
-        this.collectablesCounter = this.add.image(30, 50 , spriteKey)
+        this.collectablesCounter = this.add.image(30, 45 , GameConstants.Sprites.Collectables.KEY)
         .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
         this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.player.collectablesCollected)
         .setScrollFactor(0).setDepth(3);
