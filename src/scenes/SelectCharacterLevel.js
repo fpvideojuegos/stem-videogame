@@ -35,15 +35,14 @@ class SelectCharacterLevel extends BasicScene {
 
 
         //loop the players_sprites
-        let i = 2; //Testing
-        let posX = 80;
+        let posX = 150;
         let posY = 80;
         this.players = GameConstants.Players_Sprites;           
         Object.entries(this.players).forEach(([key, player]) => {            
             let thePlayer = this.add.image(posX, posY, player.key, player.key + "_2").setScale(1.5).setDepth(1);            
             this.setCurrentPlayer(thePlayer, player);            
             posX += 150;
-            if(posX >= 480){                
+            if(posX % 750 == 0){                
                 posX = 150;
                 posY += 150;
             }
@@ -83,6 +82,11 @@ class SelectCharacterLevel extends BasicScene {
         
     }
 
+    /**
+     * Change player selected DataBase value
+     * @param key player KEY value
+     * 
+     */
     selectPlayer(key){
         this.DB = store.get(GameConstants.DB.DBNAME);
         this.DB.player = key;

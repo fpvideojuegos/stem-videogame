@@ -99,18 +99,13 @@ class Player extends Phaser.GameObjects.Sprite {
             this.gamepad = pad;            
         });
 
-
         //Sounds create
         this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_JUMP);
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
         this.coinpickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COINPICKUP);
         this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
         
-
-
-     
     }
-
 
     update(time,delta) {
 
@@ -120,8 +115,6 @@ class Player extends Phaser.GameObjects.Sprite {
             this.secondsLevel--;            
         }
         
-
-
         let control = {
             left: this.cursor.left.isDown || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
             right: this.cursor.right.isDown || this.animControl.right || ((this.gamepad !== null) ? this.gamepad.right : false),
@@ -183,7 +176,6 @@ class Player extends Phaser.GameObjects.Sprite {
                 }
             }
 
-
         } else {
             this.animation(GameConstants.Anims.Direction.CLIMB, this.animCLIMB);
             //Determines how Daniela is going to move in the liana
@@ -227,6 +219,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         }
     }
+
     // Métodos usados en la lógica, están separado para mejor orden    
     moverLeftRight(dir) {
         let acceleration = ((dir === GameConstants.Anims.Direction.RIGHT) ? 1 : -1) * this.acceleration;
@@ -258,7 +251,6 @@ class Player extends Phaser.GameObjects.Sprite {
 
         // Animación de salto
         this.animation(GameConstants.Anims.Direction.JUMP, this.animIDLE);
-
     }
 
     run(velocity) {
@@ -285,7 +277,7 @@ class Player extends Phaser.GameObjects.Sprite {
     }
 
     /**
-     * Delete health
+     * Decrease health when touch enemies
      */
     loseHealth() {
         //delete extra lifes if exists
@@ -315,6 +307,21 @@ class Player extends Phaser.GameObjects.Sprite {
         }
     }
 
+    /**
+     * Increase health when touch a Heart Object
+     * 
+     * Due to each time that happens, health will be higher than 1,
+     * low-health warning music will be forced to off
+     */
+    recoverHealth(){
+        this.health++;
+        this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
+
+        //Turn low-health warning off
+        this.alarmON = false;
+        this.healthAlarm.stop(); 
+    }
+
     enemyCollision() {
         if (!this.hitDelay) {
             this.loseHealth();
@@ -338,10 +345,7 @@ class Player extends Phaser.GameObjects.Sprite {
         //this.scene.textDialog.setText(this.scene.TG.tr('COMMONTEXT.WEDIDIT'));
 
         this.emit(GameConstants.Events.LEVEL_FINISHED);
-
-
     }
-
 
     collectExtraPoints(group, object){
 
@@ -374,8 +378,6 @@ class Player extends Phaser.GameObjects.Sprite {
         }
     }
 
-
-
     collectCollectables(group, object){
 
         if (!this.hitCollectable) {
@@ -407,10 +409,6 @@ class Player extends Phaser.GameObjects.Sprite {
             });
         }
     }
-
-
-
-
 
 }
 export default Player;
