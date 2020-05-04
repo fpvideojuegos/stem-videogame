@@ -84,7 +84,7 @@ class SelectCharacterLevel extends BasicScene {
 
     /**
      * Change player selected DataBase value
-     * @param key player KEY value
+     * @param key : player KEY value
      * 
      */
     selectPlayer(key){

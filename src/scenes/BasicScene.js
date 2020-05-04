@@ -320,6 +320,13 @@ class BasicScene extends Phaser.Scene {
         //  console.warn(this.extraPointsGroup)
     }
 
+    /**
+     * Locate and create Heart elements
+     * 
+     */
+    createExtraLifes(spriteKey = GameConstants.Sprites.Heart.KEY){
+        //TODO
+    }
 
     /**
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Collectables.OBJECT_NAME} necesarios para terminar el nivel
@@ -581,6 +588,9 @@ class BasicScene extends Phaser.Scene {
         }
         if (numstars > this.DB.worlds[this.key].stars) {
             this.DB.worlds[this.key].stars = numstars;
+        }
+        if (this.player.health > 5) { //Increases "extralifes" on DB if higher than 5 (At clearing a level)
+            this.DB.extralifes = this.player.health - 5;
         }
         this.DB.worlds[this.key].completed = true;
         store.set(GameConstants.DB.DBNAME, this.DB);

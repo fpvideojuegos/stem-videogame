@@ -311,7 +311,7 @@ class Player extends Phaser.GameObjects.Sprite {
      * Increase health when touch a Heart Object
      * 
      * Due to each time that happens, health will be higher than 1,
-     * low-health warning music will be forced to off
+     * low-health warning music will always be forced to off
      */
     recoverHealth(){
         this.health++;

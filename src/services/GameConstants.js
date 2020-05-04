@@ -73,6 +73,9 @@ const GameConstants = {
         }
     },
     Sprites: {
+        Heart: {
+            KEY: 'heart',
+        },
         Obj1: {
             KEY: 'obj1',
             ID: 'obj1',
