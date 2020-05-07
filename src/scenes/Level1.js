@@ -17,9 +17,13 @@ class Level1 extends BasicScene {
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
+<<<<<<< Updated upstream
         this.createCoins();
         //Object Heart for Extralifes
         this.createExtraLifes();
+=======
+        this.createCoins();        
+>>>>>>> Stashed changes
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText

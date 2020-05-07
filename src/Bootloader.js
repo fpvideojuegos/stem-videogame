@@ -99,6 +99,14 @@ class Bootloader extends Phaser.Scene {
         https://ansimuz.itch.io/magic-cliffs-environment
 
         
+        //PARALLAX BG Level 2
+        this.load.image('bg2-clouds', 'img/backgrounds/parallax_level2/clouds.png');
+        this.load.image("bg2-far-grounds", 'img/backgrounds/parallax_level2/far-grounds.png');
+        this.load.image("bg2-sea", 'img/backgrounds/parallax_level2/sea.png');
+        this.load.image("bg2-sky", 'img/backgrounds/parallax_level2/sky.png');
+
+        
+
         //https://www.gameart2d.com/free-platformer-game-tileset.html
         //Level 3 
         this.load.image('bg_Level3', 'img/backgrounds/background_level3_forest.jpg');

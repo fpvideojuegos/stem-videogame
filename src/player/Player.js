@@ -353,7 +353,7 @@ class Player extends Phaser.GameObjects.Sprite {
             
             this.coinpickup.play();
             this.hitCoin = true;
-            this.extraPoints++;   
+            this.extraPoints*=10;   
 
             this.scene.tweens.add({
                 targets: object,

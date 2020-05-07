@@ -566,12 +566,15 @@ class BasicScene extends Phaser.Scene {
         const score = Phaser.Utils.String.Pad(parseInt(this.player.secondsLevel * this.player.health) + this.player.extraPoints, 6, '0', 1);
 
         //Num de estrellas
-        //Estrella 1 Si 3 Vidas
-        const star1show = this.player.health === 3;
-        //Estrella 2 Si ExtraPoint > 30 
-        const star2show = this.player.extraPoints >= 30;
-        //Estrella 3 Si Segundos > 420
-        const star3show = this.player.secondsLevel >= 480;
+        //Estrella 1 Si más de 3 Vidas
+        const star1show = this.player.health >= 3;
+        //Estrella 2 Si star1 and ExtraPoint > 30 
+        const star2show = (star1show && this.player.extraPoints >= 30)
+        //Estrella 3 Si start2 and Segundos > 420
+        const star3show = (star2show && this.player.secondsLevel >= 480);
+
+        console.log("extrapoints =" + this.player.extraPoints);
+        console.log("seconds =" + this.player.secondsLevel)
 
         let numstars = 0;
         if (star1show) numstars++;

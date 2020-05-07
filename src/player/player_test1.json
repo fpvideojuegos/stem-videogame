@@ -1,0 +1,7 @@
+{    
+    "players":[
+        { "name":"nombre1", "key":"player2" },
+        { "name":"nombre2", "key":"player3" },
+        { "name":"nombre3", "kay":"player3" }
+    ]
+}
