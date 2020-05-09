@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "death_anim",
+            "type": "frames",
+            "repeat": 0,
+            "frameRate": 15,            
+            "frames": [
+                {
+                    "key": "death",
+                    "frame": "death_0"
+                },
+                {
+                    "key": "death",
+                    "frame": "death_1"
+                },
+                {
+                    "key": "death",
+                    "frame": "death_2"
+                },
+                {
+                    "key": "death",
+                    "frame": "death_3"
+                }
+            ]
+        }
+    ]
+}

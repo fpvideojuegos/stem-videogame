@@ -233,6 +233,10 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('extrapoint', 'img/objects/extrapoint/extrapoint.png', 'img/objects/extrapoint/extrapoint_atlas.json');
         this.load.animation('extrapointAnim', 'img/objects/extrapoint/extrapoint_anim.json');
 
+        //Enemy Death
+        this.load.atlas('death', 'img/objects/death/death.png', 'img/objects/death/death_atlas.json');
+        this.load.animation('deathAnim', 'img/objects/death/death_anim.json');
+
         //Loupes
         this.load.image('loupe', "img/objects/loupe.png");
 
@@ -301,6 +305,8 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Desert", "sounds/effects/desert-simple.ogg");                
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         
+        //Enemy Kill
+        this.load.audio("enemy-death", "sounds/enemy-death.ogg");
 
         // Progress
         this.load.on('progress', (value) => {

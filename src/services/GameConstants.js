@@ -66,7 +66,8 @@ const GameConstants = {
             BIRD_SINGING : 'BirdSinging',
             COINPICKUP: 'coinpickup',
             COLLECTABLEPICKUP: 'collectablePickup',
-            ALARM_ON : 'alarmOn'
+            ALARM_ON : 'alarmOn', 
+            ENEMY_DEATH: 'enemy-death'
         },
         MAIN:{
             BSO: 'Main_BSO'
@@ -160,6 +161,9 @@ const GameConstants = {
             ID: 'extrapoint',
             OBJECT_NAME: 'ExtraPoints', 
             OBJECT_ID: 'extrapoint'
+        },
+        Death:{
+            KEY: 'death_0'
         },
         Collectables: {
             KEY: 'collectable',
@@ -309,6 +313,7 @@ const GameConstants = {
         PLATFORM_FOREST: 'platform'
     },
     Anims: {
+        DEATH: 'death_anim',
         BATS: 'vulture_move',
         BEES: 'bee_fly',
         SODAS: 'soda_fly',

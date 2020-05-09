@@ -45,7 +45,11 @@ class BasicScene extends Phaser.Scene {
      */
     preload() {
         console.log(this.key);
-        this.scene.launch(GameConstants.Levels.UI,{scene:this.key});
+        this.scene.launch(GameConstants.Levels.UI,{scene:this.key});      
+
+
+        //for enemies death sound
+        this.enemydeath = this.sound.add(GameConstants.Sound.SOUNDS.ENEMY_DEATH, {volume: 1});
     }
 
     /**
@@ -262,12 +266,57 @@ class BasicScene extends Phaser.Scene {
             }
 
             if (overlapWithPlayer) {
-                Object.keys(this.enemyGroups).forEach(enemyGroup => {
-                    this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], () => {
-                        this.player.enemyCollision();
-                    });
+                Object.keys(this.enemyGroups).forEach(enemyGroup => {                    
+                    this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], function(hero, enemy){
+                        
+                       // hero is stomping the enemy if:
+                        // hero is touching DOWN
+                        // enemy is touching UP
+                        if(enemy.body.touching.up && hero.body.touching.down ){      
+                            let posX = enemy.x;
+                            let posY = enemy.y;
+                            enemy.destroy();
+                            this.explosion = this.add.sprite(posX, posY , GameConstants.Sprites.Death.KEY);
+                            this.enemydeath.play();                            
+                            this.explosion.play(GameConstants.Anims.DEATH);                            
+                            this.explosion.once('animationcomplete', () => {                                
+                                this.explosion.destroy()
+                            });
+                        }else{
+            
+                            // any other way to collide on an enemy will restart the game
+                            hero.enemyCollision();
+                        } 
+                        
+                        
+                    }, null, this);
 
                 });
+                
+                
+
+                /*
+                Object.keys(this.enemyGroups).forEach(enemyGroup => {
+                    this.physics.add.collider(this.player, this.enemyGroups[enemyGroup], function(hero, enemy){                        
+
+                        // hero is stomping the enemy if:
+                        // hero is touching DOWN
+                        // enemy is touching UP
+                        if(enemy.body.touching.up && hero.body.touching.down){
+            
+                            // in this case just jump again
+                            //this.hero.body.velocity.y =  -gameOptions.playerJump;
+                            console.log("ON enemy");
+                            enemy.destroy();
+                        }
+                        else{
+            
+                            // any other way to collide on an enemy will restart the game
+                            console.log("DIED");
+                        }
+                    }, null, this);
+
+                });*/
             }
         });
         console.log("Se han creado los siguientes grupos de enemigos:");
