@@ -267,25 +267,26 @@ class BasicScene extends Phaser.Scene {
 
             if (overlapWithPlayer) {
                 Object.keys(this.enemyGroups).forEach(enemyGroup => {                    
-                    this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], function(hero, enemy){
+                    this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], function(player, enemy){
                         
                        // hero is stomping the enemy if:
                         // hero is touching DOWN
                         // enemy is touching UP
-                        if(enemy.body.touching.up && hero.body.touching.down ){      
-                            let posX = enemy.x;
-                            let posY = enemy.y;
-                            enemy.destroy();
-                            this.explosion = this.add.sprite(posX, posY , GameConstants.Sprites.Death.KEY);
-                            this.enemydeath.play();                            
-                            this.explosion.play(GameConstants.Anims.DEATH);                            
-                            this.explosion.once('animationcomplete', () => {                                
-                                this.explosion.destroy()
-                            });
-                        }else{
-            
+                        if(enemy.body.touching.up && player.body.touching.down ){
+                            if (!player.hitDelay){     
+                                let posX = enemy.x;
+                                let posY = enemy.y;
+                                enemy.destroy();
+                                this.explosion = this.add.sprite(posX, posY , GameConstants.Sprites.Death.KEY);
+                                this.enemydeath.play();                            
+                                this.explosion.play(GameConstants.Anims.DEATH);                            
+                                this.explosion.once('animationcomplete', () => {                                
+                                    this.explosion.destroy();                            
+                                });
+                            }
+                        }else{            
                             // any other way to collide on an enemy will restart the game
-                            hero.enemyCollision();
+                            player.enemyCollision();
                         } 
                         
                         
@@ -293,30 +294,7 @@ class BasicScene extends Phaser.Scene {
 
                 });
                 
-                
 
-                /*
-                Object.keys(this.enemyGroups).forEach(enemyGroup => {
-                    this.physics.add.collider(this.player, this.enemyGroups[enemyGroup], function(hero, enemy){                        
-
-                        // hero is stomping the enemy if:
-                        // hero is touching DOWN
-                        // enemy is touching UP
-                        if(enemy.body.touching.up && hero.body.touching.down){
-            
-                            // in this case just jump again
-                            //this.hero.body.velocity.y =  -gameOptions.playerJump;
-                            console.log("ON enemy");
-                            enemy.destroy();
-                        }
-                        else{
-            
-                            // any other way to collide on an enemy will restart the game
-                            console.log("DIED");
-                        }
-                    }, null, this);
-
-                });*/
             }
         });
         console.log("Se han creado los siguientes grupos de enemigos:");
@@ -681,6 +659,10 @@ class BasicScene extends Phaser.Scene {
         nextLevelLabel.on('pointerdown', () => {
             this.changeScene(this.player.scene, this.player.scene.target, 500);
         });        
+
+        //Just In case health alarm is playing
+        this.player.healthAlarm.stop();   
+
 
     }
 
