@@ -91,10 +91,12 @@ class IntroLevel1 extends Phaser.Scene {
                                                         .setDepth(3) 
                                                         .setAlpha(1);
 
+        
+        //TODO COORDINATE TIMES IN EACH LANGUAGE
         let textie = '';        
         for (let i = 1; i <= 7; i++) {
             this.time.addEvent({
-                delay: 3500 + (i*2000),
+                delay: 3500 + (i*2600),
                 callback: () => {                    
                     textie+=this.TG.tr('LEVEL1.AGATHA_' + i) + "\n\n";
                     this.textInstructions.setText(textie);
@@ -127,9 +129,9 @@ class IntroLevel1 extends Phaser.Scene {
         this.door.body.setAllowGravity(false);
         this.door.setAlpha(0);
         
-
+        
         this.time.addEvent({
-            delay: 24000,
+            delay: 27000,
             callback: () => { 
                 this.textInstructions.setAlpha(0);
                 this.woman.setAlpha(0);

@@ -1,40 +1,40 @@
 {
     "MENU": {
-        "TITLE": "LA BÚSQUEDA DE BAMAK (FR)",
-        "SUBTITLE": "UNA AVENTURA STEM",
-        "SELECTCHARACTER": "ELIGE \nPERSONAJE",
-        "SETTINGS": "AJUSTES",
-        "PLAY": "JUGAR",
+        "TITLE": "LA RECHERCHE DE BAMAK",
+        "SUBTITLE": "UNE AVENTURE STEM",
+        "SELECTCHARACTER": "CHOISIR UN \nPERSONNAGE",
+        "SETTINGS": "CONFIGURATION",
+        "PLAY": "JOUER",
         "INTRO": "INTRO",
-        "SCORES": "PUNTOS",
-        "CREDITS": "CRÉDITOS"
+        "SCORES": "POINTS",
+        "CREDITS": "CRÉDITS"
     },
     "LEVELSELECT":{
-        "MENU": "MENÚ",
-        "BONUS": "NIVEL EXTRA",
-        "LEVELS": "NIVELES",
-        "LEVEL": "NIVEL",
-        "LEVELDONE": "Nivel completado",
-        "LEVELFINISHED": "Nivel alcanzado con estrellas completas",
-        "LEVELNOTDONE": "Nivel no terminado todavía"      
+        "MENU": "MENU",
+        "BONUS": "NIVEAU SUPPLÉMENTAIRE",
+        "LEVELS": "NIVEAUX",
+        "LEVEL": "NIVEAU",
+        "LEVELDONE": "Niveau terminé",
+        "LEVELFINISHED": "Niveau atteint avec des étoiles pleines",
+        "LEVELNOTDONE": "Niveau pas encore terminé"      
     },
     "SETTINGLEVEL": {
-        "SOUND": "SONIDO",
-        "LANGUAGE": "CAMBIAR IDIOMA",
-        "RESET": "REINICIAR JUEGO",
-        "DONE": "HECHO"
+        "SOUND": "SON",
+        "LANGUAGE": "CHANGER LA LANGUE",
+        "RESET": "REDÉMARRER LE JEU",
+        "DONE": "FAIT"
     },
     "LEVELINTRO":{
-        "SKIP": "SALTAR"
+        "SKIP": "SAUTER "
     },
     "LEVEL1": {        
-        "AGATHA_1": "HOLA SOY AGATHA CHRISTIE,",
-        "AGATHA_2": "ACABAS DE LLEGAR A UN DESIERTO EN AUTOBÚS",
-        "AGATHA_3": "Y SE HA PARADO EN MEDIO DE LA NADA",
-        "AGATHA_4": "TIENES QUE ECONTRAR 10 PISTAS PARA CONSEGUIR ",
-        "AGATHA_5": "LA LLAVE QUE TE PERMITIRÁ SALIR DE ESTE NIVEL.",
-        "AGATHA_6": "TEN CUIDADO CON LOS PELIGROS DEL DESIERTO.",
-        "AGATHA_7": "SUERTE"
+        "AGATHA_1": "BONJOUR JE SUIS AGATHA CHRISTIE,",
+        "AGATHA_2": "VOUS AVEZ JUSTE ACCÉDÉ AU DÉSERT EN BUS",
+        "AGATHA_3": "ET IL VOUS A ARRÊTÉ AU MILIEU DE RIEN",
+        "AGATHA_4": "VOUS DEVEZ TROUVER 10 INDICES À OBTENIR",
+        "AGATHA_5": "LA CLÉ QUI VOUS PERMETTRA DE SORTIR DE CE NIVEAU.",
+        "AGATHA_6": "ATTENTION AUX DANGERS DU DÉSERT.",
+        "AGATHA_7": "BONNE CHANCE"
     },
     "LEVEL2": {       
     },
@@ -45,8 +45,8 @@
     "LEVEL6":{        
     },
     "COMMONTEXT":{
-        "WEDIDIT": "BIEN LO HEMOS CONSEGUIDO!!",
-        "LIVES": "VIDAS "
+        "WEDIDIT": "BIEN QUE NOUS AVONS RÉALISÉ!!",
+        "LIVES": "VIES"
     },
     "UI": {               
     }
