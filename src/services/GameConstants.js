@@ -201,22 +201,7 @@ const GameConstants = {
         },
         Player: {
             KEY: 'player'
-        },
-        DanielaTroglo: {
-            KEY: 'daniela-troglodita'
-        },
-        Player2:{
-            KEY: 'player2'
-        },
-        Player3:{
-            KEY: 'player3'
-        },
-        Lolo_Normal:{
-            KEY: 'lolo_normal'
-        },
-        Lolo_Troglodita:{
-            KEY: 'lolo_troglodita'
-        },
+        },        
         Level_Price:{
             KEY:'coin'
         },
@@ -430,6 +415,14 @@ const GameConstants = {
             WALK: 'dave_walk',
             DOWN: 'dave_down',
             CLIMB: 'dave_climb'
+        },
+        girlplayer:{
+            key: 'girlplayer',
+            name: 'Girl (by Moye)',
+            IDLE: 'girlplayer_idle',
+            WALK: 'girlplayer_walk',
+            DOWN: 'girlplayer_down',
+            CLIMB: 'girlplayer_climb'
         }
     }
 

@@ -45,6 +45,17 @@
                 "type": "animation",
                 "key": "daveData",
                 "url": "players/dave_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "girlplayer",
+                "textureURL": "players/girlplayer.png",
+                "atlasURL": "players/girlplayer_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "girlplayerData",
+                "url": "players/girlplayer_anim.json"
             }
             
         ]
