@@ -76,6 +76,9 @@ const GameConstants = {
     Sprites: {
         Heart: {
             KEY: 'heart',
+            ID: 'heart',
+            OBJECT_NAME: 'heart',
+            OBJECT_ID: 'heart'
         },
         Obj1: {
             KEY: 'obj1',

@@ -54,6 +54,9 @@ class Bootloader extends Phaser.Scene {
         this.load.image("obj3", "img/objects/obj3.png");
         this.load.image("obj4", "img/objects/obj4.png");
 
+        //Heart Object
+        this.load.image("heart", "img/objects/heart.png");
+
         //Level2
         //Copyright/Attribution Notice: 
         //Credit "Tio Aimar @ opengameart.org" or simply "Tio Aimar" (this is not mandatory)

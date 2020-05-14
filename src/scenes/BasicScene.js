@@ -23,6 +23,8 @@ class BasicScene extends Phaser.Scene {
         this.map = null;
         this.bg = null;        
         this.player = null;
+        this.extraLife = [];
+        this.heartGroup;
         this.bats = [];
         this.bees = [];
         this.wheels = [];
@@ -289,11 +291,9 @@ class BasicScene extends Phaser.Scene {
                             player.enemyCollision();
                         } 
                         
-                        
                     }, null, this);
 
                 });
-                
 
             }
         });
@@ -343,16 +343,24 @@ class BasicScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.extraPointsGroup, function (player, object) {
             this.player.collectExtraPoints(this.extraPointsGroup, object);
         }, null, this);
-        //  console.log(this.extraPoints);
-        //  console.warn(this.extraPointsGroup)
+        //console.log(this.extraPoints);
+        //console.warn(this.extraPointsGroup)
     }
 
     /**
      * Locate and create Heart elements
      * 
+     * @param heartKey - heart object key.
      */
-    createExtraLifes(spriteKey = GameConstants.Sprites.Heart.KEY){
-        //TODO
+    createExtraLifes(keyHeart = GameConstants.Sprites.Heart.KEY){
+        this.extraLife = this.createEnemies(GameConstants.Sprites.Heart.OBJECT_NAME, GameConstants.Sprites.Heart.OBJECT_ID, keyHeart);
+        //this.heartGroup = new ExtraPoints(this.physics.world, this, [], this.extraLife);
+        
+        this.physics.add.overlap(this.player, this.heartGroup, function (player, object) {
+            this.player.recoverHealth();
+        }, null, this);
+        console.log(this.extraLife);
+        console.warn(this.heartGroup)
     }
 
     /**
