@@ -20,6 +20,10 @@ class Level1 extends BasicScene {
         this.createCoins();
         //Object Heart for Extralifes
         this.createExtraLifes();
+        //create Inventory Object
+        //this.createInventory(GameConstants.Sprites.Speed.KEY);
+        //collide
+
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
@@ -102,6 +106,8 @@ class Level1 extends BasicScene {
         if (this.player.collectablesCollected === 0){
             this.playerFinalCollide.active=true;
             this.keylevel.setAlpha(1);
+            //add to DB magickey object at inventory            
+
         }
         
 

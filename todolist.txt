@@ -1,5 +1,5 @@
 ----------------------------------------------
-JONATHAN:
+SERGIO:
 ----------------------------------------------
 //TODO
 - Women character giving advices in each level
@@ -53,7 +53,7 @@ TODO BasicLevel
 ----------------------------------------------
 JONATHAN:
 ----------------------------------------------
-SELECCIÓN DE PERSONAJE
+DONE -- SELECCIÓN DE PERSONAJE
 1- Leer de un player.json todos los players y mostrarlo en pantalla
 con su nombre debajo
     Players: {
@@ -99,6 +99,8 @@ muy parecido a lo que hace createCoins
 Importante en el método showScores() 
 será donde tenga que grabar en BD si hay una vida extra
 
+-- Falta Música 
+
 
 ** 2. INVENTARY *** 
 En cada nivel va a ver 2 tipos de objetos inventariables
@@ -107,10 +109,17 @@ el otro es un superpoder que solo puede usar 1 vez.
 TOTAL: 
 5 niveles, 10 objetos (5 para nivel final, 5 superpoderes)
 
-1 objeto superpoder 10seg: (usables)
 Velocidad , inmunidad, pequeño, baja gravedad, super salto
 5 funciones que podremos usar 1 vez durante 10 segundo
 automáticamente se nos pone a falso.
+
+//Create Inventory Objects
+this.createInventoryObjects(speed)
+//overlap  para que cuando lo coja desaparezca con animación
+// música cuando lo coja
+// y se te guarde en la BD como true
+BD speed = true
+ON OFF
 
 
 
