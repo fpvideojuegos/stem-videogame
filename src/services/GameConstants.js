@@ -77,7 +77,7 @@ const GameConstants = {
         Heart: {
             KEY: 'heart',
             ID: 'heart',
-            OBJECT_NAME: 'heart',
+            OBJECT_NAME: 'Heart',
             OBJECT_ID: 'heart'
         },
         Obj1: {

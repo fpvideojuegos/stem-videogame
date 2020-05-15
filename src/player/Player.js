@@ -20,6 +20,7 @@ class Player extends Phaser.GameObjects.Sprite {
         //boolean to avoid multiple overlap when collecting coins
         this.hitCoin = false;
         this.hitObj = false;
+        this.hitHeart = false;
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
@@ -284,8 +285,10 @@ class Player extends Phaser.GameObjects.Sprite {
         if (this.health>5){
             this.DB = store.get(GameConstants.DB.DBNAME);
             let currentExtraLifes = parseInt(this.DB.extralifes);
-            this.DB.extralifes = currentExtraLifes - 1;             
-            store.set(GameConstants.DB.DBNAME, this.DB);
+            if (this.DB.extralifes>0){
+                this.DB.extralifes = currentExtraLifes - 1;             
+                store.set(GameConstants.DB.DBNAME, this.DB);
+            }
         }
         this.health--;
         this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
@@ -313,13 +316,51 @@ class Player extends Phaser.GameObjects.Sprite {
      * Due to each time that happens, health will be higher than 1,
      * low-health warning music will always be forced to off
      */
-    recoverHealth(){
-        this.health++;
-        this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);
+    recoverHealth(group, object){
 
-        //Turn low-health warning off
-        this.alarmON = false;
-        this.healthAlarm.stop(); 
+        //Make disapear the heart with Tween efect
+        if (!this.hitHeart) {            
+
+            //update Player Health and TEXT
+            this.health++;
+            this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);      
+
+            //Turn music low-health warning off
+            if (this.alarmON){
+                this.alarmON = false;
+                this.healthAlarm.stop(); 
+            }
+            
+            
+            //extralife sound
+            //this.coinpickup.play();            
+
+            this.hitHeart = true;            
+
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.hitHeart = false;
+                }
+            });
+        }
+        
+
+        
     }
 
     enemyCollision() {

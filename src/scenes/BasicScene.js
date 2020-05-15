@@ -23,8 +23,8 @@ class BasicScene extends Phaser.Scene {
         this.map = null;
         this.bg = null;        
         this.player = null;
-        this.extraLife = [];
-        this.heartGroup;
+        this.extraLifes = [];
+        this.extraLifesGroup;
         this.bats = [];
         this.bees = [];
         this.wheels = [];
@@ -353,14 +353,13 @@ class BasicScene extends Phaser.Scene {
      * @param heartKey - heart object key.
      */
     createExtraLifes(keyHeart = GameConstants.Sprites.Heart.KEY){
-        this.extraLife = this.createEnemies(GameConstants.Sprites.Heart.OBJECT_NAME, GameConstants.Sprites.Heart.OBJECT_ID, keyHeart);
-        //this.heartGroup = new ExtraPoints(this.physics.world, this, [], this.extraLife);
+        this.extraLifes = this.createEnemies(GameConstants.Sprites.Heart.OBJECT_NAME, GameConstants.Sprites.Heart.OBJECT_ID, keyHeart);
+        this.extraLifesGroup = new ExtraPoints(this.physics.world, this, [], this.extraLifes);
         
-        this.physics.add.overlap(this.player, this.heartGroup, function (player, object) {
-            this.player.recoverHealth();
+        this.physics.add.overlap(this.player, this.extraLifesGroup, function (player, object) {
+            this.player.recoverHealth(this.extraPointsGroup, object);
         }, null, this);
-        console.log(this.extraLife);
-        console.warn(this.heartGroup)
+       
     }
 
     /**
