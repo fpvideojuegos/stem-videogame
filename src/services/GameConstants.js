@@ -66,6 +66,7 @@ const GameConstants = {
             BIRD_SINGING : 'BirdSinging',
             COINPICKUP: 'coinpickup',
             COLLECTABLEPICKUP: 'collectablePickup',
+            LIFEPICKUP: 'lifePickup',
             ALARM_ON : 'alarmOn', 
             ENEMY_DEATH: 'enemy-death'
         },

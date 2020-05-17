@@ -105,6 +105,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
         this.coinpickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COINPICKUP);
         this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
+        this.lifePickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.LIFEPICKUP);
         
     }
 
@@ -330,11 +331,9 @@ class Player extends Phaser.GameObjects.Sprite {
                 this.alarmON = false;
                 this.healthAlarm.stop(); 
             }
-            
-            
-            //extralife sound
-            //this.coinpickup.play();            
 
+            //Extralife sound
+            this.lifePickup.play();      
             this.hitHeart = true;            
 
             this.scene.tweens.add({

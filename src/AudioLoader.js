@@ -36,6 +36,7 @@ class AudioLoader extends Phaser.Scene {
 
         //BONUS LEVEL        
         this.load.audio("coinpickup", "sounds/coinpickup.mp3");
+        this.load.audio("lifePickup", "sounds/lifePickup.wav"); //https://opengameart.org/content/life-pickup-yo-frankie
         
         this.load.audio("fruitpickup", "sounds/fruitPickUp.ogg");
         this.load.audio("powerUp", "sounds/Powerup.ogg");
