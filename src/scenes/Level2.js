@@ -16,11 +16,12 @@ class Level2 extends BasicScene {
         //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
         //BG PARALLAX
         
-        this.bg2_sky= this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-sky').setOrigin(0).setScale(2);
+        /*this.bg2_sky= this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-sky').setOrigin(0).setScale(2);
         this.bg2_clouds = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-clouds').setOrigin(0).setScale(2);
         this.bg2_sea = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-sea').setOrigin(0).setScale(2);
-        this.bg2_far_grounds = this.add.image(0, 0, 'bg2-far-grounds').setOrigin(0).setScale(2);
+        this.bg2_far_grounds = this.add.image(0, 0, 'bg2-far-grounds').setOrigin(0).setScale(2);*/
 
+        this.cameras.main.backgroundColor.setTo(85, 180, 255); 
         //Finding enemies in json map
         //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        
@@ -30,11 +31,12 @@ class Level2 extends BasicScene {
         //HealthText
         this.createHealthText();
         //Tilemap
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET);
 
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         //Creacion de objetos invisibles que dañaran a daniela
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
@@ -79,6 +81,42 @@ class Level2 extends BasicScene {
             
         this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
         this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
+
+
+        //PRIVATE SCENE ELEMENTS
+        //Water overlap back to start
+        this.hitWater = false;
+        let water = this.findTransparentObjects('Water', 'Water', false);
+        this.physics.add.overlap(this.player, water, (player, waterLayer) => {    
+            if (!this.hitWater) {
+                player.loseHealth();
+                player.soundPlayerAuch.play();                           
+                this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
+                    if (d.type === GameConstants.Sprites.Player.KEY) {                
+                        let newX  =  d.x;
+                        let newY = d.y;
+
+                        this.cameras.main.fadeIn(1500);
+                        this.player.body.setVelocity(0, 0);
+                        this.player.x = newX;
+                        this.player.y = newY;
+                        if (this) {
+                            this.time.addEvent({
+                                delay: 600,
+                                callback: () => {                            
+                                    this.hitWater = false;
+                                },
+                                callbackScope: this
+                            });
+                        }
+
+                    }
+                });                        
+            }
+        });    
+            
+
+
         
     
         }//create
@@ -105,10 +143,10 @@ class Level2 extends BasicScene {
 
 
          //PARALLAX Move relative to cameras scroll move
-         this.bg2_sky.tilePositionX = this.cameras.main.scrollX * 0.01 ;
+         /*this.bg2_sky.tilePositionX = this.cameras.main.scrollX * 0.01 ;
          this.bg2_clouds.tilePositionX = this.cameras.main.scrollX * 0.03 ;
          this.bg2_sea.tilePositionX = this.cameras.main.scrollX * 0.06 ;
-
+*/
          
  
 

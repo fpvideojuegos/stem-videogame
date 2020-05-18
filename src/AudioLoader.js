@@ -55,7 +55,7 @@ class AudioLoader extends Phaser.Scene {
         this.load.audio("falling", "sounds/backgrounds/falling.mp3");
         
         this.load.audio("soundJump", "sounds/jump.mp3");
-        this.load.audio("danielaAuch", "sounds/ayyyyy.ogg");        
+        this.load.audio("playerAuch", "sounds/ayyyyy.ogg");        
         this.load.audio("levelUp", "sounds/backgrounds/LevelUp.ogg");
 
     } 

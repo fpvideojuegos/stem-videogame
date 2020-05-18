@@ -60,8 +60,8 @@ const GameConstants = {
         },
         SOUNDS: {
             CAVEBATS: 'CaveBats',
-            DANIELA_JUMP: 'soundJump',
-            DANIELA_AUCH: 'danielaAuch',
+            PLAYER_JUMP: 'soundJump',
+            PLAYER_AUCH: 'playerAuch',
             LEVELUP : 'levelUp',
             BIRD_SINGING : 'BirdSinging',
             COINPICKUP: 'coinpickup',
@@ -371,6 +371,7 @@ const GameConstants = {
     Layers: {
         WORLD: 'World',
         LANDSCAPE: 'Landscape',
+        CLOUDS: 'Clouds',
         LANDSCAPEFRONT: 'LandscapeFront',        
         SPIKES: 'Spikes',
         LIMITS: 'Limits'

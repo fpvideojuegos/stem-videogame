@@ -63,6 +63,7 @@ class Bootloader extends Phaser.Scene {
         //https://opengameart.org/content/2d-platformer-forest-pack
 
         //Level2
+        //https://opengameart.org/content/generic-platformer-tiles
         /*this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');*/
         //Level3

@@ -101,8 +101,8 @@ class Player extends Phaser.GameObjects.Sprite {
         });
 
         //Sounds create
-        this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_JUMP);
-        this.soundDanielaAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.DANIELA_AUCH);
+        this.soundJump = this.scene.sound.add(GameConstants.Sound.SOUNDS.PLAYER_JUMP);
+        this.soundPlayerAuch = this.scene.sound.add(GameConstants.Sound.SOUNDS.PLAYER_AUCH);
         this.coinpickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COINPICKUP);
         this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
         this.lifePickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.LIFEPICKUP);
@@ -367,7 +367,7 @@ class Player extends Phaser.GameObjects.Sprite {
             this.loseHealth();
             this.hitDelay = true;
             this.tint = 0xff9900;
-            this.soundDanielaAuch.play();
+            this.soundPlayerAuch.play();
             if (this.scene) {
                 this.scene.time.addEvent({
                     delay: 600,
