@@ -79,16 +79,15 @@ class Level1 extends BasicScene {
         }//create
     
         //**TODO Ladder climbing To BASICSCENE
-        climbArea(daniela, area){                 
-                daniela.x = area.x;
-                daniela.body.setAllowGravity(false);
-                daniela.isInLiana = true;
-                daniela.body.velocity.x = 0;
-                daniela.body.velocity.y = 0;            
+        climbArea(player, area){                 
+                player.x = area.x;
+                player.body.setAllowGravity(false);
+                player.isInLiana = true;
+                player.body.velocity.x = 0;
+                player.body.velocity.y = 0;            
         }
         
-        climbAreaOut(daniela, area){                
-            console.log("OUT");
+        climbAreaOut(player, area){                            
             this.player.body.setAllowGravity(true);
             this.player.isInLiana = false;
             

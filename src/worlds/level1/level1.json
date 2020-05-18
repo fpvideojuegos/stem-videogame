@@ -629,8 +629,8 @@
                  "type":"speed",
                  "visible":true,
                  "width":0,
-                 "x":3504,
-                 "y":282
+                 "x":3377.33333333333,
+                 "y":408.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -729,7 +729,7 @@
                  "type":"positionEnd",
                  "visible":true,
                  "width":0,
-                 "x":3622.5,
+                 "x":3607.83333333333,
                  "y":143
                 }],
          "opacity":1,
@@ -844,8 +844,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":33,
- "nextobjectid":159,
+ "nextlayerid":34,
+ "nextobjectid":160,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

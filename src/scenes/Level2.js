@@ -10,7 +10,7 @@ class Level2 extends BasicScene {
     }
 
     create() {
-        //Daniela Creation
+        //Player Creation
         this.createPlayer();
         //Background        
         //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
@@ -38,7 +38,7 @@ class Level2 extends BasicScene {
         //Creacion de elementos decorativos
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
-        //Creacion de objetos invisibles que dañaran a daniela
+        //Creacion de objetos invisibles que dañaran a player
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
         
@@ -122,16 +122,15 @@ class Level2 extends BasicScene {
         }//create
     
         //**TODO Ladder climbing To BASICSCENE
-        climbArea(daniela, area){                 
-                daniela.x = area.x;
-                daniela.body.setAllowGravity(false);
-                daniela.isInLiana = true;
-                daniela.body.velocity.x = 0;
-                daniela.body.velocity.y = 0;            
+        climbArea(player, area){                 
+                player.x = area.x;
+                player.body.setAllowGravity(false);
+                player.isInLiana = true;
+                player.body.velocity.x = 0;
+                player.body.velocity.y = 0;            
         }
         
-        climbAreaOut(daniela, area){                
-            console.log("OUT");
+        climbAreaOut(player, area){                            
             this.player.body.setAllowGravity(true);
             this.player.isInLiana = false;
             
