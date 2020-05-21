@@ -23,7 +23,7 @@ class Level2 extends BasicScene {
 
         this.cameras.main.backgroundColor.setTo(85, 180, 255); 
         //Finding enemies in json map
-        //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
         //ExtraPoints        
         this.createCoins();
         //Objects to Collect
@@ -39,7 +39,9 @@ class Level2 extends BasicScene {
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         //Creacion de objetos invisibles que dañaran a player
-        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+        //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+        //Hiden object for colling enemies
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
 
         
         this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );

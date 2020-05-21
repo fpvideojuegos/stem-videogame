@@ -148,6 +148,12 @@ const GameConstants = {
             OBJECT_NAME: 'Wheels',
             OBJECT_ID: 'Wheel'
         },
+        Crab: {
+            KEY: 'crab',
+            ID: 'crab',
+            OBJECT_NAME: 'Crabs',
+            OBJECT_ID: 'Crab'
+        },
         Donut: {
             KEY: 'donut',
             ID: 'donut',
@@ -267,8 +273,8 @@ const GameConstants = {
             RINOBEETLE: 'Rinobeetles'
         },
         Level2: {
-            BEES: 'Bees',
-            SNAILS: 'Snails'
+            BEES: 'Bees',            
+            CRABS: 'Crabs'
         },
         Level3 : {
             SODAS: 'Sodas',
@@ -313,6 +319,7 @@ const GameConstants = {
         MAGICFRUIT: 'magicfruit_shine',
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'desertball_move',
+        CRAB: 'crab_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
         KEY: 'key_shine',

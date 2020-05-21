@@ -203,6 +203,11 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.wheelsGroup = new FloorEnemy(this.physics.world, this, [], this.wheels, 100);
                     this.anims.play(GameConstants.Anims.WHEEL, this.wheels);
                     break;
+                case GameConstants.Sprites.Crab.OBJECT_NAME:
+                    this.crabs = this.createEnemies(GameConstants.Sprites.Crab.OBJECT_NAME, GameConstants.Sprites.Crab.OBJECT_ID, GameConstants.Sprites.Crab.KEY);
+                    this.enemyGroups.crabsGroup = new FloorEnemy(this.physics.world, this, [], this.crabs, 100);
+                    this.anims.play(GameConstants.Anims.CRAB, this.crabs);
+                    break;
                 case GameConstants.Sprites.Rinobeetle.OBJECT_NAME:                    
                     this.rinobeetles = this.createEnemies(GameConstants.Sprites.Rinobeetle.OBJECT_NAME, GameConstants.Sprites.Rinobeetle.OBJECT_ID, GameConstants.Sprites.Rinobeetle.KEY);
                     this.enemyGroups.rinobeetlesGroup = new FloorEnemy(this.physics.world, this, [], this.rinobeetles, 40);

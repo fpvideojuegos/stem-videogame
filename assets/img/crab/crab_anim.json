@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "crab_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "crab",
+                    "frame": "crab_0"
+                },
+                {
+                    "key": "crab",
+                    "frame": "crab_1"
+                },
+                {
+                    "key": "crab",
+                    "frame": "crab_2"
+                },
+                {
+                    "key": "crab",
+                    "frame": "crab_3"
+                }
+            ]
+        }
+    ]
+}
