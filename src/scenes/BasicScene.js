@@ -371,21 +371,27 @@ class BasicScene extends Phaser.Scene {
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Collectables.OBJECT_NAME} necesarios para terminar el nivel
      *
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
+     * 
+     * @param objectID - Name of the objectID to find
      */
-    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY) {        
+    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY, objectID = GameConstants.Sprites.Collectables.OBJECT_ID) {        
         
-        this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, GameConstants.Sprites.Collectables.OBJECT_ID, spriteKey);
+        this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, objectID, spriteKey);
         this.collectablesGroup = new ExtraPoints(this.physics.world, this, [], this.collectables);
-        this.player.collectablesCollected = this.collectables.length;
-        //this.anims.play(GameConstants.Anims.EXTRAPOINT, this.extraPoints);
+        this.player.collectablesCollected += this.collectables.length;
+        
         this.physics.add.overlap(this.player, this.collectablesGroup, function (player, object) {
             this.player.collectCollectables(this.collectablesGroup, object);
         }, null, this);
 
-        this.collectablesCounter = this.add.image(30, 45 , GameConstants.Sprites.Collectables.KEY)
-        .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
-        this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.player.collectablesCollected)
-        .setScrollFactor(0).setDepth(3);
+        if (!this.collectablesCounter){ 
+            this.collectablesCounter = this.add.image(30, 45 , GameConstants.Sprites.Collectables.KEY)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();        
+            this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.player.collectablesCollected)
+            .setScrollFactor(0).setDepth(3);
+        } else {
+            this.collectablesCounterText.setText(this.player.collectablesCollected);
+        }
         
         
     }

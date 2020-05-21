@@ -166,6 +166,9 @@ const GameConstants = {
         Key: {
             KEY: 'key'
         },
+        Treasure: {
+            KEY: 'treasure'
+        },
         ExtraPoint: {
             KEY: 'extrapoint',
             ID: 'extrapoint',
@@ -186,6 +189,12 @@ const GameConstants = {
         },
         Loupe:{
             KEY: 'loupe'
+        },
+        CristalBottle:{
+            KEY: 'cristalbottle'
+        },
+        EarStick:{
+            KEY: 'earstick'
         },
         PlayAgain: {
             KEY: 'playagain'
@@ -323,6 +332,7 @@ const GameConstants = {
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
         KEY: 'key_shine',
+        TREASURE: 'treasure_shine',
         EXTRAPOINT: 'extrapoint_rotate',
         CAVEMAN_CLOTHES: 'caveman_clothes_move',
         JOYSTICK: 'joystick_move',

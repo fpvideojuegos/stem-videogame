@@ -36,7 +36,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.extraPoints = 0;
         
         //Collected objects
-        this. collectablesCollected = 3;
+        this. collectablesCollected = 0;
 
         //Animaciones en funcion del Sprite Player               
         this.animIDLE = GameConstants.Players_Sprites[this.key].IDLE;

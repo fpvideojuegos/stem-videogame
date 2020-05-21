@@ -6,7 +6,7 @@ class Level2 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL2
         });
-        this.target = GameConstants.Levels.LEVEL3;
+        this.target = GameConstants.Levels.MENU;
     }
 
     create() {
@@ -43,6 +43,12 @@ class Level2 extends BasicScene {
         //Hiden object for colling enemies
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
 
+
+        //Objects to Collect and finnish level
+        this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
+        this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
+
+
         
         this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
         this.textDialog.setScrollFactor(0);
@@ -58,14 +64,14 @@ class Level2 extends BasicScene {
         this.addEventForMusic(this.ambiencebg,true);
         
 
-        //Create Bracelet
-        this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
+        //Create Treasure
+        this.keys = this.createEndLevelObject(GameConstants.Sprites.Treasure.KEY);
         this.physics.world.enable(this.keys);
         this.keylevel = this.keys[0];
         this.keylevel.setScale(1.25);
         this.keylevel.body.setAllowGravity(false);
         this.keylevel.setAlpha(0);
-        this.anims.play(GameConstants.Anims.KEY, this.keylevel);
+        this.anims.play(GameConstants.Anims.TREASURE, this.keylevel);
 
         //Collider for Bracelet
         this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {

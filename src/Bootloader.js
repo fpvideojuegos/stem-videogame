@@ -196,6 +196,10 @@ class Bootloader extends Phaser.Scene {
         //Bracelet
         this.load.atlas('key', 'img/key/key.png', 'img/key/key_atlas.json');
         this.load.animation('keyAnim', 'img/key/key_anim.json');
+        //Treasure
+        this.load.atlas('treasure', 'img/treasure/treasure.png', 'img/treasure/treasure_atlas.json');
+        this.load.animation('treasureAnim', 'img/treasure/treasure_anim.json');
+
         //Key
         this.load.atlas('bracelet', 'img/objects/bracelet/bracelet.png', 'img/objects/bracelet/bracelet_atlas.json');
         this.load.animation('braceletAnim', 'img/objects/bracelet/bracelet_anim.json');
@@ -246,6 +250,10 @@ class Bootloader extends Phaser.Scene {
 
         //Loupes
         this.load.image('loupe', "img/objects/loupe.png");
+        //EarSticks
+        this.load.image('earstick', "img/objects/earstick.png");
+        //Loupes
+        this.load.image('cristalbottle', "img/objects/cristalbottle.png");
 
         //Star
         this.load.image("star", "img/objects/star.png");
