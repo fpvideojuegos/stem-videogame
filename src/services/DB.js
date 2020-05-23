@@ -23,7 +23,8 @@ const DB = {
         obj4: false, 
         obj5: false
     },
-    currentPlayer: {
+    //Probably this could be deleted soon
+    /*currentPlayer: {
         player: {
             player2: {
                 name: 'nombre2',
@@ -34,8 +35,7 @@ const DB = {
                 key: 'player3'
             }
         }
-
-    },
+    },*/
     worlds: {
         Level1: {            
             completed: false,
