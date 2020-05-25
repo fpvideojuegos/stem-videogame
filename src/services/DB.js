@@ -16,12 +16,34 @@ const DB = {
     maxLevel: 'Level1', //Last Level achieved
     extralifes : 0,
     sound: true,
-    inventory : {
-        obj1: false,
-        obj2: false,
-        obj3: false,
-        obj4: false, 
-        obj5: false
+    inventory : {//Inventory objects //TO DO
+        desertRose: false,
+        shell: false,
+        //objectName: false,
+        //objectName: false, 
+        //objectName: false
+    },
+    superPowers : {//Superpowers inventory objects //TO DO
+        lowGravity : {
+            picked : false,
+            status : "OFF"
+        },
+        superSpeed : {
+            picked : false,
+            status : "OFF"
+        },
+        /*superPower3 : {
+            picked : false,
+            status : "OFF"
+        },
+        superPower4 : {
+            picked : false,
+            status : "OFF"
+        },
+        superPower5 : {
+            picked : false,
+            status : "OFF"
+        }*/
     },
     //Probably this could be deleted soon
     /*currentPlayer: {

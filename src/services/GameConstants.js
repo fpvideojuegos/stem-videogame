@@ -81,11 +81,29 @@ const GameConstants = {
             OBJECT_NAME: 'Heart',
             OBJECT_ID: 'heart'
         },
-        Obj1: {
-            KEY: 'obj1',
-            ID: 'obj1',
-            OBJECT_NAME: 'obj1',
-            OBJECT_ID: 'obj1'
+        desertRose: {
+            KEY: 'desertRose',
+            ID: 'desertRose',
+            OBJECT_NAME: 'desertRose',
+            OBJECT_ID: 'desertRose'
+        },
+        shell: {
+            KEY: 'shell',
+            ID: 'shell',
+            OBJECT_NAME: 'shell',
+            OBJECT_ID: 'shell'
+        },
+        lowGravity: {
+            KEY: 'lowGravity',
+            ID: 'lowGravity',
+            OBJECT_NAME: 'lowGravity',
+            OBJECT_ID: 'lowGravity'
+        },
+        superSpeed: {
+            KEY: 'superSpeed',
+            ID: 'superSpeed',
+            OBJECT_NAME: 'superSpeed',
+            OBJECT_ID: 'superSpeed'
         },
         Bats: {
             KEY: 'vulture',

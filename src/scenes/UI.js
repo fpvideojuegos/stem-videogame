@@ -70,6 +70,7 @@ class UI extends Phaser.Scene {
 
             this.DB = store.get(GameConstants.DB.DBNAME);
             
+            //Adjust for inventory and superPowers items // TODO
             if (this.DB.inventory.obj1){
                 this.obj1 = this.add.image(300, 200, "obj1").setScale(1).setOrigin(0);
             }

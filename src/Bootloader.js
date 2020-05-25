@@ -47,12 +47,19 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('puzzlepiece', 'img/objects/puzzlepiece/puzzlepiece.png', 'img/objects/puzzlepiece/puzzlepiece_atlas.json');
         this.load.animation('puzzlepieceAnim', 'img/objects/puzzlepiece/puzzlepiece_anim.json');
 
-        //Añadido 01/04/2020
-        //Objetos de inventario
-        this.load.image("obj1", "img/objects/obj1.png");
-        this.load.image("obj2", "img/objects/obj2.png");
-        this.load.image("obj3", "img/objects/obj3.png");
-        this.load.image("obj4", "img/objects/obj4.png");
+        //Inventory objects //TO DO
+        this.load.image("desertRose", "img/objects/rose.png");
+        this.load.image("shell", "img/objects/shell.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
+
+        //Superpowers objects //TO DO
+        this.load.image("lowGravity", "img/objects/feather.png");
+        this.load.image("superSpeed", "img/objects/superSpeed.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
+        //this.load.image("TODO", "img/objects/TODO.png");
 
         //Heart Object
         this.load.image("heart", "img/objects/heart.png");
