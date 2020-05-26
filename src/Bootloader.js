@@ -47,17 +47,17 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('puzzlepiece', 'img/objects/puzzlepiece/puzzlepiece.png', 'img/objects/puzzlepiece/puzzlepiece_atlas.json');
         this.load.animation('puzzlepieceAnim', 'img/objects/puzzlepiece/puzzlepiece_anim.json');
 
-        //Inventory objects //TO DO
+        //Inventory objects //TO DO finish
         this.load.image("desertRose", "img/objects/rose.png");
         this.load.image("shell", "img/objects/shell.png");
         //this.load.image("TODO", "img/objects/TODO.png");
         //this.load.image("TODO", "img/objects/TODO.png");
         //this.load.image("TODO", "img/objects/TODO.png");
 
-        //Superpowers objects //TO DO
+        //Superpowers objects //TO DO finish
         this.load.image("lowGravity", "img/objects/feather.png");
         this.load.image("superSpeed", "img/objects/superSpeed.png");
-        //this.load.image("TODO", "img/objects/TODO.png");
+        this.load.image("superJump", "img/objects/feather.png"); //Change asset when available TODO
         //this.load.image("TODO", "img/objects/TODO.png");
         //this.load.image("TODO", "img/objects/TODO.png");
 

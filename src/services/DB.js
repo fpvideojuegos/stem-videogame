@@ -32,11 +32,11 @@ const DB = {
             picked : false,
             status : "OFF"
         },
-        /*superPower3 : {
+        superJump : {
             picked : false,
             status : "OFF"
         },
-        superPower4 : {
+        /*superPower4 : {
             picked : false,
             status : "OFF"
         },

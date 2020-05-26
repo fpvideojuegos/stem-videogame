@@ -10,7 +10,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.key = config.key;
         // Health
         //Check for extra Lifes
-        this.DB = store.get(GameConstants.DB.DBNAME);        
+        this.DB = store.get(GameConstants.DB.DBNAME);
         let currentExtraLifes = parseInt(this.DB.extralifes);
         this.health = 5 + currentExtraLifes;
 
@@ -50,9 +50,14 @@ class Player extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
 
         this.bounce = 0.5;
-
         this.acceleration = 300;
-        this.body.maxVelocity.x = 150;
+        
+        if(this.DB.superPowers.superSpeed.status == "OFF"){ //If superSpeed is not "OFF" can run a lot more 
+            this.body.maxVelocity.x = 150;
+        } else { //Watch out! It 
+            this.body.maxVelocity.x = 450;
+        }
+
         this.body.maxVelocity.y = 500;
 
         //Para evitar que salga del mundo            
@@ -240,6 +245,7 @@ class Player extends Phaser.GameObjects.Sprite {
     }
 
     jump() {
+        this.DB = store.get(GameConstants.DB.DBNAME);
         if (!this.body.blocked.down && !this.jumping) {
             return void 0;
         }
@@ -247,7 +253,12 @@ class Player extends Phaser.GameObjects.Sprite {
             this.body.setVelocityY(-this.jumpForce);
         }
         if (!this.jumping) {
-            this.jumpTimer = 300;
+            if(this.DB.superPowers.superJump.status == "OFF"){ //If superJump is not "OFF" jumps LOT higher
+                this.jumpTimer = 300;
+            } else {
+                this.jumpTimer = 600;
+            }
+            
         }
         this.jumping = true;
 

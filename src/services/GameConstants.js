@@ -105,6 +105,12 @@ const GameConstants = {
             OBJECT_NAME: 'superSpeed',
             OBJECT_ID: 'superSpeed'
         },
+        superJump: {
+            KEY: 'superJump',
+            ID: 'superJump',
+            OBJECT_NAME: 'superJump',
+            OBJECT_ID: 'superJump'
+        },
         Bats: {
             KEY: 'vulture',
             ID: 'bat',
