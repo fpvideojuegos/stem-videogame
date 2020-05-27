@@ -251,6 +251,9 @@ class Player extends Phaser.GameObjects.Sprite {
         }
         if (this.body.velocity.y < 0 || this.body.blocked.down) {
             this.body.setVelocityY(-this.jumpForce);
+            if(this.DB.superPowers.lowGravity.status == "OFF"){ //If lowGravity is "ON" jumps are slower (low gravity effect)
+                this.body.setGravity(0, -400); //Higher values than 690 will disable gravity (Character never falls)
+            } //If lowGravity is "OFF", it uses standard gravity
         }
         if (!this.jumping) {
             if(this.DB.superPowers.superJump.status == "OFF"){ //If superJump is not "OFF" jumps LOT higher
