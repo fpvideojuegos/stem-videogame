@@ -58,7 +58,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("lowGravity", "img/objects/feather.png");
         this.load.image("superSpeed", "img/objects/superSpeed.png");
         this.load.image("superJump", "img/objects/feather.png"); //Change asset when available TODO
-        //this.load.image("TODO", "img/objects/TODO.png");
+        this.load.image("invencibility", "img/objects/feather.png"); //Change asset when available TODO
         //this.load.image("TODO", "img/objects/TODO.png");
 
         //Heart Object

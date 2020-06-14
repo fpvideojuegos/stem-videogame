@@ -372,12 +372,10 @@ class Player extends Phaser.GameObjects.Sprite {
             });
         }
         
-
-        
     }
 
-    enemyCollision() {
-        if (!this.hitDelay) {
+    enemyCollision() { //If "invincibility" is ON, no function code executed (the player doesn't recive damage and no damage animation happens)
+        if ((!this.hitDelay) && (this.DB.superPowers.invencibility.status == "OFF")) { 
             this.loseHealth();
             this.hitDelay = true;
             this.tint = 0xff9900;

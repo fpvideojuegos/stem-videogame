@@ -36,10 +36,10 @@ const DB = {
             picked : false,
             status : "OFF"
         },
-        /*superPower4 : {
+        invencibility : {
             picked : false,
             status : "OFF"
-        },
+        }/*,
         superPower5 : {
             picked : false,
             status : "OFF"
