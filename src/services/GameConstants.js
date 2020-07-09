@@ -220,6 +220,12 @@ const GameConstants = {
             OBJECT_NAME: 'Collectables',
             OBJECT_ID: 'collectable'
         },
+        SuperPowers: {
+            KEY: 'superPower',
+            ID: 'superPower',
+            OBJECT_NAME: 'superPowers',
+            OBJECT_ID: 'superPower'
+        },
         Star:{
             KEY: 'star'
         },

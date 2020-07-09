@@ -374,13 +374,12 @@ class BasicScene extends Phaser.Scene {
      * @param {*} spriteKey 
      * @param {*} objectID 
      */
-    createSuperPowers(superPowerKey, superPowerObjectName, superPowerSprite){
-        this.superPower = this.createEnemies(superPowerObjectName, superPowerSprite, superPowerKey);
-        //this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPower);
+    createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
+        this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
+        this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
+
+        // Lógica de recolección
         
-        /*this.physics.add.overlap(this.player, this.superPowersGroup, function (player, object) {
-            //No functional code yet
-        }, null, this);*/
     }
 
     /**

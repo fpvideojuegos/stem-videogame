@@ -23,7 +23,7 @@ class Level1 extends BasicScene {
         //create Inventory Object
         //this.createInventory(GameConstants.Sprites.Speed.KEY);
         //Create superPower
-        this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY, GameConstants.Sprites.superSpeed.OBJECT_NAME, GameConstants.Sprites.superSpeed.OBJECT_ID); //Fix it TODO
+        this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY); //Fix it TODO
 
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);
