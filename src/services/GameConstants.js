@@ -117,6 +117,12 @@ const GameConstants = {
             OBJECT_NAME: 'invencibility',
             OBJECT_ID: 'invencibility'
         },
+        //fifthsuperpower: { //Fifth superpower TODO
+        //    KEY: 'fifthsuperpower',
+        //    ID: 'fifthsuperpower',
+        //    OBJECT_NAME: 'fifthsuperpower',
+        //    OBJECT_ID: 'fifthsuperpower'
+        //},
         Bats: {
             KEY: 'vulture',
             ID: 'bat',
@@ -392,9 +398,9 @@ const GameConstants = {
     UI:{
         VOLUMEON:'volumeOn',
         VOLUMEOFF:'volumeOff',
-        //Añadido 01/04/2020
         INVENTORYBTN: 'inventoryBtn',
-        INVENTORY: 'inventory'
+        INVENTORY: 'inventory',
+        SUPERPOWERSBOX: 'superPowersBox'
     },
     Fonts:{
         PIXEL: 'pixel'  

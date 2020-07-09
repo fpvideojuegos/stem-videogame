@@ -54,7 +54,7 @@ class Player extends Phaser.GameObjects.Sprite {
         
         if(this.DB.superPowers.superSpeed.status == "OFF"){ //If superSpeed is not "OFF" can run a lot more 
             this.body.maxVelocity.x = 150;
-        } else { //Watch out! It 
+        } else { //Watch out! It runs a LOT more!!
             this.body.maxVelocity.x = 450;
         }
 
@@ -251,14 +251,14 @@ class Player extends Phaser.GameObjects.Sprite {
         }
         if (this.body.velocity.y < 0 || this.body.blocked.down) {
             this.body.setVelocityY(-this.jumpForce);
-            if(this.DB.superPowers.lowGravity.status == "OFF"){ //If lowGravity is "ON" jumps are slower (low gravity effect)
-                this.body.setGravity(0, -400); //Higher values than 690 will disable gravity (Character never falls)
-            } //If lowGravity is "OFF", it uses standard gravity
+            if(this.DB.superPowers.lowGravity.status == "ON"){ //If lowGravity is "ON" jumps are slower (low gravity effect)
+                this.body.setGravity(0, -400); //Lower values than 690 will disable gravity (Player never falls)
+            } //If lowGravity is "OFF", it uses standard gravity. There is a "default" value
         }
         if (!this.jumping) {
-            if(this.DB.superPowers.superJump.status == "OFF"){ //If superJump is not "OFF" jumps LOT higher
+            if(this.DB.superPowers.superJump.status == "OFF"){
                 this.jumpTimer = 300;
-            } else {
+            } else { //If superJump is "ON" jumps LOT higher
                 this.jumpTimer = 600;
             }
             

@@ -57,8 +57,8 @@ class Bootloader extends Phaser.Scene {
         //Superpowers objects //TO DO finish
         this.load.image("lowGravity", "img/objects/feather.png");
         this.load.image("superSpeed", "img/objects/superSpeed.png");
-        this.load.image("superJump", "img/objects/feather.png"); //Change asset when available TODO
-        this.load.image("invencibility", "img/objects/feather.png"); //Change asset when available TODO
+        this.load.image("superJump", "img/objects/superJump.png"); 
+        this.load.image("invencibility", "img/objects/invencibility.png");
         //this.load.image("TODO", "img/objects/TODO.png");
 
         //Heart Object
@@ -300,9 +300,9 @@ class Bootloader extends Phaser.Scene {
         //UI
         this.load.image('volumeOn', 'img/ui/volumeON.png');
         this.load.image('volumeOff', 'img/ui/volumeOFF.png');
-        //Añadido 01/04/2020
         this.load.image('inventoryBtn', 'img/objects/InventoryBtn.png');
         this.load.image('inventory', 'img/objects/inventory.png');
+        this.load.image('superPowersBox', 'img/objects/superPowersBox.png');
 
         //Collectable icon
         this.load.image('collectable','img/objects/basket.png');

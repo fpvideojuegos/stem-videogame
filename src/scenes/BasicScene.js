@@ -25,6 +25,8 @@ class BasicScene extends Phaser.Scene {
         this.player = null;
         this.extraLifes = [];
         this.extraLifesGroup;
+        this.superPowers = [];
+        this.superPowersGroup;
         this.bats = [];
         this.bees = [];
         this.wheels = [];
@@ -368,6 +370,20 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
+     * For creating superpowers on level
+     * @param {*} spriteKey 
+     * @param {*} objectID 
+     */
+    createSuperPowers(superPowerKey, superPowerObjectName, superPowerSprite){
+        this.superPower = this.createEnemies(superPowerObjectName, superPowerSprite, superPowerKey);
+        //this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPower);
+        
+        /*this.physics.add.overlap(this.player, this.superPowersGroup, function (player, object) {
+            //No functional code yet
+        }, null, this);*/
+    }
+
+    /**
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Collectables.OBJECT_NAME} necesarios para terminar el nivel
      *
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
@@ -392,7 +408,6 @@ class BasicScene extends Phaser.Scene {
         } else {
             this.collectablesCounterText.setText(this.player.collectablesCollected);
         }
-        
         
     }
 

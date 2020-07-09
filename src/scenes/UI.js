@@ -44,13 +44,15 @@ class UI extends Phaser.Scene {
             this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
         });        
 
-        //Añadido 01/04/2020
+        //White border box for superpowers
+        this.superPowersBox = this.add.image(this.width/4, 0 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
+
         //Backpack for inventary
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
         this.inventoryBtn.setInteractive();
 
-        //Añadido 01/04/2020
+
         //Ventana de inventario
         this.inventoryBtn.on('pointerdown', () => {
             //hide UI buttons

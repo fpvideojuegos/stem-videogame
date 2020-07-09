@@ -617,6 +617,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":34,
+         "name":"superPowers",
+         "objects":[
+                {
+                 "height":0,
+                 "id":160,
+                 "name":"superPower",
+                 "point":true,
+                 "rotation":0,
+                 "type":"superPower",
+                 "visible":true,
+                 "width":0,
+                 "x":227.272727272727,
+                 "y":187.878787878788
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":32,
          "name":"Inventory",
          "objects":[
@@ -844,8 +867,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":34,
- "nextobjectid":160,
+ "nextlayerid":35,
+ "nextobjectid":161,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",
