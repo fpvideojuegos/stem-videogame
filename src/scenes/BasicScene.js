@@ -379,6 +379,9 @@ class BasicScene extends Phaser.Scene {
         this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
 
         // Lógica de recolección
+        //overlap (player, superPowerGroup)
+        //que escriba en BD
+        //
         
     }
 
