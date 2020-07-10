@@ -381,7 +381,13 @@ class BasicScene extends Phaser.Scene {
         // Lógica de recolección
         //overlap (player, superPowerGroup)
         //que escriba en BD
-        //
+
+        //El overlap se activa/realiza al tocar cualquier objeto de "superPowerGroup"
+        //Pero la función de dentro se encarga de settear como "picked" el superpoder correcto
+        this.physics.add.overlap(this.player, this.superPowerGroup, function (player, object) {
+            //console.log(superPowerKey);
+            this.player.getSuperPower(this.extraPointsGroup, object, superPowerKey);
+        }, null, this);
         
     }
 
@@ -697,7 +703,6 @@ class BasicScene extends Phaser.Scene {
 
         //Just In case health alarm is playing
         this.player.healthAlarm.stop();   
-
 
     }
 

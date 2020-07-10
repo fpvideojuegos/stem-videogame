@@ -21,6 +21,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.hitCoin = false;
         this.hitObj = false;
         this.hitHeart = false;
+        this.hitSuperPower = false;
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
@@ -371,7 +372,42 @@ class Player extends Phaser.GameObjects.Sprite {
                 }
             });
         }
-        
+    }
+
+    getSuperPower(group, object, superPowerKey) {
+        //Make disapear the SuperPower with Tween efect
+        if (!this.hitSuperPower) {
+
+            //update DB data
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB.superPowers[superPowerKey].picked = true;
+            store.set(GameConstants.DB.DBNAME, this.DB);
+
+            //SuperPower sound
+            //this.superPowerPickup.play();      
+            this.hitSuperPower = true;
+
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.hitSuperPower = false;
+                }
+            });
+        }
     }
 
     enemyCollision() { //If "invincibility" is ON, no function code executed (the player doesn't recive damage and no damage animation happens)
