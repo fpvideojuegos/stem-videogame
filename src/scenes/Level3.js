@@ -1,183 +1,185 @@
 import BasicScene from "./BasicScene.js";
 import GameConstants from "../services/GameConstants.js";
-import Invisible from "../gameObjects/Invisible.js";
 
-/**
- * Level 3 . To open the next door with the Mamut
- * you need to collect 10 fruits
- */
 class Level3 extends BasicScene {
     constructor() {
         super({
             key: GameConstants.Levels.LEVEL3
         });
-        this.target = GameConstants.Levels.LEVEL4;
+        this.target = GameConstants.Levels.MENU;
     }
 
     create() {
-      
-        //Daniela Creation
-        this.createDaniela(GameConstants.Sprites.DanielaTroglo, false);
-        //Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL3, defaultStatus, defaultStatus, {x: 1, y: 1});
+        //Player Creation
+        this.createPlayer();
+        //Background        
+        //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
+        //BG PARALLAX        
+        this.bg3_back = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_back').setOrigin(0);
+        this.bg3_middle = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_middle').setOrigin(0);
+        
+
+        this.cameras.main.backgroundColor.setTo(85, 180, 255); 
         //Finding enemies in json map
-        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level3);
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
         //ExtraPoints        
         this.createCoins();
+        //Objects to Collect
+        //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
         //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.GRASS_TILES);
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.GRASS_TILES, GameConstants.Layers.LANDSCAPE, false);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
+        this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET);
+        
+        //To make collidable only when comes from up the tile 1 and 2 from this Layer
+        let x, y, tile;
+        for (x = 0; x < this.platformlayer.width; x++) {
+            for (y = 1; y < this.platformlayer.height; y++) {                
+            tile = this.platformlayer.getTileAt(x, y);                
+            if (tile !== null) {                                
+                tile.setCollision(false, false, true, false); //right,left,up,down                            
+                }
+            }
+        }
 
         //PRIVATE SCENE ELEMENTS
-        this.findTransparentObjects(GameConstants.Layers.SPIKES,GameConstants.Sprites.Spike.KEY, true);
+        //Creacion de elementos decorativos
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPE, false);        
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
+        //Creacion de objetos invisibles que dañaran a player
+        //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+        //Hiden object for colling enemies
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
+
+
+        //Objects to Collect and finnish level
+        this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
+        this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
+
+
         
-        //FRUITS COLLECTED
-        this.fruitsCollected = 10;
-        this.fruitDelay = false;
-
-
-        //MUSIC and AUDIOS
-        this.audioLevel3_DANIELA_WhatAProblem_07 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.Level3.DANIELA_QUESTION);
-        this.addEventForMusic(this.audioLevel3_DANIELA_WhatAProblem_07);
-        this.audioLevel3_LOLO_YouHaveToGiveMammoth_08 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.Level3.LOLO_ANSWER);
-        this.addEventForMusic(this.audioLevel3_LOLO_YouHaveToGiveMammoth_08,false,4000);
-
-        //BSO
-        this.music = this.sound.add(GameConstants.Sound.Level3.BSO, {volume: 0.4});
-        this.addEventForMusic(this.music, true);
-
-        //We did it
-        this.soundLOLO_Bien_lo_hemos_conseguido = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVELALL.WEDIDIT);
-        
-        //FX Soundos
-        this.fruitPickUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.FRUITPICKUP);
-        this.powerUpSound = this.sound.add(GameConstants.Sound.BONUSLEVEL.POWERUP);         
-                
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 45, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL3.WHATAPROBLEM') + "\n\n" + this.TG.tr('LEVEL3.GIVEMAMMOTH'),10 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
-       
-
-
-       
-
-
-
-       
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(30, 570, 'pixel', GameConstants.Texts.BUSCAR_ROPA_TROGLODITA.toUpperCase(), 16);
+        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
         this.textDialog.setScrollFactor(0);
         this.textDialog.setDepth(3);
 
-        //Text Fruits        
-        this.textFruits = this.add.dynamicBitmapText(30, 60, 'pixel', this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
-        this.textFruits.setScrollFactor(0);
-        this.textFruits.setDepth(3);
 
-        //MAMUT
-        this.mamuts = this.createEndLevelObject(GameConstants.Sprites.Mamut.KEY);
-        this.physics.world.enable(this.mamuts);
-        this.mamut = this.mamuts[0];
-        this.mamut.setScale(0.55);
-        this.mamut.body.setSize(200, 20);
-        this.mamut.body.setImmovable(true);
-        this.mamut.body.setAllowGravity(false);
-      //  console.log(this.mamut);
-        this.anims.play(GameConstants.Anims.MAMUT.SLEEP, this.mamut);
 
-        //FRUITS
-        //TODO: Modify with new Classes
-        //Avocado, Straberry, Cherry, Banana, Watermelon
-        this.fruitsArray = ["avocado.png", "banana.png", "cherry.png", "cherry.png", "watermelon.png"];
+        //Sounds        
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
+        this.addEventForMusic(this.musicbg,true);
+        //background ambiance effect
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.addEventForMusic(this.ambiencebg,true);
+        
 
-        //this.fruit = this.add.sprite(100,200,"fruits",this.fruits[2]);
-        this.fruits = this.map.createFromObjects('Fruits', 'fruit', {key: 'fruits'});
-        this.fruitsGroup = this.physics.add.group();
-        this.fruits.map((sprite) => {
-            let newsprite = this.add.sprite(sprite.x, sprite.y, "fruits", this.fruitsArray[Phaser.Math.Between(0, 4)]);
-            sprite.destroy();
-            this.fruitsGroup.add(newsprite);
+        //Create Treasure
+        this.keys = this.createEndLevelObject(GameConstants.Sprites.Treasure.KEY);
+        this.physics.world.enable(this.keys);
+        this.keylevel = this.keys[0];
+        this.keylevel.setScale(1.25);
+        this.keylevel.body.setAllowGravity(false);
+        this.keylevel.setAlpha(0);
+        this.anims.play(GameConstants.Anims.TREASURE, this.keylevel);
+
+        //Collider for Bracelet
+        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
+            this.musicbg.stop();
+            this.ambiencebg.stop();
+            this.keylevel.destroy();            
+            this.player.nextScene();
         });
 
-        this.fruitsGroup.children.iterate((fruit) => {
-            fruit.body.setAllowGravity(false);
-            fruit.setDepth(3);
-        });
+        this.playercollide.active=false;
+      
+        this.climb = this.findTransparentObjects('Climb', 'Climb');        
+        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
+        
+            
+        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
+        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
 
-        this.physics.add.overlap(this.daniela, this.fruitsGroup, function (player, object) {
 
-            if (!this.fruitDelay) {
-                if (this.fruitsCollected > 0) this.fruitsCollected--;                
-                this.fruitDelay = true;
+        //PRIVATE SCENE ELEMENTS
+        //Water overlap back to start
+        this.hitWater = false;
+        let water = this.findTransparentObjects('Water', 'Water', false);
+        this.physics.add.overlap(this.player, water, (player, waterLayer) => {    
+            if (!this.hitWater) {
+                player.loseHealth();
+                player.soundPlayerAuch.play();                           
+                this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
+                    if (d.type === GameConstants.Sprites.Player.KEY) {                
+                        let newX  =  d.x;
+                        let newY = d.y;
 
-                this.textFruits.setText(this.TG.tr('LEVEL3.FRUITS') + " " + this.fruitsCollected);
+                        this.cameras.main.fadeIn(1500);
+                        this.player.body.setVelocity(0, 0);
+                        this.player.x = newX;
+                        this.player.y = newY;
+                        if (this) {
+                            this.time.addEvent({
+                                delay: 600,
+                                callback: () => {                            
+                                    this.hitWater = false;
+                                },
+                                callbackScope: this
+                            });
+                        }
 
-                this.tweens.add({
-                    targets: object,
-                    y: object.y - 100,
-                    alpha: 0,
-                    duration: 800,
-                    ease: "Cubic.easeOut",
-                    callbackScope: this,
-                    onComplete: function () {
-                        this.fruitsGroup.killAndHide(object);
-                        this.fruitsGroup.remove(object);
-
-                        console.log(this.fruitsCollected);
                     }
-                });
-
-                if (this.fruitsCollected === 0) {
-                    this.powerUpSound.play();
-                    this.anims.play(GameConstants.Anims.MAMUT.HAPPY, this.mamut);
-                }else{
-                    this.fruitPickUpSound.play();   
-                }
-
-                this.time.addEvent({
-                    delay: 600,
-                    callback: () => {
-                        this.fruitDelay = false;
-                    },
-                    callbackScope: this
-                });
+                });                        
             }
+        });    
+            
 
-        }, null, this);
+
+        
+    
+        }//create
+    
+        //**TODO Ladder climbing To BASICSCENE
+        climbArea(player, area){                 
+                player.x = area.x;
+                player.body.setAllowGravity(false);
+                player.isInLiana = true;
+                player.body.velocity.x = 0;
+                player.body.velocity.y = 0;            
+        }
+        
+        climbAreaOut(player, area){                            
+            this.player.body.setAllowGravity(true);
+            this.player.isInLiana = false;
+            
+        }
 
 
-        this.physics.add.overlap(this.daniela, this.mamut, () => {
-            if (this.fruitsCollected === 0) {
-                this.fruitsCollected = -1;
-                this.music.stop();
-                this.soundLOLO_Bien_lo_hemos_conseguido.play();
-                console.log('Daniela encuentra pulsera magica');
-                this.daniela.nextScene();
-            }
-        });
 
-    }
+    update(time, delta) {        
 
-    update(time, delta) {
-        this.daniela.update(time, delta);
-        Object.keys(this.enemyGroups).forEach(enemy => {
+
+         //PARALLAX Move relative to cameras scroll move
+         this.bg3_back.tilePositionX = this.cameras.main.scrollX * 0.01 ;
+         this.bg3_middle.tilePositionX = this.cameras.main.scrollX * 0.03 ;
+         
+ 
+
+        this.player.update(time, delta);
+         Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
-    }
 
-    col(){
-        console.log("colision")
-    }
-    checkOverlap(daniela, layer) {
+        if (this.player.collectablesCollected === 0){
+            this.playercollide.active=true;
+            this.keylevel.setAlpha(1);
+        }
+        
 
-       
+        
 
-        return Phaser.Rectangle.intersects(boundsA, boundsB);
 
-    }
+
+    }//update
 }
 
 export default Level3;

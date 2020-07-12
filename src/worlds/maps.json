@@ -21,6 +21,16 @@
                 "type": "image",
                 "key": "level2tileset",
                 "url": "level2/level2tileset.png"
+            },
+            {
+                "type": "tilemapTiledJSON",
+                "key": "Level3",
+                "url": "level3/level3.json"
+            },
+            {
+                "type": "image",
+                "key": "level3tileset",
+                "url": "level3/level3tileset.png"
             }
         ]
     }

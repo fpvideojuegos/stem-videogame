@@ -74,8 +74,8 @@ class Bootloader extends Phaser.Scene {
         /*this.load.tilemapTiledJSON('Level2', '../src/worlds/level2/forestmap.json');
         this.load.image('forestPack_32x32', '../src/worlds/level2/forestPack_32x32.png');*/
         //Level3
-        this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
-        this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
+        //this.load.tilemapTiledJSON('Level3', '../src/worlds/level3/grasstiles.json');
+        //this.load.image('grasstiles', '../src/worlds/level3/grasstiles.png');
 
         //Level4
         this.load.tilemapTiledJSON('Level4', '../src/worlds/level4/level4.json');
@@ -116,7 +116,9 @@ class Bootloader extends Phaser.Scene {
         this.load.image("bg2-sea", 'img/backgrounds/parallax_level2/sea.png');
         this.load.image("bg2-sky", 'img/backgrounds/parallax_level2/sky.png');
 
-        
+        //PARALLAX BG Level 3
+        this.load.image('bg3_back', 'img/backgrounds/parallax_level3/back.png');
+        this.load.image("bg3_middle", 'img/backgrounds/parallax_level3/middle.png');
 
         //https://www.gameart2d.com/free-platformer-game-tileset.html
         //Level 3 
