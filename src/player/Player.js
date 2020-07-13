@@ -407,7 +407,7 @@ class Player extends Phaser.GameObjects.Sprite {
             this.scene.time.addEvent({
                 delay: 1000,
                 callback: () => {
-                    this.hitSuperPower = false;
+                    this.hitSuperPower = false;                    
                 }
             });
         }

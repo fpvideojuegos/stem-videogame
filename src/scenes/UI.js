@@ -49,6 +49,7 @@ class UI extends Phaser.Scene {
 
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
+        
 
         this.superSpeedBtn = this.add.image(this.width/2 + 45, 8 , GameConstants.UI.INVENTORYBTN)
          .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
@@ -76,6 +77,8 @@ class UI extends Phaser.Scene {
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
         this.inventoryBtn.setInteractive();
+
+
 
 
         //Ventana de inventario
@@ -227,7 +230,6 @@ class UI extends Phaser.Scene {
             .setScrollFactor(0)
             .setDepth(5);
     }
-
 
 }
 

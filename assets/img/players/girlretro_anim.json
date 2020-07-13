@@ -1,0 +1,68 @@
+{
+    "anims": [
+        {
+            "key": "girlretro_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 4,
+            "frames": [
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_0"
+                },
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_1"
+                }
+            ]
+        },
+        {
+            "key": "girlretro_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 8,
+            "frames": [
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_0"
+                },
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_1"
+                }
+            ]
+        },
+        {
+            "key": "girlretro_down",
+            "type": "frames",
+            "repeat": 0,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_2"
+                }
+            ]
+        },
+        {
+            "key": "girlretro_climb",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_3"
+                },
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_4"
+                },
+                {
+                    "key": "girlretro",
+                    "frame": "girlretro_5"
+                }
+            ]
+        }
+    ]
+}

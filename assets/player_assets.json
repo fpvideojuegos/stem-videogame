@@ -4,17 +4,6 @@
         "files": [
             {
                 "type": "atlas",
-                "key": "player2",
-                "textureURL": "players/player2.png",
-                "atlasURL": "players/player2_atlas.json"
-            },
-            {
-                "type": "animation",
-                "key": "player2Data",
-                "url": "players/player2_anim.json"
-            },
-            {
-                "type": "atlas",
                 "key": "player3",
                 "textureURL": "players/player3.png",
                 "atlasURL": "players/player3_atlas.json"
@@ -56,6 +45,17 @@
                 "type": "animation",
                 "key": "girlplayerData",
                 "url": "players/girlplayer_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "girlretro",
+                "textureURL": "players/girlretro.png",
+                "atlasURL": "players/girlretro_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "girlretroData",
+                "url": "players/girlretro_anim.json"
             }
             
         ]

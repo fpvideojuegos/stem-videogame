@@ -449,18 +449,10 @@ const GameConstants = {
         FLAG_FR: 'fr_flag',
         FLAG_RU: 'ru_flag'
     }, 
-    Players_Sprites:{
-        player2:{
-            key: 'player2',
-            name: 'Nombre2',
-            IDLE: 'player2_idle',
-            WALK: 'player2_walk',
-            DOWN: 'player2_down',
-            CLIMB: 'player2_climb'
-        },
+    Players_Sprites:{        
         player3:{
             key: 'player3',
-            name: 'Nombre3',
+            name: 'Boy',
             IDLE: 'player3_idle',
             WALK: 'player3_walk',
             DOWN: 'player3_down',
@@ -489,6 +481,14 @@ const GameConstants = {
             WALK: 'girlplayer_walk',
             DOWN: 'girlplayer_down',
             CLIMB: 'girlplayer_climb'
+        },
+        girlretro:{
+            key: 'girlretro',
+            name: 'Amstrad Girl',
+            IDLE: 'girlretro_idle',
+            WALK: 'girlretro_walk',
+            DOWN: 'girlretro_down',
+            CLIMB: 'girlretro_climb'
         }
     }
 
