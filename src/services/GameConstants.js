@@ -440,7 +440,8 @@ const GameConstants = {
         GAME_OVER: 'GameOver',
         LEVEL_FINISHED: 'Win',
         MENU: 'Menu',
-        PLAYAGAIN: 'PlayAgain'
+        PLAYAGAIN: 'PlayAgain',
+        GETSUPERSPEED: 'GetSuperSpeed'
     },
     Settings: {
         FLAG_ES: 'es_flag',

@@ -95,6 +95,11 @@ class BasicScene extends Phaser.Scene {
                     this.showScores();
                 });
 
+                //Event on Player and emit SuperPower BasicSCene --> UI
+                this.player.on(GameConstants.Events.GETSUPERSPEED, () => {
+                    this.registry.events.emit(GameConstants.Events.GETSUPERSPEED);
+                });
+
                 //Evento de Vuelve al Menu    
                 this.registry.events.on(GameConstants.Events.MENU, () => {
                     this.changeScene(this.player.scene, GameConstants.Levels.MENU, 0);

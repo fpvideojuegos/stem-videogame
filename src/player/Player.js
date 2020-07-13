@@ -383,6 +383,9 @@ class Player extends Phaser.GameObjects.Sprite {
             this.DB.superPowers[superPowerKey].picked = true;
             store.set(GameConstants.DB.DBNAME, this.DB);
 
+            //Emit event  Player --> BasicScene        
+            this.emit(GameConstants.Events.GETSUPERSPEED);
+
             //SuperPower sound
             //this.superPowerPickup.play();      
             this.hitSuperPower = true;

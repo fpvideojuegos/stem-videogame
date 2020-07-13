@@ -20,6 +20,9 @@ class UI extends Phaser.Scene {
     }
 
     create() {
+
+
+
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
@@ -46,6 +49,18 @@ class UI extends Phaser.Scene {
 
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
+
+        //Get Event from Basic Scene
+        this.registry.events.on(GameConstants.Events.GETSUPERSPEED, () => {
+            console.log("UI SuperPower");
+            //method crea la imagen SpeedImage en la casilla
+
+        });
+    
+
+        //1. Check DB for each superPower        
+        //Open DB
+        //IF superSpeed = addSuperSpeedImage 
 
         //Backpack for inventary
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
