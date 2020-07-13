@@ -50,13 +50,23 @@ class UI extends Phaser.Scene {
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
 
+        this.superSpeedBtn = this.add.image(this.width/2 + 45, 8 , GameConstants.UI.INVENTORYBTN)
+         .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+
         //Get Event from Basic Scene
         this.registry.events.on(GameConstants.Events.GETSUPERSPEED, () => {
             console.log("UI SuperPower");
-            //method crea la imagen SpeedImage en la casilla
+            this.createSuperPeedImage();
 
         });
     
+        this.superSpeedBtn.on('pointerdown', () => {
+            //if BD OFF 
+            this.superSpeedBtn.alpha = 1;
+            //Cambiar el poder para que tenga efecto
+            //if BD ON
+            //this.superSpeedBtn.alpha = 0.5;
+        });
 
         //1. Check DB for each superPower        
         //Open DB
@@ -124,6 +134,13 @@ class UI extends Phaser.Scene {
 
   
     }
+
+    createSuperPeedImage(){
+        console.log("alpha");
+        this.superSpeedBtn.setAlpha(0.50);
+        this.superSpeedBtn.setInteractive();
+    }
+
 
     closeInventory(mask, inventoryBack){
         //show ui buttons
