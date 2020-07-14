@@ -2,6 +2,7 @@ import Player from "../player/Player.js";
 import GameConstants from "../services/GameConstants.js";
 import FlyingEnemy from "../gameObjects/FlyingEnemy.js";
 import FloorEnemy from "../gameObjects/FloorEnemy.js";
+import StaticEnemy from "../gameObjects/StaticEnemy.js";
 import ExtraPoints from "../gameObjects/ExtraPoints.js";
 import Invisible from "../gameObjects/Invisible.js";
 
@@ -275,6 +276,11 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.dinobirds = new FlyingEnemy(this.physics.world, this, [], this.dinobirds);
                     this.anims.play(GameConstants.Anims.DINOBIRD, this.dinobirds);
                     break;
+                case GameConstants.Sprites.Candle.OBJECT_NAME:
+                    this.candles = this.createEnemies(GameConstants.Sprites.Candle.OBJECT_NAME, GameConstants.Sprites.Candle.OBJECT_ID, GameConstants.Sprites.Candle.KEY);
+                    this.enemyGroups.dinowatersGroup = new StaticEnemy(this.physics.world, this, [], this.candles);
+                    this.anims.play(GameConstants.Anims.CANDLE, this.candles);
+                    break;    
                 default:
                     console.warn("La capa de enemigos " + enemyLayerLevel[enemy] + " no se en cuentra entre los disponibles. Añádela al switch para poder usarla.");
             }

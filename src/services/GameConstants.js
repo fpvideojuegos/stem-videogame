@@ -199,6 +199,12 @@ const GameConstants = {
         Bracelet: {
             KEY: 'bracelet'        
         },
+        Candle: {
+            KEY: 'candle',
+            ID: 'candle',
+            OBJECT_NAME: 'Candles',
+            OBJECT_ID: 'Candle'        
+        },
         Key: {
             KEY: 'key'
         },
@@ -330,11 +336,11 @@ const GameConstants = {
         Level3 : {
             SODAS: 'Sodas',
             DONUTS: 'Donuts'
-        },
-        
+        },        
         Level4: {
-            CROCODILES: 'Crocodiles',
-            DINOWATERS: 'Dinowaters'
+            BEES: 'Bees',            
+            CRABS: 'Crabs',
+            CANDLES: 'Candles'
         },
         Level5:{
             Spiders: 'Spiders',
@@ -373,6 +379,7 @@ const GameConstants = {
         CRAB: 'crab_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
+        CANDLE: 'candle_move',
         KEY: 'key_shine',
         TREASURE: 'treasure_shine',
         EXTRAPOINT: 'extrapoint_rotate',
@@ -422,6 +429,7 @@ const GameConstants = {
         LEVEL1_TILESET: 'level1tileset',
         LEVEL2_TILESET: 'level2tileset',
         LEVEL3_TILESET: 'level3tileset',
+        LEVEL4_TILESET: 'level4tileset',
         FOREST_PACK : 'forestPack_32x32',
         GRASS_TILES: 'grasstiles',        
         JUNGLE : 'jungle',
