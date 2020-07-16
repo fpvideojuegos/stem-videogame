@@ -78,7 +78,7 @@ class BasicScene extends Phaser.Scene {
         }
         
 
-        //find Player objetct at the map      
+        //find Player object at the map      
         this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
             if (d.type === GameConstants.Sprites.Player.KEY) {                
                 //Create Player
@@ -97,9 +97,14 @@ class BasicScene extends Phaser.Scene {
                 });
 
                 //Event on Player and emit SuperPower BasicSCene --> UI
-                this.player.on(GameConstants.Events.GETSUPERSPEED, () => {
+                /*this.player.on(GameConstants.Events.GETSUPERSPEED, () => {
                     this.registry.events.emit(GameConstants.Events.GETSUPERSPEED);
+                });*/
+                
+                this.player.on(GameConstants.Events.GETSUPERPOWER, (superPowerKey) => {
+                    this.registry.events.emit(GameConstants.Events.GETSUPERPOWER, superPowerKey);
                 });
+                
 
                 //Evento de Vuelve al Menu    
                 this.registry.events.on(GameConstants.Events.MENU, () => {
@@ -382,16 +387,12 @@ class BasicScene extends Phaser.Scene {
 
     /**
      * For creating superpowers on level
-     * @param {*} spriteKey 
-     * @param {*} objectID 
+     * @param superPowerKey - spriteKey of respective superPower to print on Scene
+     * @param objectID - objectID of respective superPower
      */
     createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
         this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
         this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
-
-        // Lógica de recolección
-        //overlap (player, superPowerGroup)
-        //que escriba en BD
 
         //El overlap se activa/realiza al tocar cualquier objeto de "superPowerGroup"
         //Pero la función de dentro se encarga de settear como "picked" el superpoder correcto

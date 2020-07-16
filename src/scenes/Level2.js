@@ -30,6 +30,8 @@ class Level2 extends BasicScene {
         //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
+        //Create superPower
+        this.createSuperPowers(GameConstants.Sprites.invencibility.KEY);
         //Tilemap
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET);

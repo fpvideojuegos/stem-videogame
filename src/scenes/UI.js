@@ -20,9 +20,6 @@ class UI extends Phaser.Scene {
     }
 
     create() {
-
-
-
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
@@ -50,23 +47,92 @@ class UI extends Phaser.Scene {
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
         
+        //SuperPowersButtons
+        this.superSpeedBtn = this.add.image(this.width/2 + 53, 17 , GameConstants.Sprites.superSpeed.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        this.lowGravityBtn = this.add.image(this.width/2 + 88, 17 , GameConstants.Sprites.lowGravity.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        this.superJumpBtn = this.add.image(this.width/2 + 125, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        this.invencibilityBtn = this.add.image(this.width/2 + 160, 17 , GameConstants.Sprites.invencibility.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        //this.fifthsuperpowerBtn = this.add.image(this.width/2 + 195, 17 , GameConstants.Sprites.fifthsuperpower.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
 
-        this.superSpeedBtn = this.add.image(this.width/2 + 45, 8 , GameConstants.UI.INVENTORYBTN)
-         .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        if (this.DB.superPowers.superSpeed.picked) {
+            this.createSuperPowerImg('superSpeed');
+        }
 
-        //Get Event from Basic Scene
-        this.registry.events.on(GameConstants.Events.GETSUPERSPEED, () => {
-            console.log("UI SuperPower");
-            this.createSuperPeedImage();
+        if (this.DB.superPowers.lowGravity.picked) {
+            this.createSuperPowerImg('lowGravity');
+        }
 
+        if (this.DB.superPowers.invencibility.picked) {
+            this.createSuperPowerImg('invencibility');
+        }
+
+        if (this.DB.superPowers.superJump.picked) {
+            this.createSuperPowerImg('superJump');
+        }
+
+
+        //Get Event from Basic Scene (To get SuperPower and create img)        
+        this.registry.events.on(GameConstants.Events.GETSUPERPOWER, (superPowerKey) => {
+            //console.log("UI SuperPower" + superPowerKey);
+            this.createSuperPowerImg(superPowerKey);
         });
+        
     
         this.superSpeedBtn.on('pointerdown', () => {
-            //if BD OFF 
-            this.superSpeedBtn.alpha = 1;
-            //Cambiar el poder para que tenga efecto
-            //if BD ON
-            //this.superSpeedBtn.alpha = 0.5;
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            if (this.DB.superPowers.superSpeed.status == "OFF") {
+                this.superSpeedBtn.alpha = 1;
+                this.DB.superPowers.superSpeed.status = "ON";
+                console.log(this.DB.superPowers.superSpeed.status);
+            } else if (this.DB.superPowers.superSpeed.status == "ON") {
+                this.superSpeedBtn.alpha = 0.5;
+                this.DB.superPowers.superSpeed.status = "OFF";
+                console.log(this.DB.superPowers.superSpeed.status);
+            }
+            store.set(GameConstants.DB.DBNAME, this.DB);
+        });
+
+        this.lowGravityBtn.on('pointerdown', () => {
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            if (this.DB.superPowers.lowGravity.status == "OFF") {
+                this.lowGravityBtn.alpha = 1;
+                this.DB.superPowers.lowGravity.status = "ON";
+                console.log(this.DB.superPowers.lowGravity.status);
+            } else if (this.DB.superPowers.lowGravity.status == "ON") {
+                this.lowGravityBtn.alpha = 0.5;
+                this.DB.superPowers.lowGravity.status = "OFF";
+                console.log(this.DB.superPowers.lowGravity.status);
+            }
+            store.set(GameConstants.DB.DBNAME, this.DB);
+        });
+
+        this.superJumpBtn.on('pointerdown', () => {
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            if (this.DB.superPowers.superJump.status == "OFF") {
+                this.superJumpBtn.alpha = 1;
+                this.DB.superPowers.superJump.status = "ON";
+                console.log(this.DB.superPowers.superJump.status);
+            } else if (this.DB.superPowers.superJump.status == "ON") {
+                this.superJumpBtn.alpha = 0.5;
+                this.DB.superPowers.superJump.status = "OFF";
+                console.log(this.DB.superPowers.superJump.status);
+            }
+            store.set(GameConstants.DB.DBNAME, this.DB);
+        });
+
+        this.invencibilityBtn.on('pointerdown', () => {
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            if (this.DB.superPowers.invencibility.status == "OFF") {
+                this.invencibilityBtn.alpha = 1;
+                this.DB.superPowers.invencibility.status = "ON";
+                console.log(this.DB.superPowers.invencibility.status);
+            } else if (this.DB.superPowers.invencibility.status == "ON") {
+                this.invencibilityBtn.alpha = 0.5;
+                this.DB.superPowers.invencibility.status = "OFF";
+                console.log(this.DB.superPowers.invencibility.status);
+            }
+            store.set(GameConstants.DB.DBNAME, this.DB);
         });
 
         //1. Check DB for each superPower        
@@ -77,9 +143,6 @@ class UI extends Phaser.Scene {
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
         this.inventoryBtn.setInteractive();
-
-
-
 
         //Ventana de inventario
         this.inventoryBtn.on('pointerdown', () => {
@@ -138,10 +201,24 @@ class UI extends Phaser.Scene {
   
     }
 
-    createSuperPeedImage(){
-        console.log("alpha");
-        this.superSpeedBtn.setAlpha(0.50);
-        this.superSpeedBtn.setInteractive();
+    createSuperPowerImg(superPowerKey){
+        if (superPowerKey == 'superSpeed') {
+            //console.log("super velocidad");
+            this.superSpeedBtn.setAlpha(0.50);
+            this.superSpeedBtn.setInteractive();
+        } else if (superPowerKey == 'lowGravity') {
+            this.lowGravityBtn.setAlpha(0.50);
+            this.lowGravityBtn.setInteractive();
+        } else if (superPowerKey == 'superJump') {
+            this.superJumpBtn.setAlpha(0.50);
+            this.superJumpBtn.setInteractive();
+        } else if (superPowerKey == 'invencibility') {
+            this.invencibilityBtn.setAlpha(0.50);
+            this.invencibilityBtn.setInteractive();
+        } /*else if (superPowerKey == 'fifthSuperPower') {
+            this.invencibilityBtn.setAlpha(0.50);
+            this.invencibilityBtn.setInteractive();
+        }*/
     }
 
 

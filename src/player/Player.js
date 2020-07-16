@@ -384,7 +384,8 @@ class Player extends Phaser.GameObjects.Sprite {
             store.set(GameConstants.DB.DBNAME, this.DB);
 
             //Emit event  Player --> BasicScene        
-            this.emit(GameConstants.Events.GETSUPERSPEED);
+            //this.emit(GameConstants.Events.GETSUPERSPEED);
+            this.emit(GameConstants.Events.GETSUPERPOWER, superPowerKey);
 
             //SuperPower sound
             //this.superPowerPickup.play();      
