@@ -449,8 +449,7 @@ const GameConstants = {
         LEVEL_FINISHED: 'Win',
         MENU: 'Menu',
         PLAYAGAIN: 'PlayAgain',
-        GETSUPERPOWER: 'GetSuperPower',
-        CHECKSTARTINGSUPERPOWERS: 'checkStartingSuperPowers'
+        GETSUPERPOWER: 'GetSuperPower'
     },
     Settings: {
         FLAG_ES: 'es_flag',
