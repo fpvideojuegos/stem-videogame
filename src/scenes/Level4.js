@@ -139,21 +139,6 @@ class Level4 extends BasicScene {
     
         }//create
     
-        //**TODO Ladder climbing To BASICSCENE
-        climbArea(player, area){                 
-                player.x = area.x;
-                player.body.setAllowGravity(false);
-                player.isInLiana = true;
-                player.body.velocity.x = 0;
-                player.body.velocity.y = 0;            
-        }
-        
-        climbAreaOut(player, area){                            
-            this.player.body.setAllowGravity(true);
-            this.player.isInLiana = false;
-            
-        }
-
 
 
     update(time, delta) {        

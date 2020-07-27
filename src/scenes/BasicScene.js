@@ -725,6 +725,20 @@ class BasicScene extends Phaser.Scene {
         this.addEventForMusic(this.birdMusic,true,200);
     }
 
+    climbArea(player, area){                 
+        player.x = area.x;
+        player.body.setAllowGravity(false);
+        player.isInLiana = true;
+        player.body.velocity.x = 0;
+        player.body.velocity.y = 0;            
+    }
+
+    climbAreaOut(player, area){                            
+        player.body.setAllowGravity(true);
+        player.isInLiana = false;        
+    }
+
+
 }
 
 export default BasicScene;
