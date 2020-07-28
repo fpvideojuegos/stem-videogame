@@ -34,7 +34,10 @@ const GameConstants = {
             BUS: 'Bus'
         },
         LEVEL2: {
-            BSO: 'Level2_BSO'
+            AMELIA: 'Level2_AMELIA_01',
+            BSO: 'Level2_BSO',
+            AMBIENCE: 'Seagulls',
+            PLANE: 'Plane'
         },
         Level3: {
             BSO: 'Level3_BSO'
@@ -135,6 +138,12 @@ const GameConstants = {
             ID: 'bee',
             OBJECT_NAME: 'Bees',
             OBJECT_ID: 'Bee'
+        },
+        Seagulls: {
+            KEY: 'seagull',
+            ID: 'seagull',
+            OBJECT_NAME: 'Seagulls',
+            OBJECT_ID: 'Seagull'
         },
         Soda: {
             KEY: 'soda',
@@ -330,7 +339,7 @@ const GameConstants = {
             RINOBEETLE: 'Rinobeetles'
         },
         Level2: {
-            BEES: 'Bees',            
+            SEAGULLS: 'Seagulls',            
             CRABS: 'Crabs'
         },
         Level3 : {
@@ -368,6 +377,7 @@ const GameConstants = {
         DEATH: 'death_anim',
         BATS: 'vulture_move',
         BEES: 'bee_fly',
+        SEAGULLS: 'seagull_fly',
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
         SPIDERS: 'spider_move',

@@ -165,6 +165,10 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('bee', 'img/bee/bee.png', 'img/bee/bee_atlas.json');
         this.load.animation('beeAnim', 'img/bee/bee_anim.json');
 
+        //Seagulls
+        this.load.atlas('seagull', 'img/seagull/seagull.png', 'img/seagull/seagull_atlas.json');
+        this.load.animation('seagullAnim', 'img/seagull/seagull_anim.json');
+
         //Soda
         this.load.atlas('soda', 'img/soda/soda.png', 'img/soda/soda_atlas.json');
         this.load.animation('sodaAnim', 'img/soda/soda_anim.json');
@@ -327,11 +331,14 @@ class Bootloader extends Phaser.Scene {
         
         //BSO         
         this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");                        
+        this.load.audio("Level2_BSO", "sounds/bso/Level2_BSO.ogg");
         this.load.audio("Main_BSO","sounds/bso/menusong_v3.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 
         //Ambience
         this.load.audio("Desert", "sounds/effects/desert-simple.ogg");                
+        this.load.audio("Seagulls", "sounds/effects/seagulls.ogg");
+
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         
         //Enemy Kill

@@ -30,6 +30,7 @@ class BasicScene extends Phaser.Scene {
         this.superPowersGroup;
         this.bats = [];
         this.bees = [];
+        this.seagulls = [];
         this.wheels = [];
         this.crocodiles = [];
         this.snails = [];
@@ -231,6 +232,12 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.beesGroup = new FlyingEnemy(this.physics.world, this, [], this.bees);
                     this.enemyGroups.beesGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.BEES, this.bees);
+                    break;
+                case GameConstants.Sprites.Seagulls.OBJECT_NAME:
+                    this.seagulls = this.createEnemies(GameConstants.Sprites.Seagulls.OBJECT_NAME, GameConstants.Sprites.Seagulls.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
+                    this.enemyGroups.seagullsGroup = new FlyingEnemy(this.physics.world, this, [], this.seagulls);
+                    this.enemyGroups.seagullsGroup.children.iterate(b => b.setScale(1));
+                    this.anims.play(GameConstants.Anims.SEAGULLS, this.seagulls);
                     break;
                 case GameConstants.Sprites.Snails.OBJECT_NAME:
                     this.snails = this.createEnemies(GameConstants.Sprites.Snails.OBJECT_NAME, GameConstants.Sprites.Snails.OBJECT_ID, GameConstants.Sprites.Snails.KEY);

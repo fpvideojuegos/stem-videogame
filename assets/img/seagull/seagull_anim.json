@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "seagull_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 4,
+            "frames": [
+                {
+                    "key": "seagull",
+                    "frame": "seagull_0"
+                },
+                {
+                    "key": "seagull",
+                    "frame": "seagull_1"
+                }
+            ]
+        }
+    ]
+}

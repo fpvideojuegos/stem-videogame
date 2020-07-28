@@ -59,10 +59,10 @@ class Level2 extends BasicScene {
 
 
         //Sounds        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL2.BSO, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
-        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL2.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
 

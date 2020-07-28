@@ -1,0 +1,63 @@
+{
+  "frames": {
+    "seagull_1": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 46,
+        "h": 30
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 46,
+        "h": 30
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 30
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "seagull_0": {
+      "frame": {
+        "x": 46,
+        "y": 0,
+        "w": 46,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 4,
+        "w": 46,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 30
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.6",
+    "image": "seagull",
+    "format": "RGBA8888",
+    "size": {
+      "w": 92,
+      "h": 30
+    },
+    "scale": 1
+  }
+}
