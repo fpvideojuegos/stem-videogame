@@ -26,16 +26,27 @@ class Bootloader extends Phaser.Scene {
             this.load.image("layer_0" + i, "img/backgrounds/parallax_intro/layer_0" + i + "_854x480.png");
         }
 
-        // player is a sprite sheet made by 24x48 pixels
+        //INTRO OBJECTS
+        //LEVEL1 - AGATHA CHRISTIE
         this.load.spritesheet("agatha_intro", "img/intro/agathaChristie_spritesheet.png", {
             frameWidth: 254,
             frameHeight: 286
         });
-
-        // player is a sprite sheet made by 24x48 pixels
+        //LEVEL 1 - BUS
         this.load.spritesheet("bus_intro", "img/intro/bus.png", {
             frameWidth: 256,
             frameHeight: 149
+        });
+
+        //LEVEL2 - AMELIA EARHART        
+        this.load.spritesheet("amelia_intro", "img/intro/ameliaEarhart_spritesheet.png", {
+            frameWidth: 250,
+            frameHeight: 304
+        });
+        //LEVEL 2 - PLANE
+          this.load.spritesheet("plane_intro", "img/intro/plane.png", {
+            frameWidth: 340,
+            frameHeight: 135
         });
 
         //BONUS LEVEL
@@ -340,6 +351,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Seagulls", "sounds/effects/seagulls.ogg");
 
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
+        this.load.audio("PlaneEngine", "sounds/effects/plane_engine.ogg");                
         
         //Enemy Kill
         this.load.audio("enemy-death", "sounds/enemy-death.ogg");

@@ -1,13 +1,13 @@
 import GameConstants from '../services/GameConstants.js';
 
 
-class IntroLevel1 extends Phaser.Scene {
+class IntroLevel2 extends Phaser.Scene {
     constructor() {
-        super({key: 'IntroLevel1'});
+        super({key: 'IntroLevel2'});
     }
     
     preload() {
-        console.log('Scene: Introlevel1');
+        console.log('Scene: Introlevel2');
         
 
     }
@@ -17,11 +17,12 @@ class IntroLevel1 extends Phaser.Scene {
 
 
         //Music Background
-        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 0.6});
+        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL2.AMBIENCE, {volume: 0.6});
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
-        this.musicBg2 = this.sound.add(GameConstants.Sound.LEVEL1.BUS, {volume: 0.4});
+        //Plane
+        this.musicBg2 = this.sound.add(GameConstants.Sound.LEVEL2.PLANE, {volume: 0.4});
         this.musicBg2.play();
         this.musicBg2.setLoop(true);
 
@@ -33,19 +34,19 @@ class IntroLevel1 extends Phaser.Scene {
         
         
 
-        
-       //Background Parallax 
-       /*this.bgparallax=[];
-       for(let i=7;i>=1;i--){
-        this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
-       }*/
+       //this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL2).setOrigin(0);       
 
-       this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL1).setOrigin(0);       
+        this.bg2_sky= this.add.tileSprite(0, 0, this.width, this.height, 'bg2-sky').setOrigin(0).setScale(1.25);
+        this.bg2_clouds = this.add.tileSprite(0, 0, this.width, this.height, 'bg2-clouds').setOrigin(0).setScale(1.25);
+        this.bg2_sea = this.add.tileSprite(0, 0, this.width, this.height, 'bg2-sea').setOrigin(0).setScale(1.25);
+        this.bg2_far_grounds = this.add.image(this.width/2, 0, 'bg2-far-grounds').setOrigin(0).setScale(1.25);
+
+
        
         //women animation setting
         this.anims.create({
             key: "run",
-            frames: this.anims.generateFrameNumbers("agatha_intro", {
+            frames: this.anims.generateFrameNumbers("amelia_intro", {
                 start: 0,
                 end: 1
             }),
@@ -56,7 +57,7 @@ class IntroLevel1 extends Phaser.Scene {
 
 
        // adding women Sprite
-       this.woman = this.physics.add.sprite(200,150, "agatha_intro").setAlpha(0);
+       this.woman = this.physics.add.sprite(200,150, "amelia_intro").setAlpha(0);
        this.woman.setDepth(2);       
        this.woman.body.setAllowGravity(false);
        this.woman.anims.play("run");
@@ -65,8 +66,8 @@ class IntroLevel1 extends Phaser.Scene {
               
         // Bus animation setting 
         this.anims.create({
-            key: "drive",
-            frames: this.anims.generateFrameNumbers("bus_intro", {
+            key: "fly",
+            frames: this.anims.generateFrameNumbers("plane_intro", {
                 start: 0,
                 end: 3
             }),
@@ -76,11 +77,11 @@ class IntroLevel1 extends Phaser.Scene {
 
 
 
-       // adding bus Sprite
-       this.bus = this.physics.add.sprite(200,365, "bus_intro");
-       this.bus.setDepth(2);       
-       this.bus.body.setAllowGravity(false);
-       this.bus.anims.play("drive");
+       // adding plane Sprite
+       this.plane = this.physics.add.sprite(200,365, "plane_intro");
+       this.plane.setDepth(2);       
+       this.plane.body.setAllowGravity(false);
+       this.plane.anims.play("fly");
 
 
 
@@ -143,7 +144,7 @@ class IntroLevel1 extends Phaser.Scene {
 
         this.passthedoor = false;
         //Atraviesa la puerta
-        this.physics.add.overlap(this.bus, this.door, () => {
+        this.physics.add.overlap(this.plane, this.door, () => {
                 if (!this.passthedoor){ 
                     this.passthedoor=true;
                     
@@ -164,7 +165,7 @@ class IntroLevel1 extends Phaser.Scene {
                     this.cameras.main.on('camerafadeoutcomplete', () => {
                         this.musicBg.stop();
                         this.musicBg2.stop();                                               
-                        this.scene.start(GameConstants.Levels.LEVEL1);            
+                        this.scene.start(GameConstants.Levels.LEVEL2);            
                     });
                 }
         });
@@ -196,19 +197,20 @@ class IntroLevel1 extends Phaser.Scene {
 
     }
 
-    update(time, delta) {        
-        //this.bg.tilePositionX += 0.5;
+    update(time, delta) {                
 
         if (this.gamepad && !this.skip){
             if (this.gamepad.A) this.skipIntro();
         }
 
-        this.backgroundimg.tilePositionX += 0.5;
-
         
+        //PARALLAX Move 
+        this.bg2_sky.tilePositionX +=  0.1 ;
+        this.bg2_clouds.tilePositionX +=  0.3 ;
+        this.bg2_sea.tilePositionX +=  0.6 ;
 
         if (this.run) {
-            this.bus.setVelocityX(150);            
+            this.plane.setVelocityX(150);            
         }
        
     }
@@ -220,10 +222,10 @@ class IntroLevel1 extends Phaser.Scene {
             this.musicBg.stop();
             this.musicBg2.stop();
             this.sound_AGATHA.stop();
-            this.scene.start(GameConstants.Levels.LEVEL1);
+            this.scene.start(GameConstants.Levels.LEVEL2);
         });
 
     }
 }
 
-export default IntroLevel1;
+export default IntroLevel2;

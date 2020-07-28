@@ -12,6 +12,7 @@ const GameConstants = {
         SCORES: 'Scores',
         BONUSLEVEL: 'BonusLevel',
         INTROLEVEL1: 'IntroLevel1',        
+        INTROLEVEL2: 'IntroLevel2',        
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
@@ -37,7 +38,7 @@ const GameConstants = {
             AMELIA: 'Level2_AMELIA_01',
             BSO: 'Level2_BSO',
             AMBIENCE: 'Seagulls',
-            PLANE: 'Plane'
+            PLANE: 'PlaneEngine'
         },
         Level3: {
             BSO: 'Level3_BSO'
@@ -364,6 +365,7 @@ const GameConstants = {
         BG_MENU: 'bg_Menu',
         BG_LEVEL1: 'bg_Level1',
         BG_INTROLEVEL1: 'bg_IntroLevel1',
+        BG_INTROLEVEL2: 'bg_IntroLevel2',
         BG_LEVEL2: 'bg_Level2',
         BG_LEVEL3: 'bg_Level3',
         BG_LEVEL4:  'bg_Level4',        

@@ -12,15 +12,8 @@ class Level2 extends BasicScene {
     create() {
         //Player Creation
         this.createPlayer();
-        //Background        
-        //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
-        //BG PARALLAX
         
-        /*this.bg2_sky= this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-sky').setOrigin(0).setScale(2);
-        this.bg2_clouds = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-clouds').setOrigin(0).setScale(2);
-        this.bg2_sea = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg2-sea').setOrigin(0).setScale(2);
-        this.bg2_far_grounds = this.add.image(0, 0, 'bg2-far-grounds').setOrigin(0).setScale(2);*/
-
+        
         this.cameras.main.backgroundColor.setTo(85, 180, 255); 
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
@@ -134,13 +127,6 @@ class Level2 extends BasicScene {
 
     update(time, delta) {        
 
-
-         //PARALLAX Move relative to cameras scroll move
-         /*this.bg2_sky.tilePositionX = this.cameras.main.scrollX * 0.01 ;
-         this.bg2_clouds.tilePositionX = this.cameras.main.scrollX * 0.03 ;
-         this.bg2_sea.tilePositionX = this.cameras.main.scrollX * 0.06 ;
-*/
-         
  
 
         this.player.update(time, delta);
