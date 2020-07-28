@@ -553,6 +553,15 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {
         if (scene) {
+            //Set all superPowers as OFF
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB.superPowers.lowGravity.picked = "OFF";
+            this.DB.superPowers.superSpeed.picked = "OFF";
+            this.DB.superPowers.superJump.picked = "OFF";
+            this.DB.superPowers.invencibility.picked = "OFF";
+            //this.DB.superPowers.lowGravity.picked = "OFF"; //TODO for fifth superPower
+            store.set(GameConstants.DB.DBNAME, this.DB);
+
             this.levelTiles = [];
             scene.physics.pause();
             this.time.addEvent({
