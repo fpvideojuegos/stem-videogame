@@ -44,7 +44,7 @@ class IntroLevel1 extends Phaser.Scene {
        
         //women animation setting
         this.anims.create({
-            key: "run",
+            key: "runAgatha",
             frames: this.anims.generateFrameNumbers("agatha_intro", {
                 start: 0,
                 end: 1
@@ -59,7 +59,7 @@ class IntroLevel1 extends Phaser.Scene {
        this.woman = this.physics.add.sprite(200,150, "agatha_intro").setAlpha(0);
        this.woman.setDepth(2);       
        this.woman.body.setAllowGravity(false);
-       this.woman.anims.play("run");
+       this.woman.anims.play("runAgatha");
 
 
               

@@ -343,10 +343,10 @@ const GameConstants = {
             SEAGULLS: 'Seagulls',            
             CRABS: 'Crabs'
         },
-        Level3 : {
-            SODAS: 'Sodas',
-            DONUTS: 'Donuts'
-        },        
+        Level3: {
+            BEES: 'Bees',            
+            CRABS: 'Crabs'
+        },       
         Level4: {
             BEES: 'Bees',            
             CRABS: 'Crabs',

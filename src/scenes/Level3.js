@@ -21,7 +21,7 @@ class Level3 extends BasicScene {
 
         this.cameras.main.backgroundColor.setTo(85, 180, 255); 
         //Finding enemies in json map
-        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level3);
         //ExtraPoints        
         this.createCoins();
         //Objects to Collect
