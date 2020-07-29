@@ -11,6 +11,7 @@
     },
     "LEVELSELECT":{
         "MENU": "MENÚ",
+        "INVENTORY": "Inventario",
         "BONUS": "NIVEL EXTRA",
         "LEVELS": "NIVELES",
         "LEVEL": "NIVEL",

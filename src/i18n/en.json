@@ -11,6 +11,7 @@
     },
     "LEVELSELECT":{
         "MENU": "MENU",
+        "INVENTORY": "Inventory",
         "BONUS": "BONUS LEVEL",
         "LEVELS": "LEVELS",
         "LEVEL": "LEVEL",   

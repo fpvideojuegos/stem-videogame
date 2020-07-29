@@ -61,9 +61,9 @@ class Bootloader extends Phaser.Scene {
         //Inventory objects //TO DO finish
         this.load.image("desertRose", "img/objects/rose.png");
         this.load.image("shell", "img/objects/shell.png");
-        //this.load.image("TODO", "img/objects/TODO.png");
-        //this.load.image("TODO", "img/objects/TODO.png");
-        //this.load.image("TODO", "img/objects/TODO.png");
+        this.load.image("lysFlower", "img/objects/obj1.png"); //TODO
+        this.load.image("pen", "img/objects/obj2.png"); //TODO
+        this.load.image("star", "img/objects/star.png");
 
         //Superpowers objects //TO DO finish
         this.load.image("lowGravity", "img/objects/feather.png");

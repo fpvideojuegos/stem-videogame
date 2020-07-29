@@ -47,7 +47,7 @@ class UI extends Phaser.Scene {
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
         
-        //SuperPowersButtons
+        //SuperPowersButtons // TODO: Make them appear only for superPowers already picked
         this.superSpeedBtn = this.add.image(this.width/2 + 53, 17 , GameConstants.Sprites.superSpeed.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.lowGravityBtn = this.add.image(this.width/2 + 88, 17 , GameConstants.Sprites.lowGravity.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.superJumpBtn = this.add.image(this.width/2 + 125, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
@@ -135,10 +135,6 @@ class UI extends Phaser.Scene {
             store.set(GameConstants.DB.DBNAME, this.DB);
         });
 
-        //1. Check DB for each superPower        
-        //Open DB
-        //IF superSpeed = addSuperSpeedImage 
-
         //Backpack for inventary
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
@@ -150,6 +146,12 @@ class UI extends Phaser.Scene {
             this.playAgainButton.alpha = 0;
             this.inventoryBtn.alpha = 0;
             this.menuButton.alpha = 0;
+            //TODO This should be here?
+            /*this.superPowersBox.alpha = 0;
+            this.superSpeedBtn.alpha = 0;
+            this.lowGravityBtn.alpha = 0;
+            this.superJumpBtn.alpha = 0;
+            this.invencibilityBtn.alpha = 0;*/
 
             // Pausa la escena del level, sea cual sea
             this.backlevel = this.scene.get(this.scenename);
@@ -161,37 +163,48 @@ class UI extends Phaser.Scene {
             let inventoryBack = this.add.image(200, 100, GameConstants.UI.INVENTORY).setScrollFactor(0).setOrigin(0);
             inventoryBack.setInteractive();
 
+            this.inventoryText = this.add.dynamicBitmapText(this.width * 0.4, this.height *0.26, 'pixel', this.TG.tr('LEVELSELECT.INVENTORY'));        
             this.DB = store.get(GameConstants.DB.DBNAME);
-            
-            //Adjust for inventory and superPowers items // TODO
-            if (this.DB.inventory.obj1){
-                this.obj1 = this.add.image(300, 200, "obj1").setScale(1).setOrigin(0);
+            //console.log("Rosa del desierto: " + this.DB.inventory.desertRose);
+
+            //Print inventory objects the player has picked 
+            //TODO Change coordinates when images are ready
+            if (this.DB.inventory.desertRose){
+                this.desertRose = this.add.image(300, 200, "desertRose").setScale(1).setOrigin(0);
             }
 
-            if (this.DB.inventory.obj2){
-                this.obj2 = this.add.image(360, 200, "obj2").setScale(1).setOrigin(0);
+            if (this.DB.inventory.shell){
+                this.shell = this.add.image(360, 200, "shell").setScale(1).setOrigin(0);
             }
 
-            if (this.DB.inventory.obj3){
-                this.obj3 = this.add.image(420, 200, "obj3").setScale(1).setOrigin(0);
+            if (this.DB.inventory.lysFlower){
+                this.lysFlower = this.add.image(420, 200, "lysFlower").setScale(1).setOrigin(0);
             }
 
-            if (this.DB.inventory.obj4){
-                this.obj4 = this.add.image(480, 200, "obj4").setScale(1).setOrigin(0);
+            if (this.DB.inventory.pen){
+                this.pen = this.add.image(480, 200, "pen").setScale(1).setOrigin(0);
+            }
+
+            if (this.DB.inventory.star){
+                this.star = this.add.image(480, 200, "star").setScale(1).setOrigin(0);
             }
 
             inventoryBack.on('pointerdown', () => {
-                if (this.DB.inventory.obj1){
-                    this.obj1.destroy();
+                this.inventoryText.destroy();
+                if (this.DB.inventory.desertRose){
+                    this.desertRose.destroy();
                 }
-                if (this.DB.inventory.obj2){
-                    this.book.destroy();
+                if (this.DB.inventory.shell){
+                    this.shell.destroy();
                 }
-                if (this.DB.inventory.obj3){
-                    this.obj3.destroy();
+                if (this.DB.inventory.lysFlower){
+                    this.lysFlower.destroy();
                 }
-                if (this.DB.inventory.obj4){
-                    this.obj4.destroy();
+                if (this.DB.inventory.lysFlower){
+                    this.lysFlower.destroy();
+                }
+                if (this.DB.inventory.star){
+                    this.star.destroy();
                 }
 
                 this.closeInventory(mask, inventoryBack);                

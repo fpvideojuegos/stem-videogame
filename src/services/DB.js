@@ -19,9 +19,9 @@ const DB = {
     inventory : {//Inventory objects //TO DO
         desertRose: false,
         shell: false,
-        //objectName: false,
-        //objectName: false, 
-        //objectName: false
+        lysFlower: false,
+        pen: false, 
+        star: false
     },
     superPowers : {//Superpowers inventory objects //TO DO
         lowGravity : {

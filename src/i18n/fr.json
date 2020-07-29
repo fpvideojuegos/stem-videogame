@@ -11,6 +11,7 @@
     },
     "LEVELSELECT":{
         "MENU": "MENU",
+        "INVENTORY": "Inventaire",
         "BONUS": "NIVEAU SUPPLÉMENTAIRE",
         "LEVELS": "NIVEAUX",
         "LEVEL": "NIVEAU",

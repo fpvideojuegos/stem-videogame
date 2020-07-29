@@ -11,6 +11,7 @@
     },
     "LEVELSELECT":{
         "MENU": "МЕНЮ",
+        "INVENTORY": "инвентарь",
         "BONUS": "ЭКСТРА УРОВЕНЬ",
         "LEVELS": "УРОВНИ",
         "LEVEL": "УРОВЕНЬ",
