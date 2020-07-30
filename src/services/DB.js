@@ -11,7 +11,7 @@
          void 0);
 
 const DB = {
-    player: 'player2',
+    player: 'player3',
     currentLevel: 'Level1',
     maxLevel: 'Level1', //Last Level achieved
     extralifes : 0,
