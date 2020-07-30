@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "carnivorous_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "carnivorous",
+                    "frame": "carnivorous_0"
+                },
+                {
+                    "key": "carnivorous",
+                    "frame": "carnivorous_1"
+                },
+                {
+                    "key": "carnivorous",
+                    "frame": "carnivorous_2"
+                },
+                {
+                    "key": "carnivorous",
+                    "frame": "carnivorous_3"
+                }
+            ]
+        }
+    ]
+}

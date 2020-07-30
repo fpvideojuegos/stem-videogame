@@ -249,6 +249,11 @@ class Bootloader extends Phaser.Scene {
         //Rino Beetle
         this.load.atlas('rinobeetle', 'img/rinobeetle/rinobeetle.png', 'img/rinobeetle/rinobeetle_atlas.json');
         this.load.animation('rinobeetleAnim', 'img/rinobeetle/rinobeetle_anim.json');
+        
+        //Carnivorous Plant
+        this.load.atlas('carnivorous', 'img/carnivorous/carnivorous.png', 'img/carnivorous/carnivorous_atlas.json');
+        this.load.animation('carnivorousAnim', 'img/carnivorous/carnivorous_anim.json');
+
 
         //Crab
         this.load.atlas('crab', 'img/crab/crab.png', 'img/crab/crab_atlas.json');

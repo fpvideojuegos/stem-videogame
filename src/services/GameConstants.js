@@ -324,6 +324,13 @@ const GameConstants = {
             OBJECT_NAME: 'Rinobeetles',
             OBJECT_ID: 'Rinobeetle'
         },
+        CarnivorousPlant:{
+            KEY: 'carnivorous',
+            ID: 'carnivorous',
+            OBJECT_NAME: 'CarnivorousPlants',
+            OBJECT_ID: 'CarnivorousPlant'
+        },
+
         Dinobird: {
             KEY: 'dinobird',
             ID: 'dinobird',
@@ -351,7 +358,7 @@ const GameConstants = {
         },
         Level3: {
             BEES: 'Bees',            
-            CRABS: 'Crabs'
+            CARNIVOROUS: 'CarnivorousPlants'            
         },       
         Level4: {
             BEES: 'Bees',            
@@ -406,6 +413,7 @@ const GameConstants = {
         CROCODILE:'swim',
         DINOWATER: 'dinowater_move',
         RINOBEETLE: 'rinobeetle_move',
+        CARNIVOROUS: 'carnivorous_walk',
         DINOBIRD: 'dinobird_move',
         MAMUT:{
             SLEEP: 'mamut_sleep',

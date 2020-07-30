@@ -227,6 +227,11 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.rinobeetlesGroup = new FloorEnemy(this.physics.world, this, [], this.rinobeetles, 40);
                     this.anims.play(GameConstants.Anims.RINOBEETLE, this.rinobeetles);
                     break;
+                case GameConstants.Sprites.CarnivorousPlant.OBJECT_NAME:                    
+                    this.carnivorousplants = this.createEnemies(GameConstants.Sprites.CarnivorousPlant.OBJECT_NAME, GameConstants.Sprites.CarnivorousPlant.OBJECT_ID, GameConstants.Sprites.CarnivorousPlant.KEY);
+                    this.enemyGroups.carnivorousplantsGroup = new FloorEnemy(this.physics.world, this, [], this.carnivorousplants, 40);
+                    this.anims.play(GameConstants.Anims.CARNIVOROUS, this.carnivorousplants);
+                    break;
                 case GameConstants.Sprites.Bees.OBJECT_NAME:
                     this.bees = this.createEnemies(GameConstants.Sprites.Bees.OBJECT_NAME, GameConstants.Sprites.Bees.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
                     this.enemyGroups.beesGroup = new FlyingEnemy(this.physics.world, this, [], this.bees);
