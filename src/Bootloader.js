@@ -277,12 +277,12 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('death', 'img/objects/death/death.png', 'img/objects/death/death_atlas.json');
         this.load.animation('deathAnim', 'img/objects/death/death_anim.json');
 
-        //Loupes
-        this.load.image('loupe', "img/objects/loupe.png");
-        //EarSticks
-        this.load.image('earstick', "img/objects/earstick.png");
-        //Loupes
+        //Collectables Objects
+        this.load.image('loupe', "img/objects/loupe.png");        
+        this.load.image('earstick', "img/objects/earstick.png");        
         this.load.image('cristalbottle', "img/objects/cristalbottle.png");
+        this.load.image('waterbottle', "img/objects/waterbottle.png");
+        this.load.image('plasticglass', "img/objects/plasticglass.png");
 
         //Star
         this.load.image("star", "img/objects/star.png");

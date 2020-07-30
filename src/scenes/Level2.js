@@ -13,35 +13,35 @@ class Level2 extends BasicScene {
         //Player Creation
         this.createPlayer();
         
-        
-        this.cameras.main.backgroundColor.setTo(85, 180, 255); 
+        //Background color
+        this.cameras.main.backgroundColor.setTo(85, 180, 255);         
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
         //ExtraPoints        
         this.createCoins();
-        //Objects to Collect
-        //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.invencibility.KEY);
         //Tilemap
+        //Cloud background layers 
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
+        //Cloud platform layers 
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET);
 
         //PRIVATE SCENE ELEMENTS
-        //Creacion de elementos decorativos
+        //Landscape layers
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPE, false);        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
-        //Creacion de objetos invisibles que dañaran a player
-        //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
-        //Hiden object for colling enemies
+        
+        //Hiden object for enemies limits
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
-
 
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
-        this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
+        this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY, false);
+        this.createCollectables(GameConstants.Sprites.WaterBottle.KEY, GameConstants.Sprites.WaterBottle.KEY, false);
+        this.createCollectables(GameConstants.Sprites.PlasticGlass.KEY, GameConstants.Sprites.PlasticGlass.KEY, false);
 
 
         

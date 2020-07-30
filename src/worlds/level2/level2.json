@@ -181,7 +181,7 @@
                 {
                  "height":0,
                  "id":107,
-                 "name":"cristalbottle",
+                 "name":"plasticglass",
                  "point":true,
                  "rotation":0,
                  "type":"collectable",
@@ -223,13 +223,13 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":17.666666666667,
-                 "y":386
+                 "x":31.666666666667,
+                 "y":426
                 }, 
                 {
                  "height":0,
                  "id":112,
-                 "name":"cristalbottle",
+                 "name":"plasticglass",
                  "point":true,
                  "rotation":0,
                  "type":"collectable",
@@ -265,7 +265,7 @@
                 {
                  "height":0,
                  "id":115,
-                 "name":"earstick",
+                 "name":"plasticglass",
                  "point":true,
                  "rotation":0,
                  "type":"collectable",
@@ -297,6 +297,66 @@
                  "width":0,
                  "x":3136,
                  "y":379.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":169,
+                 "name":"plasticglass",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":266,
+                 "y":270
+                }, 
+                {
+                 "height":0,
+                 "id":170,
+                 "name":"plasticglass",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":310,
+                 "y":374
+                }, 
+                {
+                 "height":0,
+                 "id":171,
+                 "name":"waterbottle",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":906,
+                 "y":586
+                }, 
+                {
+                 "height":0,
+                 "id":172,
+                 "name":"waterbottle",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":2530,
+                 "y":302
+                }, 
+                {
+                 "height":0,
+                 "id":173,
+                 "name":"waterbottle",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":2646,
+                 "y":668
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -821,7 +881,7 @@
          "y":0
         }],
  "nextlayerid":43,
- "nextobjectid":169,
+ "nextobjectid":174,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

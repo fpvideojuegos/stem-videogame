@@ -416,8 +416,10 @@ class BasicScene extends Phaser.Scene {
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
      * 
      * @param objectID - Name of the objectID to find
+     * 
+     * @param createUI - In case of multiple collectable object Create first time the ui label
      */
-    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY, objectID = GameConstants.Sprites.Collectables.OBJECT_ID) {        
+    createCollectables(spriteKey = GameConstants.Sprites.Collectables.KEY, objectID = GameConstants.Sprites.Collectables.OBJECT_ID, createUI = true) {        
         
         this.collectables = this.createEnemies(GameConstants.Sprites.Collectables.OBJECT_NAME, objectID, spriteKey);
         this.collectablesGroup = new ExtraPoints(this.physics.world, this, [], this.collectables);
@@ -426,8 +428,8 @@ class BasicScene extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.collectablesGroup, function (player, object) {
             this.player.collectCollectables(this.collectablesGroup, object);
         }, null, this);
-
-        if (!this.collectablesCounter){ 
+        
+        if (createUI){ 
             this.collectablesCounter = this.add.image(30, 45 , GameConstants.Sprites.Collectables.KEY)
             .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();        
             this.collectablesCounterText =   this.add.dynamicBitmapText(70, 60, 'pixel', this.player.collectablesCollected)

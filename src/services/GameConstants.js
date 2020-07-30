@@ -251,6 +251,12 @@ const GameConstants = {
         CristalBottle:{
             KEY: 'cristalbottle'
         },
+        WaterBottle:{
+            KEY: 'waterbottle'
+        },
+        PlasticGlass:{
+            KEY: 'plasticglass'
+        },
         EarStick:{
             KEY: 'earstick'
         },
