@@ -348,12 +348,14 @@ class Bootloader extends Phaser.Scene {
         //BSO         
         this.load.audio("Level1_BSO", "sounds/bso/Level1_BSO.ogg");                        
         this.load.audio("Level2_BSO", "sounds/bso/Level2_BSO.ogg");
+        this.load.audio("Level3_BSO", "sounds/bso/Level3_BSO.ogg");
         this.load.audio("Main_BSO","sounds/bso/menusong_v3.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 
         //Ambience
         this.load.audio("Desert", "sounds/effects/desert-simple.ogg");                
         this.load.audio("Seagulls", "sounds/effects/seagulls.ogg");
+        this.load.audio("Rainforest", "sounds/effects/rainforest.ogg");
 
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         this.load.audio("PlaneEngine", "sounds/effects/plane_engine.ogg");                

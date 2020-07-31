@@ -12,41 +12,29 @@ class Level3 extends BasicScene {
     create() {
         //Player Creation
         this.createPlayer();
-        //Background        
-        //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
+        
         //BG PARALLAX        
         this.bg3_back = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_back').setOrigin(0);
         this.bg3_middle = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_middle').setOrigin(0);
-        
-
-        this.cameras.main.backgroundColor.setTo(85, 180, 255); 
+               
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level3);
         //ExtraPoints        
         this.createCoins();
         //Objects to Collect
-        //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
+        
         //HealthText
         this.createHealthText();
-        //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
-        this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET);
         
-        //To make collidable only when comes from up the tile 1 and 2 from this Layer
-        let x, y, tile;
-        for (x = 0; x < this.platformlayer.width; x++) {
-            for (y = 1; y < this.platformlayer.height; y++) {                
-            tile = this.platformlayer.getTileAt(x, y);                
-            if (tile !== null) {                                
-                tile.setCollision(false, false, true, false); //right,left,up,down                            
-                }
-            }
-        }
+        //Tilemap        
+        this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET,undefined,undefined,undefined,false);
+        
 
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPE, false);        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
+        
         //Creacion de objetos invisibles que dañaran a player
         //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
         //Hiden object for colling enemies
@@ -66,10 +54,10 @@ class Level3 extends BasicScene {
 
 
         //Sounds        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL3.BSO, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
-        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL3.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
 

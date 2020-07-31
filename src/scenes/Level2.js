@@ -27,7 +27,7 @@ class Level2 extends BasicScene {
         //Cloud background layers 
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);
         //Cloud platform layers 
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET);
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET,undefined, undefined, undefined, false);
 
         //PRIVATE SCENE ELEMENTS
         //Landscape layers

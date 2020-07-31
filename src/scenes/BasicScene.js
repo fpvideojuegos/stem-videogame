@@ -499,12 +499,14 @@ class BasicScene extends Phaser.Scene {
      * Método para la creación de capas de "Mundo" de forma dinámica. Por defecto, éstas harán collision con los objetos de la escena.
      *
      * @param tileSet - Nombre del Tile {@Link GameConstants.Tiles} a generar. Corresponde al nombre que se le ha dado al tileset en Tiled.
-     * @param dynamicLayer - Nombre de la capa en Tiled
+     * @param dynamicLayer - Nombre de la capa en Tiled (Default = GameConstants.Layers.WORLD)
      * @param collisionWithPlayerAndEnemies - Colisiones con enemigos y jugador (Default = true)
+     * @param depth - Layer depth (Default = 0)
+     * @param collisionJumpUp - Create collision when player is under the platform and jump up (Default = true)
      *
      * @returns Phaser.Tilemaps. DynamicTilemapLayer
      */
-    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true, depth = 0) {        
+    paintLayerAndCreateCollision(tileSet, dynamicLayer = GameConstants.Layers.WORLD, collisionWithPlayerAndEnemies = true, depth = 0, collisionJumpUp = true) {        
         this.levelTiles[this.levelTiles.length] = this.map.addTilesetImage(tileSet);
         let level = this.levelTiles[this.levelTiles.length - 1];
         this.levelLayers[this.levelLayers.length] = this.map.createDynamicLayer(dynamicLayer, level, 0, 0);
@@ -516,6 +518,19 @@ class BasicScene extends Phaser.Scene {
             Object.keys(this.enemyGroups).forEach(enemyGroup => {
                 this.physics.add.collider(this.enemyGroups[enemyGroup], levelLayer);
             });
+        }
+        if(!collisionJumpUp) {
+            //To delete collidable platform when jump up from under
+            let x, y, tile;
+            for (x = 0; x < levelLayer.width; x++) {
+                for (y = 1; y < levelLayer.height; y++) {                
+                tile = levelLayer.getTileAt(x, y);                
+                if (tile !== null) {                                
+                    tile.setCollision(false, false, true, false); //right,left,up,down                            
+                    }
+                }
+            }
+
         }
         return levelLayer;
     }

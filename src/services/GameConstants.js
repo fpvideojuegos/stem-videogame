@@ -40,8 +40,9 @@ const GameConstants = {
             AMBIENCE: 'Seagulls',
             PLANE: 'PlaneEngine'
         },
-        Level3: {
-            BSO: 'Level3_BSO'
+        LEVEL3: {
+            BSO: 'Level3_BSO',
+            AMBIENCE: 'Rainforest'
         },
         Level4: {
             BSO: 'Level4_BSO'
