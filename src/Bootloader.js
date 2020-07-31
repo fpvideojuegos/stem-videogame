@@ -48,6 +48,19 @@ class Bootloader extends Phaser.Scene {
             frameWidth: 340,
             frameHeight: 135
         });
+        //LEVEL3 - BERTA CACERES        
+        this.load.spritesheet("berta_intro", "img/intro/bertaCaceres_spritesheet.png", {
+            frameWidth: 250,
+            frameHeight: 216
+        });
+
+        //LEVEL 2 - PLANE
+        this.load.spritesheet("pickup_intro", "img/intro/pickup.png", {
+            frameWidth: 272,
+            frameHeight: 160
+        });
+
+
 
         //BONUS LEVEL
         //Parallax Background Bonus Level
@@ -359,6 +372,7 @@ class Bootloader extends Phaser.Scene {
 
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         this.load.audio("PlaneEngine", "sounds/effects/plane_engine.ogg");                
+        this.load.audio("PickupEngine", "sounds/effects/pickup_engine.ogg");
         
         //Enemy Kill
         this.load.audio("enemy-death", "sounds/enemy-death.ogg");

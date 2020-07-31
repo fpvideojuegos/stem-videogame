@@ -54,7 +54,7 @@ class Level3 extends BasicScene {
 
 
         //Sounds        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL3.BSO, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL3.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL3.AMBIENCE, {volume: 1});
