@@ -87,8 +87,8 @@ class Level5 extends BasicScene {
          this.addEventForMusic(this.audioLevel5_LOLO_InOrderToCatchTheFruit_11,false,9000);
 
  
-         //BSO
-         this.music = this.sound.add(GameConstants.Sound.LEVEL5.BSO,{volume: 0.4});
+         //OST
+         this.music = this.sound.add(GameConstants.Sound.LEVEL5.OST,{volume: 0.4});
          this.addEventForMusic(this.music, true);
 
         

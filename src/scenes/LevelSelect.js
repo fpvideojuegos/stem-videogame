@@ -35,7 +35,7 @@ class LevelSelect extends BasicScene {
     //Only play BG MUSIC  if come from other levels different from Menu
      //For not stoping the music between menu scenes
         if (this.levelFrom!=GameConstants.Levels.MENU)  {
-                this.playMenuScenesBSO();
+                this.playMenuScenesOST();
         }
 
         

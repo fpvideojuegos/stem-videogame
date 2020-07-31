@@ -67,7 +67,7 @@ class Level4 extends BasicScene {
 
 
         //Sounds        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.BSO, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});

@@ -44,8 +44,8 @@ class Level3 extends BasicScene {
         this.audioLevel3_LOLO_YouHaveToGiveMammoth_08 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.Level3.LOLO_ANSWER);
         this.addEventForMusic(this.audioLevel3_LOLO_YouHaveToGiveMammoth_08,false,4000);
 
-        //BSO
-        this.music = this.sound.add(GameConstants.Sound.Level3.BSO, {volume: 0.4});
+        //OST
+        this.music = this.sound.add(GameConstants.Sound.Level3.OST, {volume: 0.4});
         this.addEventForMusic(this.music, true);
 
         //We did it

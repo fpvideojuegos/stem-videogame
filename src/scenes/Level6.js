@@ -22,8 +22,8 @@ class Level6 extends BasicScene {
         this.createCoins();
         //HealthText
         this.createHealthText();
-        //BSO
-        this.music = this.sound.add(GameConstants.Sound.LEVEL6.BSO, {volume: 0.4});
+        //OST
+        this.music = this.sound.add(GameConstants.Sound.LEVEL6.OST, {volume: 0.4});
         this.addEventForMusic(this.music,true,100);
  
         this.audioLevel6_DANIELA_OhIBurntMyself_12 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL6.DANIELA);

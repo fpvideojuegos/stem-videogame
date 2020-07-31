@@ -41,7 +41,7 @@ class Menu extends BasicScene {
             this.levelFrom!=GameConstants.Levels.SCORES &&
             this.levelFrom!=GameConstants.Levels.SETTINGSLEVEL &&
             this.levelFrom!=GameConstants.Levels.SELECTCHARACTERLEVEL) {
-                this.playMenuScenesBSO();
+                this.playMenuScenesOST();
         }
         
         this.selectCharacterButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SELECTCHARACTER')).setTint(0x808489).setInteractive();

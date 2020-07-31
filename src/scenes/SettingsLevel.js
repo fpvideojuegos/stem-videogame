@@ -72,8 +72,8 @@ class SettingsLevel extends BasicScene {
             if (!this.DB.sound){
                 this.sound.stopAll();
             } else {
-                //Play again menu BSO
-                this.playMenuScenesBSO();
+                //Play again menu OST
+                this.playMenuScenesOST();
             }
             
             this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;

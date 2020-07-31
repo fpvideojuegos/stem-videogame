@@ -26,32 +26,32 @@ const GameConstants = {
         LEVEL0: {
             DANIELA_MUM: 'Level0_MOTHER_WhereAreYou_01',
             DANIELA_ANSWER: 'Level0_DANIELA_5Mins_02',
-            BSO: 'LevelIntro_BSO'
+            OST: 'LevelIntro_OST'
         },
         LEVEL1: {
             AGATHA: 'Level1_AGATHA_01',
-            BSO: 'Level1_BSO',
+            OST: 'Level1_OST',
             AMBIENCE: 'Desert',
             BUS: 'Bus'
         },
         LEVEL2: {
             AMELIA: 'Level2_AMELIA_01',
-            BSO: 'Level2_BSO',
+            OST: 'Level2_OST',
             AMBIENCE: 'Seagulls',
             PLANE: 'PlaneEngine'
         },
         LEVEL3: {
-            BSO: 'Level3_BSO',
+            OST: 'Level3_OST',
             AMBIENCE: 'Rainforest'
         },
         Level4: {
-            BSO: 'Level4_BSO'
+            OST: 'Level4_OST'
         },
         LEVEL5: {
-            BSO: 'Level5_BSO'
+            OST: 'Level5_OST'
         },
         LEVEL6: {
-            BSO: 'Level6_BSO'
+            OST: 'Level6_OST'
         },
         LEVELALL: {
             WEDIDIT: 'LevelAll_DANIELA_WeDidIt_04',
@@ -61,7 +61,7 @@ const GameConstants = {
             FRUITPICKUP: 'fruitpickup',
             POWERUP: 'powerUp',
             LOLO_AUCH: 'lolo_auch',
-            BSO: 'BonusLevel_BSO'            
+            OST: 'BonusLevel_OST'            
         },
         SOUNDS: {
             CAVEBATS: 'CaveBats',
@@ -76,7 +76,7 @@ const GameConstants = {
             ENEMY_DEATH: 'enemy-death'
         },
         MAIN:{
-            BSO: 'Main_BSO'
+            OST: 'Main_OST'
         }
     },
     Sprites: {
