@@ -245,6 +245,12 @@ const GameConstants = {
             OBJECT_NAME: 'superPowers',
             OBJECT_ID: 'superPower'
         },
+        inventoryObjects: {
+            KEY: 'inventoryObject',
+            ID: 'inventoryObject',
+            OBJECT_NAME: 'inventoryObjects',
+            OBJECT_ID: 'inventoryObject'
+        },
         Star:{
             KEY: 'star'
         },

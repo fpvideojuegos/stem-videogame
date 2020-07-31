@@ -20,10 +20,11 @@ class Level1 extends BasicScene {
         this.createCoins();
         //Object Heart for Extralifes
         this.createExtraLifes();
-        //create Inventory Object
-        //this.createInventory(GameConstants.Sprites.Speed.KEY);
+
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY);
+        //create key object (Inventory object)
+        this.createInventoryObjects(GameConstants.Sprites.desertRose.KEY);
 
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);

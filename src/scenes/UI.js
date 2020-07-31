@@ -47,7 +47,7 @@ class UI extends Phaser.Scene {
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 40, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
         
-        //SuperPowersButtons // TODO: Make them appear only for superPowers already picked
+        //SuperPowersButtons
         this.superSpeedBtn = this.add.image(this.width/2 + 53, 17 , GameConstants.Sprites.superSpeed.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.lowGravityBtn = this.add.image(this.width/2 + 88, 17 , GameConstants.Sprites.lowGravity.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.superJumpBtn = this.add.image(this.width/2 + 125, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
@@ -77,7 +77,6 @@ class UI extends Phaser.Scene {
             //console.log("UI SuperPower" + superPowerKey);
             this.createSuperPowerImg(superPowerKey);
         });
-        
     
         this.superSpeedBtn.on('pointerdown', () => {
             this.DB = store.get(GameConstants.DB.DBNAME);

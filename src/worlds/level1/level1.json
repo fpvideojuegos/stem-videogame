@@ -173,6 +173,29 @@
         }, 
         {
          "draworder":"topdown",
+         "id":35,
+         "name":"inventoryObjects",
+         "objects":[
+                {
+                 "height":0,
+                 "id":161,
+                 "name":"inventoryObject",
+                 "point":true,
+                 "rotation":0,
+                 "type":"inventoryObject",
+                 "visible":true,
+                 "width":0,
+                 "x":18.1818181818182,
+                 "y":245.454545454545
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":25,
          "name":"Climb",
          "objects":[
@@ -867,8 +890,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":35,
- "nextobjectid":161,
+ "nextlayerid":36,
+ "nextobjectid":162,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

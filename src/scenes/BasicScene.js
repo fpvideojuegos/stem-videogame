@@ -28,6 +28,8 @@ class BasicScene extends Phaser.Scene {
         this.extraLifesGroup;
         this.superPowers = [];
         this.superPowersGroup;
+        this.inventoryObjects = [];
+        this.inventoryObjectsGroup;
         this.bats = [];
         this.bees = [];
         this.seagulls = [];
@@ -106,6 +108,9 @@ class BasicScene extends Phaser.Scene {
                     this.registry.events.emit(GameConstants.Events.GETSUPERPOWER, superPowerKey);
                 });
                 
+                this.player.on(GameConstants.Events.GETINVENTORYOBJECT, (objectKey) => {
+                    this.registry.events.emit(GameConstants.Events.GETINVENTORYOBJECT, objectKey);
+                });
 
                 //Evento de Vuelve al Menu    
                 this.registry.events.on(GameConstants.Events.MENU, () => {
@@ -416,6 +421,21 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
+     * Crea un objeto inventariable/de inventario en el nivel
+     * @param objectKey - spriteKey of respective inventory object to print it on Scene/Level
+     * @param objectID - ObjectID of respective inventory object
+     */
+    createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){
+        this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
+        this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
+
+        this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {
+            //console.log(objectKey);
+            this.player.getInventoryObject(this.extraPointsGroup, object, objectKey);
+        }, null, this);
+    }
+
+    /**
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.Collectables.OBJECT_NAME} necesarios para terminar el nivel
      *
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.Collectables.KEY})
@@ -577,11 +597,11 @@ class BasicScene extends Phaser.Scene {
         if (scene) {
             //Set all superPowers as OFF
             this.DB = store.get(GameConstants.DB.DBNAME);
-            this.DB.superPowers.lowGravity.picked = "OFF";
-            this.DB.superPowers.superSpeed.picked = "OFF";
-            this.DB.superPowers.superJump.picked = "OFF";
-            this.DB.superPowers.invencibility.picked = "OFF";
-            //this.DB.superPowers.lowGravity.picked = "OFF"; //TODO for fifth superPower
+            this.DB.superPowers.lowGravity.status = "OFF";
+            this.DB.superPowers.superSpeed.status = "OFF";
+            this.DB.superPowers.superJump.status = "OFF";
+            this.DB.superPowers.invencibility.status = "OFF";
+            //this.DB.superPowers.lowGravity.status = "OFF"; //TODO for fifth superPower
             store.set(GameConstants.DB.DBNAME, this.DB);
 
             this.levelTiles = [];

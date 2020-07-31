@@ -22,6 +22,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.hitObj = false;
         this.hitHeart = false;
         this.hitSuperPower = false;
+        this.hitInventoryObject = false;
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
@@ -411,6 +412,42 @@ class Player extends Phaser.GameObjects.Sprite {
                 delay: 1000,
                 callback: () => {
                     this.hitSuperPower = false;                    
+                }
+            });
+        }
+    }
+
+    getInventoryObject(group, object, objectKey) { //TODO: not checked if it works. Check it after on-scene printing works
+        //Make disapear the SuperPower with Tween efect
+        if (!this.hitInventoryObject) {
+
+            //update DB data
+            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB.inventory[objectKey] = true;
+            store.set(GameConstants.DB.DBNAME, this.DB);
+
+            //SuperPower sound
+            //this.inventoryObjectPickup.play();      
+            this.hitInventoryObject = true;
+
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.hitInventoryObject = false;                    
                 }
             });
         }
