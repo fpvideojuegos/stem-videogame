@@ -43,7 +43,7 @@ class IntroLevel3 extends Phaser.Scene {
        
         //women animation setting
         this.anims.create({
-            key: "run",
+            key: "bertatalk",
             frames: this.anims.generateFrameNumbers("berta_intro", {
                 start: 0,
                 end: 1
@@ -58,13 +58,13 @@ class IntroLevel3 extends Phaser.Scene {
        this.woman = this.physics.add.sprite(200,150, "berta_intro").setAlpha(0);
        this.woman.setDepth(2);       
        this.woman.body.setAllowGravity(false);
-       this.woman.anims.play("run");
+       this.woman.anims.play("bertatalk");
 
 
               
         // Bus animation setting 
         this.anims.create({
-            key: "drive",
+            key: "drivepickup",
             frames: this.anims.generateFrameNumbers("pickup_intro", {
                 start: 0,
                 end: 3
@@ -79,7 +79,7 @@ class IntroLevel3 extends Phaser.Scene {
        this.pickup = this.physics.add.sprite(200,365, "pickup_intro");
        this.pickup.setDepth(2);       
        this.pickup.body.setAllowGravity(false);
-       this.pickup.anims.play("drive");
+       this.pickup.anims.play("drivepickup");
 
 
 
