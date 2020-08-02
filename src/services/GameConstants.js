@@ -46,8 +46,10 @@ const GameConstants = {
             AMBIENCE: 'Rainforest',
             PICKUP: 'PickupEngine'
         },
-        Level4: {
-            OST: 'Level4_OST'
+        LEVEL4: {
+            OST: 'Level4_OST',
+            INCORRECT: 'Incorrect',
+            CORRECT: 'Correct'
         },
         LEVEL5: {
             OST: 'Level5_OST'

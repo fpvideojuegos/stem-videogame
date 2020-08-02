@@ -10,6 +10,13 @@ class Level4 extends BasicScene {
     }
 
     create() {
+
+        //Flag to hit letter once
+        this.hitLetter = false;
+
+        this.incorrectSound = this.sound.add(GameConstants.Sound.LEVEL4.INCORRECT, {volume: 0.4});
+        this.correctSound = this.sound.add(GameConstants.Sound.LEVEL4.CORRECT, {volume: 0.4});
+        
         //Player Creation
         this.createPlayer();
         //Background
@@ -22,6 +29,7 @@ class Level4 extends BasicScene {
         //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
+
         //Tilemap
         this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET);
 
@@ -39,9 +47,39 @@ class Level4 extends BasicScene {
         this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
 
         
-        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
+        this.words = ['FAILOSOFIA','PAOESIA','EANSAYO','MALAGA'];
+        this.word = this.words[Math.floor(Math.random() * this.words.length)];
+        this.wordArray = this.word.split('');
+        console.log(this.word);
+        this.textPosition = [];
+        
+
+        for (let i=0; i<this.wordArray.length; i++){
+            this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 20 , GameConstants.Fonts.PIXEL, "X");
+            this.textPosition[i].setScrollFactor(0);
+            this.textPosition[i].setDepth(5);
+        }
+        
+
+        //paint word underline 
+        
+        this.letters = this.map.getObjectLayer('Collectables');
+        console.log(this.letters.objects);
+        
+
+        this.interactiveLetters = this.physics.add.group();
+        
+        this.letters.objects.forEach(letter =>{
+            let theLetter = this.add.dynamicBitmapText(letter.x, letter.y, GameConstants.Fonts.PIXEL, letter.name, 60);
+            this.physics.world.enable(theLetter);            
+            this.interactiveLetters.add(theLetter);
+            theLetter.body.setAllowGravity(false);
+        });        
+        
+        
+        this.physics.add.overlap(this.player, this.interactiveLetters, function (player, object) {
+            this.collectLetter(this.interactiveLetters, object);
+        }, null, this);
 
 
 
@@ -72,61 +110,66 @@ class Level4 extends BasicScene {
 
         this.playercollide.active=false;
       
-        this.climb = this.findTransparentObjects('Climb', 'Climb');        
-        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
-        
-            
-        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
-        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
+       
 
 
-        //PRIVATE SCENE ELEMENTS
-        //Water overlap back to start
-        this.hitWater = false;
-        let water = this.findTransparentObjects('Water', 'Water', false);
-        this.physics.add.overlap(this.player, water, (player, waterLayer) => {    
-            if (!this.hitWater) {
-                player.loseHealth();
-                player.soundPlayerAuch.play();                           
-                this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
-                    if (d.type === GameConstants.Sprites.Player.KEY) {                
-                        let newX  =  d.x;
-                        let newY = d.y;
-
-                        this.cameras.main.fadeIn(1500);
-                        this.player.body.setVelocity(0, 0);
-                        this.player.x = newX;
-                        this.player.y = newY;
-                        if (this) {
-                            this.time.addEvent({
-                                delay: 600,
-                                callback: () => {                            
-                                    this.hitWater = false;
-                                },
-                                callbackScope: this
-                            });
-                        }
-
-                    }
-                });                        
-            }
-        });    
-            
+     
 
 
         
     
         }//create
     
+        collectLetter(group, object){
 
+            if (!this.hitLetter) {   
+                
+                console.log(object.text);
+
+                //Check for letters coincidences
+                for (const [position, letterToGuess] of this.wordArray.entries()) {
+                    if (object.text == letterToGuess) {                                                
+                        this.textPosition[position].setText(letterToGuess);
+                        this.correctSound.play();
+                    }
+                }
+                //If wrong one live less
+                if (!this.wordArray.includes(object.text)) {
+                    this.player.loseHealth();           
+                    this.incorrectSound.play();
+                }
+                
+                //this.coinpickup.play();
+                this.hitLetter = true;
+                //this.extraPoints*=10;   
+    
+                this.tweens.add({
+                    targets: object,
+                    y: object.y - 100,
+                    alpha: 0,
+                    duration: 800,
+                    ease: "Cubic.easeOut",
+                    callbackScope: this,
+                    onComplete: function(){
+                        group.killAndHide(object);
+                        group.remove(object);   
+                        object.destroy();             
+                    }
+                });
+    
+                this.time.addEvent({
+                    delay: 1000,
+                    callback: () => {
+                        this.hitLetter = false;
+                    }
+                });
+            }
+        }
 
     update(time, delta) {        
 
 
-         //PARALLAX Move relative to cameras scroll move
-        /* this.bg3_back.tilePositionX = this.cameras.main.scrollX * 0.01 ;
-         this.bg3_middle.tilePositionX = this.cameras.main.scrollX * 0.03 ;
-         */
+
  
 
         this.player.update(time, delta);

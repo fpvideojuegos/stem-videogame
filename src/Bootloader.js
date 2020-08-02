@@ -373,6 +373,9 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         this.load.audio("PlaneEngine", "sounds/effects/plane_engine.ogg");                
         this.load.audio("PickupEngine", "sounds/effects/pickup_engine.ogg");
+        this.load.audio("Incorrect", "sounds/effects/incorrect.ogg");
+        this.load.audio("Correct", "sounds/effects/correct.ogg");
+
         
         //Enemy Kill
         this.load.audio("enemy-death", "sounds/enemy-death.ogg");
