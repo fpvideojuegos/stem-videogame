@@ -56,7 +56,7 @@ class IntroLevel1 extends Phaser.Scene {
 
 
        // adding women Sprite
-       this.woman = this.physics.add.sprite(200,150, "agatha_intro").setAlpha(0);
+       this.woman = this.physics.add.sprite(150,150, "agatha_intro").setAlpha(0);
        this.woman.setDepth(2);       
        this.woman.body.setAllowGravity(false);
        this.woman.anims.play("runAgatha");
@@ -77,7 +77,7 @@ class IntroLevel1 extends Phaser.Scene {
 
 
        // adding bus Sprite
-       this.bus = this.physics.add.sprite(200,365, "bus_intro");
+       this.bus = this.physics.add.sprite(150,365, "bus_intro");
        this.bus.setDepth(2);       
        this.bus.body.setAllowGravity(false);
        this.bus.anims.play("drive");
@@ -86,7 +86,7 @@ class IntroLevel1 extends Phaser.Scene {
 
        //TEXTS
         //Text Dialog        
-        this.textInstructions = this.add.dynamicBitmapText(30, this.height-50, 'pixel', '')
+        this.textInstructions = this.add.bitmapText(300, 50, 'pixel', '')
                                                         .setScrollFactor(0)
                                                         .setDepth(3) 
                                                         .setAlpha(1);
@@ -94,13 +94,12 @@ class IntroLevel1 extends Phaser.Scene {
         
         //TODO COORDINATE TIMES IN EACH LANGUAGE
         let textie = '';        
-        for (let i = 1; i <= 7; i++) {
+        for (let i = 1; i <= 8; i++) {
             this.time.addEvent({
                 delay: 3500 + (i*2600),
                 callback: () => {                    
-                    textie+=this.TG.tr('LEVEL1.AGATHA_' + i) + "\n\n";
-                    this.textInstructions.setText(textie);
-                    if(i % 2 == 0) textie='';
+                    textie=this.TG.tr('LEVEL1.AGATHA_' + i);
+                    this.typewriteBitmapText(textie,i);                    
                 }
               })
         }
@@ -133,7 +132,7 @@ class IntroLevel1 extends Phaser.Scene {
         this.time.addEvent({
             delay: 27000,
             callback: () => { 
-                this.textInstructions.setAlpha(0);
+                //this.textInstructions.setAlpha(0);
                 this.woman.setAlpha(0);
                 this.musicFalling.play();               
                 this.run = true;
@@ -224,6 +223,30 @@ class IntroLevel1 extends Phaser.Scene {
         });
 
     }
+    /**
+     *
+     * @param {string} text
+     */
+    typewriteBitmapText(text, position)
+    {
+        const length = text.length
+        let i = 0
+        
+        let textInstructions = this.add.bitmapText(300, 25*(position+1), 'pixel', '')
+                                                        .setScrollFactor(0)
+                                                        .setDepth(3) 
+                                                        .setAlpha(1);
+
+        this.time.addEvent({
+            callback: () => {
+                textInstructions.text += text[i]
+                ++i
+            },
+            repeat: length - 1,
+            delay: 75
+        })
+    }
+
 }
 
 export default IntroLevel1;
