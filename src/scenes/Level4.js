@@ -12,13 +12,7 @@ class Level4 extends BasicScene {
     create() {
         //Player Creation
         this.createPlayer();
-        //Background        
-        //this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL2, defaultStatus, defaultStatus,{x:2.7,y:2.7});
-        //BG PARALLAX        
-        /*this.bg3_back = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_back').setOrigin(0);
-        this.bg3_middle = this.add.tileSprite(0, 0, this.map.widthInPixels, this.map.heightInPixels, 'bg3_middle').setOrigin(0);
-        */
-
+        //Background
         this.cameras.main.backgroundColor.setTo(0, 0, 0); 
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
@@ -30,17 +24,6 @@ class Level4 extends BasicScene {
         this.createHealthText();
         //Tilemap
         this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET);
-        
-        //To make collidable only when comes from up the tile 1 and 2 from this Layer
-        let x, y, tile;
-        for (x = 0; x < this.platformlayer.width; x++) {
-            for (y = 1; y < this.platformlayer.height; y++) {                
-            tile = this.platformlayer.getTileAt(x, y);                
-            if (tile !== null) {                                
-                tile.setCollision(false, false, true, false); //right,left,up,down                            
-                }
-            }
-        }
 
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
@@ -48,16 +31,12 @@ class Level4 extends BasicScene {
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET, GameConstants.Layers.CLOUDS, false);
         
-        //Creacion de objetos invisibles que dañaran a player
-        //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
         //Hiden object for colling enemies
         this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
-
 
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
         this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
-
 
         
         this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );

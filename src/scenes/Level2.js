@@ -43,7 +43,8 @@ class Level2 extends BasicScene {
         this.createCollectables(GameConstants.Sprites.WaterBottle.KEY, GameConstants.Sprites.WaterBottle.KEY, false);
         this.createCollectables(GameConstants.Sprites.PlasticGlass.KEY, GameConstants.Sprites.PlasticGlass.KEY, false);
 
-
+        //Create Leaders and its funtions
+        this.createLadders()
         
         this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
         this.textDialog.setScrollFactor(0);
@@ -78,13 +79,6 @@ class Level2 extends BasicScene {
 
         this.playercollide.active=false;
       
-        this.climb = this.findTransparentObjects('Climb', 'Climb');        
-        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
-        
-            
-        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
-        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
-
 
         //PRIVATE SCENE ELEMENTS
         //Water overlap back to start

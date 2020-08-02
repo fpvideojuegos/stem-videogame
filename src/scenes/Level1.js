@@ -38,6 +38,8 @@ class Level1 extends BasicScene {
         //Creacion de objetos invisibles que dañaran a player 
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
         
+        //Create Leaders and its funtions
+        this.createLadders()
         
         //Sounds ** ADD TO BasicScene
         //this.createMusicBg()
@@ -68,17 +70,10 @@ class Level1 extends BasicScene {
 
         this.playerFinalCollide.active=false;
       
-        //**TODO Create at the Basic Scene
-        //this.createLadders()
-        this.climb = this.findTransparentObjects('Climb', 'Climb');        
-        this.climbout = this.findTransparentObjects('Climb', 'ClimbOut');        
-        
-            
-        this.physics.add.overlap(this.player, this.climb, this.climbArea, null, this);
-        this.physics.add.overlap(this.player, this.climbout, this.climbAreaOut, null, this);
-        
+     
+
     
-        }//create
+    }//create
     
    
 
