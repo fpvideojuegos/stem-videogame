@@ -164,28 +164,26 @@ class UI extends Phaser.Scene {
 
             this.inventoryText = this.add.dynamicBitmapText(this.width * 0.4, this.height *0.26, 'pixel', this.TG.tr('LEVELSELECT.INVENTORY'));        
             this.DB = store.get(GameConstants.DB.DBNAME);
-            //console.log("Rosa del desierto: " + this.DB.inventory.desertRose);
 
             //Print inventory objects the player has picked 
-            //TODO Change coordinates when images are ready
             if (this.DB.inventory.desertRose){
-                this.desertRose = this.add.image(300, 200, "desertRose").setScale(1).setOrigin(0);
+                this.desertRose = this.add.image(270, 160, "desertRose").setScale(1.25).setOrigin(0);
             }
 
             if (this.DB.inventory.shell){
-                this.shell = this.add.image(360, 200, "shell").setScale(1).setOrigin(0);
+                this.shell = this.add.image(335, 255, "shell").setScale(1.25).setOrigin(0);
             }
 
             if (this.DB.inventory.lysFlower){
-                this.lysFlower = this.add.image(420, 200, "lysFlower").setScale(1).setOrigin(0);
+                this.lysFlower = this.add.image(400, 160, "lysFlower").setScale(1.25).setOrigin(0);
             }
 
             if (this.DB.inventory.pen){
-                this.pen = this.add.image(480, 200, "pen").setScale(1).setOrigin(0);
+                this.pen = this.add.image(465, 255, "pen").setScale(1.25).setOrigin(0);
             }
 
             if (this.DB.inventory.star){
-                this.star = this.add.image(480, 200, "star").setScale(1).setOrigin(0);
+                this.star = this.add.image(530, 160, "star").setScale(1.25).setOrigin(0);
             }
 
             inventoryBack.on('pointerdown', () => {

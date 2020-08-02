@@ -100,6 +100,24 @@ const GameConstants = {
             OBJECT_NAME: 'shell',
             OBJECT_ID: 'shell'
         },
+        lysFlower: {
+            KEY: 'lysFlower',
+            ID: 'lysFlower',
+            OBJECT_NAME: 'lysFlower',
+            OBJECT_ID: 'lysFlower'
+        },
+        pen: {
+            KEY: 'pen',
+            ID: 'pen',
+            OBJECT_NAME: 'pen',
+            OBJECT_ID: 'pen'
+        },
+        star: {
+            KEY: 'star',
+            ID: 'star',
+            OBJECT_NAME: 'star',
+            OBJECT_ID: 'star'
+        },
         lowGravity: {
             KEY: 'lowGravity',
             ID: 'lowGravity',

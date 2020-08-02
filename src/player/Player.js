@@ -417,7 +417,7 @@ class Player extends Phaser.GameObjects.Sprite {
         }
     }
 
-    getInventoryObject(group, object, objectKey) { //TODO: not checked if it works. Check it after on-scene printing works
+    getInventoryObject(group, object, objectKey) {
         //Make disapear the SuperPower with Tween efect
         if (!this.hitInventoryObject) {
 

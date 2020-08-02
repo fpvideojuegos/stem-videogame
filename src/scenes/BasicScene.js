@@ -432,7 +432,7 @@ class BasicScene extends Phaser.Scene {
     createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){
         this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
         this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
-
+        
         this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {
             //console.log(objectKey);
             this.player.getInventoryObject(this.extraPointsGroup, object, objectKey);
