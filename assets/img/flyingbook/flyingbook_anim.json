@@ -1,0 +1,44 @@
+{
+    "anims": [
+        {
+            "key": "flyingbook_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 8,
+            "frames": [
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_0"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_1"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_2"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_3"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_4"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_5"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_6"
+                },
+                {
+                    "key": "flyingbook",
+                    "frame": "flyingbook_7"
+                }
+            ]
+        }
+    ]
+}

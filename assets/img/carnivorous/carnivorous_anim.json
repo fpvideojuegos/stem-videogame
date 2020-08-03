@@ -1,7 +1,7 @@
 {
     "anims": [
         {
-            "key": "carnivorous_walk",
+            "key": "carnivorous_move",
             "type": "frames",
             "repeat": -1,
             "frameRate": 6,

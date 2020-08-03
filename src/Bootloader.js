@@ -189,6 +189,10 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('bee', 'img/bee/bee.png', 'img/bee/bee_atlas.json');
         this.load.animation('beeAnim', 'img/bee/bee_anim.json');
 
+        //flyingbook
+        this.load.atlas('flyingbook', 'img/flyingbook/flyingbook.png', 'img/flyingbook/flyingbook_atlas.json');
+        this.load.animation('flyingbookAnim', 'img/flyingbook/flyingbook_anim.json');
+
         //Seagulls
         this.load.atlas('seagull', 'img/seagull/seagull.png', 'img/seagull/seagull_atlas.json');
         this.load.animation('seagullAnim', 'img/seagull/seagull_anim.json');
@@ -271,6 +275,10 @@ class Bootloader extends Phaser.Scene {
         //Crab
         this.load.atlas('crab', 'img/crab/crab.png', 'img/crab/crab_atlas.json');
         this.load.animation('crabAnim', 'img/crab/crab_anim.json');
+
+        //Mouse
+        this.load.atlas('mouse', 'img/mouse/mouse.png', 'img/mouse/mouse_atlas.json');
+        this.load.animation('mouseAnim', 'img/mouse/mouse_anim.json');
 
         //Donut
         this.load.atlas('donut', 'img/donut/donut.png', 'img/donut/donut_atlas.json');

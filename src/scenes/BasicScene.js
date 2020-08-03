@@ -232,6 +232,11 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.rinobeetlesGroup = new FloorEnemy(this.physics.world, this, [], this.rinobeetles, 40);
                     this.anims.play(GameConstants.Anims.RINOBEETLE, this.rinobeetles);
                     break;
+                case GameConstants.Sprites.Mouse.OBJECT_NAME:                    
+                    this.mice = this.createEnemies(GameConstants.Sprites.Mouse.OBJECT_NAME, GameConstants.Sprites.Mouse.OBJECT_ID, GameConstants.Sprites.Mouse.KEY);
+                    this.enemyGroups.miceGroup = new FloorEnemy(this.physics.world, this, [], this.mice, 70);
+                    this.anims.play(GameConstants.Anims.MOUSE, this.mice);
+                    break;
                 case GameConstants.Sprites.CarnivorousPlant.OBJECT_NAME:                    
                     this.carnivorousplants = this.createEnemies(GameConstants.Sprites.CarnivorousPlant.OBJECT_NAME, GameConstants.Sprites.CarnivorousPlant.OBJECT_ID, GameConstants.Sprites.CarnivorousPlant.KEY);
                     this.enemyGroups.carnivorousplantsGroup = new FloorEnemy(this.physics.world, this, [], this.carnivorousplants, 40);
@@ -243,6 +248,11 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.beesGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.BEES, this.bees);
                     break;
+                case GameConstants.Sprites.Flyingbooks.OBJECT_NAME:
+                    this.flyingbooks = this.createEnemies(GameConstants.Sprites.Flyingbooks.OBJECT_NAME, GameConstants.Sprites.Flyingbooks.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
+                    this.enemyGroups.flyingbooksGroup = new FlyingEnemy(this.physics.world, this, [], this.flyingbooks);                    
+                    this.anims.play(GameConstants.Anims.FLYINGBOOKS, this.flyingbooks);
+                    break;                    
                 case GameConstants.Sprites.Seagulls.OBJECT_NAME:
                     this.seagulls = this.createEnemies(GameConstants.Sprites.Seagulls.OBJECT_NAME, GameConstants.Sprites.Seagulls.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
                     this.enemyGroups.seagullsGroup = new FlyingEnemy(this.physics.world, this, [], this.seagulls);

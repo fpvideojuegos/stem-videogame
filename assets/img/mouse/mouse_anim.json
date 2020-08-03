@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "mouse_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "mouse",
+                    "frame": "mouse_0"
+                },
+                {
+                    "key": "mouse",
+                    "frame": "mouse_1"
+                },
+                {
+                    "key": "mouse",
+                    "frame": "_2"
+                },
+                {
+                    "key": "mouse",
+                    "frame": "mouse_3"
+                }
+            ]
+        }
+    ]
+}

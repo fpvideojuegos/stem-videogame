@@ -163,6 +163,13 @@ const GameConstants = {
             OBJECT_NAME: 'Bees',
             OBJECT_ID: 'Bee'
         },
+        Flyingbooks: {
+            KEY: 'flyingbook',
+            ID: 'flyingbook',
+            OBJECT_NAME: 'Flyingbooks',
+            OBJECT_ID: 'Flyingbook'
+        },
+
         Seagulls: {
             KEY: 'seagull',
             ID: 'seagull',
@@ -222,6 +229,12 @@ const GameConstants = {
             ID: 'crab',
             OBJECT_NAME: 'Crabs',
             OBJECT_ID: 'Crab'
+        },
+        Mouse: {
+            KEY: 'mouse',
+            ID: 'mouse',
+            OBJECT_NAME: 'Mice',
+            OBJECT_ID: 'Mouse'
         },
         Donut: {
             KEY: 'donut',
@@ -390,8 +403,8 @@ const GameConstants = {
             CARNIVOROUS: 'CarnivorousPlants'            
         },       
         Level4: {
-            BEES: 'Bees',            
-            CRABS: 'Crabs',
+            FLYINGBOOKS: 'Flyingbooks',            
+            MICE: 'Mice',
             CANDLES: 'Candles'
         },
         Level5:{
@@ -421,6 +434,7 @@ const GameConstants = {
         DEATH: 'death_anim',
         BATS: 'vulture_move',
         BEES: 'bee_fly',
+        FLYINGBOOKS: 'flyingbook_fly',
         SEAGULLS: 'seagull_fly',
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
@@ -431,6 +445,7 @@ const GameConstants = {
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'desertball_move',
         CRAB: 'crab_move',
+        MOUSE: 'mouse_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
         CANDLE: 'candle_move',
@@ -442,7 +457,7 @@ const GameConstants = {
         CROCODILE:'swim',
         DINOWATER: 'dinowater_move',
         RINOBEETLE: 'rinobeetle_move',
-        CARNIVOROUS: 'carnivorous_walk',
+        CARNIVOROUS: 'carnivorous_move',
         DINOBIRD: 'dinobird_move',
         MAMUT:{
             SLEEP: 'mamut_sleep',

@@ -46,8 +46,9 @@ class Level4 extends BasicScene {
         this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
         this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
 
-        
-        this.words = ['FAILOSOFIA','PAOESIA','EANSAYO','MALAGA'];
+
+        //Words to Guess (English, Spanish and French) Russian equal English
+        this.words = ['FILOSOFIA','POESIA','ENSAYO','MALAGA','LITERATURA'];
         this.word = this.words[Math.floor(Math.random() * this.words.length)];
         this.wordArray = this.word.split('');
         console.log(this.word);
@@ -55,7 +56,7 @@ class Level4 extends BasicScene {
         
 
         for (let i=0; i<this.wordArray.length; i++){
-            this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 20 , GameConstants.Fonts.PIXEL, "X");
+            this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 20 , GameConstants.Fonts.PIXEL, "_");
             this.textPosition[i].setScrollFactor(0);
             this.textPosition[i].setDepth(5);
         }
