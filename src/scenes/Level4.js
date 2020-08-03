@@ -48,13 +48,15 @@ class Level4 extends BasicScene {
 
 
         //Words to Guess (English, Spanish and French) Russian equal English
+        //TODO at language files
         this.words = ['FILOSOFIA','POESIA','ENSAYO','MALAGA','LITERATURA'];
+        //Choose one word randomly
         this.word = this.words[Math.floor(Math.random() * this.words.length)];
-        this.wordArray = this.word.split('');
-        console.log(this.word);
-        this.textPosition = [];
+        //Split word into chars 
+        this.wordArray = this.word.split('');        
         
-
+        //Paint Diplay of letter to Guess with underline simbol
+        this.textPosition = [];        
         for (let i=0; i<this.wordArray.length; i++){
             this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 20 , GameConstants.Fonts.PIXEL, "_");
             this.textPosition[i].setScrollFactor(0);
@@ -62,23 +64,21 @@ class Level4 extends BasicScene {
         }
         
 
-        //paint word underline 
-        
+        //Get letters from TileMap        
         this.letters = this.map.getObjectLayer('Collectables');
-        console.log(this.letters.objects);
-        
-
+        //Create letter group 
         this.interactiveLetters = this.physics.add.group();
-        
-        this.letters.objects.forEach(letter =>{
-            let theLetter = this.add.dynamicBitmapText(letter.x, letter.y, GameConstants.Fonts.PIXEL, letter.name, 60);
+        //For each letter Create an interactive BitmapText with physics and add to the group
+        this.letters.objects.forEach(letter =>{            
+            let theLetter = this.add.dynamicBitmapText(letter.x, letter.y, GameConstants.Fonts.PIXEL, letter.name, 60).setTint(0xca8330);
             this.physics.world.enable(theLetter);            
             this.interactiveLetters.add(theLetter);
             theLetter.body.setAllowGravity(false);
         });        
         
-        
+        //Create overlap player with letters 
         this.physics.add.overlap(this.player, this.interactiveLetters, function (player, object) {
+            //Check if the letter is correct
             this.collectLetter(this.interactiveLetters, object);
         }, null, this);
 
@@ -121,11 +121,16 @@ class Level4 extends BasicScene {
     
         }//create
     
+        /**
+         * 
+         * @param group letterGroup
+         * @param object object overlaped
+         */
+
         collectLetter(group, object){
 
+            //flag for doing only once
             if (!this.hitLetter) {   
-                
-                console.log(object.text);
 
                 //Check for letters coincidences
                 for (const [position, letterToGuess] of this.wordArray.entries()) {
@@ -134,16 +139,17 @@ class Level4 extends BasicScene {
                         this.correctSound.play();
                     }
                 }
+                //TODO if the word is complete 
+                //Win the Level and going to the next level
+
                 //If wrong one live less
                 if (!this.wordArray.includes(object.text)) {
                     this.player.loseHealth();           
                     this.incorrectSound.play();
-                }
+                }                
                 
-                //this.coinpickup.play();
                 this.hitLetter = true;
-                //this.extraPoints*=10;   
-    
+                    
                 this.tweens.add({
                     targets: object,
                     y: object.y - 100,
@@ -170,8 +176,6 @@ class Level4 extends BasicScene {
     update(time, delta) {        
 
 
-
- 
 
         this.player.update(time, delta);
          Object.keys(this.enemyGroups).forEach(enemy => {
