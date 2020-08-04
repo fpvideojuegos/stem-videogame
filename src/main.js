@@ -15,6 +15,7 @@ import Level1 from './scenes/Level1.js';
 import IntroLevel1 from './scenes/IntroLevel1.js';
 import IntroLevel2 from './scenes/IntroLevel2.js';
 import IntroLevel3 from './scenes/IntroLevel3.js';
+import IntroLevel4 from './scenes/IntroLevel4.js';
 import Bootloader from './Bootloader.js';
 import AudioLoader from './AudioLoader.js';
 import Loader from './Loader.js';
@@ -71,7 +72,7 @@ const config = {
         },
     },
     scene: [Loader, Bootloader, AudioLoader, Menu, SettingsLevel, SelectCharacterLevel, 
-        BonusLevel, LevelSelect, Credits, IntroLevel1, IntroLevel2, IntroLevel3, Scores, Level1, Level2, Level3, Level4, Level5, Level6, UI]
+        BonusLevel, LevelSelect, Credits, IntroLevel1, IntroLevel2, IntroLevel3, IntroLevel4, Scores, Level1, Level2, Level3, Level4, Level5, Level6, UI]
 };
 
 const game = new Phaser.Game(config);

@@ -62,7 +62,7 @@ class Level4 extends BasicScene {
             this.textPosition[i].setScrollFactor(0);
             this.textPosition[i].setDepth(5);
         }
-        
+        this.lettersGuessed = 0;
 
         //Get letters from TileMap        
         this.letters = this.map.getObjectLayer('Collectables');
@@ -85,38 +85,14 @@ class Level4 extends BasicScene {
 
 
         //Sounds        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.OST, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL4.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
-        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL4.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
 
-        //Create Treasure
-        this.keys = this.createEndLevelObject(GameConstants.Sprites.Treasure.KEY);
-        this.physics.world.enable(this.keys);
-        this.keylevel = this.keys[0];
-        this.keylevel.setScale(1.25);
-        this.keylevel.body.setAllowGravity(false);
-        this.keylevel.setAlpha(0);
-        this.anims.play(GameConstants.Anims.TREASURE, this.keylevel);
-
-        //Collider for Bracelet
-        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
-            this.musicbg.stop();
-            this.ambiencebg.stop();
-            this.keylevel.destroy();            
-            this.player.nextScene();
-        });
-
-        this.playercollide.active=false;
-      
-       
-
-
-     
-
-
+        
         
     
         }//create
@@ -137,10 +113,15 @@ class Level4 extends BasicScene {
                     if (object.text == letterToGuess) {                                                
                         this.textPosition[position].setText(letterToGuess);
                         this.correctSound.play();
+                        this.lettersGuessed++;
                     }
                 }
-                //TODO if the word is complete 
-                //Win the Level and going to the next level
+                //if the word is complete 
+                if (this.lettersGuessed == this.textPosition.length){
+                    this.musicbg.stop();
+                    this.ambiencebg.stop();            
+                    this.player.nextScene();
+                }
 
                 //If wrong one live less
                 if (!this.wordArray.includes(object.text)) {
@@ -181,14 +162,6 @@ class Level4 extends BasicScene {
          Object.keys(this.enemyGroups).forEach(enemy => {
             this.enemyGroups[enemy].update();
         });
-
-        if (this.player.collectablesCollected === 0){
-            this.playercollide.active=true;
-            this.keylevel.setAlpha(1);
-        }
-        
-
-        
 
 
 

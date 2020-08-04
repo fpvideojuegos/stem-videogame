@@ -14,6 +14,7 @@ const GameConstants = {
         INTROLEVEL1: 'IntroLevel1',        
         INTROLEVEL2: 'IntroLevel2',        
         INTROLEVEL3: 'IntroLevel3',        
+        INTROLEVEL4: 'IntroLevel4',        
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
@@ -48,6 +49,7 @@ const GameConstants = {
         },
         LEVEL4: {
             OST: 'Level4_OST',
+            AMBIENCE: 'WingsFlapping',
             INCORRECT: 'Incorrect',
             CORRECT: 'Correct'
         },

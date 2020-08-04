@@ -54,12 +54,24 @@ class Bootloader extends Phaser.Scene {
             frameHeight: 216
         });
 
-        //LEVEL 2 - PLANE
+        //LEVEL 3 - PICKUP
         this.load.spritesheet("pickup_intro", "img/intro/pickup.png", {
             frameWidth: 272,
             frameHeight: 160
         });
 
+        //LEVEL4 - MARIA ZAMBRANO
+        this.load.spritesheet("maria_intro", "img/intro/mariaZambrano_spritesheet.png", {
+            frameWidth: 220,
+            frameHeight: 330
+        });
+
+        
+        //LEVEL 4 - FLYINGBOOK BIG
+        this.load.spritesheet("flyingbook_intro", "img/intro/flyingbook.png", {
+            frameWidth: 270,
+            frameHeight: 135
+        });
 
 
         //BONUS LEVEL
@@ -149,7 +161,8 @@ class Bootloader extends Phaser.Scene {
         this.load.image('bg_Level3', 'img/backgrounds/background_level3_forest.jpg');
         //https://rgoncalves83.itch.io/free-vector-grass-tileset
         //Level 4
-        //this.load.image("bg_Level4", "img/backgrounds/Ocean.png");
+        this.load.image("bg_Level4", "img/backgrounds/library_bg.png");
+        
         //PARALLAX BG Level 4
         // environment
         this.load.image('bg-clouds', 'img/backgrounds/parallax_level4/bg-clouds.png');
@@ -370,6 +383,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Level1_OST", "sounds/ost/level1_OST.ogg");                        
         this.load.audio("Level2_OST", "sounds/ost/level2_OST.ogg");
         this.load.audio("Level3_OST", "sounds/ost/level3_OST.ogg");
+        this.load.audio("Level4_OST", "sounds/ost/level4_OST.ogg");
         this.load.audio("Main_OST","sounds/ost/menusong_v3.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 
@@ -381,6 +395,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Bus", "sounds/effects/bus_engine.ogg");                
         this.load.audio("PlaneEngine", "sounds/effects/plane_engine.ogg");                
         this.load.audio("PickupEngine", "sounds/effects/pickup_engine.ogg");
+        this.load.audio("WingsFlapping", "sounds/effects/wingsflapping.ogg");
         this.load.audio("Incorrect", "sounds/effects/incorrect.ogg");
         this.load.audio("Correct", "sounds/effects/correct.ogg");
 

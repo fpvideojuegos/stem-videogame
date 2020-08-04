@@ -1,13 +1,15 @@
 import GameConstants from '../services/GameConstants.js';
+import BasicIntroScene from "./BasicIntroScene.js";
 
 
-class IntroLevel3 extends Phaser.Scene {
+
+class IntroLevel4 extends BasicIntroScene {
     constructor() {
-        super({key: 'IntroLevel3'});
+        super({key: 'IntroLevel4'});
     }
     
     preload() {
-        console.log('Scene: Introlevel3');
+        console.log('Scene: IntroLevel4');
         
 
     }
@@ -17,15 +19,9 @@ class IntroLevel3 extends Phaser.Scene {
 
 
         //Music Background
-        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL3.AMBIENCE, {volume: 0.6});
-        this.musicBg.play();
-        this.musicBg.setLoop(true);
-
-        //Plane
-        this.musicBg3 = this.sound.add(GameConstants.Sound.LEVEL3.PICKUP, {volume: 0.4});
-        this.musicBg3.play();
-        this.musicBg3.setLoop(true);
-        
+        this.musicBg4 = this.sound.add(GameConstants.Sound.LEVEL4.AMBIENCE, {volume: 0.6});
+        this.musicBg4.play();
+        this.musicBg4.setLoop(true);
 
 
         //Music Bus
@@ -37,49 +33,48 @@ class IntroLevel3 extends Phaser.Scene {
         
 
         //BG PARALLAX        
-        this.bg3_back = this.add.tileSprite(0, 0, this.width*2, this.height*2, 'bg3_back').setOrigin(0).setScale(0.5);
-        this.bg3_middle = this.add.tileSprite(0, 0, this.width*2, this.height*2, 'bg3_middle').setOrigin(0).setScale(0.5);
+        this.backgroundimg4 = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL4).setOrigin(0);       
     
        
         //women animation setting
         this.anims.create({
-            key: "bertatalk",
-            frames: this.anims.generateFrameNumbers("berta_intro", {
+            key: "mariatalk",
+            frames: this.anims.generateFrameNumbers("maria_intro", {
                 start: 0,
                 end: 1
             }),
-            frameRate: 3,
+            frameRate: 2,
             repeat: -1
         });
 
 
 
        // adding women Sprite
-       this.woman = this.physics.add.sprite(200,150, "berta_intro").setAlpha(0);
-       this.woman.setDepth(2);       
-       this.woman.body.setAllowGravity(false);
-       this.woman.anims.play("bertatalk");
+       this.woman4 = this.physics.add.sprite(50,15, "maria_intro").setAlpha(0).setOrigin(0);
+       this.woman4.setDepth(2);       
+       this.woman4.body.setAllowGravity(false);
+       this.woman4.anims.play("mariatalk");
 
 
               
         // Bus animation setting 
         this.anims.create({
-            key: "drivepickup",
-            frames: this.anims.generateFrameNumbers("pickup_intro", {
+            key: "flyingbook_big_fly",
+            frames: this.anims.generateFrameNumbers("flyingbook_intro", {
                 start: 0,
-                end: 3
+                end: 7
             }),
-            frameRate: 4,
+            frameRate: 7,
             repeat: -1
         });
 
 
 
        // adding plane Sprite
-       this.pickup = this.physics.add.sprite(200,365, "pickup_intro");
-       this.pickup.setDepth(2);       
-       this.pickup.body.setAllowGravity(false);
-       this.pickup.anims.play("drivepickup");
+       this.flyingbook = this.physics.add.sprite(30,this.height-150, "flyingbook_intro").setOrigin(0);
+       this.flyingbook.setDepth(2);       
+       this.flyingbook.body.setAllowGravity(false);
+       this.flyingbook.anims.play("flyingbook_big_fly");
 
 
 
@@ -114,7 +109,7 @@ class IntroLevel3 extends Phaser.Scene {
         this.time.addEvent({
             delay: 4500,
             callback: () => {                
-                this.woman.setAlpha(1);
+                this.woman4.setAlpha(1);
                 this.sound_AGATHA.play();
             },
             callbackScope: this
@@ -133,7 +128,7 @@ class IntroLevel3 extends Phaser.Scene {
             delay: 27000,
             callback: () => { 
                 this.textInstructions.setAlpha(0);
-                this.woman.setAlpha(0);
+                this.woman4.setAlpha(0);
                 this.musicFalling.play();               
                 this.run = true;
             },
@@ -142,7 +137,7 @@ class IntroLevel3 extends Phaser.Scene {
 
         this.passthedoor = false;
         //Atraviesa la puerta
-        this.physics.add.overlap(this.pickup, this.door, () => {
+        this.physics.add.overlap(this.flyingbook, this.door, () => {
                 if (!this.passthedoor){ 
                     this.passthedoor=true;
                     
@@ -161,9 +156,8 @@ class IntroLevel3 extends Phaser.Scene {
                 
                 
                     this.cameras.main.on('camerafadeoutcomplete', () => {
-                        this.musicBg.stop();
-                        this.musicBg3.stop();                                               
-                        this.scene.start(GameConstants.Levels.LEVEL3);            
+                        this.musicBg4.stop();                        
+                        this.scene.start(GameConstants.Levels.LEVEL4);            
                     });
                 }
         });
@@ -202,13 +196,10 @@ class IntroLevel3 extends Phaser.Scene {
         }
 
         
-        //PARALLAX Move 
-         //PARALLAX Move relative to cameras scroll move
-         this.bg3_back.tilePositionX += 0.3 ;
-         this.bg3_middle.tilePositionX += 0.5 ;
+        this.backgroundimg4.tilePositionX += 0.5;
 
         if (this.run) {
-            this.pickup.setVelocityX(150);            
+            this.flyingbook.setVelocityX(150);            
         }
        
     }
@@ -217,13 +208,12 @@ class IntroLevel3 extends Phaser.Scene {
         this.skip = true;
         this.cameras.main.fade(700, 0, 0, 0);
         this.cameras.main.on('camerafadeoutcomplete', () => {                        
-            this.musicBg.stop();
-            this.musicBg3.stop();
+            this.musicBg4.stop();            
             this.sound_AGATHA.stop();
-            this.scene.start(GameConstants.Levels.LEVEL3);
+            this.scene.start(GameConstants.Levels.LEVEL4);
         });
 
     }
 }
 
-export default IntroLevel3;
+export default IntroLevel4;
