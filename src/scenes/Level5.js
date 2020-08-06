@@ -21,6 +21,9 @@ class Level5 extends BasicScene {
         //HealthText
         this.createHealthText();
 
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
+
          //ExtraPoints        
          this.createCoins();
 

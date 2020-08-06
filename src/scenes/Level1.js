@@ -21,6 +21,8 @@ class Level1 extends BasicScene {
         //Object Heart for Extralifes
         this.createExtraLifes();
 
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY);
         //create key object (Inventory object)

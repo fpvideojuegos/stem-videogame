@@ -23,6 +23,8 @@ class Level4 extends BasicScene {
         this.cameras.main.backgroundColor.setTo(0, 0, 0); 
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
         //ExtraPoints        
         this.createCoins();
         //Objects to Collect

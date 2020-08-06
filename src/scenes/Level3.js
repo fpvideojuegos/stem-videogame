@@ -25,6 +25,8 @@ class Level3 extends BasicScene {
         
         //HealthText
         this.createHealthText();
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
         
         //Tilemap        
         this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET,undefined,undefined,undefined,false);

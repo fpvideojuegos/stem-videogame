@@ -386,6 +386,20 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
+     * Turn as "OFF" all superPowers every time a level starts.
+     * Must be called in every level before "this.createSuperPowers();". No parameters required
+     */
+    offSuperPowers(){
+        //Set all superPowers as OFF
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB.superPowers.lowGravity.status = "OFF";
+        this.DB.superPowers.superSpeed.status = "OFF";
+        this.DB.superPowers.superJump.status = "OFF";
+        this.DB.superPowers.invencibility.status = "OFF";
+        //this.DB.superPowers.lowGravity.status = "OFF"; //TODO for fifth superPower
+        store.set(GameConstants.DB.DBNAME, this.DB);
+    }
+    /**
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.ExtraPoint.OBJECT_NAME} necesarios para la puntuación.
      *
      * @param spriteKey - Nombre del sprite que usara este objeto. (Default = {@link GameConstants.Sprites.ExtraPoint.KEY})
@@ -609,15 +623,6 @@ class BasicScene extends Phaser.Scene {
     // TODO: Implementar scene.scene.transition
     changeScene(scene, target, miliseconds) {
         if (scene) {
-            //Set all superPowers as OFF
-            this.DB = store.get(GameConstants.DB.DBNAME);
-            this.DB.superPowers.lowGravity.status = "OFF";
-            this.DB.superPowers.superSpeed.status = "OFF";
-            this.DB.superPowers.superJump.status = "OFF";
-            this.DB.superPowers.invencibility.status = "OFF";
-            //this.DB.superPowers.lowGravity.status = "OFF"; //TODO for fifth superPower
-            store.set(GameConstants.DB.DBNAME, this.DB);
-
             this.levelTiles = [];
             scene.physics.pause();
             this.time.addEvent({

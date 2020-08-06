@@ -18,6 +18,8 @@ class Level6 extends BasicScene {
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL6);
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level6);
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
         //ExtraPoints        
         this.createCoins();
         //HealthText

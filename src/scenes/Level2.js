@@ -21,6 +21,8 @@ class Level2 extends BasicScene {
         this.createCoins();
         //HealthText
         this.createHealthText();
+        //Deactivate superPowers if were activated on previous levels
+        this.offSuperPowers();
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.invencibility.KEY);
         //Tilemap
