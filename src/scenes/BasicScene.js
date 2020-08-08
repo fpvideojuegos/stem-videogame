@@ -230,6 +230,7 @@ class BasicScene extends Phaser.Scene {
                 case GameConstants.Sprites.Smoke.OBJECT_NAME:
                     this.smokes = this.createEnemies(GameConstants.Sprites.Smoke.OBJECT_NAME, GameConstants.Sprites.Smoke.OBJECT_ID, GameConstants.Sprites.Smoke.KEY);
                     this.enemyGroups.smokesGroup = new FloorEnemy(this.physics.world, this, [], this.smokes, 100);
+                    this.enemyGroups.smokesGroup.children.iterate(b => b.setScale(1.25));
                     this.anims.play(GameConstants.Anims.SMOKE, this.smokes);
                     break;                    
                 case GameConstants.Sprites.Rinobeetle.OBJECT_NAME:                    
@@ -579,7 +580,7 @@ class BasicScene extends Phaser.Scene {
                 for (y = 1; y < levelLayer.height; y++) {                
                 tile = levelLayer.getTileAt(x, y);                
                 if (tile !== null) {                                
-                    tile.setCollision(false, false, true, false); //right,left,up,down                            
+                    tile.setCollision(true, true, true, false); //right,left,up,down                            
                     }
                 }
             }

@@ -67,6 +67,17 @@
                 "type": "animation",
                 "key": "harryData",
                 "url": "players/harry_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "astronaut",
+                "textureURL": "players/astronaut.png",
+                "atlasURL": "players/astronaut_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "astronautData",
+                "url": "players/astronaut_anim.json"
             }
             
         ]

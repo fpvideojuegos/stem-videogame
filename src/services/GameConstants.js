@@ -585,6 +585,14 @@ const GameConstants = {
             WALK: 'harry_walk',
             DOWN: 'harry_down',
             CLIMB: 'harry_climb'
+        },
+        astronaut:{
+            key: 'astronaut',
+            name: 'Astronaut girl (by Moye)',
+            IDLE: 'astronaut_idle',
+            WALK: 'astronaut_walk',
+            DOWN: 'astronaut_down',
+            CLIMB: 'astronaut_climb'
         }
     }
 

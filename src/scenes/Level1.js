@@ -32,8 +32,8 @@ class Level1 extends BasicScene {
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
         this.createHealthText();
-        //Tilemap
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET); //With World Layer by default
+        //Tilemap        
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET,undefined,undefined,undefined,false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPE, false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL1_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         
