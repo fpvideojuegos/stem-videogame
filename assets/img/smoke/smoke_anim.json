@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "smoke_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 8,
+            "frames": [
+                {
+                    "key": "smoke",
+                    "frame": "smoke_0"
+                },
+                {
+                    "key": "smoke",
+                    "frame": "smoke_1"
+                },
+                {
+                    "key": "smoke",
+                    "frame": "smoke_2"
+                },
+                {
+                    "key": "smoke",
+                    "frame": "smoke_3"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "anims": [
+        {
+            "key": "harry_idle",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "harry",
+                    "frame": "harry_2"
+                },
+                {
+                    "key": "harry",
+                    "frame": "harry_3"
+                },
+                {
+                    "key": "harry",
+                    "frame": "harry_4"
+                },
+                {
+                    "key": "harry",
+                    "frame": "harry_5"
+                }
+            ]
+        },
+        {
+            "key": "harry_walk",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "harry",
+                    "frame": "harry_0"
+                },
+                {
+                    "key": "harry",
+                    "frame": "harry_1"
+                }
+            ]
+        },
+        {
+            "key": "harry_down",
+            "type": "frames",
+            "repeat": 0,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "harry",
+                    "frame": "harry_6"
+                }
+            ]
+        },
+        {
+            "key": "harry_climb",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "harry",
+                    "frame": "harry_7"
+                },
+                {
+                    "key": "harry",
+                    "frame": "harry_8"
+                }
+            ]
+        }
+    ]
+}

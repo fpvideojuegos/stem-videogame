@@ -53,8 +53,8 @@
                  "type":"Water",
                  "visible":true,
                  "width":109.212121212121,
-                 "x":23.2121212121212,
-                 "y":749.939393939394
+                 "x":989.212121212121,
+                 "y":49.939393939394
                 }, 
                 {
                  "height":69.6969696969697,
@@ -363,8 +363,8 @@
                  "type":"CarnivorousPlant",
                  "visible":true,
                  "width":0,
-                 "x":158.333333333333,
-                 "y":470.666666666667
+                 "x":168.333333333333,
+                 "y":640.666666666667
                 }, 
                 {
                  "height":0,
@@ -375,8 +375,8 @@
                  "type":"CarnivorousPlant",
                  "visible":true,
                  "width":0,
-                 "x":304,
-                 "y":564
+                 "x":562,
+                 "y":810
                 }, 
                 {
                  "height":0,
@@ -437,6 +437,41 @@
                  "width":0,
                  "x":3034,
                  "y":532
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":41,
+         "name":"Smokes",
+         "objects":[
+                {
+                 "height":0,
+                 "id":169,
+                 "name":"Smoke",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":350,
+                 "y":616
+                }, 
+                {
+                 "height":0,
+                 "id":170,
+                 "name":"Smoke",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":376,
+                 "y":802
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -554,15 +589,15 @@
                  "y":661
                 }, 
                 {
-                 "height":42,
+                 "height":118,
                  "id":153,
                  "name":"Limit",
                  "rotation":0,
                  "type":"Limit",
                  "visible":true,
                  "width":34,
-                 "x":369,
-                 "y":535
+                 "x":881,
+                 "y":713
                 }, 
                 {
                  "height":42,
@@ -587,15 +622,15 @@
                  "y":629
                 }, 
                 {
-                 "height":42,
+                 "height":118,
                  "id":158,
                  "name":"Limit",
                  "rotation":0,
                  "type":"Limit",
                  "visible":true,
                  "width":34,
-                 "x":2853,
-                 "y":501
+                 "x":883,
+                 "y":559
                 }, 
                 {
                  "height":42,
@@ -610,7 +645,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -797,8 +832,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":41,
- "nextobjectid":168,
+ "nextlayerid":42,
+ "nextobjectid":171,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

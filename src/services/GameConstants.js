@@ -226,6 +226,12 @@ const GameConstants = {
             OBJECT_NAME: 'Wheels',
             OBJECT_ID: 'Wheel'
         },
+        Smoke: {
+            KEY: 'smoke',
+            ID: 'smoke',
+            OBJECT_NAME: 'Smokes',
+            OBJECT_ID: 'Smoke'
+        },
         Crab: {
             KEY: 'crab',
             ID: 'crab',
@@ -402,7 +408,8 @@ const GameConstants = {
         },
         Level3: {
             BEES: 'Bees',            
-            CARNIVOROUS: 'CarnivorousPlants'            
+            CARNIVOROUS: 'CarnivorousPlants',
+            SMOKES: 'Smokes'            
         },       
         Level4: {
             FLYINGBOOKS: 'Flyingbooks',            
@@ -447,6 +454,7 @@ const GameConstants = {
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'desertball_move',
         CRAB: 'crab_move',
+        SMOKE: 'smoke_move',
         MOUSE: 'mouse_move',
         DONUT: 'donut_move',
         BRACELET: 'bracelet_move',
@@ -569,6 +577,14 @@ const GameConstants = {
             WALK: 'girlretro_walk',
             DOWN: 'girlretro_down',
             CLIMB: 'girlretro_climb'
+        },
+        harry:{
+            key: 'harry',
+            name: 'Harry (by Moye)',
+            IDLE: 'harry_idle',
+            WALK: 'harry_walk',
+            DOWN: 'harry_down',
+            CLIMB: 'harry_climb'
         }
     }
 

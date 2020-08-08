@@ -56,6 +56,17 @@
                 "type": "animation",
                 "key": "girlretroData",
                 "url": "players/girlretro_anim.json"
+            },
+            {
+                "type": "atlas",
+                "key": "harry",
+                "textureURL": "players/harry.png",
+                "atlasURL": "players/harry_atlas.json"
+            },
+            {
+                "type": "animation",
+                "key": "harryData",
+                "url": "players/harry_anim.json"
             }
             
         ]
