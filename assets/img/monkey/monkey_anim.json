@@ -1,0 +1,24 @@
+{
+    "anims": [
+        {
+            "key": "monkey_move",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "monkey",
+                    "frame": "monkey_0"
+                },
+                {
+                    "key": "monkey",
+                    "frame": "monkey_1"
+                },
+                {
+                    "key": "monkey",
+                    "frame": "monkey_2"
+                }
+            ]
+        }
+    ]
+}

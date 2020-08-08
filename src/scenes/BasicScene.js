@@ -227,6 +227,12 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.crabsGroup = new FloorEnemy(this.physics.world, this, [], this.crabs, 100);
                     this.anims.play(GameConstants.Anims.CRAB, this.crabs);
                     break;
+                case GameConstants.Sprites.Monkey.OBJECT_NAME:
+                    this.monkeys = this.createEnemies(GameConstants.Sprites.Monkey.OBJECT_NAME, GameConstants.Sprites.Monkey.OBJECT_ID, GameConstants.Sprites.Monkey.KEY);
+                    this.enemyGroups.monkeyGroup = new FloorEnemy(this.physics.world, this, [], this.monkeys, 100);
+                    this.enemyGroups.monkeyGroup.children.iterate(b => b.setScale(1.35));
+                    this.anims.play(GameConstants.Anims.MONKEY, this.monkeys);
+                    break;    
                 case GameConstants.Sprites.Smoke.OBJECT_NAME:
                     this.smokes = this.createEnemies(GameConstants.Sprites.Smoke.OBJECT_NAME, GameConstants.Sprites.Smoke.OBJECT_ID, GameConstants.Sprites.Smoke.KEY);
                     this.enemyGroups.smokesGroup = new FloorEnemy(this.physics.world, this, [], this.smokes, 100);

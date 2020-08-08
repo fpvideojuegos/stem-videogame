@@ -29,13 +29,15 @@ class Level3 extends BasicScene {
         this.offSuperPowers();
         
         //Tilemap        
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.CLOUDS, false);
         this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET,undefined,undefined,undefined,false);
         
 
         //PRIVATE SCENE ELEMENTS
-        //Creacion de elementos decorativos
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPE, false);        
+        //Creacion de elementos decorativos        
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPE, false);                
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
+        
         
         //Creacion de objetos invisibles que dañaran a player
         //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);

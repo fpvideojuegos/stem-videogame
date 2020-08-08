@@ -238,6 +238,12 @@ const GameConstants = {
             OBJECT_NAME: 'Crabs',
             OBJECT_ID: 'Crab'
         },
+        Monkey: {
+            KEY: 'monkey',
+            ID: 'monkey',
+            OBJECT_NAME: 'Monkeys',
+            OBJECT_ID: 'Monkey'
+        },
         Mouse: {
             KEY: 'mouse',
             ID: 'mouse',
@@ -407,7 +413,7 @@ const GameConstants = {
             CRABS: 'Crabs'
         },
         Level3: {
-            BEES: 'Bees',            
+            MONKEYS: 'Monkeys',            
             CARNIVOROUS: 'CarnivorousPlants',
             SMOKES: 'Smokes'            
         },       
@@ -454,6 +460,7 @@ const GameConstants = {
         MOSQUITOS: 'mosquito_move',
         WHEEL: 'desertball_move',
         CRAB: 'crab_move',
+        MONKEY: 'monkey_move',
         SMOKE: 'smoke_move',
         MOUSE: 'mouse_move',
         DONUT: 'donut_move',
@@ -540,7 +547,7 @@ const GameConstants = {
     Players_Sprites:{        
         player3:{
             key: 'player3',
-            name: 'Boy',
+            name: 'Boy (by IFlags)',
             IDLE: 'player3_idle',
             WALK: 'player3_walk',
             DOWN: 'player3_down',
@@ -548,7 +555,7 @@ const GameConstants = {
         },
         knight:{
             key: 'knight',
-            name: 'Medieval Knight',
+            name: 'Medieval Knight\n(by Leo)',
             IDLE: 'knight_idle',
             WALK: 'knight_walk',
             DOWN: 'knight_down',
@@ -588,7 +595,7 @@ const GameConstants = {
         },
         astronaut:{
             key: 'astronaut',
-            name: 'Astronaut girl (by Moye)',
+            name: 'Astronaut girl\n(by Moye)',
             IDLE: 'astronaut_idle',
             WALK: 'astronaut_walk',
             DOWN: 'astronaut_down',
