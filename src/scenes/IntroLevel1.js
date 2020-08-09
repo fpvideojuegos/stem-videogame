@@ -1,7 +1,8 @@
+import BasicIntroScene from "./BasicIntroScene.js";
 import GameConstants from '../services/GameConstants.js';
 
 
-class IntroLevel1 extends Phaser.Scene {
+class IntroLevel1 extends BasicIntroScene {
     constructor() {
         super({key: 'IntroLevel1'});
     }
@@ -16,7 +17,7 @@ class IntroLevel1 extends Phaser.Scene {
         this.run = false;
 
 
-        //Music Background
+        //Music Background        
         this.musicBg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 0.6});
         this.musicBg.play();
         this.musicBg.setLoop(true);
@@ -32,13 +33,6 @@ class IntroLevel1 extends Phaser.Scene {
         this.width = this.cameras.main.width;        
         
         
-
-        
-       //Background Parallax 
-       /*this.bgparallax=[];
-       for(let i=7;i>=1;i--){
-        this.bgparallax[i]=this.add.tileSprite(0, 0, this.width, this.height, "layer_0"+i).setOrigin(0);
-       }*/
 
        this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL1).setOrigin(0);       
        
@@ -223,29 +217,7 @@ class IntroLevel1 extends Phaser.Scene {
         });
 
     }
-    /**
-     *
-     * @param {string} text
-     */
-    typewriteBitmapText(text, position)
-    {
-        const length = text.length
-        let i = 0
-        
-        let textInstructions = this.add.bitmapText(300, 25*(position+1), 'pixel', '')
-                                                        .setScrollFactor(0)
-                                                        .setDepth(3) 
-                                                        .setAlpha(1);
 
-        this.time.addEvent({
-            callback: () => {
-                textInstructions.text += text[i]
-                ++i
-            },
-            repeat: length - 1,
-            delay: 75
-        })
-    }
 
 }
 
