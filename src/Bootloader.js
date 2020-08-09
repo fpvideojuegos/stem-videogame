@@ -210,6 +210,10 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('seagull', 'img/seagull/seagull.png', 'img/seagull/seagull_atlas.json');
         this.load.animation('seagullAnim', 'img/seagull/seagull_anim.json');
 
+        //Piranhas
+        this.load.atlas('piranha', 'img/piranha/piranha.png', 'img/piranha/piranha_atlas.json');
+        this.load.animation('piranhaAnim', 'img/piranha/piranha_anim.json');
+
         //Soda
         this.load.atlas('soda', 'img/soda/soda.png', 'img/soda/soda_atlas.json');
         this.load.animation('sodaAnim', 'img/soda/soda_anim.json');
@@ -330,6 +334,9 @@ class Bootloader extends Phaser.Scene {
         this.load.image('cristalbottle', "img/objects/cristalbottle.png");
         this.load.image('waterbottle', "img/objects/waterbottle.png");
         this.load.image('plasticglass', "img/objects/plasticglass.png");
+        this.load.image('axe', "img/objects/axe.png");
+        this.load.image('matches', "img/objects/matches.png");
+        this.load.image('oilbottle', "img/objects/oilbottle.png");
 
         //Star
         this.load.image("star", "img/objects/star.png");

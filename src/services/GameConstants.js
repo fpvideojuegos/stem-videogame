@@ -178,6 +178,12 @@ const GameConstants = {
             OBJECT_NAME: 'Seagulls',
             OBJECT_ID: 'Seagull'
         },
+        Piranhas: {
+            KEY: 'piranha',
+            ID: 'piranha',
+            OBJECT_NAME: 'Piranhas',
+            OBJECT_ID: 'Piranha'
+        },        
         Soda: {
             KEY: 'soda',
             ID: 'soda',
@@ -316,6 +322,15 @@ const GameConstants = {
         EarStick:{
             KEY: 'earstick'
         },
+        Axe:{
+            KEY: 'axe'
+        },
+        Matches:{
+            KEY: 'matches'
+        },
+        OilBottle:{
+            KEY: 'oilbottle'
+        },
         PlayAgain: {
             KEY: 'playagain'
         },
@@ -415,7 +430,8 @@ const GameConstants = {
         Level3: {
             MONKEYS: 'Monkeys',            
             CARNIVOROUS: 'CarnivorousPlants',
-            SMOKES: 'Smokes'            
+            SMOKES: 'Smokes',
+            PIRANHAS: 'Piranhas'              
         },       
         Level4: {
             FLYINGBOOKS: 'Flyingbooks',            
@@ -451,6 +467,7 @@ const GameConstants = {
         BEES: 'bee_fly',
         FLYINGBOOKS: 'flyingbook_fly',
         SEAGULLS: 'seagull_fly',
+        PIRANHAS: 'piranha_swim',
         SODAS: 'soda_fly',
         SNAILS: 'snail_move',
         SPIDERS: 'spider_move',

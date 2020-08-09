@@ -46,8 +46,9 @@ class Level3 extends BasicScene {
 
 
         //Objects to Collect and finnish level
-        this.createCollectables(GameConstants.Sprites.EarStick.KEY, GameConstants.Sprites.EarStick.KEY );
-        this.createCollectables(GameConstants.Sprites.CristalBottle.KEY, GameConstants.Sprites.CristalBottle.KEY);
+        this.createCollectables(GameConstants.Sprites.OilBottle.KEY, GameConstants.Sprites.OilBottle.KEY );
+        this.createCollectables(GameConstants.Sprites.Matches.KEY, GameConstants.Sprites.Matches.KEY,false);
+        this.createCollectables(GameConstants.Sprites.Axe.KEY, GameConstants.Sprites.Axe.KEY,false);
 
 
         

@@ -1,0 +1,28 @@
+{
+    "anims": [
+        {
+            "key": "piranha_swim",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 7,
+            "frames": [
+                {
+                    "key": "piranha",
+                    "frame": "piranha_0"
+                },
+                {
+                    "key": "piranha",
+                    "frame": "piranha_1"
+                },
+                {
+                    "key": "piranha",
+                    "frame": "piranha_2"
+                },
+                {
+                    "key": "piranha",
+                    "frame": "piranha_3"
+                }
+            ]
+        }
+    ]
+}

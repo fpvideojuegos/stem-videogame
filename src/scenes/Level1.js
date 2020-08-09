@@ -13,7 +13,7 @@ class Level1 extends BasicScene {
         //Player Creation
         this.createPlayer(); 
         //Create Repeated Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.45,y:1.45});
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL1, defaultStatus, defaultStatus,{x:1.65,y:1.65});
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
         //ExtraPoints        

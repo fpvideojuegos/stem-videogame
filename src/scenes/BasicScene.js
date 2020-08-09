@@ -33,6 +33,8 @@ class BasicScene extends Phaser.Scene {
         this.bats = [];
         this.bees = [];
         this.seagulls = [];
+        this.piranhas = [];
+        this.monkeys = [];
         this.wheels = [];
         this.crocodiles = [];
         this.snails = [];
@@ -271,6 +273,12 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.seagullsGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.SEAGULLS, this.seagulls);
                     break;
+                case GameConstants.Sprites.Piranhas.OBJECT_NAME:
+                    this.piranhas = this.createEnemies(GameConstants.Sprites.Piranhas.OBJECT_NAME, GameConstants.Sprites.Piranhas.OBJECT_ID, GameConstants.Sprites.Piranhas.KEY);
+                    this.enemyGroups.piranhasGroup = new FlyingEnemy(this.physics.world, this, [], this.piranhas);
+                    //this.enemyGroups.piranhasGroup.children.iterate(b => b.setScale(1));
+                    this.anims.play(GameConstants.Anims.PIRANHAS, this.piranhas);
+                    break;                    
                 case GameConstants.Sprites.Snails.OBJECT_NAME:
                     this.snails = this.createEnemies(GameConstants.Sprites.Snails.OBJECT_NAME, GameConstants.Sprites.Snails.OBJECT_ID, GameConstants.Sprites.Snails.KEY);
                     this.enemyGroups.snailsGroup = new FloorEnemy(this.physics.world, this, [], this.snails, 100);
