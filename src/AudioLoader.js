@@ -43,7 +43,7 @@ class AudioLoader extends Phaser.Scene {
 
         //Sfx sounds
         this.load.audio("collectablePickup","sounds/effects/cluepickup.ogg");
-        this.load.audio("alarmOn","sounds/effects/sfx_lowhealth_alarmloop7.wav");
+        this.load.audio("alarmOn","sounds/effects/alarmOn.ogg");
 
         
 
@@ -52,7 +52,7 @@ class AudioLoader extends Phaser.Scene {
         //https://freesound.org/people/DCPoke/sounds/387978/
         
         //https://freesound.org/people/ChrisButler99/sounds/367988/
-        this.load.audio("falling", "sounds/backgrounds/falling.mp3");
+        this.load.audio("falling", "sounds/effects/falling.ogg");
         
         this.load.audio("soundJump", "sounds/jump.mp3");
         this.load.audio("playerAuch", "sounds/ayyyyy.ogg");        

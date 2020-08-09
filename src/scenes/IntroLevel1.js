@@ -4,38 +4,35 @@ import GameConstants from '../services/GameConstants.js';
 
 class IntroLevel1 extends BasicIntroScene {
     constructor() {
-        super({key: 'IntroLevel1'});
+        super({key: 'IntroLevel1', 
+              target:GameConstants.Levels.LEVEL1});
+        
     }
     
-    preload() {
-        console.log('Scene: Introlevel1');
-        
-
-    }
-
+ 
     create() {
+        
+        //Running Vble
         this.run = false;
 
-
-        //Music Background        
-        this.musicBg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 0.6});
-        this.musicBg.play();
-        this.musicBg.setLoop(true);
-
-        this.musicBg2 = this.sound.add(GameConstants.Sound.LEVEL1.BUS, {volume: 0.4});
-        this.musicBg2.play();
-        this.musicBg2.setLoop(true);
-
-        //Music Bus
-        this.musicFalling = this.sound.add('falling');
+        //Create Music Background (Layer1 + Layer2)
+        this.createBgSounds(GameConstants.Sound.LEVEL1.AMBIENCE, GameConstants.Sound.LEVEL1.BUS);
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
         
-        
+        // SKIP Control
+        const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
+        skipButton.setPosition(this.width - skipButton.width - 30, 20);
+        skipButton.setInteractive().setDepth(2);
+        skipButton.on('pointerdown', () => { 
+            this.skipIntro();
+        });
 
-       this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL1).setOrigin(0);       
-       
+
+        this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, GameConstants.Textures.BG_LEVEL1).setOrigin(0).setInteractive();       
+        this.backgroundimg.once('pointerup',() => { this.skipIntro(); });
+
         //women animation setting
         this.anims.create({
             key: "runAgatha",
@@ -165,27 +162,6 @@ class IntroLevel1 extends BasicIntroScene {
         
         this.skip = false;
 
-        //Skip to Level 
-        const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP'));        
-        skipButton.setPosition(this.width - skipButton.width - 30, 20);
-        skipButton.setInteractive().setDepth(2);
-        skipButton.on('pointerdown', () => { 
-            this.skipIntro();
-        });
-
-        //Press any key to Skip
-        this.input.keyboard.on('keydown', () => { this.skipIntro(); });
-        
-        //Press A GamePad button to Skip
-        this.gamepad = null;
-        this.input.gamepad.once('down', (pad) => {
-            this.gamepad = pad;            
-        });
-
-
-        
-
-
 
     }
 
@@ -204,18 +180,6 @@ class IntroLevel1 extends BasicIntroScene {
             this.bus.setVelocityX(150);            
         }
        
-    }
-
-    skipIntro(){
-        this.skip = true;
-        this.cameras.main.fade(700, 0, 0, 0);
-        this.cameras.main.on('camerafadeoutcomplete', () => {                        
-            this.musicBg.stop();
-            this.musicBg2.stop();
-            this.sound_AGATHA.stop();
-            this.scene.start(GameConstants.Levels.LEVEL1);
-        });
-
     }
 
 
