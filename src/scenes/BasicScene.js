@@ -739,8 +739,15 @@ class BasicScene extends Phaser.Scene {
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
-        //Ceros a la izquiera de la puntuacion
+        //Calculate the SCORE
+        //Write left 0s to SCORE text        
         const score = Phaser.Utils.String.Pad(parseInt(this.player.secondsLevel * this.player.health) + this.player.extraPoints, 6, '0', 1);
+
+        //If GameJolt Logged Save Score and Trophy at GameJolt
+        if (GJAPI.bActive){                        
+            GJAPI.ScoreAdd(GameConstants.GAMEJOLT.SCORES[this.key], score, score + " points", null);
+            GJAPI.TrophyAchieve(GameConstants.GAMEJOLT.TROPHIES[this.key]);
+        }
 
         //Num de estrellas
         //Estrella 1 Si más de 3 Vidas

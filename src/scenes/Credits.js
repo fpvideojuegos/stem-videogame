@@ -15,8 +15,6 @@ class Credits extends BasicScene {
 
     create() {
 
-       
-
         // background positions   
         const camera = this.cameras.main;        
         

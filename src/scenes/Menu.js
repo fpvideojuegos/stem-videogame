@@ -49,8 +49,13 @@ class Menu extends BasicScene {
         this.changeSceneFromButton(this.selectCharacterButton, GameConstants.Levels.SELECTCHARACTERLEVEL);
 
         this.settingsButton = this.add.dynamicBitmapText(width, 50, 'pixel', this.TG.tr('MENU.SETTINGS')).setTint(0x808489).setInteractive();
-        this.settingsButton.setPosition(width - this.settingsButton.width - 50, 50);
+        this.settingsButton.setPosition(width - this.settingsButton.width - 370, 50);
         this.changeSceneFromButton(this.settingsButton, GameConstants.Levels.SETTINGSLEVEL);
+
+        //Check if logged at GameJolt
+        let gamejoltLogged = (GJAPI.bActive)?"user:\n" + GJAPI.sUserName : "not logged";
+        this.gamejoltLabel = this.add.dynamicBitmapText(width, 50, 'pixel', 'GAMEJOLT\n' + gamejoltLogged).setTint(0x808489).setInteractive();
+        this.gamejoltLabel.setPosition(width - this.settingsButton.width - 130, 50);
 
         const startButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('MENU.PLAY'), 24);        
         startButton.setInteractive();

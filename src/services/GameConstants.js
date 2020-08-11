@@ -3,6 +3,22 @@ const GameConstants = {
     DB: {
         DBNAME: 'gamedatav0_10'
     },
+    GAMEJOLT:{        
+        SCORES:{
+            Level1:'532863',
+            Level2:'532881',
+            Level3:'532882',
+            Level4:'532883',
+            Level5:'532884'
+        },
+        TROPHIES:{
+            Level1:'126767',
+            Level2:'126768',
+            Level3:'126769',
+            Level4:'126770',
+            Level5:'126771'       
+        }
+    },
     Levels: {
         MENU: 'Menu',
         SETTINGSLEVEL: 'SettingsLevel',
