@@ -740,6 +740,7 @@ class BasicScene extends Phaser.Scene {
         this.width = this.cameras.main.width;
 
         //Calculate the SCORE
+        //TODO Include: enemies killed , superpower collected, inventory collected 
         //Write left 0s to SCORE text        
         const score = Phaser.Utils.String.Pad(parseInt(this.player.secondsLevel * this.player.health) + this.player.extraPoints, 6, '0', 1);
 
