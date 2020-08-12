@@ -131,8 +131,40 @@ Menu para crear nuevas partidas o usar una partida creada
 
 
 
+-------------------------------------------------------------------------------------------------
 
+GAMEJOLT JS API
+1. Scores Scene (Puntuaciones)
+Si está logueado con GameJolt va a mostrar la mejor puntuación de cada nivel
+Si no está logueado se queda como está.
+libreria uso....
+GJAPI.ScoreFetch(0, GJAPI.SCORE_ALL, 10, 
+                            function(pResponse)
+                            {
+                                for(var i = 0; i < pResponse.scores.length; ++i)
+                                {
+                                    var pScore = pResponse.scores[i];
+                                    pBody.innerHTML += "[SCORE] " + (i + ". " + (pScore.user ? pScore.user : pScore.guest) + " - " + pScore.score) + "<br>";
+                                }
+                            });
 
+Quitar estrellas de Scores Scene, y de Basic Scene showScores() {(mostrar stars)
+
+Para probrarlo hay que subir el .zip del juego a gamejolt 
+nuevo release
+
+--------------------------------------------------------------------------------------------------------
+** Mostrar Puntuación en directo y tiempo empleado
+000000
+Objetos coleccionables 
+Enemigos derrotados
+Monedas
+Vida extra
+Superpoderes
+Inventario
+
+Score Final que tenga tambien el tiempo empleado
+Tiempo  
 
 
 
