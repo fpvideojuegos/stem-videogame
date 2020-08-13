@@ -320,6 +320,20 @@ const GameConstants = {
             OBJECT_NAME: 'inventoryObjects',
             OBJECT_ID: 'inventoryObject'
         },
+        Women:{
+            AGATHA: 'agatha_intro',
+            AMELIA: 'amelia_intro',
+            BERTA: 'berta_intro',
+            MARIA: 'maria_intro',
+            KATHERINE: 'katherine_intro'
+        },
+        Transport:{
+            BUS: 'bus_intro',
+            PLANE: 'plane_intro',
+            PICKUP: 'pickup_intro',
+            BOOK: 'flyingbook_intro',
+            SHIP: 'ship_intro'
+        },        
         Star:{
             KEY: 'star'
         },
