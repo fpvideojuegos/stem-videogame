@@ -39,7 +39,7 @@ class IntroLevel2 extends Phaser.Scene {
         this.bg2_sky= this.add.tileSprite(0, 0, this.width, this.height, 'bg2-sky').setOrigin(0).setScale(1.25);
         this.bg2_clouds = this.add.tileSprite(0, 0, this.width, this.height, 'bg2-clouds').setOrigin(0).setScale(1.25);
         this.bg2_sea = this.add.tileSprite(0, 0, this.width, this.height, 'bg2-sea').setOrigin(0).setScale(1.25);
-        this.bg2_far_grounds = this.add.image(this.width/2, 0, 'bg2-far-grounds').setOrigin(0).setScale(1.25);
+        this.bg2_far_grounds = this.add.tileSprite(this.width-150,0, this.width, this.height, 'bg2-far-grounds').setOrigin(0).setScale(1.25);
 
 
        
@@ -208,6 +208,7 @@ class IntroLevel2 extends Phaser.Scene {
         this.bg2_sky.tilePositionX +=  0.1 ;
         this.bg2_clouds.tilePositionX +=  0.3 ;
         this.bg2_sea.tilePositionX +=  0.6 ;
+        this.bg2_far_grounds.tilePositionX += 0.1;
 
         if (this.run) {
             this.plane.setVelocityX(150);            

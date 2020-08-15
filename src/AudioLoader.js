@@ -30,8 +30,6 @@ class AudioLoader extends Phaser.Scene {
         //Level 6
         
         //Level All
-        this.loadAudio(currentLanguage + "_LevelAll_DANIELA_WeDidIt_04");
-        
         this.load.path = './assets/';
 
         //BONUS LEVEL        

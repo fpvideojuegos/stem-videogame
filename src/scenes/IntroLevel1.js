@@ -19,20 +19,17 @@ class IntroLevel1 extends BasicIntroScene {
 
 
         //Create Woman 
-        this.createWoman(GameConstants.Sprites.Women.AGATHA, 5000);
-
-        //Create Transport
-        this.createTransport(GameConstants.Sprites.Transport.BUS, 27500);
+        this.createWoman(GameConstants.Sprites.Women.AGATHA, 5000, GameConstants.Sound.LEVEL1.AGATHA);
 
         //CreateTexts
-        this.createTexts('LEVEL1.AGATHA_1',500, 50);
+        this.createTexts('LEVEL1.AGATHA_1',500);
 
-        //CreateVoice
-        this.createVoice(GameConstants.Sound.LEVEL1.AGATHA);
+        //Create Transport
+        this.createTransport(GameConstants.Sprites.Transport.BUS);
 
-
+        //Create Overlap
         this.createOverlap();
-    }
+    } 
 
 }
 

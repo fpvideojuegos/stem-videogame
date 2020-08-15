@@ -38,15 +38,6 @@ class LevelSelect extends BasicScene {
                 this.playMenuScenesOST();
         }
 
-        
-        this.bonusButton =this.add.dynamicBitmapText(width - 200, 30, 'pixel', this.TG.tr('LEVELSELECT.BONUS'))
-            .setTint(0x808489).setInteractive();    
-        this.bonusButton.setPosition(width - this.bonusButton.width - 40, 30);    
-        this.bonusButton.on('pointerdown', () => {                        
-            //this.changeScene(this, GameConstants.Levels.BONUSLEVEL,0);
-        });
-
-
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);        
         menuButton.setInteractive();
