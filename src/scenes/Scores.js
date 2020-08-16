@@ -88,7 +88,7 @@ class Scores extends BasicScene {
     }
 
     paintScoreGameJolt(levelNum, pScore){        
-        let txtScore = this.TG.tr('LEVELSELECT.LEVEL') + " 2 :" + Phaser.Utils.String.Pad(pScore.sort, 6, '0', 1) + " " + pScore.user ; 
+        let txtScore = this.TG.tr('LEVELSELECT.LEVEL') + levelNum + ":" + Phaser.Utils.String.Pad(pScore.sort, 6, '0', 1) + " " + pScore.user ; 
         this.add.dynamicBitmapText(80, 150 + (50*(levelNum-1)), 'pixel', txtScore , 20).setTint(0x808489);                               
     }
 
