@@ -40,60 +40,56 @@ class Scores extends BasicScene {
 
             //TODO: Change text "Score" for "best world score" or similar
             const levelsLabel = this.add.dynamicBitmapText(80, 50, 'pixel', this.TG.tr('MENU.SCORES'), 24).setTint(0x808489);
-
-            GJAPI.ScoreFetch(532863, GJAPI.SCORE_ALL, 1, function(pResponse){ //Level 1 Score
+                        
+            GJAPI.ScoreFetch(532863, GJAPI.SCORE_ALL, 1, (pResponse)=>{ //Level 1 Score
                 if(!pResponse.scores) return;
                 
-                var pScore = pResponse.scores[0];
-                console.log('level 1: ');
-                console.log(pResponse.scores[0]);
-                const levelLabel = this.add.dynamicBitmapText(80, 100, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 1 : ' + pScore.score + '  ' + pScore.user , 24).setTint(0x808489);
-                //const levelLabel = this.add.dynamicBitmapText(80, 100, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 1 : ' + 'puntos' + '  ' + 'jugador' , 24).setTint(0x808489);
+                this.paintScoreGameJolt(1,pResponse.scores[0]);
+                
             });
 
-            GJAPI.ScoreFetch(532881, GJAPI.SCORE_ALL, 1, function(pResponse){ //Level 2 Score
-                if(!pResponse.scores) return;
+            GJAPI.ScoreFetch(532881, GJAPI.SCORE_ALL, 1, (pResponse)=>{ //Level 2 Score
+                if(!pResponse.scores) return;                
                 
-                var pScore = pResponse.scores[0];
-                console.log('level 2: ');
-                console.log(pResponse.scores[0]);
-                const level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + pScore.score + '  ' + pScore.user , 24).setTint(0x808489);
-                //const level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + 'puntos' + '  ' + 'jugador' , 24).setTint(0x808489);
+                this.paintScoreGameJolt(2,pResponse.scores[0]);
+                
             });
 
-            GJAPI.ScoreFetch(532882, GJAPI.SCORE_ALL, 1, function(pResponse){ //Level 3 Score
+            GJAPI.ScoreFetch(532882, GJAPI.SCORE_ALL, 1, (pResponse)=>{ //Level 3 Score
                 if(!pResponse.scores) return;
                 
-                var pScore = pResponse.scores[0];
-                const level3Label = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 3 : ' + pScore.score + '  ' + pScore.user , 24).setTint(0x808489);
+                this.paintScoreGameJolt(3,pResponse.scores[0]);                               
             });
 
-            GJAPI.ScoreFetch(532883, GJAPI.SCORE_ALL, 1, function(pResponse){ //Level 4 Score
+            GJAPI.ScoreFetch(532883, GJAPI.SCORE_ALL, 1,(pResponse)=>{ //Level 4 Score
                 if(!pResponse.scores) return;
                 
-                var pScore = pResponse.scores[0];
-                const level4Label = this.add.dynamicBitmapText(80, 250, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 4 : ' + pScore.score + '  ' + pScore.user , 24).setTint(0x808489);
+                this.paintScoreGameJolt(4,pResponse.scores[0]);                               
             });
 
-            GJAPI.ScoreFetch(532884, GJAPI.SCORE_ALL, 1, function(pResponse){ //Level 5 Score
+            GJAPI.ScoreFetch(532884, GJAPI.SCORE_ALL, 1, (pResponse)=>{//Level 5 Score
                 if(!pResponse.scores) return;
                 
-                var pScore = pResponse.scores[0];
-                const level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + pScore.score + '  ' + pScore.user , 24).setTint(0x808489);
+                this.paintScoreGameJolt(5,pResponse.scores[0]);                               
             });
         } else {
             this.DB = store.get(GameConstants.DB.DBNAME);
             
             const levelsLabel = this.add.dynamicBitmapText(80, 50, 'pixel', this.TG.tr('MENU.SCORES'), 24).setTint(0x808489);
             
-            const levelLabel = this.add.dynamicBitmapText(80, 100, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 1 : ' + this.DB.worlds.Level1.score , 24).setTint(0x808489);
-            const level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + this.DB.worlds.Level2.score , 24).setTint(0x808489);
-            const level3Label = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 3 : ' + this.DB.worlds.Level3.score , 24).setTint(0x808489);
-            const level4Label = this.add.dynamicBitmapText(80, 250, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 4 : ' + this.DB.worlds.Level4.score , 24).setTint(0x808489);
-            const level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + this.DB.worlds.Level5.score , 24).setTint(0x808489);
-            //const level6Label = this.add.dynamicBitmapText(80, 350, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 6 : ' + this.DB.worlds.Level6.score , 24).setTint(0x808489);
+            let levelLabel = this.add.dynamicBitmapText(80, 100, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 1 : ' + this.DB.worlds.Level1.score , 24).setTint(0x808489);
+            let level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + this.DB.worlds.Level2.score , 24).setTint(0x808489);
+            let level3Label = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 3 : ' + this.DB.worlds.Level3.score , 24).setTint(0x808489);
+            let level4Label = this.add.dynamicBitmapText(80, 250, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 4 : ' + this.DB.worlds.Level4.score , 24).setTint(0x808489);
+            let level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + this.DB.worlds.Level5.score , 24).setTint(0x808489);
+            
         }
 
+    }
+
+    paintScoreGameJolt(levelNum, pScore){        
+        let txtScore = this.TG.tr('LEVELSELECT.LEVEL') + " 2 :" + Phaser.Utils.String.Pad(pScore.sort, 6, '0', 1) + " " + pScore.user ; 
+        this.add.dynamicBitmapText(80, 150 + (50*(levelNum-1)), 'pixel', txtScore , 20).setTint(0x808489);                               
     }
 
     update(time, delta) {
