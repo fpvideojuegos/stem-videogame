@@ -41,6 +41,9 @@ class BasicIntroScene extends Phaser.Scene {
         this.input.gamepad.once('down', (pad) => {
             this.gamepad = pad;            
         });     
+
+        //click screen
+        this.input.on('pointerup', ()=>{ this.skipIntro(); });
         
         
         //Hidden Time Door
@@ -121,8 +124,7 @@ class BasicIntroScene extends Phaser.Scene {
     createBackgroundImg(bgLevel){        
         this.parallaxBG = false;
 
-        this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, bgLevel).setOrigin(0).setInteractive();       
-        this.backgroundimg.once('pointerup',() => { this.skipIntro(); });
+        this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, bgLevel).setOrigin(0).setInteractive();               
     }
 
     /**

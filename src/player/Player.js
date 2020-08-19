@@ -123,11 +123,16 @@ class Player extends Phaser.GameObjects.Sprite {
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
-            this.timeLeft--;            
+            this.timeLeft--;                     
+
+            let minutes = Math.floor(this.timeLeft / 60);                
+            let seconds = Math.floor(this.timeLeft - (minutes * 60));                
+
+            let textTimeLeft = Phaser.Utils.String.Pad(minutes,2,'0',1) + ":" + Phaser.Utils.String.Pad(seconds,2,'0',1);
             if (this.timeLeft>60){
-                this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
+                this.scene.textTime.setText(textTimeLeft);
             }else{
-                if (!this.gameOver) this.scene.textTime.setText(Phaser.Utils.String.Pad(this.timeLeft, 3, '0', 1)).setTint(0xff0000);
+                if (!this.gameOver) this.scene.textTime.setText(textTimeLeft).setTint(0xff0000);
                 if (!this.alarmON){
                     this.alarmON = true;
                     this.healthAlarm.play();   
