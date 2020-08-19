@@ -59,6 +59,7 @@ const GameConstants = {
             PLANE: 'PlaneEngine'
         },
         LEVEL3: {
+            BERTA: 'Level2_AMELIA',
             OST: 'Level3_OST',
             AMBIENCE: 'Rainforest',
             PICKUP: 'PickupEngine'

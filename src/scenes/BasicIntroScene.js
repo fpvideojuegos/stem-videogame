@@ -20,8 +20,11 @@ class BasicIntroScene extends Phaser.Scene {
         this.animWoman;
         this.animTransport;
 
+        this.musicBg;
+        this.musicBg2;
+
         //TypeofBackground        
-        this.parallaxBG = false;        
+        this.parallaxBG = 0;        
         //Screen Size
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;        
@@ -64,14 +67,16 @@ class BasicIntroScene extends Phaser.Scene {
 
         //Background moving
         
-        if (!this.parallaxBG) this.backgroundimg.tilePositionX += 0.5;
-        else{
+        if (this.parallaxBG === 0) this.backgroundimg.tilePositionX += 0.5;
+        else if (this.parallaxBG == 4){
             //PARALLAX Move 
             this.bgLayer1.tilePositionX +=  0.1 ;
-            this.bgLayer2.tilePositionX +=  0.3 ;
+            this.bgLayer2.tilePositionX +=  0.3 ;            
             this.bgLayer3.tilePositionX +=  0.6 ;
             this.bgLayer4.tilePositionX += 0.07;
-
+        }else{ //Layer 2
+            this.bgLayer1.tilePositionX +=  0.3 ;
+            this.bgLayer2.tilePositionX +=  0.5 ;            
         }
 
         
@@ -89,15 +94,17 @@ class BasicIntroScene extends Phaser.Scene {
      * @param layer1 - Layer 1
      * @param layer2 - Layer 2
      */
-    createBgSounds(layer1, layer2){
+    createBgSounds(layer1, layer2=undefined){
 
         this.musicBg = this.sound.add(layer1, {volume: 0.6});        
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
-        this.musicBg2 = this.sound.add(layer2, {volume: 0.4});
-        this.musicBg2.play();
-        this.musicBg2.setLoop(true);
+        if (this.musicBg2!== undefined){
+            this.musicBg2 = this.sound.add(layer2, {volume: 0.4});
+            this.musicBg2.play();
+            this.musicBg2.setLoop(true);
+        }
     }
 
     /**
@@ -108,10 +115,10 @@ class BasicIntroScene extends Phaser.Scene {
         this.cameras.main.fade(700, 0, 0, 0);
         this.cameras.main.on('camerafadeoutcomplete', () => {                        
             this.musicBg.stop();
-            this.musicBg2.stop();
+            if (this.musicBg2 !== undefined) this.musicBg2.stop();
             this.womanVoice.stop();  
-            this.animWoman.destroy();
-            this.animTransport.destroy();         
+            if (this.animWoman!=null) this.animWoman.destroy();
+            if (this.animTransport!=null) this.animTransport.destroy();         
             this.scene.start(this.target);
         });
 
@@ -122,28 +129,43 @@ class BasicIntroScene extends Phaser.Scene {
      * @param bgLevel - Background image key
      */
     createBackgroundImg(bgLevel){        
-        this.parallaxBG = false;
+        this.parallaxBG = 0;
 
         this.backgroundimg = this.add.tileSprite(0, 0, this.width, this.height, bgLevel).setOrigin(0).setInteractive();               
     }
 
     /**
-     * Create Parallax Background 
+     * Create Parallax Background 4 Layers
      * @param bgLayer1Key - Background Layer 1 key
      * @param bgLayer2Key - Background Layer 2 key
      * @param bgLayer3Key - Background Layer 3 key
      * @param bgLayer4Key - Background Layer 4 key
      * @param layerScale - Scale for Layers
      */
-    createParallaxBackground(bgLayer1Key,bgLayer2Key,bgLayer3Key,bgLayer4Key, layerScale){        
-        this.parallaxBG = true;
+    createParallax4Background(bgLayer1Key,bgLayer2Key,bgLayer3Key,bgLayer4Key, layerScale){        
+        this.parallaxBG = 4;
 
         this.bgLayer1= this.add.tileSprite(0, 0, this.width, this.height, bgLayer1Key).setOrigin(0).setScale(layerScale);
         this.bgLayer2 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer2Key).setOrigin(0).setScale(layerScale);
         this.bgLayer3 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer3Key).setOrigin(0).setScale(layerScale);
-        this.bgLayer4 = this.add.tileSprite(0,0, this.width, this.height, bgLayer4Key).setOrigin(0).setScale(layerScale).setDepth(3);
+        this.bgLayer4 = this.add.tileSprite(0,0, this.width, this.height, bgLayer4Key).setOrigin(0).setScale(layerScale);
 
     }
+
+    /**
+     * Create Parallax Background 2 Layers
+     * @param bgLayer1Key - Background Layer 1 key
+     * @param bgLayer2Key - Background Layer 2 key
+     * @param layerScale - Scale for Layers
+     */
+    createParallax2Background(bgLayer1Key,bgLayer2Key,layerScale){        
+        this.parallaxBG = 2;
+
+        this.bgLayer1= this.add.tileSprite(0, 0, this.width *2 , this.height*2, bgLayer1Key).setOrigin(0).setScale(layerScale);
+        this.bgLayer2 = this.add.tileSprite(0, 0, this.width *2, this.height*2, bgLayer2Key).setOrigin(0).setScale(layerScale);        
+
+    }
+
 
 
 
@@ -309,7 +331,7 @@ class BasicIntroScene extends Phaser.Scene {
             
                 this.cameras.main.on('camerafadeoutcomplete', () => {
                     this.musicBg.stop();
-                    this.musicBg2.stop();      
+                    if (layer2!== undefined) this.musicBg2.stop();      
                     this.animWoman.destroy();
                     this.animTransport.destroy();                                           
                     this.scene.start(this.target);            

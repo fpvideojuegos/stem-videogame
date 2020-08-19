@@ -14,7 +14,7 @@ class IntroLevel2 extends BasicIntroScene {
         this.createBgSounds(GameConstants.Sound.LEVEL2.AMBIENCE, GameConstants.Sound.LEVEL2.PLANE);       
         
         //Create BackgroundImg         
-        this.createParallaxBackground('bg2-sky','bg2-clouds','bg2-sea','bg2-far-grounds',1.25);
+        this.createParallax4Background('bg2-sky','bg2-clouds','bg2-sea','bg2-far-grounds',1.25);
 
         //Create Woman 
         this.createWoman(GameConstants.Sprites.Women.AMELIA, 5000, GameConstants.Sound.LEVEL2.AMELIA);
