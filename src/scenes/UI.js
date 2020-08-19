@@ -44,6 +44,7 @@ class UI extends Phaser.Scene {
             this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
         });        
 
+        //******* SUPERPOWERS
         //White border box for superpowers
         this.superPowersBox = this.add.image(this.width/2 + 60, 8 , GameConstants.UI.SUPERPOWERSBOX).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.75); 
         
@@ -52,7 +53,6 @@ class UI extends Phaser.Scene {
         this.lowGravityBtn = this.add.image(this.width/2 + 108, 17 , GameConstants.Sprites.lowGravity.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.superJumpBtn = this.add.image(this.width/2 + 155, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.invencibilityBtn = this.add.image(this.width/2 + 180, 17 , GameConstants.Sprites.invencibility.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
-
 
         this.DB = store.get(GameConstants.DB.DBNAME);
         if (this.DB.superPowers.superSpeed.picked) {
@@ -134,7 +134,8 @@ class UI extends Phaser.Scene {
             store.set(GameConstants.DB.DBNAME, this.DB);
         });
 
-        //Backpack for inventary
+        //** INVENTORY
+        //Backpack 
         this.inventoryBtn = this.add.image(this.width - 190, 8 , GameConstants.UI.INVENTORYBTN)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale();
         this.inventoryBtn.setInteractive();
@@ -209,11 +210,10 @@ class UI extends Phaser.Scene {
         });
 
   
-    }
+    }//create
 
     createSuperPowerImg(superPowerKey){
-        if (superPowerKey == 'superSpeed') {
-            //console.log("super velocidad");
+        if (superPowerKey == 'superSpeed') {            
             this.superSpeedBtn.setAlpha(0.50);
             this.superSpeedBtn.setInteractive();
         } else if (superPowerKey == 'lowGravity') {
@@ -225,10 +225,7 @@ class UI extends Phaser.Scene {
         } else if (superPowerKey == 'invencibility') {
             this.invencibilityBtn.setAlpha(0.50);
             this.invencibilityBtn.setInteractive();
-        } /*else if (superPowerKey == 'fifthSuperPower') {
-            this.invencibilityBtn.setAlpha(0.50);
-            this.invencibilityBtn.setInteractive();
-        }*/
+        } 
     }
 
 

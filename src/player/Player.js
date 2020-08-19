@@ -31,9 +31,10 @@ class Player extends Phaser.GameObjects.Sprite {
         this.alarmON = false;
 
         //Time
-        this.seconds = 1;
-        //Maximo tiempo por nivel 600 seg = 10 min
-        this.secondsLevel = 600;
+        this.seconds = 1;        
+        this.secondsLevel = 0;
+        this.maxTimeLevel = 600; //10min
+
         //Extra point recogidas
         this.extraPoints = 0;
         
@@ -121,7 +122,8 @@ class Player extends Phaser.GameObjects.Sprite {
         //Resta segundos empleados por Daniela en cada Level
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
-            this.secondsLevel--;            
+            this.secondsLevel++;                   
+            this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
         }
         
         let control = {

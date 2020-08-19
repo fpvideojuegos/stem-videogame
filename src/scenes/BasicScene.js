@@ -46,6 +46,7 @@ class BasicScene extends Phaser.Scene {
         this.levelTiles = [];
         this.levelLayers = [];
         this.textHealth;
+        this.textTime;
     }
 
     /**
@@ -614,12 +615,25 @@ class BasicScene extends Phaser.Scene {
      * @param scrollFactor
      * @param depth
      */
-    createHealthText(x = 20, y = 20, font = 'pixel', toTranslate = 'COMMONTEXT.LIVES', scrollFactor = 0, depth = 3) {
+    createHealthText(x = 20, y = 17, font = 'pixel', toTranslate = 'COMMONTEXT.LIVES', scrollFactor = 0, depth = 3) {
         //Text Health
-        this.textHealth = this.add.dynamicBitmapText(x, y, font, this.TG.tr(toTranslate));
-        this.textHealth.setScrollFactor(scrollFactor);
-        this.textHealth.setDepth(depth);
-        this.textHealth.setText(this.TG.tr(toTranslate) + this.player.health)
+        this.textHealth = this.add.dynamicBitmapText(x, y, font, this.TG.tr(toTranslate))
+                        .setScrollFactor(scrollFactor)
+                        .setDepth(depth)
+                        .setText(this.TG.tr(toTranslate) + this.player.health);
+
+        //Spent Time
+        this.sandClock = this.add.image(175,23,GameConstants.Sprites.SandClock.KEY)
+                    .setScrollFactor(scrollFactor)
+                    .setDepth(depth)
+                    .setScale(0.90);
+
+
+        //Spent
+        this.textTime = this.add.dynamicBitmapText(190,20, font, '000')
+                    .setScrollFactor(scrollFactor)
+                    .setDepth(depth);
+
     }
 
     /**

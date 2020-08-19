@@ -94,11 +94,13 @@ class Bootloader extends Phaser.Scene {
         this.load.image("lowGravity", "img/objects/feather.png");
         this.load.image("superSpeed", "img/objects/superSpeed.png");
         this.load.image("superJump", "img/objects/superJump.png"); 
-        this.load.image("invencibility", "img/objects/invencibility.png");
-        //this.load.image("TODO", "img/objects/TODO.png");
+        this.load.image("invencibility", "img/objects/invencibility.png");        
 
         //Heart Object
         this.load.image("heart", "img/objects/heart.png");
+
+        //Sand Clock (for spent time)
+        this.load.image("sandClock","img/objects/sandClock.png");
 
         //Level2
         //Copyright/Attribution Notice: 

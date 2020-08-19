@@ -162,12 +162,6 @@ const GameConstants = {
             OBJECT_NAME: 'invencibility',
             OBJECT_ID: 'invencibility'
         },
-        //fifthsuperpower: { //Fifth superpower TODO
-        //    KEY: 'fifthsuperpower',
-        //    ID: 'fifthsuperpower',
-        //    OBJECT_NAME: 'fifthsuperpower',
-        //    OBJECT_ID: 'fifthsuperpower'
-        //},
         Bats: {
             KEY: 'vulture',
             ID: 'bat',
@@ -336,6 +330,9 @@ const GameConstants = {
         },        
         Star:{
             KEY: 'star'
+        },
+        SandClock:{
+            KEY: 'sandClock'
         },
         Loupe:{
             KEY: 'loupe'
