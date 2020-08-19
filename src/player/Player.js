@@ -26,14 +26,14 @@ class Player extends Phaser.GameObjects.Sprite {
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
-        this.healthAlarm.setVolume(.2);
+        //this.healthAlarm.setVolume(.2);
         this.healthAlarm.setLoop(true);
         this.alarmON = false;
 
         //Time
         this.seconds = 1;        
         this.secondsLevel = 0;
-        this.maxTimeLevel = 600; //10min
+        this.maxTimeLevel = 300; //5min        
 
         //Extra point recogidas
         this.extraPoints = 0;
@@ -123,7 +123,23 @@ class Player extends Phaser.GameObjects.Sprite {
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
-            this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
+            let timeleft = this.maxTimeLevel - this.secondsLevel;
+            if (timeleft>60){
+                this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
+            }else{
+                if (!this.gameOver) this.scene.textTime.setText(Phaser.Utils.String.Pad(timeleft, 3, '0', 1)).setTint(0xff0000);
+                if (!this.alarmON){
+                    this.alarmON = true;
+                    this.healthAlarm.play();   
+                }
+
+                if (timeleft == 0){ //If times up gameover
+                    this.alarmON = false; 
+                    this.healthAlarm.stop();
+                    this.gameOver = true;
+                    this.emit(GameConstants.Events.GAME_OVER);            
+                }
+            }
         }
         
         let control = {
@@ -229,7 +245,7 @@ class Player extends Phaser.GameObjects.Sprite {
             }
 
         }
-    }
+    }//update
 
     // Métodos usados en la lógica, están separado para mejor orden    
     moverLeftRight(dir) {
@@ -325,10 +341,10 @@ class Player extends Phaser.GameObjects.Sprite {
             this.alarmON = true;
             this.healthAlarm.play();            
         }else{
-            //Turn alarm music off    
             this.alarmON = false;
-            this.healthAlarm.stop();            
+            this.healthAlarm.stop();   
         }
+
     }
 
     /**

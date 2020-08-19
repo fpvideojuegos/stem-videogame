@@ -60,7 +60,7 @@ class Level4 extends BasicScene {
         //Paint Diplay of letter to Guess with underline simbol
         this.textPosition = [];        
         for (let i=0; i<this.wordArray.length; i++){
-            this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 20 , GameConstants.Fonts.PIXEL, "_");
+            this.textPosition[i] = this.add.dynamicBitmapText(150 + 20*(i+1), 55 , GameConstants.Fonts.PIXEL, "_");
             this.textPosition[i].setScrollFactor(0);
             this.textPosition[i].setDepth(5);
         }
