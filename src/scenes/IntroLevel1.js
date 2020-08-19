@@ -22,13 +22,11 @@ class IntroLevel1 extends BasicIntroScene {
         this.createWoman(GameConstants.Sprites.Women.AGATHA, 5000, GameConstants.Sound.LEVEL1.AGATHA);
 
         //CreateTexts
-        this.createTexts('LEVEL1.AGATHA_1',500);
+        this.createTexts('LEVEL1.AGATHA',500);
 
         //Create Transport
         this.createTransport(GameConstants.Sprites.Transport.BUS);
 
-        //Create Overlap
-        this.createOverlap();
     } 
 
 }

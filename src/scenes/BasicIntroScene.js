@@ -17,8 +17,10 @@ class BasicIntroScene extends Phaser.Scene {
         this.run = false;
         this.skip = false;
         this.passthedoor = false;
-        //TypeofBackground
-        this.tileSpriteBG = true;
+        this.animWoman;
+        this.animTransport;
+
+        //TypeofBackground        
         this.parallaxBG = false;        
         //Screen Size
         this.height = this.cameras.main.height;
@@ -46,6 +48,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.door.body.setImmovable(true);
         this.door.body.setAllowGravity(false);
         this.door.setAlpha(0);
+        this.door.setDepth(0);
 
         
 
@@ -103,7 +106,9 @@ class BasicIntroScene extends Phaser.Scene {
         this.cameras.main.on('camerafadeoutcomplete', () => {                        
             this.musicBg.stop();
             this.musicBg2.stop();
-            this.womanVoice.stop();
+            this.womanVoice.stop();  
+            this.animWoman.destroy();
+            this.animTransport.destroy();         
             this.scene.start(this.target);
         });
 
@@ -126,14 +131,15 @@ class BasicIntroScene extends Phaser.Scene {
      * @param bgLayer2Key - Background Layer 2 key
      * @param bgLayer3Key - Background Layer 3 key
      * @param bgLayer4Key - Background Layer 4 key
+     * @param layerScale - Scale for Layers
      */
-    createParallaxBackground(bgLayer1Key,bgLayer2Key,bgLayer3Key,bgLayer4Key){        
+    createParallaxBackground(bgLayer1Key,bgLayer2Key,bgLayer3Key,bgLayer4Key, layerScale){        
         this.parallaxBG = true;
 
-        this.bgLayer1= this.add.tileSprite(0, 0, this.width, this.height, bgLayer1Key).setOrigin(0).setScale(1.25);
-        this.bgLayer2 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer2Key).setOrigin(0).setScale(1.25);
-        this.bgLayer3 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer3Key).setOrigin(0).setScale(1.25);
-        this.bgLayer4 = this.add.tileSprite(this.width-200,0, this.width, this.height, bgLayer4Key).setOrigin(0).setScale(1.25);
+        this.bgLayer1= this.add.tileSprite(0, 0, this.width, this.height, bgLayer1Key).setOrigin(0).setScale(layerScale);
+        this.bgLayer2 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer2Key).setOrigin(0).setScale(layerScale);
+        this.bgLayer3 = this.add.tileSprite(0, 0, this.width, this.height, bgLayer3Key).setOrigin(0).setScale(layerScale);
+        this.bgLayer4 = this.add.tileSprite(0,0, this.width, this.height, bgLayer4Key).setOrigin(0).setScale(layerScale).setDepth(3);
 
     }
 
@@ -150,7 +156,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.delayWoman = delayWoman;
 
         //women animation setting
-        this.anims.create({
+        this.animWoman = this.anims.create({
             key: "talkWoman",
             frames: this.anims.generateFrameNumbers(womanKey, {
                 start: 0,
@@ -188,7 +194,7 @@ class BasicIntroScene extends Phaser.Scene {
      */
     createTransport(transportKey){
         //animation setting 
-        this.anims.create({
+        this.animTransport = this.anims.create({
             key: "driveTransport",
             frames: this.anims.generateFrameNumbers(transportKey, {
                 start: 0,
@@ -202,7 +208,7 @@ class BasicIntroScene extends Phaser.Scene {
 
        // adding bus Sprite
        this.transport = this.physics.add.sprite(140,365, transportKey);
-       this.transport.setDepth(2);       
+       this.transport.setDepth(4);       
        this.transport.body.setAllowGravity(false);
        this.transport.anims.play("driveTransport");
 
@@ -222,6 +228,8 @@ class BasicIntroScene extends Phaser.Scene {
         callbackScope: this
         });
 
+        //Create Overlap between transport and hidden door
+        this.createOverlap();
 
     }
 
@@ -299,7 +307,9 @@ class BasicIntroScene extends Phaser.Scene {
             
                 this.cameras.main.on('camerafadeoutcomplete', () => {
                     this.musicBg.stop();
-                    this.musicBg2.stop();                                               
+                    this.musicBg2.stop();      
+                    this.animWoman.destroy();
+                    this.animTransport.destroy();                                           
                     this.scene.start(this.target);            
                 });
             }

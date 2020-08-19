@@ -18,7 +18,7 @@ class Bootloader extends Phaser.Scene {
         this.load.pack('maps', '../src/worlds/maps.json', 'maps');
 
         //INTROSTORY ASSETS         
-        this.load.image("timedoor", "img/objects/timedoor.png");
+        this.load.image("timedoor", "img/invisible/invisible64.png");
 
         //Parallax Background Intro
         //https://opengameart.org/content/3-parallax-backgrounds

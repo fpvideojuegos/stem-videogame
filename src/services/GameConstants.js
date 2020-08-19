@@ -47,13 +47,13 @@ const GameConstants = {
             OST: 'LevelIntro_OST'
         },
         LEVEL1: {
-            AGATHA: 'Level1_AGATHA_01',
+            AGATHA: 'Level1_AGATHA',
             OST: 'Level1_OST',
             AMBIENCE: 'Desert',
             BUS: 'Bus'
         },
         LEVEL2: {
-            AMELIA: 'Level2_AMELIA_01',
+            AMELIA: 'Level2_AMELIA',
             OST: 'Level2_OST',
             AMBIENCE: 'Seagulls',
             PLANE: 'PlaneEngine'

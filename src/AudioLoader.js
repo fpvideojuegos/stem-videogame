@@ -15,19 +15,22 @@ class AudioLoader extends Phaser.Scene {
         //Level 0/Intro
         
         //Level 1
-        this.loadAudio(currentLanguage + "_Level1_AGATHA_01");
-
+        this.loadAudio(currentLanguage + "_Level1_AGATHA");
 
         //Level 2
+        this.loadAudio(currentLanguage + "_Level2_AMELIA");
         
-
         //Level 3
+        this.loadAudio(currentLanguage + "_Level3_BERTA");
         
         //Level 4
+        this.loadAudio(currentLanguage + "_Level4_MARIA");
 
         //Level 5
+        this.loadAudio(currentLanguage + "_Level5_KATHERINE");
         
         //Level 6
+        this.loadAudio(currentLanguage + "_Level6_ALLWOMEN");
         
         //Level All
         this.load.path = './assets/';
