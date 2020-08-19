@@ -123,7 +123,7 @@ class Player extends Phaser.GameObjects.Sprite {
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
-            this.timeLeft -= this.secondsLevel;            
+            this.timeLeft--;            
             if (this.timeLeft>60){
                 this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
             }else{
