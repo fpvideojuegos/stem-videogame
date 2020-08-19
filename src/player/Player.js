@@ -33,7 +33,7 @@ class Player extends Phaser.GameObjects.Sprite {
         //Time
         this.seconds = 1;        
         this.secondsLevel = 0;
-        this.maxTimeLevel = 300; //5min        
+        this.timeLeft = 300; //5min        
 
         //Extra point recogidas
         this.extraPoints = 0;
@@ -123,17 +123,17 @@ class Player extends Phaser.GameObjects.Sprite {
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
-            let timeleft = this.maxTimeLevel - this.secondsLevel;
-            if (timeleft>60){
+            this.timeLeft -= this.secondsLevel;            
+            if (this.timeLeft>60){
                 this.scene.textTime.setText(Phaser.Utils.String.Pad(this.secondsLevel, 3, '0', 1));
             }else{
-                if (!this.gameOver) this.scene.textTime.setText(Phaser.Utils.String.Pad(timeleft, 3, '0', 1)).setTint(0xff0000);
+                if (!this.gameOver) this.scene.textTime.setText(Phaser.Utils.String.Pad(this.timeLeft, 3, '0', 1)).setTint(0xff0000);
                 if (!this.alarmON){
                     this.alarmON = true;
                     this.healthAlarm.play();   
                 }
 
-                if (timeleft == 0){ //If times up gameover
+                if (this.timeLeft == 0){ //If times up gameover
                     this.alarmON = false; 
                     this.healthAlarm.stop();
                     this.gameOver = true;
