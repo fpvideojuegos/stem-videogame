@@ -5,7 +5,7 @@ import GameConstants from '../services/GameConstants.js';
 class IntroLevel4 extends BasicIntroScene {
     constructor() {
         super({key: 'IntroLevel4', 
-              target:GameConstants.Levels.LEVEL1});
+              target:GameConstants.Levels.LEVEL4});
         
     }
     
@@ -19,10 +19,10 @@ class IntroLevel4 extends BasicIntroScene {
 
 
         //Create Woman 
-        this.createWoman(GameConstants.Sprites.Women.MARIA, 5000, GameConstants.Sound.LEVEL1.AGATHA);
+        this.createWoman(GameConstants.Sprites.Women.MARIA, 5000, GameConstants.Sound.LEVEL4.MARIA);
 
         //CreateTexts
-        this.createTexts('LEVEL1.AGATHA',500);
+        this.createTexts('LEVEL4.MARIA',500);
 
         //Create Transport
         this.createTransport(GameConstants.Sprites.Transport.BOOK);

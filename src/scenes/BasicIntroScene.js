@@ -5,6 +5,7 @@ class BasicIntroScene extends Phaser.Scene {
         super(config.key);
         this.key = config.key;
         this.target = config.target;
+
         
     }
 
@@ -12,22 +13,23 @@ class BasicIntroScene extends Phaser.Scene {
         //Music Bus
         this.musicFalling = this.sound.add('falling');
 
-
         //Global Variables
         this.run = false;
         this.skip = false;
         this.passthedoor = false;
-        this.animWoman;
-        this.animTransport;
+        this.animWoman = null;
+        this.animTransport = null;
 
         this.musicBg;
         this.musicBg2;
 
         //TypeofBackground        
-        this.parallaxBG = 0;        
+        this.parallaxBG = 0;   
+
+
         //Screen Size
         this.height = this.cameras.main.height;
-        this.width = this.cameras.main.width;        
+        this.width = this.cameras.main.width;   
         
         // SKIP Control
         const skipButton = this.add.dynamicBitmapText(this.width - 100, 20, 'pixel', this.TG.tr('LEVELINTRO.SKIP')).setTint(0x808489);
@@ -100,7 +102,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
-        if (this.musicBg2!== undefined){
+        if (layer2!== undefined){
             this.musicBg2 = this.sound.add(layer2, {volume: 0.4});
             this.musicBg2.play();
             this.musicBg2.setLoop(true);
@@ -116,9 +118,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.cameras.main.on('camerafadeoutcomplete', () => {                        
             this.musicBg.stop();
             if (this.musicBg2 !== undefined) this.musicBg2.stop();
-            this.womanVoice.stop();  
-            if (this.animWoman!=null) this.animWoman.destroy();
-            if (this.animTransport!=null) this.animTransport.destroy();         
+            this.womanVoice.stop();              
             this.scene.start(this.target);
         });
 
@@ -178,10 +178,10 @@ class BasicIntroScene extends Phaser.Scene {
     createWoman(womanKey, delayWoman, womanVoiceKey){
         this.womanKey = womanKey;
         this.delayWoman = delayWoman;
-
+        
         //women animation setting
         this.animWoman = this.anims.create({
-            key: "talkWoman",
+            key: "talkWoman" + womanKey,
             frames: this.anims.generateFrameNumbers(womanKey, {
                 start: 0,
                 end: 1
@@ -189,7 +189,6 @@ class BasicIntroScene extends Phaser.Scene {
             frameRate: 3,
             repeat: -1
         });
-
 
 
        // adding women Sprite hidden
@@ -204,7 +203,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.time.addEvent({
             delay: this.delayWoman,
             callback: () => {                                
-                this.woman.anims.play("talkWoman");
+                this.woman.anims.play("talkWoman"+ womanKey);
                 this.womanVoice.play();
             },
             callbackScope: this
@@ -219,7 +218,7 @@ class BasicIntroScene extends Phaser.Scene {
     createTransport(transportKey){
         //animation setting 
         this.animTransport = this.anims.create({
-            key: "driveTransport",
+            key: "driveTransport"+transportKey,
             frames: this.anims.generateFrameNumbers(transportKey, {
                 start: 0,
                 end: 3
@@ -234,7 +233,7 @@ class BasicIntroScene extends Phaser.Scene {
        this.transport = this.physics.add.sprite(140,365, transportKey);
        this.transport.setDepth(4);       
        this.transport.body.setAllowGravity(false);
-       this.transport.anims.play("driveTransport");
+       this.transport.anims.play("driveTransport"+transportKey);
 
 
         //Calculate when transport start moving
@@ -331,7 +330,7 @@ class BasicIntroScene extends Phaser.Scene {
             
                 this.cameras.main.on('camerafadeoutcomplete', () => {
                     this.musicBg.stop();
-                    if (layer2!== undefined) this.musicBg2.stop();      
+                    if (this.musicBg2!== undefined) this.musicBg2.stop();      
                     this.animWoman.destroy();
                     this.animTransport.destroy();                                           
                     this.scene.start(this.target);            

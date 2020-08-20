@@ -59,12 +59,13 @@ const GameConstants = {
             PLANE: 'PlaneEngine'
         },
         LEVEL3: {
-            BERTA: 'Level2_AMELIA',
+            BERTA: 'Level3_BERTA',
             OST: 'Level3_OST',
             AMBIENCE: 'Rainforest',
             PICKUP: 'PickupEngine'
         },
         LEVEL4: {
+            MARIA: 'Level4_MARIA',
             OST: 'Level4_OST',
             AMBIENCE: 'WingsFlapping',
             INCORRECT: 'Incorrect',
@@ -75,15 +76,10 @@ const GameConstants = {
         },
         LEVEL6: {
             OST: 'Level6_OST'
-        },
-        LEVELALL: {
-            WEDIDIT: 'LevelAll_DANIELA_WeDidIt_04',
-            RECOVERONELIFE: 'LevelAll_LOLO_RecoverOnleLife_16'
-        },
+        },        
         BONUSLEVEL: {            
             FRUITPICKUP: 'fruitpickup',
-            POWERUP: 'powerUp',
-            LOLO_AUCH: 'lolo_auch',
+            POWERUP: 'powerUp',            
             OST: 'BonusLevel_OST'            
         },
         SOUNDS: {
@@ -524,10 +520,6 @@ const GameConstants = {
         MAMUT:{
             SLEEP: 'mamut_sleep',
             HAPPY: 'mamut_happy'
-        }, 
-        LOLO: {
-            NORMAL_FLY: 'lolo_normal_fly',
-            TROGLODITA_FLY: 'lolo_troglodita_fly'
         },
         Direction: {
             RIGHT: 'right',

@@ -20,7 +20,7 @@ class IntroLevel3 extends BasicIntroScene {
         this.createWoman(GameConstants.Sprites.Women.BERTA, 5000, GameConstants.Sound.LEVEL3.BERTA);
 
         //CreateTexts
-        this.createTexts('LEVEL2.AMELIA',500);
+        this.createTexts('LEVEL3.BERTA',500);
 
         //Create Transport
         this.createTransport(GameConstants.Sprites.Transport.PICKUP);
