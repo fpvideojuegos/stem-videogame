@@ -40,12 +40,7 @@ const GameConstants = {
         GAMEOVER: 'GameOver',
         UI: 'UI'
     },
-    Sound: {        
-        LEVEL0: {
-            DANIELA_MUM: 'Level0_MOTHER_WhereAreYou_01',
-            DANIELA_ANSWER: 'Level0_DANIELA_5Mins_02',
-            OST: 'LevelIntro_OST'
-        },
+    Sound: {                
         LEVEL1: {
             AGATHA: 'Level1_AGATHA',
             OST: 'Level1_OST',
@@ -541,14 +536,7 @@ const GameConstants = {
     },
     Fonts:{
         PIXEL: 'pixel'  
-    },
-    // TODO: Remover a su respectivo sitio cuando tengamos i18ln
-    Texts: {
-        BUSCAR_PULSERA: 'Daniela tienes que buscar la Pulsera magica',
-        BUSCAR_ROPA_TROGLODITA: 'Daniela, tienes que buscar la ropa de Troglodita.',
-        VIDAS: 'VIDAS ',
-        CONSEGUIDO: 'Bien!! Lo hemos Conseguido!!'
-    },
+    },    
     Tiles: {
         LEVEL1_TILESET: 'level1tileset',
         LEVEL2_TILESET: 'level2tileset',

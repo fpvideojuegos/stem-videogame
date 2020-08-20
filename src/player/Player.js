@@ -87,10 +87,10 @@ class Player extends Phaser.GameObjects.Sprite {
 
         this.setDepth(3);
 
-        //Just for level 4 it let us know how Danielas controls are going to work
+        //Just for level 4 it let us know how Player controls are going to work
         this.isInLiana = false;
         /**
-         * Controles externos, se puede usar para animar a Daniela en algún momento.
+         * Controles externos, se puede usar para animar a Player en algún momento.
          * @since 0.0.1
          */
         this.animControl = {
@@ -119,7 +119,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
     update(time,delta) {
 
-        //Resta segundos empleados por Daniela en cada Level
+        //Resta segundos empleados por Player en cada Level
         if (this.seconds != parseInt(Math.abs(time / 1000))) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
@@ -155,11 +155,11 @@ class Player extends Phaser.GameObjects.Sprite {
         }
 
 
-        // Lógica de movimiento de Daniela
+        // Lógica de movimiento de Player
         // Nos permite hacer el salto con peso
         this.jumpTimer -= delta;
 
-        //Call it if Daniela is not in the liana
+        //Call it if Player is not in the liana
         if (!this.isInLiana) {            
             if (control.down) {
                 this.animation(GameConstants.Anims.Direction.DOWN, this.animDOWN);
@@ -177,7 +177,7 @@ class Player extends Phaser.GameObjects.Sprite {
                 } else if (this.body.blocked.down) {
                     // Fricción con el suelo 
 
-                    // Anima cuando daniela cae al suelo cuando cae Daniela
+                    // Anima cuando player cae al suelo cuando cae Player
                     if (this.body.velocity.x > 5 && !this.jumping) {
                         this.animation(GameConstants.Anims.Direction.RIGHT, this.animWALK);
                     } else if (this.body.velocity.x < -5 && !this.jumping) {

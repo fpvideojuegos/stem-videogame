@@ -2,7 +2,7 @@ import GameConstants from "../services/GameConstants.js";
 import BackgroundMask from "../gameObjects/BackgroundMask.js";
 
 /**
- * Escena que será usada como interfaz para Daniela.
+ * Escena que será usada como interfaz para Player.
  */
 class UI extends Phaser.Scene {
     constructor() {
