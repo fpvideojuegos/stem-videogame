@@ -100,7 +100,7 @@ class Bootloader extends Phaser.Scene {
         this.load.image("heart", "img/objects/heart.png");
 
         //Sand Clock (for spent time)
-        this.load.image("sandClock","img/objects/sandClock.png");
+        this.load.image("sandClock","img/objects/sandclock.png");
 
         //Level2
         //Copyright/Attribution Notice: 
