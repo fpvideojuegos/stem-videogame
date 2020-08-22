@@ -114,6 +114,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.coinpickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COINPICKUP);
         this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
         this.lifePickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.LIFEPICKUP);
+        this.superPowerPickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.POWERUP);
         
     }
 
@@ -404,7 +405,7 @@ class Player extends Phaser.GameObjects.Sprite {
         //Make disapear the SuperPower with Tween efect
         if (!this.hitSuperPower) {
 
-            //update DB data
+            //update DB data            
             this.DB = store.get(GameConstants.DB.DBNAME);
             this.DB.superPowers[superPowerKey].picked = true;
             store.set(GameConstants.DB.DBNAME, this.DB);
@@ -413,8 +414,10 @@ class Player extends Phaser.GameObjects.Sprite {
             //this.emit(GameConstants.Events.GETSUPERSPEED);
             this.emit(GameConstants.Events.GETSUPERPOWER, superPowerKey);
 
+            
             //SuperPower sound
-            //this.superPowerPickup.play();      
+            this.superPowerPickup.play();
+            
             this.hitSuperPower = true;
 
             this.scene.tweens.add({
@@ -450,7 +453,8 @@ class Player extends Phaser.GameObjects.Sprite {
             store.set(GameConstants.DB.DBNAME, this.DB);
 
             //SuperPower sound
-            //this.inventoryObjectPickup.play();      
+            this.superPowerPickup.play();
+            
             this.hitInventoryObject = true;
 
             this.scene.tweens.add({

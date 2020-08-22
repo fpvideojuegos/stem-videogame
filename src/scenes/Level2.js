@@ -12,8 +12,7 @@ class Level2 extends BasicScene {
     create() {
         //Player Creation
         this.createPlayer();
-        
-        //Background color
+       //Background color
         this.cameras.main.backgroundColor.setTo(85, 180, 255);         
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);

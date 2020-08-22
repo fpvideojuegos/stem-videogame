@@ -20,7 +20,6 @@ class Level1 extends BasicScene {
         this.createCoins();
         //Object Heart for Extralifes
         this.createExtraLifes();
-
         //Deactivate superPowers if were activated on previous levels
         this.offSuperPowers();
         //Create superPower
@@ -41,11 +40,9 @@ class Level1 extends BasicScene {
         this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
         
         //Create Leaders and its funtions
-        this.createLadders()
+        this.createLadders();
         
-        //Sounds ** ADD TO BasicScene
-        //this.createMusicBg()
-        //this.createAmbienceBg()
+        //Sounds **TODO ADD TO BasicScene        
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect

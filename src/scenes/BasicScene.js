@@ -457,6 +457,8 @@ class BasicScene extends Phaser.Scene {
      * @param objectID - objectID of respective superPower
      */
     createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
+        //TODO if the power is already collected not show it
+
         this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
         this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
 
@@ -478,8 +480,7 @@ class BasicScene extends Phaser.Scene {
         this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
         this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
         
-        this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {
-            //console.log(objectKey);
+        this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {            
             this.player.getInventoryObject(this.extraPointsGroup, object, objectKey);
         }, null, this);
     }

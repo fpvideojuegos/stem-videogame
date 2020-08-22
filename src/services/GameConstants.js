@@ -71,14 +71,8 @@ const GameConstants = {
         },
         LEVEL6: {
             OST: 'Level6_OST'
-        },        
-        BONUSLEVEL: {            
-            FRUITPICKUP: 'fruitpickup',
-            POWERUP: 'powerUp',            
-            OST: 'BonusLevel_OST'            
-        },
-        SOUNDS: {
-            CAVEBATS: 'CaveBats',
+        },                
+        SOUNDS: {            
             PLAYER_JUMP: 'soundJump',
             PLAYER_AUCH: 'playerAuch',
             LEVELUP : 'levelUp',
@@ -87,7 +81,8 @@ const GameConstants = {
             COLLECTABLEPICKUP: 'collectablePickup',
             LIFEPICKUP: 'lifePickup',
             ALARM_ON : 'alarmOn', 
-            ENEMY_DEATH: 'enemy-death'
+            ENEMY_DEATH: 'enemy-death',
+            POWERUP: 'powerUp'
         },
         MAIN:{
             OST: 'Main_OST'
@@ -215,13 +210,7 @@ const GameConstants = {
             ID: 'stick',
             OBJECT_NAME: 'stick',
             OBJECT_ID: 'stick'
-        },
-        MagicFruit: {
-            KEY: 'magicfruit',
-            ID: 'magicfruit',
-            OBJECT_NAME: 'magicfruit',
-            OBJECT_ID: 'magicfruit'
-        },
+        },        
         Mosquitos: {
             KEY: 'mosquito',
             ID: 'mosquito',
@@ -491,9 +480,7 @@ const GameConstants = {
         SNAILS: 'snail_move',
         SPIDERS: 'spider_move',
         STONE: 'stone_move',
-        STICK: 'stick_move',
-        MAGICFRUIT: 'magicfruit_shine',
-        MOSQUITOS: 'mosquito_move',
+        STICK: 'stick_move',                
         WHEEL: 'desertball_move',
         CRAB: 'crab_move',
         MONKEY: 'monkey_move',

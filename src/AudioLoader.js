@@ -39,7 +39,6 @@ class AudioLoader extends Phaser.Scene {
         this.load.audio("coinpickup", "sounds/coinpickup.ogg");
         this.load.audio("lifePickup", "sounds/lifePickup.wav"); //https://opengameart.org/content/life-pickup-yo-frankie
         
-        this.load.audio("fruitpickup", "sounds/fruitPickUp.ogg");
         this.load.audio("powerUp", "sounds/Powerup.ogg");
 
         //Sfx sounds

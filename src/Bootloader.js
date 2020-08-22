@@ -109,21 +109,22 @@ class Bootloader extends Phaser.Scene {
         //https://ansimuz.itch.io/magic-cliffs-environment
 
         
-        //PARALLAX BG Level 2
+        //PARALLAX BG Level 2 //https://ansimuz.itch.io/magic-cliffs-environment
         this.load.image('bg2-clouds', 'img/backgrounds/parallax_level2/clouds.png');
         this.load.image("bg2-far-grounds", 'img/backgrounds/parallax_level2/far-grounds.png');
         this.load.image("bg2-sea", 'img/backgrounds/parallax_level2/sea.png');
         this.load.image("bg2-sky", 'img/backgrounds/parallax_level2/sky.png');
 
-        //PARALLAX BG Level 3
+        //PARALLAX BG Level 3 //bought
         this.load.image('bg3_back', 'img/backgrounds/parallax_level3/back.png');
         this.load.image("bg3_middle", 'img/backgrounds/parallax_level3/middle.png');
         
-        //Level 4
+        //Level 4 //bought
         this.load.image("bg_Level4", "img/backgrounds/library_bg.png");
                 
         //Level 5 
         this.load.image("bg_Level5", "img/backgrounds/bg_level5.png");
+        //http://www.baltana.com/art/space-pixel-art-best-wallpaper-49627.html
 
         //Credits
         this.load.image('Credits', 'img/backgrounds/bamak_credits_en_1.png');        
