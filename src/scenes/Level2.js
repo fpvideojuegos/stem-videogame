@@ -24,6 +24,8 @@ class Level2 extends BasicScene {
         this.offSuperPowers();
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.invencibility.KEY);
+        //Start score text
+        this.showLevelScoreText();
         //Tilemap
         //Cloud background layers 
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL2_TILESET, GameConstants.Layers.CLOUDS, false);

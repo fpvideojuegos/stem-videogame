@@ -14,6 +14,9 @@ class Player extends Phaser.GameObjects.Sprite {
         let currentExtraLifes = parseInt(this.DB.extralifes);
         this.health = 5 + currentExtraLifes;
 
+        //Starting score
+        this.levelScore = 0;
+
         //boolean to avoid multiple overlap in hit with enamies
         this.hitDelay = false;
 
@@ -364,6 +367,9 @@ class Player extends Phaser.GameObjects.Sprite {
         //Make disapear the heart with Tween efect
         if (!this.hitHeart) {            
 
+            //Increase player's score
+            this.increaseScore(250);
+
             //update Player Health and TEXT
             this.health++;
             this.scene.textHealth.setText(this.scene.TG.tr('COMMONTEXT.LIVES') + this.health);      
@@ -500,6 +506,15 @@ class Player extends Phaser.GameObjects.Sprite {
         }
     }    
 
+    /**
+     * Increase "levelScore" and update "levelScoreText" (From BasicScene)
+     * @param {*} points = Points to increase
+     */
+    increaseScore(points){
+        this.levelScore += points;
+        this.scene.levelScoreText.setText(Phaser.Utils.String.Pad(this.levelScore, 6, '0', 1));
+    }
+
     nextScene() {
         this.emit(GameConstants.Events.LEVEL_FINISHED);
     }
@@ -511,7 +526,8 @@ class Player extends Phaser.GameObjects.Sprite {
             this.coinpickup.play();
             this.hitCoin = true;
             this.extraPoints*=10;   
-
+            this.increaseScore(50);
+            
             this.scene.tweens.add({
                 targets: object,
                 y: object.y - 100,

@@ -26,6 +26,8 @@ class Level1 extends BasicScene {
         this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY);
         //create key object (Inventory object)
         this.createInventoryObjects(GameConstants.Sprites.desertRose.KEY);
+        //Start score text
+        this.showLevelScoreText();
 
         //Objects to Collect and finnish level
         this.createCollectables(GameConstants.Sprites.Loupe.KEY);

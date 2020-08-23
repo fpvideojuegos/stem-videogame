@@ -47,6 +47,7 @@ class BasicScene extends Phaser.Scene {
         this.levelLayers = [];
         this.textHealth;
         this.textTime;
+        this.levelScoreText;
     }
 
     /**
@@ -354,6 +355,7 @@ class BasicScene extends Phaser.Scene {
                                 let posX = enemy.x;
                                 let posY = enemy.y;
                                 enemy.destroy();
+                                this.player.increaseScore(100);
                                 this.explosion = this.add.sprite(posX, posY , GameConstants.Sprites.Death.KEY);
                                 this.enemydeath.play();                            
                                 this.explosion.play(GameConstants.Anims.DEATH);                            
@@ -459,16 +461,26 @@ class BasicScene extends Phaser.Scene {
     createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
         //TODO if the power is already collected not show it
 
-        this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
-        this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
+        //TESTING CODE
+        /*this.DB = store.get(GameConstants.DB.DBNAME);
+        let texto = "this.DB.superPowers." + superPowerKey + ".picked";
+        console.log("¿Cogido?: " + texto);
+        if (texto == true) {
+            console.log("Está cogido");
+        } else if (texto == false) {
+            console.log("No está cogido");
+        }*/
+        /*if (this.DB.superPowers.[superPowerKey].picked) {*/
+            this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
+            this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
 
-        //El overlap se activa/realiza al tocar cualquier objeto de "superPowerGroup"
-        //Pero la función de dentro se encarga de settear como "picked" el superpoder correcto
-        this.physics.add.overlap(this.player, this.superPowerGroup, function (player, object) {
-            //console.log(superPowerKey);
-            this.player.getSuperPower(this.extraPointsGroup, object, superPowerKey);
-        }, null, this);
-        
+            //El overlap se activa/realiza al tocar cualquier objeto de "superPowerGroup"
+            //Pero la función de dentro se encarga de settear como "picked" el superpoder correcto
+            this.physics.add.overlap(this.player, this.superPowerGroup, function (player, object) {
+                //console.log(superPowerKey);
+                this.player.getSuperPower(this.extraPointsGroup, object, superPowerKey);
+            }, null, this);
+        /*}*/   
     }
 
     /**
@@ -605,7 +617,15 @@ class BasicScene extends Phaser.Scene {
         return levelLayer;
     }
 
-
+    /**
+     * Starts score counter. No params required
+     */
+    showLevelScoreText(){
+        this.levelScoreText = this.add.dynamicBitmapText(350,20, 'pixel', Phaser.Utils.String.Pad('0', 6, '0', 1))
+                                .setScrollFactor(0)
+                                .setDepth(3);
+    }
+    
     /**
      * Genera el texto para las vidas
      *
@@ -811,10 +831,10 @@ class BasicScene extends Phaser.Scene {
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
 
-        //Calculate the SCORE
+        //Calculate the FINAL SCORE
         //TODO Include: enemies killed , superpower collected, inventory collected 
-        //Write left 0s to SCORE text        
-        const score = Phaser.Utils.String.Pad(parseInt(this.player.secondsLevel * this.player.health) + this.player.extraPoints, 6, '0', 1);
+        //Write left 0s to SCORE text
+        const score = Phaser.Utils.String.Pad(this.player.levelScore + parseInt(this.player.timeLeft) + (this.player.health * 50), 6, '0', 1);
 
         //If GameJolt Logged Save Score and Trophy at GameJolt
         if (GJAPI.bActive){                        
@@ -855,8 +875,24 @@ class BasicScene extends Phaser.Scene {
         this.DB.worlds[this.key].completed = true;
         store.set(GameConstants.DB.DBNAME, this.DB);
 
-        //SCORES
-        const scoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height / 2) - 150, 'pixel', 'SCORE:' + score, 24)
+        //SCORES    //TODO Adjust text to all languages
+        /*const scoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height) - 250, 'pixel', 'SCORE:' + score, 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);*/   
+        const levelScoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 250, 'pixel', 'Level score:', 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const levelScoreNumber = this.player.scene.add.dynamicBitmapText(this.width / 2 + 100, (this.height) - 250, 'pixel', Phaser.Utils.String.Pad(this.player.levelScore, 6, '0', 1), 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const timeBonusLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 200, 'pixel', 'Time bonus:', 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const timeBonusNumber = this.player.scene.add.dynamicBitmapText(this.width / 2 + 100, (this.height) - 200, 'pixel', Phaser.Utils.String.Pad(parseInt(this.player.timeLeft), 6, '0', 1), 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const lifesBonusLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 150, 'pixel', 'Life bonus:', 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const lifesBonusNumber = this.player.scene.add.dynamicBitmapText(this.width / 2 + 100, (this.height) - 150, 'pixel', Phaser.Utils.String.Pad((this.player.health * 50), 6, '0', 1), 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const finalScoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 100, 'pixel', 'TOTAL SCORE:', 24)
+            .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const finalScoreNumber = this.player.scene.add.dynamicBitmapText(this.width / 2 + 100, (this.height) - 100, 'pixel', score, 24)
             .setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
 
         this.LevelUpmusic = this.sound.add(GameConstants.Sound.SOUNDS.LEVELUP);
@@ -877,13 +913,13 @@ class BasicScene extends Phaser.Scene {
             });
         }
 
-        const menuLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) - 100, (this.height) - 200, 'pixel', 'MENU', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const menuLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) - 100, (this.height / 2) - 150, 'pixel', 'MENU', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
         menuLabel.setInteractive();
         menuLabel.on('pointerdown', () => {
             this.changeScene(this.player.scene, GameConstants.Levels.MENU, 0);
         });
 
-        const nextLevelLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) + 100, (this.height) - 200, 'pixel', 'NEXT', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
+        const nextLevelLabel = this.player.scene.add.dynamicBitmapText((this.width / 2) + 100, (this.height / 2) - 150, 'pixel', 'NEXT', 24).setScrollFactor(0).setDepth(10).setTint(0xFFFF00);
         nextLevelLabel.setInteractive();
 
         nextLevelLabel.on('pointerdown', () => {

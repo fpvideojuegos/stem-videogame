@@ -27,6 +27,8 @@ class Level3 extends BasicScene {
         
         //HealthText
         this.createHealthText();
+        //Start score text
+        this.showLevelScoreText();
         //Deactivate superPowers if were activated on previous levels
         this.offSuperPowers();
         
