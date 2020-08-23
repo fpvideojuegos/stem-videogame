@@ -211,7 +211,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         } else {
             this.animation(GameConstants.Anims.Direction.CLIMB, this.animCLIMB);
-            //Determines how Daniela is going to move in the liana
+            //Determines how Player is going to move in the liana
             
             /*Temp Disabled jumping betweens ladders
 
