@@ -6,7 +6,7 @@ class Level1 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL1
         });
-        this.target = GameConstants.Levels.LEVEL2;
+        this.target = GameConstants.Levels.INTROLEVEL2;
     }
 
     create() {
@@ -51,25 +51,7 @@ class Level1 extends BasicScene {
         
 
         //Create End Object Hide
-        this.keys = this.createEndLevelObject(GameConstants.Sprites.Key.KEY);
-        this.physics.world.enable(this.keys);
-        this.keylevel = this.keys[0];
-        this.keylevel.setScale(1.25);
-        this.keylevel.body.setAllowGravity(false);
-        this.keylevel.setAlpha(0);
-        this.anims.play(GameConstants.Anims.KEY, this.keylevel);
-
-        //Final Object to next Level
-        this.playerFinalCollide = this.physics.add.collider(this.player, this.keylevel, () => {
-            this.musicbg.stop();
-            this.ambiencebg.stop();
-            this.keylevel.destroy();            
-            this.player.nextScene();
-        });
-
-        this.playerFinalCollide.active=false;
-      
-     
+        this.createEndLevelObject(GameConstants.Sprites.Key.KEY, GameConstants.Anims.KEY);     
 
     
     }//create
@@ -84,11 +66,10 @@ class Level1 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
 
+        //If all objects collected then active End Level Object
         if (this.player.collectablesCollected === 0){
             this.playerFinalCollide.active=true;
-            this.keylevel.setAlpha(1);
-            //add to DB magickey object at inventory            
-
+            this.keylevel.setAlpha(1);            
         }
         
 

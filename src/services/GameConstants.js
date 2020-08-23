@@ -422,6 +422,9 @@ const GameConstants = {
         Limit: {
             KEY: 'Limit'
         },
+        Water: {
+            OBJECT_NAME: 'Water'
+        },
         INVISIBLE: 'invisible',
         PUZZLEPIECE: 'puzzlepiece'
     },

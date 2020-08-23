@@ -6,7 +6,9 @@ class Level3 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL3
         });
-        this.target = GameConstants.Levels.MENU;
+        this.target = GameConstants.Levels.INTROLEVEL4;
+        
+        this.onlyOnce = true;
     }
 
     create() {
@@ -52,12 +54,6 @@ class Level3 extends BasicScene {
 
 
         
-        this.textDialog = this.add.dynamicBitmapText(30, this.cameras.main.height - 75, GameConstants.Fonts.PIXEL, "",10 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(3);
-
-
-
         //Sounds        
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL3.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
@@ -65,63 +61,13 @@ class Level3 extends BasicScene {
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL3.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
-
-        //Create Treasure
-        this.keys = this.createEndLevelObject(GameConstants.Sprites.Treasure.KEY);
-        this.physics.world.enable(this.keys);
-        this.keylevel = this.keys[0];
-        this.keylevel.setScale(1.25);
-        this.keylevel.body.setAllowGravity(false);
-        this.keylevel.setAlpha(0);
-        this.anims.play(GameConstants.Anims.TREASURE, this.keylevel);
-
-        //Collider for Bracelet
-        this.playercollide = this.physics.add.collider(this.player, this.keylevel, () => {
-            this.musicbg.stop();
-            this.ambiencebg.stop();
-            this.keylevel.destroy();            
-            this.player.nextScene();
-        });
-
-        this.playercollide.active=false;
       
         //Create Leaders and its funtions
         this.createLadders();
 
-
-        //PRIVATE SCENE ELEMENTS
-        //Water overlap back to start
-        this.hitWater = false;
-        let water = this.findTransparentObjects('Water', 'Water', false);
-        this.physics.add.overlap(this.player, water, (player, waterLayer) => {    
-            if (!this.hitWater) {
-                player.loseHealth();
-                player.soundPlayerAuch.play();                           
-                this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
-                    if (d.type === GameConstants.Sprites.Player.KEY) {                
-                        let newX  =  d.x;
-                        let newY = d.y;
-
-                        this.cameras.main.fadeIn(1500);
-                        this.player.body.setVelocity(0, 0);
-                        this.player.x = newX;
-                        this.player.y = newY;
-                        if (this) {
-                            this.time.addEvent({
-                                delay: 600,
-                                callback: () => {                            
-                                    this.hitWater = false;
-                                },
-                                callbackScope: this
-                            });
-                        }
-
-                    }
-                });                        
-            }
-        });    
             
-
+        //Create Enemy Areas for Water
+        this.createTransparentObjects(GameConstants.Sprites.Water.OBJECT_NAME);
 
         
     
@@ -145,9 +91,11 @@ class Level3 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
 
-        if (this.player.collectablesCollected === 0){
-            this.playercollide.active=true;
-            this.keylevel.setAlpha(1);
+        if (this.player.collectablesCollected === 0 && this.onlyOnce){
+            this.onlyOnce=false;
+            this.musicbg.stop();
+            this.ambiencebg.stop();            
+            this.player.nextScene();
         }
         
 

@@ -740,11 +740,68 @@ class BasicScene extends Phaser.Scene {
     /**
      * Crea el/los GameObject correspondiente a EndLevelObject en base al mapa que se ha cargado con la escena actual.
      *
-     * @returns {*|Phaser.GameObjects.Sprite[]|Phaser.GameObjects.Sprite[]}
+     * @param objectKey Key for object to find
+     * @param animKey animation for the object to find
      */
-    createEndLevelObject(objectKey) {
-        return this.map.createFromObjects(GameConstants.Sprites.EndLevel.OBJECT_NAME, GameConstants.Sprites.EndLevel.OBJECT_ID, {
+    createEndLevelObject(objectKey, animKey) {
+        this.keys = this.map.createFromObjects(GameConstants.Sprites.EndLevel.OBJECT_NAME, GameConstants.Sprites.EndLevel.OBJECT_ID, {
             key: objectKey
+        });
+        this.physics.world.enable(this.keys);
+        this.keylevel = this.keys[0];
+        this.keylevel.setScale(1.25);
+        this.keylevel.body.setAllowGravity(false);
+        this.keylevel.setAlpha(0);
+        this.anims.play(animKey, this.keylevel);
+
+        //Final Object to next Level
+        this.playerFinalCollide = this.physics.add.collider(this.player, this.keylevel, () => {
+            this.musicbg.stop();
+            this.ambiencebg.stop();
+            this.keylevel.destroy();            
+            this.player.nextScene();
+        });
+        
+        //by default false only true and alpha=1 when all objects collected
+        this.playerFinalCollide.active=false;
+
+
+        
+    }
+
+    /**
+     * Method for creating areas for watter
+     * @param waterKey water Object Key at Tiled
+     */
+    createTransparentObjects(waterObjectKey){
+        this.hitWater = false;
+        let water = this.findTransparentObjects(waterObjectKey, waterObjectKey, false);
+        this.physics.add.overlap(this.player, water, (player, waterLayer) => {    
+            if (!this.hitWater) {
+                player.loseHealth();
+                player.soundPlayerAuch.play();                           
+                this.map.findObject(GameConstants.Sprites.Player.KEY, (d) => {
+                    if (d.type === GameConstants.Sprites.Player.KEY) {                
+                        let newX  =  d.x;
+                        let newY = d.y;
+
+                        this.cameras.main.fadeIn(1500);
+                        this.player.body.setVelocity(0, 0);
+                        this.player.x = newX;
+                        this.player.y = newY;
+                        if (this) {
+                            this.time.addEvent({
+                                delay: 600,
+                                callback: () => {                            
+                                    this.hitWater = false;
+                                },
+                                callbackScope: this
+                            });
+                        }
+
+                    }
+                });                        
+            }
         });
     }
 
