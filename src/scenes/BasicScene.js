@@ -5,6 +5,7 @@ import FloorEnemy from "../gameObjects/FloorEnemy.js";
 import StaticEnemy from "../gameObjects/StaticEnemy.js";
 import ExtraPoints from "../gameObjects/ExtraPoints.js";
 import Invisible from "../gameObjects/Invisible.js";
+import BackgroundMask from "../gameObjects/BackgroundMask.js";
 
 
 /**
@@ -419,9 +420,9 @@ class BasicScene extends Phaser.Scene {
         this.DB.superPowers.superSpeed.status = "OFF";
         this.DB.superPowers.superJump.status = "OFF";
         this.DB.superPowers.invencibility.status = "OFF";
-        //this.DB.superPowers.lowGravity.status = "OFF"; //TODO for fifth superPower
         store.set(GameConstants.DB.DBNAME, this.DB);
     }
+
     /**
      * Busca en el mapa los elementos de la capa {@link GameConstants.Sprites.ExtraPoint.OBJECT_NAME} necesarios para la puntuación.
      *
@@ -827,6 +828,10 @@ class BasicScene extends Phaser.Scene {
 
     showScores() {
         this.player.scene.physics.pause();
+        this.player.timeStop = true;
+
+        let mask = new BackgroundMask(this);
+        mask.show();
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;

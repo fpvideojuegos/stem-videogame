@@ -17,6 +17,9 @@ class Player extends Phaser.GameObjects.Sprite {
         //Starting score
         this.levelScore = 0;
 
+        //Boolean to stop time counting (Only use when level finished)
+        this.timeStop = false;
+
         //boolean to avoid multiple overlap in hit with enamies
         this.hitDelay = false;
 
@@ -124,7 +127,7 @@ class Player extends Phaser.GameObjects.Sprite {
     update(time,delta) {
 
         //Resta segundos empleados por Player en cada Level
-        if (this.seconds != parseInt(Math.abs(time / 1000))) {
+        if ((this.seconds != parseInt(Math.abs(time / 1000)) && !this.timeStop)) {
             this.seconds = parseInt(Math.abs(time / 1000));            
             this.secondsLevel++;                   
             this.timeLeft--;                     

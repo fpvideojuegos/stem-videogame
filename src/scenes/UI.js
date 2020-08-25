@@ -12,8 +12,8 @@ class UI extends Phaser.Scene {
     }
 
     init(data) {
-        this.scenename = data.scene;                
-      }
+        this.scenename = data.scene;
+    }
 
     preload() {
         //console.log('Scene: UI');
