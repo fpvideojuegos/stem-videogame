@@ -12,6 +12,7 @@ class Level5 extends BasicScene {
     create() {
         //Player Creation
         this.createPlayer(); 
+        this.player.timeLeft=60;
         //Create Repeated Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5, defaultStatus, defaultStatus,{x:1.15,y:1.15});
         //Finding enemies in json map
@@ -49,7 +50,7 @@ class Level5 extends BasicScene {
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
-        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL1.AMBIENCE, {volume: 1});
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL5.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
 
