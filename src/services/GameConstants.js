@@ -31,6 +31,7 @@ const GameConstants = {
         INTROLEVEL2: 'IntroLevel2',        
         INTROLEVEL3: 'IntroLevel3',        
         INTROLEVEL4: 'IntroLevel4',        
+        INTROLEVEL5: 'IntroLevel5',        
         LEVEL1: 'Level1',
         LEVEL2: 'Level2',
         LEVEL3: 'Level3',
@@ -67,7 +68,9 @@ const GameConstants = {
             CORRECT: 'Correct'
         },
         LEVEL5: {
-            OST: 'Level5_OST'
+            KATHERINE: 'Level5_KATHERINE',
+            OST: 'Level5_OST',
+            AMBIENCE: 'SpaceShipAtmos'
         },
         LEVEL6: {
             OST: 'Level6_OST'

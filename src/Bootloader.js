@@ -67,7 +67,21 @@ class Bootloader extends Phaser.Scene {
             frameHeight: 135
         });
 
-        
+        //LEVEL5 - KATHERINE JONHSON
+        this.load.spritesheet("katherine_intro", "img/intro/katherineJohnson_spritesheet.png", {
+            frameWidth: 250,
+            frameHeight: 314
+        });
+
+
+        //LEVEL 5 - SPACE SHIP
+        this.load.spritesheet("ship_intro", "img/intro/nasarocket.png", {
+            frameWidth: 300,
+            frameHeight: 160
+        });
+
+
+
         //Inventory objects //TO DO finish
         this.load.image("desertRose", "img/objects/rose.png");
         this.load.image("shell", "img/objects/shell.png");
@@ -287,6 +301,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("WingsFlapping", "sounds/effects/wingsflapping.ogg");
         this.load.audio("Incorrect", "sounds/effects/incorrect.ogg");
         this.load.audio("Correct", "sounds/effects/correct.ogg");
+        this.load.audio("SpaceShipAtmos", "sounds/effects/spac_ship_atmos.ogg");
 
         
         //Enemy Kill

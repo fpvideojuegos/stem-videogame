@@ -214,8 +214,9 @@ class BasicIntroScene extends Phaser.Scene {
     /**
      * 
      * @param transportKey - spritesheet key for transport object          * 
+     * @param transportFramRate - anim speed
      */
-    createTransport(transportKey){
+    createTransport(transportKey, transportFramRate=4){
         //animation setting 
         this.animTransport = this.anims.create({
             key: "driveTransport"+transportKey,
@@ -223,7 +224,7 @@ class BasicIntroScene extends Phaser.Scene {
                 start: 0,
                 end: 3
             }),
-            frameRate: 4,
+            frameRate: transportFramRate,
             repeat: -1
         });
 
