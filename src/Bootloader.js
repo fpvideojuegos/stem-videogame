@@ -92,7 +92,7 @@ class Bootloader extends Phaser.Scene {
         this.load.tilemapTiledJSON('Level4', '../src/worlds/level4/level4.json');
 
         //Level5
-        this.load.tilemapTiledJSON('Level5', '../src/worlds/level5/map.json');
+        this.load.tilemapTiledJSON('Level5', '../src/worlds/level5/level5.json');
 
 
         //Level6
@@ -125,6 +125,7 @@ class Bootloader extends Phaser.Scene {
         //Level 5 
         this.load.image("bg_Level5", "img/backgrounds/bg_level5.png");
         //http://www.baltana.com/art/space-pixel-art-best-wallpaper-49627.html
+        
 
         //Credits
         this.load.image('Credits', 'img/backgrounds/bamak_credits_en_1.png');        

@@ -41,6 +41,11 @@
                 "type": "image",
                 "key": "level4tileset",
                 "url": "level4/level4tileset.png"
+            },
+            {
+                "type": "image",
+                "key": "level5tileset",
+                "url": "level5/level5tileset.png"
             }
         ]
     }

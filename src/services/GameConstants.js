@@ -532,6 +532,7 @@ const GameConstants = {
         LEVEL2_TILESET: 'level2tileset',
         LEVEL3_TILESET: 'level3tileset',
         LEVEL4_TILESET: 'level4tileset',
+        LEVEL5_TILESET: 'level5tileset',
         FOREST_PACK : 'forestPack_32x32',
         GRASS_TILES: 'grasstiles',        
         JUNGLE : 'jungle',

@@ -75,7 +75,7 @@ class BasicScene extends Phaser.Scene {
     createPlayer(createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
         this.DB = store.get(GameConstants.DB.DBNAME);
-        this.DB.currentLevel = this.key;
+        this.DB.currentLevel = this.key;        
         let costume = this.DB.player;        
         store.set(GameConstants.DB.DBNAME, this.DB);
 
@@ -842,13 +842,13 @@ class BasicScene extends Phaser.Scene {
             GJAPI.TrophyAchieve(GameConstants.GAMEJOLT.TROPHIES[this.key]);
         }
 
-        //Num de estrellas
-        //Estrella 1 Si más de 3 Vidas
+        //Starts Number
+        //1 Star if more than 3 lives
         const star1show = this.player.health >= 3;
-        //Estrella 2 Si star1 and ExtraPoint > 30 
-        const star2show = (star1show && this.player.extraPoints >= 30)
-        //Estrella 3 Si start2 and Segundos > 420
-        const star3show = (star2show && this.player.secondsLevel >= 480);
+        //2 Stars if Star number 1 and ExtraPoints > 200 (more or equal than 4 coins)
+        const star2show = (star1show && this.player.extraPoints >= 200)
+        //3 starts if 2 star number 2 and timeleft more than 60 seconds (1 min)
+        const star3show = (star2show && this.player.timeleft > 60);
 
         console.log("extrapoints =" + this.player.extraPoints);
         console.log("seconds =" + this.player.secondsLevel)

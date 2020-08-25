@@ -119,7 +119,7 @@ class LevelSelect extends BasicScene {
                     this.changeScene(this, GameConstants.Levels.INTROLEVEL4, 0);
                     break;
                 case 5:
-                    //this.changeScene(this, GameConstants.Levels.LEVEL5, 0);
+                    this.changeScene(this, GameConstants.Levels.LEVEL5, 0);
                     break;
                 case 6:
                     //this.changeScene(this, GameConstants.Levels.LEVEL6, 0);
