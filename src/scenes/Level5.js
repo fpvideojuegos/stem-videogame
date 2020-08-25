@@ -39,8 +39,8 @@ class Level5 extends BasicScene {
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL5_TILESET, GameConstants.Layers.LANDSCAPE, false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL5_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         
-        //Creacion de objetos invisibles que dañaran a player 
-        //this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
+        //Create Enemy Areas for Water
+        this.createTransparentObjects(GameConstants.Sprites.Water.OBJECT_NAME);
         
         //Create Leaders and its funtions
         //this.createLadders();
