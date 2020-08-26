@@ -220,7 +220,7 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":3778,
+                 "x":3732,
                  "y":505
                 }, 
                 {
@@ -232,8 +232,8 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":2411,
-                 "y":371
+                 "x":2303,
+                 "y":361
                 }, 
                 {
                  "height":0,
@@ -244,8 +244,8 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":2872,
-                 "y":149
+                 "x":2522,
+                 "y":371
                 }, 
                 {
                  "height":0,
@@ -256,8 +256,8 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":3162,
-                 "y":135
+                 "x":2876,
+                 "y":157
                 }, 
                 {
                  "height":0,
@@ -268,20 +268,20 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":3472,
-                 "y":133
+                 "x":3136,
+                 "y":145
                 }, 
                 {
                  "height":0,
                  "id":213,
-                 "name":"W",
+                 "name":"V",
                  "point":true,
                  "rotation":0,
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":3733,
-                 "y":134
+                 "x":3451,
+                 "y":136
                 }, 
                 {
                  "height":0,
@@ -306,6 +306,30 @@
                  "width":0,
                  "x":1871,
                  "y":330
+                }, 
+                {
+                 "height":0,
+                 "id":244,
+                 "name":"W",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":3734,
+                 "y":116
+                }, 
+                {
+                 "height":0,
+                 "id":245,
+                 "name":"Y",
+                 "point":true,
+                 "rotation":0,
+                 "type":"collectable",
+                 "visible":true,
+                 "width":0,
+                 "x":1710,
+                 "y":306
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1233,7 +1257,7 @@
          "y":0
         }],
  "nextlayerid":47,
- "nextobjectid":244,
+ "nextobjectid":246,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",
