@@ -122,6 +122,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.collectablepickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.COLLECTABLEPICKUP);
         this.lifePickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.LIFEPICKUP);
         this.superPowerPickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.POWERUP);
+        this.timePickup = this.scene.sound.add(GameConstants.Sound.SOUNDS.TIMEPICKUP);
         
     }
 
@@ -138,7 +139,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
             let textTimeLeft = Phaser.Utils.String.Pad(minutes,2,'0',1) + ":" + Phaser.Utils.String.Pad(seconds,2,'0',1);
             if (this.timeLeft>60){
-                this.scene.textTime.setText(textTimeLeft);
+                this.scene.textTime.setText(textTimeLeft).setTint(0xffffff);
             }else{
                 if (!this.gameOver) this.scene.textTime.setText(textTimeLeft).setTint(0xff0000);
                 if (!this.alarmON){
@@ -530,7 +531,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         if (!this.hitTime) {            
             
-            //this.coinpickup.play();
+            this.timePickup.play();
             this.hitTime = true;
             this.timeLeft+=30;               
             

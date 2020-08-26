@@ -83,6 +83,7 @@ const GameConstants = {
             COINPICKUP: 'coinpickup',
             COLLECTABLEPICKUP: 'collectablePickup',
             LIFEPICKUP: 'lifePickup',
+            TIMEPICKUP: 'timePickup',
             ALARM_ON : 'alarmOn', 
             ENEMY_DEATH: 'enemy-death',
             POWERUP: 'powerUp'
@@ -159,19 +160,18 @@ const GameConstants = {
             OBJECT_ID: 'Bat'
             
         },
-        Bees: {
-            KEY: 'bee',
-            ID: 'bee',
-            OBJECT_NAME: 'Bees',
-            OBJECT_ID: 'Bee'
-        },
         Flyingbooks: {
             KEY: 'flyingbook',
             ID: 'flyingbook',
             OBJECT_NAME: 'Flyingbooks',
             OBJECT_ID: 'Flyingbook'
         },
-
+        Aliens: {
+            KEY: 'alien',
+            ID: 'alien',
+            OBJECT_NAME: 'Aliens',
+            OBJECT_ID: 'Alien'
+        },
         Seagulls: {
             KEY: 'seagull',
             ID: 'seagull',
@@ -184,42 +184,6 @@ const GameConstants = {
             OBJECT_NAME: 'Piranhas',
             OBJECT_ID: 'Piranha'
         },        
-        Soda: {
-            KEY: 'soda',
-            ID: 'soda',
-            OBJECT_NAME: 'Sodas',
-            OBJECT_ID: 'Soda'
-        },
-        Snails: {
-            KEY: 'snail',
-            ID: 'snail',
-            OBJECT_NAME: 'Snails',
-            OBJECT_ID: 'Snail'
-        },
-        Spiders: {
-            KEY: 'spider',
-            ID: 'spider',
-            OBJECT_NAME: 'Spiders',
-            OBJECT_ID: 'Spider'
-        },
-        Stone: {
-            KEY: 'stone',
-            ID: 'stone',
-            OBJECT_NAME: 'stone',
-            OBJECT_ID: 'stone'
-        },
-        Stick: {
-            KEY: 'stick',
-            ID: 'stick',
-            OBJECT_NAME: 'stick',
-            OBJECT_ID: 'stick'
-        },        
-        Mosquitos: {
-            KEY: 'mosquito',
-            ID: 'mosquito',
-            OBJECT_NAME: 'Mosquitos',
-            OBJECT_ID: 'Mosquito'
-        },
         Wheel: {
             KEY: 'desertball',
             ID: 'wheel',
@@ -359,12 +323,6 @@ const GameConstants = {
         Lock:{
             KEY: 'lock'
         },
-        Cavemen_Clothes: {
-            KEY: 'caveman_clothes'        
-        },
-        Mamut: {
-            KEY: 'mamut'        
-        },
         EndLevel: {            
             OBJECT_NAME: 'EndLevel',
             OBJECT_ID: 'positionEnd'
@@ -392,18 +350,6 @@ const GameConstants = {
             ID: 'endOfLiana',
             OBJECT_NAME: 'lianasPoints',
             OBJECT_ID: 'endOfLiana'
-        },
-        Crocodile: {
-            KEY: 'crocodile',
-            ID: 'crocodile',
-            OBJECT_NAME: 'Crocodiles',
-            OBJECT_ID: 'Crocodile'
-        },
-        Dinowater: {
-            KEY: 'dinowater',
-            ID: 'dinowater',
-            OBJECT_NAME: 'Dinowaters',
-            OBJECT_ID: 'Dinowater'
         },
         Rinobeetle:{
             KEY: 'rinobeetle',
@@ -458,8 +404,7 @@ const GameConstants = {
             CANDLES: 'Candles'
         },
         Level5:{
-            Spiders: 'Spiders',
-            Mosquitos: 'Mosquitos'
+            ALIENS: 'Aliens'            
         },
         Level6: {
             DINOWATERS: 'Dinowaters',
@@ -485,6 +430,7 @@ const GameConstants = {
         BATS: 'vulture_move',
         BEES: 'bee_fly',
         FLYINGBOOKS: 'flyingbook_fly',
+        ALIENS: 'alien_fly',
         SEAGULLS: 'seagull_fly',
         PIRANHAS: 'piranha_swim',
         SODAS: 'soda_fly',

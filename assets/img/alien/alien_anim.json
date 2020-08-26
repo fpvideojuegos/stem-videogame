@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "alien_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 6,
+            "frames": [
+                {
+                    "key": "alien",
+                    "frame": "alien_0"
+                },
+                {
+                    "key": "alien",
+                    "frame": "alien_1"
+                }
+            ]
+        }
+    ]
+}

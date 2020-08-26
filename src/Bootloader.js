@@ -162,6 +162,11 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('flyingbook', 'img/flyingbook/flyingbook.png', 'img/flyingbook/flyingbook_atlas.json');
         this.load.animation('flyingbookAnim', 'img/flyingbook/flyingbook_anim.json');
 
+        //alien
+        this.load.atlas('alien', 'img/alien/alien.png', 'img/alien/alien_atlas.json');
+        this.load.animation('alienAnim', 'img/alien/alien_anim.json');
+
+
         //Seagulls
         this.load.atlas('seagull', 'img/seagull/seagull.png', 'img/seagull/seagull_atlas.json');
         this.load.animation('seagullAnim', 'img/seagull/seagull_anim.json');
@@ -288,6 +293,7 @@ class Bootloader extends Phaser.Scene {
         this.load.audio("Level2_OST", "sounds/ost/level2_OST.ogg");
         this.load.audio("Level3_OST", "sounds/ost/level3_OST.ogg");
         this.load.audio("Level4_OST", "sounds/ost/level4_OST.ogg");
+        this.load.audio("Level5_OST", "sounds/ost/level5_OST.ogg");
         this.load.audio("Main_OST","sounds/ost/menusong_v3.ogg");
         this.load.audio("BirdSinging","sounds/backgrounds/birds-singing.mp3");
 

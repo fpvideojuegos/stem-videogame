@@ -260,17 +260,16 @@ class BasicScene extends Phaser.Scene {
                     this.enemyGroups.carnivorousplantsGroup = new FloorEnemy(this.physics.world, this, [], this.carnivorousplants, 40);
                     this.anims.play(GameConstants.Anims.CARNIVOROUS, this.carnivorousplants);
                     break;
-                case GameConstants.Sprites.Bees.OBJECT_NAME:
-                    this.bees = this.createEnemies(GameConstants.Sprites.Bees.OBJECT_NAME, GameConstants.Sprites.Bees.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
-                    this.enemyGroups.beesGroup = new FlyingEnemy(this.physics.world, this, [], this.bees);
-                    this.enemyGroups.beesGroup.children.iterate(b => b.setScale(1));
-                    this.anims.play(GameConstants.Anims.BEES, this.bees);
-                    break;
                 case GameConstants.Sprites.Flyingbooks.OBJECT_NAME:
-                    this.flyingbooks = this.createEnemies(GameConstants.Sprites.Flyingbooks.OBJECT_NAME, GameConstants.Sprites.Flyingbooks.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
+                    this.flyingbooks = this.createEnemies(GameConstants.Sprites.Flyingbooks.OBJECT_NAME, GameConstants.Sprites.Flyingbooks.OBJECT_ID, GameConstants.Sprites.Flyingbooks.KEY);
                     this.enemyGroups.flyingbooksGroup = new FlyingEnemy(this.physics.world, this, [], this.flyingbooks);                    
                     this.anims.play(GameConstants.Anims.FLYINGBOOKS, this.flyingbooks);
                     break;                    
+                case GameConstants.Sprites.Aliens.OBJECT_NAME:
+                    this.aliens = this.createEnemies(GameConstants.Sprites.Aliens.OBJECT_NAME, GameConstants.Sprites.Aliens.OBJECT_ID, GameConstants.Sprites.Aliens.KEY);
+                    this.enemyGroups.aliensGroup = new FlyingEnemy(this.physics.world, this, [], this.aliens);                    
+                    this.anims.play(GameConstants.Anims.ALIENS, this.aliens);
+                    break;                    º                    
                 case GameConstants.Sprites.Seagulls.OBJECT_NAME:
                     this.seagulls = this.createEnemies(GameConstants.Sprites.Seagulls.OBJECT_NAME, GameConstants.Sprites.Seagulls.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
                     this.enemyGroups.seagullsGroup = new FlyingEnemy(this.physics.world, this, [], this.seagulls);
@@ -283,58 +282,9 @@ class BasicScene extends Phaser.Scene {
                     //this.enemyGroups.piranhasGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.PIRANHAS, this.piranhas);
                     break;                    
-                case GameConstants.Sprites.Snails.OBJECT_NAME:
-                    this.snails = this.createEnemies(GameConstants.Sprites.Snails.OBJECT_NAME, GameConstants.Sprites.Snails.OBJECT_ID, GameConstants.Sprites.Snails.KEY);
-                    this.enemyGroups.snailsGroup = new FloorEnemy(this.physics.world, this, [], this.snails, 100);
-                    this.enemyGroups.snailsGroup.children.iterate(s => s.setScale(1));
-                    this.anims.play(GameConstants.Anims.SNAILS, this.snails);
-                    break;
-                case GameConstants.Sprites.Spiders.OBJECT_NAME:
-                    this.spiders = this.createEnemies(GameConstants.Sprites.Spiders.OBJECT_NAME, GameConstants.Sprites.Spiders.OBJECT_ID, GameConstants.Sprites.Spiders.KEY);                    
-                    this.enemyGroups.spidersGroup = new FlyingEnemy(this.physics.world, this, [], this.spiders);
-                    this.enemyGroups.spidersGroup.children.iterate(s => s.setScale(1));
-                    this.anims.play(GameConstants.Anims.SPIDERS, this.spiders);
-                    break;
-                case GameConstants.Sprites.Mosquitos.OBJECT_NAME:
-                    this.mosquitos = this.createEnemies(GameConstants.Sprites.Mosquitos.OBJECT_NAME, GameConstants.Sprites.Mosquitos.OBJECT_ID, GameConstants.Sprites.Mosquitos.KEY);                 
-                    this.enemyGroups.mosquitosGroup = new FlyingEnemy(this.physics.world, this, [], this.mosquitos);
-                    //this.enemyGroups.mosquitosGroup.children.iterate(s => s.setScale(1));
-                    this.anims.play(GameConstants.Anims.MOSQUITOS, this.mosquitos);
-                    break;
-                case GameConstants.Sprites.Soda.OBJECT_NAME:
-                    this.sodas = this.createEnemies(GameConstants.Sprites.Soda.OBJECT_NAME, GameConstants.Sprites.Soda.OBJECT_ID, GameConstants.Sprites.Soda.KEY);
-                    this.enemyGroups.sodasGroup = new FlyingEnemy(this.physics.world, this, [], this.sodas);
-                    this.enemyGroups.sodasGroup.children.iterate(s => s.setScale(1));
-                    this.anims.play(GameConstants.Anims.SODAS, this.sodas);
-                    break;
-                case GameConstants.Sprites.Donut.OBJECT_NAME:
-                    this.donuts = this.createEnemies(GameConstants.Sprites.Donut.OBJECT_NAME, GameConstants.Sprites.Donut.OBJECT_ID, GameConstants.Sprites.Donut.KEY);
-                    this.enemyGroups.donutsGroup = new FloorEnemy(this.physics.world, this, [], this.donuts, 75);
-                    this.enemyGroups.donutsGroup.children.iterate(d => d.setScale(1));
-                    this.anims.play(GameConstants.Anims.DONUT, this.donuts);
-                    break;
-                case GameConstants.Sprites.Crocodile.OBJECT_NAME:
-                    this.crocodiles = this.createEnemies(GameConstants.Sprites.Crocodile.OBJECT_NAME, GameConstants.Sprites.Crocodile.OBJECT_ID, GameConstants.Sprites.Crocodile.KEY);
-                    this.enemyGroups.crocodilesGroup = new FlyingEnemy(this.physics.world, this, [], this.crocodiles);
-                    this.enemyGroups.crocodilesGroup.children.iterate(c => {
-                        c.setScale(1);
-                        c.body.setSize(90, 16)
-                    });
-                    this.anims.play(GameConstants.Anims.CROCODILE, this.crocodiles);
-                    break;
-                case GameConstants.Sprites.Dinowater.OBJECT_NAME:
-                    this.dinowaters = this.createEnemies(GameConstants.Sprites.Dinowater.OBJECT_NAME, GameConstants.Sprites.Dinowater.OBJECT_ID, GameConstants.Sprites.Dinowater.KEY);
-                    this.enemyGroups.dinowatersGroup = new FloorEnemy(this.physics.world, this, [], this.dinowaters, 40);
-                    this.anims.play(GameConstants.Anims.DINOWATER, this.dinowaters);
-                    break;
-                case GameConstants.Sprites.Dinobird.OBJECT_NAME:
-                    this.dinobirds = this.createEnemies(GameConstants.Sprites.Dinobird.OBJECT_NAME, GameConstants.Sprites.Dinobird.OBJECT_ID, GameConstants.Sprites.Dinobird.KEY);
-                    this.enemyGroups.dinobirds = new FlyingEnemy(this.physics.world, this, [], this.dinobirds);
-                    this.anims.play(GameConstants.Anims.DINOBIRD, this.dinobirds);
-                    break;
                 case GameConstants.Sprites.Candle.OBJECT_NAME:
                     this.candles = this.createEnemies(GameConstants.Sprites.Candle.OBJECT_NAME, GameConstants.Sprites.Candle.OBJECT_ID, GameConstants.Sprites.Candle.KEY);
-                    this.enemyGroups.dinowatersGroup = new StaticEnemy(this.physics.world, this, [], this.candles);
+                    this.enemyGroups.candlesGroup = new StaticEnemy(this.physics.world, this, [], this.candles);
                     this.anims.play(GameConstants.Anims.CANDLE, this.candles);
                     break;    
                 default:

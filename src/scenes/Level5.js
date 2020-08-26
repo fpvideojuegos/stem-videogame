@@ -16,7 +16,7 @@ class Level5 extends BasicScene {
         //Create Repeated Background
         this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5, defaultStatus, defaultStatus,{x:1.15,y:1.15});
         //Finding enemies in json map
-        //this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level1);
+        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level5);
         //ExtraPoints        
         //this.createCoins();
         //Object Heart for Extralifes
@@ -49,10 +49,10 @@ class Level5 extends BasicScene {
         //this.createLadders();
         
         //Sounds **TODO ADD TO BasicScene        
-        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL1.OST, {volume: 0.4});
+        this.musicbg = this.sound.add(GameConstants.Sound.LEVEL5.OST, {volume: 0.4});
         this.addEventForMusic(this.musicbg,true);
         //background ambiance effect
-        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL5.AMBIENCE, {volume: 1});
+        this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL5.AMBIENCE, {volume: 0.05});
         this.addEventForMusic(this.ambiencebg,true);
         
         //Create End Object Hide

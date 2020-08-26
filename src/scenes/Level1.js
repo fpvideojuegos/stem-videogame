@@ -53,9 +53,10 @@ class Level1 extends BasicScene {
         
 
         //Create End Object Hide
-        this.createEndLevelObject(GameConstants.Sprites.Key.KEY, GameConstants.Anims.KEY);     
+        this.createEndLevelObject(GameConstants.Sprites.Key.KEY, GameConstants.Anims.KEY);             
 
-    
+        
+
     }//create
     
    

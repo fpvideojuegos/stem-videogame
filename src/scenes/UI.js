@@ -146,6 +146,8 @@ class UI extends Phaser.Scene {
             this.playAgainButton.alpha = 0;
             this.inventoryBtn.alpha = 0;
             this.menuButton.alpha = 0;
+            
+            
             //TODO This should be here?
             /*this.superPowersBox.alpha = 0;
             this.superSpeedBtn.alpha = 0;
