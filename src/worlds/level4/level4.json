@@ -309,7 +309,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -608,7 +608,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -676,8 +676,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":262.666666666667,
-                 "y":405.333333333333
+                 "x":277.818181818182,
+                 "y":390.181818181818
                 }, 
                 {
                  "height":0,
@@ -902,6 +902,77 @@
         }, 
         {
          "draworder":"topdown",
+         "id":46,
+         "name":"Heart",
+         "objects":[
+                {
+                 "height":0,
+                 "id":236,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1366.66666666667,
+                 "y":566.666666666667
+                }, 
+                {
+                 "height":0,
+                 "id":237,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2050.48484848485,
+                 "y":555.69696969697
+                }, 
+                {
+                 "height":0,
+                 "id":241,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3672.72727272727,
+                 "y":309.090909090909
+                }, 
+                {
+                 "height":0,
+                 "id":242,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1039.39393939394,
+                 "y":421.212121212121
+                }, 
+                {
+                 "height":0,
+                 "id":243,
+                 "name":"heart",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":3778,
+                 "y":1066.66666666667
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
          "id":40,
          "name":"Limits",
          "objects":[
@@ -1035,12 +1106,12 @@
                  "type":"player",
                  "visible":true,
                  "width":0,
-                 "x":165.181818181819,
-                 "y":131.030303030303
+                 "x":374.272727272728,
+                 "y":240.121212121212
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1051,7 +1122,7 @@
          "objects":[],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1074,7 +1145,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -1092,8 +1163,8 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":1108,
-                 "y":156
+                 "x":2177.69696969697,
+                 "y":756
                 }, 
                 {
                  "height":0,
@@ -1104,8 +1175,8 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":458,
-                 "y":700
+                 "x":30.7272727272727,
+                 "y":1048.48484848485
                 }, 
                 {
                  "height":0,
@@ -1128,8 +1199,8 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":1052.33333333333,
-                 "y":719
+                 "x":1819,
+                 "y":482.636363636364
                 }, 
                 {
                  "height":0,
@@ -1140,17 +1211,29 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":1232,
-                 "y":130
+                 "x":1577.45454545455,
+                 "y":460.30303030303
+                }, 
+                {
+                 "height":0,
+                 "id":240,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":3763.63636363636,
+                 "y":306.060606060606
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
- "nextlayerid":46,
- "nextobjectid":236,
+ "nextlayerid":47,
+ "nextobjectid":244,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

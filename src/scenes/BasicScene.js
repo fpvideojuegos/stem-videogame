@@ -271,7 +271,7 @@ class BasicScene extends Phaser.Scene {
                     this.anims.play(GameConstants.Anims.ALIENS, this.aliens);
                     break;                    º                    
                 case GameConstants.Sprites.Seagulls.OBJECT_NAME:
-                    this.seagulls = this.createEnemies(GameConstants.Sprites.Seagulls.OBJECT_NAME, GameConstants.Sprites.Seagulls.OBJECT_ID, GameConstants.Sprites.Bees.KEY);
+                    this.seagulls = this.createEnemies(GameConstants.Sprites.Seagulls.OBJECT_NAME, GameConstants.Sprites.Seagulls.OBJECT_ID, GameConstants.Sprites.Seagulls.KEY);
                     this.enemyGroups.seagullsGroup = new FlyingEnemy(this.physics.world, this, [], this.seagulls);
                     this.enemyGroups.seagullsGroup.children.iterate(b => b.setScale(1));
                     this.anims.play(GameConstants.Anims.SEAGULLS, this.seagulls);

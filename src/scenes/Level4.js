@@ -29,6 +29,10 @@ class Level4 extends BasicScene {
         this.showLevelScoreText();
         //ExtraPoints        
         this.createCoins();
+        
+        //Object Heart for Extralifes
+        this.createExtraLifes();
+
         //Objects to Collect
         //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
@@ -53,7 +57,10 @@ class Level4 extends BasicScene {
 
         //Words to Guess (English, Spanish and French) Russian equal English
         //TODO at language files
-        this.words = ['FILOSOFIA','POESIA','ENSAYO','MALAGA','LITERATURA'];
+        this.wordsLanguage = this.TG.tr('LEVEL4.WORDS');
+        this.words = this.wordsLanguage.split(',');
+
+
         //Choose one word randomly
         this.word = this.words[Math.floor(Math.random() * this.words.length)];
         //Split word into chars 
