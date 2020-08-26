@@ -30,6 +30,8 @@ class Level5 extends BasicScene {
         //Start score text
         this.showLevelScoreText();
 
+        this.createClocks();
+
         //Objects to Collect and finnish level
         //this.createCollectables(GameConstants.Sprites.Loupe.KEY);
         //HealthText
@@ -53,7 +55,6 @@ class Level5 extends BasicScene {
         this.ambiencebg = this.sound.add(GameConstants.Sound.LEVEL5.AMBIENCE, {volume: 1});
         this.addEventForMusic(this.ambiencebg,true);
         
-
         //Create End Object Hide
         //this.createEndLevelObject(GameConstants.Sprites.Key.KEY, GameConstants.Anims.KEY);     
 

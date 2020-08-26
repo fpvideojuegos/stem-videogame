@@ -49,6 +49,7 @@ class BasicScene extends Phaser.Scene {
         this.textHealth;
         this.textTime;
         this.levelScoreText;
+        this.clocksGroup=[];
     }
 
     /**
@@ -527,6 +528,20 @@ class BasicScene extends Phaser.Scene {
         }
         
     }
+
+    /**
+     * 
+     */
+    createClocks() {        
+        
+        this.clocks = this.createEnemies(GameConstants.Sprites.Clock.OBJECT_NAME, GameConstants.Sprites.Clock.OBJECT_ID, GameConstants.Sprites.Clock.KEY);
+        this.clocksGroup = new ExtraPoints(this.physics.world, this, [], this.clocks);
+                
+        this.physics.add.overlap(this.player, this.clocksGroup, function (player, object) {
+            this.player.collectTime(this.clocksGroup, object);            
+        }, null, this);
+    }
+
 
     /**
      * Crea el background en función de la textura recibida como parámetro.

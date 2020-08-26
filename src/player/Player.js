@@ -29,6 +29,7 @@ class Player extends Phaser.GameObjects.Sprite {
         this.hitHeart = false;
         this.hitSuperPower = false;
         this.hitInventoryObject = false;
+        this.hitTime = false;
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
@@ -522,6 +523,38 @@ class Player extends Phaser.GameObjects.Sprite {
 
     nextScene() {
         this.emit(GameConstants.Events.LEVEL_FINISHED);
+    }
+
+
+    collectTime(group, object){
+
+        if (!this.hitTime) {            
+            
+            //this.coinpickup.play();
+            this.hitTime = true;
+            this.timeLeft+=30;               
+            
+            this.scene.tweens.add({
+                targets: object,
+                y: object.y - 100,
+                alpha: 0,
+                duration: 800,
+                ease: "Cubic.easeOut",
+                callbackScope: this,
+                onComplete: function(){
+                    group.killAndHide(object);
+                    group.remove(object);   
+                    object.destroy();             
+                }
+            });
+
+            this.scene.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    this.hitTime = false;
+                }
+            });
+        }
     }
 
     collectExtraPoints(group, object){

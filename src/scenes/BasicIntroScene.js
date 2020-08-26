@@ -52,7 +52,7 @@ class BasicIntroScene extends Phaser.Scene {
         
         
         //Hidden Time Door
-        this.door = this.physics.add.sprite(700,300,'timedoor');
+        this.door = this.physics.add.sprite(800,300,'timedoor');
         this.door.body.setImmovable(true);
         this.door.body.setAllowGravity(false);
         this.door.setAlpha(0);

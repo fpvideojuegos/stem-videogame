@@ -298,6 +298,11 @@ const GameConstants = {
             OBJECT_NAME: 'inventoryObjects',
             OBJECT_ID: 'inventoryObject'
         },
+        Clock:{
+            KEY: 'clock',            
+            OBJECT_NAME: 'Clocks',
+            OBJECT_ID: 'Clock'
+        },        
         Women:{
             AGATHA: 'agatha_intro',
             AMELIA: 'amelia_intro',
@@ -326,7 +331,7 @@ const GameConstants = {
         },
         WaterBottle:{
             KEY: 'waterbottle'
-        },
+        },        
         PlasticGlass:{
             KEY: 'plasticglass'
         },
