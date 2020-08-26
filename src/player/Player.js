@@ -149,6 +149,7 @@ class Player extends Phaser.GameObjects.Sprite {
                     this.alarmON = false; 
                     this.healthAlarm.stop();
                     this.gameOver = true;
+                    this.scene.gameOverText('timeOver');
                     this.emit(GameConstants.Events.GAME_OVER);            
                 }
             }
@@ -346,6 +347,7 @@ class Player extends Phaser.GameObjects.Sprite {
             this.alarmON = false;
             this.healthAlarm.stop();            
             //gameOver
+            this.scene.gameOverText('gameOver');
             this.gameOver = true;
             this.emit(GameConstants.Events.GAME_OVER);
         }else if (this.health == 1){

@@ -659,11 +659,43 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
+     * Print a background Mask located with the Camera Scroll
+     */
+    showBackgroundMask(){
+        let options = {};
+        options.originX = this.cameras.main.scrollX;
+        options.originY = this.cameras.main.scrollY;
+        let mask = new BackgroundMask(this, options);
+        mask.show();
+    }
+
+    /**
+     * Print a dark background and show a message for gameover.
+     * @param {*} typeOfEnd Type of GameOver:
+     *                                      'gameOver' -> Player as no remaining health points
+     *                                      'timeOver' -> Player run out of time
+     * Must be set from Player
+     */
+    gameOverText(typeOfEnd){
+        this.height = this.cameras.main.height;
+        this.width = this.cameras.main.width;
+
+        this.showBackgroundMask();
+        
+        if (typeOfEnd == 'gameOver') {
+            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'FIN DEL JUEGO', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
+            this.player.timeStop = true;
+        } else if (typeOfEnd == 'timeOver') {
+            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'TIEMPO AGOTADO', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
+        }
+        const tryAgainText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 150, 'pixel', 'Inténtalo de nuevo', 24).setScrollFactor(0).setDepth(10).setTint(0x00FF00);
+    }
+
+    /**
      * Reinicia una escena parando tanto animaciones como sonidos.
      *
      * @param scene
      */
-
     // TODO: Añadir efecto fade de animación o cualquier otra cosa necesaria en un futuro.
     reboot(scene) {
         scene.sound.stopAll(); // Reinicia los sonidos
@@ -830,12 +862,7 @@ class BasicScene extends Phaser.Scene {
         this.player.scene.physics.pause();
         this.player.timeStop = true;
 
-        //Background Mask located with the Camera Scroll
-        let options = {};
-        options.originX = this.cameras.main.scrollX;
-        options.originY = this.cameras.main.scrollY;
-        let mask = new BackgroundMask(this, options);
-        mask.show();                       
+        this.showBackgroundMask();
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
