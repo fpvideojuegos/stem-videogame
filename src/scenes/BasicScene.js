@@ -830,8 +830,12 @@ class BasicScene extends Phaser.Scene {
         this.player.scene.physics.pause();
         this.player.timeStop = true;
 
-        let mask = new BackgroundMask(this);
-        mask.show();
+        //Background Mask located with the Camera Scroll
+        let options = {};
+        options.originX = this.cameras.main.scrollX;
+        options.originY = this.cameras.main.scrollY;
+        let mask = new BackgroundMask(this, options);
+        mask.show();                       
 
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;
