@@ -167,9 +167,41 @@ Score Final que tenga tambien el tiempo empleado
 Tiempo  
 
 
+------------------------------
+TODO: JONATHAN
+TRADUCIR GAMEOVER
+Para tiempo enlaces a MENU y Intentar de nuevo
+
+Comprobar objeto inventario Picked
+
+--> DB GameJolt API JS
+https://www.w3schools.com/js/js_json_parse.asp
+https://www.maus-games.at/files/gamejolt/js/
+https://gamejolt.com/game-api/doc/data-store
 
 
+Settings 
+Intro ON/OFF
 
+OST ON/OFF 
+Voices ON/OFF 
+SFX ON/OFF
+
+------------------------------
+TODO: SERGIO
+NIVEL 6
+ESCALERA Comprobar
+Velocidad Comprobar
+INSTRUCCIONES . pej. 
+
+
+------------------------------
+TODO: GAMETESTING (sergio y JONATHAN)
+GAMETESTING -> Superpoderes en acción para pasar niveles.
+Para pasar el nivel 5 es necesario tener el superpoder pluma, para pasar de plataforma a plataforma.
+Fuego con inmunidad, solo se puede pasar con este superpoder.
+Supersalto --> Para saltar muy alto para llegar a una plataforma o escalón alto
+Velocidad --> Ya veremos....
 
 
 
