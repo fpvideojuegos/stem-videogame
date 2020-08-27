@@ -39,11 +39,7 @@ const DB = {
         invencibility : {
             picked : false,
             status : "OFF"
-        }/*,
-        superPower5 : {
-            picked : false,
-            status : "OFF"
-        }*/
+        }
     },
     //Probably this could be deleted soon
     /*currentPlayer: {

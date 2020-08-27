@@ -105,11 +105,7 @@ class BasicScene extends Phaser.Scene {
                     this.showScores();
                 });
 
-                //Event on Player and emit SuperPower BasicSCene --> UI
-                /*this.player.on(GameConstants.Events.GETSUPERSPEED, () => {
-                    this.registry.events.emit(GameConstants.Events.GETSUPERSPEED);
-                });*/
-                
+                //Event on Player and emit SuperPower BasicSCene --> UI                
                 this.player.on(GameConstants.Events.GETSUPERPOWER, (superPowerKey) => {
                     this.registry.events.emit(GameConstants.Events.GETSUPERPOWER, superPowerKey);
                 });
@@ -406,14 +402,12 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
-     * For creating superpowers on level
+     * Create superPower object on Level, unless is already picked
      * @param superPowerKey - spriteKey of respective superPower to print on Scene
      * @param objectID - objectID of respective superPower
      */
     createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
         //TODO if the power is already collected not show it
-
-        //TESTING CODE
         this.DB = store.get(GameConstants.DB.DBNAME);        
         if (!this.DB.superPowers[superPowerKey].picked) {
             this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
@@ -429,17 +423,19 @@ class BasicScene extends Phaser.Scene {
     }
 
     /**
-     * Crea un objeto inventariable/de inventario en el nivel
+     * Create inventory object on Level, unless is already picked
      * @param objectKey - spriteKey of respective inventory object to print it on Scene/Level
      * @param objectID - ObjectID of respective inventory object
      */
     createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){        
-        this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
-        this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
-        
-        this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {            
-            this.player.getInventoryObject(this.extraPointsGroup, object, objectKey);
-        }, null, this);
+        if (!this.DB.inventory[objectKey]) {
+            this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
+            this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
+            
+            this.physics.add.overlap(this.player, this.inventoryObjectsGroup, function (player, object) {            
+                this.player.getInventoryObject(this.extraPointsGroup, object, objectKey);
+            }, null, this);
+        }
     }
 
     /**
@@ -641,12 +637,12 @@ class BasicScene extends Phaser.Scene {
         this.showBackgroundMask();
         
         if (typeOfEnd == 'gameOver') {
-            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'FIN DEL JUEGO', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
+            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'GAME OVER', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
             this.player.timeStop = true;
         } else if (typeOfEnd == 'timeOver') {
-            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'TIEMPO AGOTADO', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
+            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', this.TG.tr('COMMONTEXT.TIMESUP'), 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
         }
-        const tryAgainText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 150, 'pixel', 'Inténtalo de nuevo', 24).setScrollFactor(0).setDepth(10).setTint(0x00FF00);
+        const tryAgainText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 150, 'pixel', this.TG.tr('COMMONTEXT.TRYAGAIN'), 24).setScrollFactor(0).setDepth(10).setTint(0x00FF00);
     }
 
     /**
