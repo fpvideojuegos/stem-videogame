@@ -414,15 +414,8 @@ class BasicScene extends Phaser.Scene {
         //TODO if the power is already collected not show it
 
         //TESTING CODE
-        /*this.DB = store.get(GameConstants.DB.DBNAME);
-        let texto = "this.DB.superPowers." + superPowerKey + ".picked";
-        console.log("¿Cogido?: " + texto);
-        if (texto == true) {
-            console.log("Está cogido");
-        } else if (texto == false) {
-            console.log("No está cogido");
-        }*/
-        /*if (this.DB.superPowers.[superPowerKey].picked) {*/
+        this.DB = store.get(GameConstants.DB.DBNAME);        
+        if (!this.DB.superPowers[superPowerKey].picked) {
             this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
             this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
 
@@ -432,7 +425,7 @@ class BasicScene extends Phaser.Scene {
                 //console.log(superPowerKey);
                 this.player.getSuperPower(this.extraPointsGroup, object, superPowerKey);
             }, null, this);
-        /*}*/   
+        }   
     }
 
     /**
@@ -440,7 +433,7 @@ class BasicScene extends Phaser.Scene {
      * @param objectKey - spriteKey of respective inventory object to print it on Scene/Level
      * @param objectID - ObjectID of respective inventory object
      */
-    createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){
+    createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){        
         this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
         this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
         
