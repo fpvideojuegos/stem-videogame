@@ -33,7 +33,7 @@ class UI extends Phaser.Scene {
         this.menuButton.setInteractive();
 
         this.menuButton.on('pointerdown', () => { 
-            this.registry.events.emit(GameConstants.Events.MENU);                       
+            this.registry.events.emit(GameConstants.Events.MENU);
         });
 
         //Botón "Reiniciar el nivel"

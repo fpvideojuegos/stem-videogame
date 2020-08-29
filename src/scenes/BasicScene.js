@@ -98,7 +98,9 @@ class BasicScene extends Phaser.Scene {
                     key: costume
                 }).setScale(2);
                 this.player.on(GameConstants.Events.GAME_OVER, () => {
-                    this.changeScene(this.player.scene, GameConstants.Levels.LEVELSELECT, 2000);
+                    //Stop current scene
+                    this.player.scene.physics.pause();
+                    //this.changeScene(this.player.scene, GameConstants.Levels.LEVELSELECT, 2000);
                 });
                 //Evento paso de Nivel
                 this.player.on(GameConstants.Events.LEVEL_FINISHED, () => {
@@ -643,6 +645,19 @@ class BasicScene extends Phaser.Scene {
             const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', this.TG.tr('COMMONTEXT.TIMESUP'), 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
         }
         const tryAgainText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 200, (this.height) - 150, 'pixel', this.TG.tr('COMMONTEXT.TRYAGAIN'), 24).setScrollFactor(0).setDepth(10).setTint(0x00FF00);
+
+        const retryBtn = this.player.scene.add.image(this.width / 2 - 100, (this.height) - 100, GameConstants.Sprites.PlayAgain.KEY).setScrollFactor(0).setDepth(10).setTint(0x00FF00)
+            .setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(1).setScale(0.65);
+        retryBtn.setInteractive();
+        retryBtn.on('pointerdown', () => { 
+            this.registry.events.emit(GameConstants.Events.PLAYAGAIN);
+        });
+
+        const menuBtn = this.player.scene.add.dynamicBitmapText(this.width / 2, (this.height) - 100, 'pixel', 'MENU', 24).setScrollFactor(0).setDepth(10).setTint(0x00FF00);
+        menuBtn.setInteractive();
+        menuBtn.on('pointerdown', () => { 
+            this.registry.events.emit(GameConstants.Events.MENU);
+        });
     }
 
     /**
