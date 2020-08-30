@@ -5,19 +5,19 @@
       "frame": {
         "x": 1,
         "y": 1,
-        "w": 46,
-        "h": 42
+        "w": 55,
+        "h": 26
       },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 46,
-        "h": 42
+        "x": 2,
+        "y": 9,
+        "w": 55,
+        "h": 26
       },
       "sourceSize": {
-        "w": 46,
+        "w": 60,
         "h": 43
       },
       "pivot": {
@@ -28,21 +28,21 @@
     {
       "filename": "meteorite_1",
       "frame": {
-        "x": 49,
+        "x": 58,
         "y": 1,
-        "w": 45,
-        "h": 43
+        "w": 55,
+        "h": 26
       },
       "rotated": false,
       "trimmed": true,
       "spriteSourceSize": {
-        "x": 1,
-        "y": 0,
-        "w": 45,
-        "h": 43
+        "x": 3,
+        "y": 10,
+        "w": 55,
+        "h": 26
       },
       "sourceSize": {
-        "w": 46,
+        "w": 60,
         "h": 43
       },
       "pivot": {
@@ -57,8 +57,8 @@
     "image": "meteorite.png",
     "format": "RGBA8888",
     "size": {
-      "w": 95,
-      "h": 45
+      "w": 114,
+      "h": 28
     },
     "scale": 1
   }

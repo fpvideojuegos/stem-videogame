@@ -7,6 +7,7 @@ class Level5 extends BasicScene {
             key: GameConstants.Levels.LEVEL5
         });
         this.target = GameConstants.Levels.MENU;
+        this.onlyOnce = true;
     }
 
     create() {
@@ -79,11 +80,13 @@ class Level5 extends BasicScene {
             this.enemyGroups[enemy].update();
         });
 
-        //If all objects collected then active End Level Object
-        /*if (this.player.collectablesCollected === 0){
-            this.playerFinalCollide.active=true;
-            this.keylevel.setAlpha(1);            
-        }*/
+        if (this.player.collectablesCollected === 0 && this.onlyOnce){
+            this.onlyOnce=false;
+            this.musicbg.stop();
+            this.ambiencebg.stop();            
+            this.player.nextScene();
+        }
+        
         
 
 
