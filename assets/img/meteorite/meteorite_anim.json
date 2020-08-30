@@ -1,0 +1,20 @@
+{
+    "anims": [
+        {
+            "key": "meteorite_fly",
+            "type": "frames",
+            "repeat": -1,
+            "frameRate": 12,
+            "frames": [
+                {
+                    "key": "meteorite",
+                    "frame": "meteorite_0"
+                },
+                {
+                    "key": "meteorite",
+                    "frame": "meteorite_1"
+                }
+            ]
+        }
+    ]
+}

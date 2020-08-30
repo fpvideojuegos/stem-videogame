@@ -166,6 +166,9 @@ class Bootloader extends Phaser.Scene {
         this.load.atlas('alien', 'img/alien/alien.png', 'img/alien/alien_atlas.json');
         this.load.animation('alienAnim', 'img/alien/alien_anim.json');
 
+        //meteorite
+        this.load.atlas('meteorite', 'img/meteorite/meteorite.png', 'img/meteorite/meteorite_atlas.json');
+        this.load.animation('meteoriteAnim', 'img/meteorite/meteorite_anim.json');
 
         //Seagulls
         this.load.atlas('seagull', 'img/seagull/seagull.png', 'img/seagull/seagull_atlas.json');

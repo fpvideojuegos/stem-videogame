@@ -1,0 +1,65 @@
+{
+  "frames": [
+    {
+      "filename": "meteorite_0",
+      "frame": {
+        "x": 1,
+        "y": 1,
+        "w": 46,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 46,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 43
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "meteorite_1",
+      "frame": {
+        "x": 49,
+        "y": 1,
+        "w": 45,
+        "h": 43
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 0,
+        "w": 45,
+        "h": 43
+      },
+      "sourceSize": {
+        "w": 46,
+        "h": 43
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "http://free-tex-packer.com",
+    "version": "0.6.6",
+    "image": "meteorite.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 95,
+      "h": 45
+    },
+    "scale": 1
+  }
+}

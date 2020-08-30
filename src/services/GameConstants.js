@@ -172,6 +172,12 @@ const GameConstants = {
             OBJECT_NAME: 'Aliens',
             OBJECT_ID: 'Alien'
         },
+        Meteorites: {
+            KEY: 'meteorite',
+            ID: 'meteorite',
+            OBJECT_NAME: 'Meteorites',
+            OBJECT_ID: 'Meteorite'
+        },
         Seagulls: {
             KEY: 'seagull',
             ID: 'seagull',
@@ -404,7 +410,8 @@ const GameConstants = {
             CANDLES: 'Candles'
         },
         Level5:{
-            ALIENS: 'Aliens'            
+            ALIENS: 'Aliens',
+            METEORITES: 'Meteorites'            
         },
         Level6: {
             DINOWATERS: 'Dinowaters',
@@ -431,6 +438,7 @@ const GameConstants = {
         BEES: 'bee_fly',
         FLYINGBOOKS: 'flyingbook_fly',
         ALIENS: 'alien_fly',
+        METEORITES: 'meteorite_fly',
         SEAGULLS: 'seagull_fly',
         PIRANHAS: 'piranha_swim',
         SODAS: 'soda_fly',
