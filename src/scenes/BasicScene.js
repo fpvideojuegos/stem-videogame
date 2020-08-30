@@ -645,7 +645,7 @@ class BasicScene extends Phaser.Scene {
         this.showBackgroundMask();
         
         if (typeOfEnd == 'gameOver') {
-            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', 'GAME OVER', 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
+            const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 240, (this.height) - 250, 'pixel', 'GAME OVER', 60).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
             this.player.timeStop = true;
         } else if (typeOfEnd == 'timeOver') {
             const gameOverText = this.player.scene.add.dynamicBitmapText(this.width / 2 - 175, (this.height) - 250, 'pixel', this.TG.tr('COMMONTEXT.TIMESUP'), 24).setScrollFactor(0).setDepth(10).setTint(0xFF0000);
