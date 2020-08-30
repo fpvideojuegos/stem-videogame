@@ -64,8 +64,20 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":76,
-                 "y":292
+                 "x":82,
+                 "y":364
+                }, 
+                {
+                 "height":0,
+                 "id":194,
+                 "name":"Meteorite",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":178,
+                 "y":950
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -323,7 +335,29 @@
          "draworder":"topdown",
          "id":40,
          "name":"Limits",
-         "objects":[],
+         "objects":[
+                {
+                 "height":102,
+                 "id":193,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":50,
+                 "x":884,
+                 "y":862
+                }, 
+                {
+                 "height":102,
+                 "id":195,
+                 "name":"Limit",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":50,
+                 "x":-23,
+                 "y":875
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -357,7 +391,18 @@
          "draworder":"topdown",
          "id":15,
          "name":"Spikes",
-         "objects":[],
+         "objects":[
+                {
+                 "height":22,
+                 "id":196,
+                 "name":"Spike",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":38,
+                 "x":796,
+                 "y":938
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
@@ -387,7 +432,7 @@
          "y":0
         }],
  "nextlayerid":50,
- "nextobjectid":193,
+ "nextobjectid":197,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

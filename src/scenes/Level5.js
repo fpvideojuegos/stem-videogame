@@ -55,6 +55,10 @@ class Level5 extends BasicScene {
         this.createCollectables(GameConstants.Sprites.SolarPanel.KEY, GameConstants.Sprites.SolarPanel.KEY, false);
         this.createCollectables(GameConstants.Sprites.Screw.KEY, GameConstants.Sprites.Screw.KEY, false);
 
+        //Hiden object for colling enemies
+        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
+        //Creacion de objetos invisibles que dañaran a player 
+        this.findTransparentObjects(GameConstants.Layers.SPIKES, GameConstants.Sprites.Spike.KEY, true);
 
         
         //Sounds **TODO ADD TO BasicScene        
