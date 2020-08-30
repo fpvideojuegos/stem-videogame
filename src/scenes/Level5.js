@@ -47,6 +47,14 @@ class Level5 extends BasicScene {
         
         //Create Leaders and its funtions
         //this.createLadders();
+
+        //Objects to Collect and finnish level
+        this.createCollectables(GameConstants.Sprites.Wires.KEY, GameConstants.Sprites.Wires.KEY );
+        this.createCollectables(GameConstants.Sprites.Button.KEY, GameConstants.Sprites.Button.KEY, false);
+        this.createCollectables(GameConstants.Sprites.SolarPanel.KEY, GameConstants.Sprites.SolarPanel.KEY, false);
+        this.createCollectables(GameConstants.Sprites.Screw.KEY, GameConstants.Sprites.Screw.KEY, false);
+
+
         
         //Sounds **TODO ADD TO BasicScene        
         this.musicbg = this.sound.add(GameConstants.Sound.LEVEL5.OST, {volume: 0.4});

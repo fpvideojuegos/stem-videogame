@@ -305,6 +305,18 @@ const GameConstants = {
         PlasticGlass:{
             KEY: 'plasticglass'
         },
+        SolarPanel:{
+            KEY: 'solarpanel'
+        },
+        Wires:{
+            KEY: 'wires'
+        },
+        Screw:{
+            KEY: 'screw'
+        },
+        Button:{
+            KEY: 'button'
+        },
         EarStick:{
             KEY: 'earstick'
         },
