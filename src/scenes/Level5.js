@@ -6,11 +6,12 @@ class Level5 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL5
         });
-        this.target = GameConstants.Levels.MENU;
-        this.onlyOnce = true;
+        this.target = GameConstants.Levels.MENU;        
     }
 
     create() {
+        this.onlyOnce=true;
+
         //Player Creation
         this.createPlayer(); 
         this.player.timeLeft=60;

@@ -6,12 +6,13 @@ class Level3 extends BasicScene {
         super({
             key: GameConstants.Levels.LEVEL3
         });
-        this.target = GameConstants.Levels.INTROLEVEL4;
+        this.target = GameConstants.Levels.INTROLEVEL4;        
         
-        this.onlyOnce = true;
     }
 
-    create() {
+    create() {        
+        this.onlyOnce = true;
+
         //Player Creation
         this.createPlayer();
         
