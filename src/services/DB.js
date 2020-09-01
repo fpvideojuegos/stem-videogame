@@ -16,6 +16,9 @@ const DB = {
     maxLevel: 'Level1', //Last Level achieved
     extralifes : 0,
     sound: true,
+    voices: true,
+    sfx: true,
+    intros: true,
     inventory : {//Inventory objects
         desertRose: false,
         shell: false,

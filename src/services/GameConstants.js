@@ -494,6 +494,12 @@ const GameConstants = {
     UI:{
         VOLUMEON:'volumeOn',
         VOLUMEOFF:'volumeOff',
+        VOICESON: 'voicesOn',
+        VOICESOFF: 'voicesOff',
+        SFXON: 'SFXOn',
+        SFXOFF: 'SFXOff',
+        INTROSON: 'introsOn',
+        INTROSOFF: 'introsOff',
         INVENTORYBTN: 'inventoryBtn',
         INVENTORY: 'inventory',
         SUPERPOWERSBOX: 'superPowersBox'
