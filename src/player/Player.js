@@ -144,7 +144,9 @@ class Player extends Phaser.GameObjects.Sprite {
                 if (!this.gameOver) this.scene.textTime.setText(textTimeLeft).setTint(0xff0000);
                 if (!this.alarmON){
                     this.alarmON = true;
-                    this.healthAlarm.play();   
+                    if (this.DB.SFX) {
+                        this.healthAlarm.play();
+                    }
                 }
 
                 if (this.timeLeft == 0){ //If times up gameover
@@ -322,7 +324,7 @@ class Player extends Phaser.GameObjects.Sprite {
         
         if (this.prevAnimJump !== direction) {            
             this.anims.play(animation);
-            if (direction === GameConstants.Anims.Direction.JUMP) {
+            if ((direction === GameConstants.Anims.Direction.JUMP) && (this.DB.SFX)){
                 this.soundJump.play();
             }
         }
@@ -355,7 +357,9 @@ class Player extends Phaser.GameObjects.Sprite {
         }else if (this.health == 1){
             //Turn alarm music on
             this.alarmON = true;
-            this.healthAlarm.play();            
+            if (this.DB.SFX) {
+                this.healthAlarm.play();
+            }
         }else{
             this.alarmON = false;
             this.healthAlarm.stop();   
@@ -388,7 +392,9 @@ class Player extends Phaser.GameObjects.Sprite {
             }
 
             //Extralife sound
-            this.lifePickup.play();      
+            if (this.DB.SFX) {
+                this.lifePickup.play();
+            }
             this.hitHeart = true;            
 
             this.scene.tweens.add({
@@ -429,7 +435,9 @@ class Player extends Phaser.GameObjects.Sprite {
 
             
             //SuperPower sound
-            this.superPowerPickup.play();
+            if (this.DB.SFX) {
+                this.superPowerPickup.play();
+            }
             
             this.hitSuperPower = true;
 
@@ -466,7 +474,9 @@ class Player extends Phaser.GameObjects.Sprite {
             store.set(GameConstants.DB.DBNAME, this.DB);
 
             //SuperPower sound
-            this.superPowerPickup.play();
+            if (this.DB.SFX) {
+                this.superPowerPickup.play();
+            }
             
             this.hitInventoryObject = true;
 
@@ -499,7 +509,9 @@ class Player extends Phaser.GameObjects.Sprite {
             this.loseHealth();
             this.hitDelay = true;
             this.tint = 0xff9900;
-            this.soundPlayerAuch.play();
+            if (this.DB.SFX) {
+                this.soundPlayerAuch.play();
+            }
             if (this.scene) {
                 this.scene.time.addEvent({
                     delay: 600,
@@ -530,8 +542,10 @@ class Player extends Phaser.GameObjects.Sprite {
     collectTime(group, object){
 
         if (!this.hitTime) {            
-            
-            this.timePickup.play();
+            if (this.DB.SFX) {
+                this.timePickup.play();
+            }
+
             this.hitTime = true;
             this.timeLeft+=30;               
             
@@ -561,8 +575,10 @@ class Player extends Phaser.GameObjects.Sprite {
     collectExtraPoints(group, object){
 
         if (!this.hitCoin) {            
+            if (this.DB.SFX) {
+                this.coinpickup.play(); 
+            }
             
-            this.coinpickup.play();
             this.hitCoin = true;
             this.extraPoints+=50;   
             this.increaseScore(50);
@@ -593,8 +609,10 @@ class Player extends Phaser.GameObjects.Sprite {
     collectCollectables(group, object){
 
         if (!this.hitCollectable) {
-            
-            this.collectablepickup.play();
+            if (this.DB.SFX) {
+                this.collectablepickup.play();
+            }
+
             this.hitCollectable = true;                       
             this.collectablesCollected--;    
             this.scene.collectablesCounterText.setText(this.collectablesCollected);

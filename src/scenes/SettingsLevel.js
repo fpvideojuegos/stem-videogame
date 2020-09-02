@@ -57,16 +57,16 @@ class SettingsLevel extends BasicScene {
         
         //Sounds, voices, SFX and intros confıg saved ın the DB
         this.soundLabeltxt = this.add.dynamicBitmapText(width*0.10, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.SOUND'), 24).setTint(0x808489);
-        this.voicesLabelTxt = this.add.dynamicBitmapText(width*0.35, height*0.10, 'pixel', 'VOCES', 24).setTint(0x808489);
-        this.SFXLabelTxt = this.add.dynamicBitmapText(width*0.55, height*0.10, 'pixel', 'SFX', 24).setTint(0x808489);
-        this.introsLabelTxt = this.add.dynamicBitmapText(width*0.70, height*0.10, 'pixel', 'INTROS', 24).setTint(0x808489);
+        this.voicesLabelTxt = this.add.dynamicBitmapText(width*0.35, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.VOICES'), 24).setTint(0x808489);
+        this.SFXLabelTxt = this.add.dynamicBitmapText(width*0.55, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.SFX'), 24).setTint(0x808489);
+        this.introsLabelTxt = this.add.dynamicBitmapText(width*0.70, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.INTROS'), 24).setTint(0x808489);
 
         this.DB = store.get(GameConstants.DB.DBNAME);
 
         this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
-        this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOICESON:GameConstants.UI.VOICESOFF;
-        this.SFXLabel = (this.DB.SFX)? GameConstants.UI.SFXON:GameConstants.UI.SFXOFF;
-        this.introsLabel = (this.DB.intros)? GameConstants.UI.INTROSON:GameConstants.UI.INTROSOFF;
+        this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
+        this.SFXLabel = (this.DB.SFX)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
+        this.introsLabel = (this.DB.intros)? this.TG.tr('SETTINGLEVEL.YES'):this.TG.tr('SETTINGLEVEL.NO');
 
         this.musicOnOffBtn = this.add.image(width*0.115, height*0.19,this.soundLabel).setScale(0.5).setTint(0x0000FF);
         this.musicOnOffBtn.setInteractive();
@@ -77,7 +77,7 @@ class SettingsLevel extends BasicScene {
         this.SFXOnOffBtn = this.add.image(width*0.565, height*0.19,this.SFXLabel).setScale(0.5).setTint(0x0000FF);
         this.SFXOnOffBtn.setInteractive();
 
-        this.introsOnOffBtn = this.add.image(width*0.715, height*0.19,this.introsLabel).setScale(0.5).setTint(0x0000FF);
+        this.introsOnOffBtn = this.add.dynamicBitmapText(width*0.7, height*0.17, 'pixel', this.introsLabel, 20).setTint(0x000000);
         this.introsOnOffBtn.setInteractive();
      
         this.musicOnOffBtn.on('pointerdown', () => { 
@@ -99,7 +99,7 @@ class SettingsLevel extends BasicScene {
             this.DB.voices=!this.DB.voices;
             store.set(GameConstants.DB.DBNAME, this.DB);
             
-            this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOICESON:GameConstants.UI.VOICESOFF;
+            this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
             this.voicesOnOffBtn.setTexture(this.voicesLabel);
         });
 
@@ -107,7 +107,7 @@ class SettingsLevel extends BasicScene {
             this.DB.SFX=!this.DB.SFX;
             store.set(GameConstants.DB.DBNAME, this.DB);
             
-            this.SFXLabel = (this.DB.SFX)? GameConstants.UI.SFXON:GameConstants.UI.SFXOFF;
+            this.SFXLabel = (this.DB.SFX)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
             this.SFXOnOffBtn.setTexture(this.SFXLabel);
         });
 
@@ -115,8 +115,8 @@ class SettingsLevel extends BasicScene {
             this.DB.intros=!this.DB.intros;
             store.set(GameConstants.DB.DBNAME, this.DB);
             
-            this.introsLabel = (this.DB.intros)? GameConstants.UI.INTROSON:GameConstants.UI.INTROSOFF;
-            this.introsOnOffBtn.setTexture(this.introsLabel);
+            this.introsLabel = (this.DB.intros)? this.TG.tr('SETTINGLEVEL.YES'):this.TG.tr('SETTINGLEVEL.NO');
+            this.introsOnOffBtn.setText(this.introsLabel);
         });
 
     } //End Create()

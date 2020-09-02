@@ -21,6 +21,11 @@
     },
     "SETTINGLEVEL": {
         "SOUND": "SOUND",
+        "VOICES": "VOiCES",
+        "SFX": "SFX",
+        "INTROS": "INTROS",
+        "YES": "YES",
+        "NO": "NO",
         "LANGUAGE": "CHANGE LANGUAGE",
         "RESET" : "RESET GAME",
         "DONE" : "DONE"

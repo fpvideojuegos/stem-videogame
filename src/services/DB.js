@@ -17,7 +17,7 @@ const DB = {
     extralifes : 0,
     sound: true,
     voices: true,
-    sfx: true,
+    SFX: true,
     intros: true,
     inventory : {//Inventory objects
         desertRose: false,

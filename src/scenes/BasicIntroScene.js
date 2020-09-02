@@ -5,17 +5,16 @@ class BasicIntroScene extends Phaser.Scene {
         super(config.key);
         this.key = config.key;
         this.target = config.target;
-
-        
     }
 
-    preload(){            
+    preload(){   
+        this.DB = store.get(GameConstants.DB.DBNAME);
         //Music Bus
         this.musicFalling = this.sound.add('falling');
 
         //Global Variables
         this.run = false;
-        this.skip = false;
+        this.skip = (!this.DB.intros)? this.skipIntro():false;
         this.passthedoor = false;
         this.animWoman = null;
         this.animTransport = null;
@@ -25,7 +24,6 @@ class BasicIntroScene extends Phaser.Scene {
 
         //TypeofBackground        
         this.parallaxBG = 0;   
-
 
         //Screen Size
         this.height = this.cameras.main.height;
@@ -102,7 +100,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.musicBg.play();
         this.musicBg.setLoop(true);
 
-        if (layer2!== undefined){
+        if ((layer2!== undefined) && (this.DB.SFX)){
             this.musicBg2 = this.sound.add(layer2, {volume: 0.4});
             this.musicBg2.play();
             this.musicBg2.setLoop(true);
@@ -204,7 +202,10 @@ class BasicIntroScene extends Phaser.Scene {
             delay: this.delayWoman,
             callback: () => {                                
                 this.woman.anims.play("talkWoman"+ womanKey);
-                this.womanVoice.play();
+                if (this.DB.voices) {
+                    this.womanVoice.play();
+                }
+                
             },
             callbackScope: this
         });

@@ -21,6 +21,11 @@
     },
     "SETTINGLEVEL": {
         "SOUND": "SONIDO",
+        "VOICES": "VOCES",
+        "SFX": "SFX",
+        "INTROS": "INTROS",
+        "YES": "SI",
+        "NO": "NO",
         "LANGUAGE": "CAMBIAR IDIOMA",
         "RESET": "REINICIAR JUEGO",
         "DONE": "HECHO"
