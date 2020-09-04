@@ -148,12 +148,12 @@ class UI extends Phaser.Scene {
             this.menuButton.alpha = 0;
             
             
-            //TODO This should be here?
-            /*this.superPowersBox.alpha = 0;
+            //hide SuperPowers
+            this.superPowersBox.alpha = 0;
             this.superSpeedBtn.alpha = 0;
             this.lowGravityBtn.alpha = 0;
             this.superJumpBtn.alpha = 0;
-            this.invencibilityBtn.alpha = 0;*/
+            this.invencibilityBtn.alpha = 0;
 
             // Pausa la escena del level, sea cual sea
             this.backlevel = this.scene.get(this.scenename);
@@ -236,6 +236,27 @@ class UI extends Phaser.Scene {
         this.playAgainButton.alpha = 1;
         this.inventoryBtn.alpha = 1;
         this.menuButton.alpha = 1;
+
+        //show SuperPowers
+        this.superPowersBox.alpha = 1;
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        if (this.DB.superPowers.superSpeed.picked) {
+            this.createSuperPowerImg('superSpeed');
+        }
+
+        if (this.DB.superPowers.lowGravity.picked) {
+            this.createSuperPowerImg('lowGravity');
+        }
+
+        if (this.DB.superPowers.invencibility.picked) {
+            this.createSuperPowerImg('invencibility');
+        }
+
+        if (this.DB.superPowers.superJump.picked) {
+            this.createSuperPowerImg('superJump');
+        }
+
+        
 
         mask.hide();
         inventoryBack.destroy();
