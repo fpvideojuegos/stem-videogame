@@ -73,7 +73,7 @@ class Scores extends BasicScene {
                 this.paintScoreGameJolt(5,pResponse.scores[0]);                               
             });
         } else {
-            this.DB = store.get(GameConstants.DB.DBNAME);
+            this.DB = this.getDB();
             
             const levelsLabel = this.add.dynamicBitmapText(80, 50, 'pixel', this.TG.tr('MENU.SCORES'), 24).setTint(0x808489);
             

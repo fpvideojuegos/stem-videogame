@@ -76,10 +76,10 @@ class BasicScene extends Phaser.Scene {
      */
     createPlayer(createMap = true, cameraFollow = true) {
         //Establece nivel actual el último nivel jugado
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
         this.DB.currentLevel = this.key;        
         let costume = this.DB.player;        
-        store.set(GameConstants.DB.DBNAME, this.DB);
+        this.setDB(this.DB);
 
         //Crea el mapa
         if (createMap) {
@@ -370,12 +370,12 @@ class BasicScene extends Phaser.Scene {
      */
     offSuperPowers(){
         //Set all superPowers as OFF
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
         this.DB.superPowers.lowGravity.status = "OFF";
         this.DB.superPowers.superSpeed.status = "OFF";
         this.DB.superPowers.superJump.status = "OFF";
         this.DB.superPowers.invencibility.status = "OFF";
-        store.set(GameConstants.DB.DBNAME, this.DB);
+        this.setDB(this.DB);
     }
 
     /**
@@ -416,7 +416,7 @@ class BasicScene extends Phaser.Scene {
      */
     createSuperPowers(superPowerKey, objectID = GameConstants.Sprites.SuperPowers.OBJECT_ID){        
         //TODO if the power is already collected not show it
-        this.DB = store.get(GameConstants.DB.DBNAME);        
+        this.DB = this.getDB();
         if (!this.DB.superPowers[superPowerKey].picked) {
             this.superPowers = this.createEnemies(GameConstants.Sprites.SuperPowers.OBJECT_NAME, objectID, superPowerKey);
             this.superPowerGroup = new ExtraPoints(this.physics.world, this, [], this.superPowers);
@@ -735,7 +735,7 @@ class BasicScene extends Phaser.Scene {
      * @param delay (milliseconds)
      */
     addEventForMusic(music, loop = false, delay = 0) {
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
         if (this.DB.sound) {
             this.time.addEvent({
                 delay: delay,
@@ -872,7 +872,7 @@ class BasicScene extends Phaser.Scene {
         //Graba en BD local Store
         //TODO: Guardar maxLevel
         // Preparar Gestion generalizada para todos los level
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
         this.DB.currentLevel = this.key;
         if (score > this.DB.worlds[this.key].score) {
             this.DB.worlds[this.key].score = score;
@@ -884,7 +884,7 @@ class BasicScene extends Phaser.Scene {
             this.DB.extralifes = this.player.health - 5;
         }
         this.DB.worlds[this.key].completed = true;
-        store.set(GameConstants.DB.DBNAME, this.DB);
+        this.setDB(this.DB);
 
         //SCORES    //TODO Adjust text to all languages
         /*const scoreLabel = this.player.scene.add.dynamicBitmapText(this.width / 2 - 100, (this.height) - 250, 'pixel', 'SCORE:' + score, 24)
@@ -973,7 +973,26 @@ class BasicScene extends Phaser.Scene {
         player.isInLiana = false;        
     }
 
+    getDB(){
+        if (GJAPI.bActive) {
+            //Replace when possible with GameJolt functional code
+            this.fullDB = store.get(GameConstants.DB.DBNAME);
+        } else {
+            this.fullDB = store.get(GameConstants.DB.DBNAME);
+        }
+        //this.DB = store.get(GameConstants.DB.DBNAME);     this.DB = this.getDB();
+        return this.fullDB;
+    }
 
+    setDB(DB_toSave){
+        if (GJAPI.bActive) {
+            //Replace when possible with GameJolt functional code
+            store.set(GameConstants.DB.DBNAME, DB_toSave);
+        } else {
+            store.set(GameConstants.DB.DBNAME, DB_toSave);
+        }
+        //store.set(GameConstants.DB.DBNAME, this.DB);  this.setDB(this.DB);
+    }
 }
 
 export default BasicScene;

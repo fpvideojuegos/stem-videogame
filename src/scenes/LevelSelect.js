@@ -48,7 +48,7 @@ class LevelSelect extends BasicScene {
         
         const levelsLabel = this.add.dynamicBitmapText(80, 20, 'pixel', this.TG.tr('LEVELSELECT.LEVELS'), 24);        
                 
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
 
         let numberLevel = 0;
         //LEVELS LOOP

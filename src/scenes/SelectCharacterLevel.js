@@ -24,7 +24,7 @@ class SelectCharacterLevel extends BasicScene {
         // background        
         this.bg1 = this.add.image(0, 0, GameConstants.Textures.BG_MENU).setOrigin(0).setScale(1);        
 
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
                         
         const menuButton = this.add.dynamicBitmapText(80, y * 2 + 20, 'pixel', this.TG.tr('LEVELSELECT.MENU'), 24);
         menuButton.setInteractive();
@@ -88,7 +88,7 @@ class SelectCharacterLevel extends BasicScene {
      * 
      */
     selectPlayer(key){
-        this.DB = store.get(GameConstants.DB.DBNAME);
+        this.DB = this.getDB();
         this.DB.player = key;
         store.set(GameConstants.DB.DBNAME, this.DB);
         this.changeScene(this, GameConstants.Levels.MENU,0);

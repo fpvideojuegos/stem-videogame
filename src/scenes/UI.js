@@ -55,6 +55,7 @@ class UI extends Phaser.Scene {
         this.invencibilityBtn = this.add.image(this.width/2 + 180, 17 , GameConstants.Sprites.invencibility.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
 
         this.DB = store.get(GameConstants.DB.DBNAME);
+        //this.DB = this.getDB();   //Non functional yet
         if (this.DB.superPowers.superSpeed.picked) {
             this.createSuperPowerImg('superSpeed');
         }

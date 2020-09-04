@@ -61,7 +61,8 @@ class SettingsLevel extends BasicScene {
         this.SFXLabelTxt = this.add.dynamicBitmapText(width*0.55, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.SFX'), 24).setTint(0x808489);
         this.introsLabelTxt = this.add.dynamicBitmapText(width*0.70, height*0.10, 'pixel', this.TG.tr('SETTINGLEVEL.INTROS'), 24).setTint(0x808489);
 
-        this.DB = store.get(GameConstants.DB.DBNAME);
+
+        this.DB = this.getDB();
 
         this.soundLabel = (this.DB.sound)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
         this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
@@ -82,7 +83,7 @@ class SettingsLevel extends BasicScene {
      
         this.musicOnOffBtn.on('pointerdown', () => { 
             this.DB.sound=!this.DB.sound;
-            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.setDB(this.DB);
 
             if (!this.DB.sound){
                 this.sound.stopAll();
@@ -97,7 +98,7 @@ class SettingsLevel extends BasicScene {
 
         this.voicesOnOffBtn.on('pointerdown', () => { 
             this.DB.voices=!this.DB.voices;
-            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.setDB(this.DB);
             
             this.voicesLabel = (this.DB.voices)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
             this.voicesOnOffBtn.setTexture(this.voicesLabel);
@@ -105,7 +106,7 @@ class SettingsLevel extends BasicScene {
 
         this.SFXOnOffBtn.on('pointerdown', () => { 
             this.DB.SFX=!this.DB.SFX;
-            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.setDB(this.DB);
             
             this.SFXLabel = (this.DB.SFX)? GameConstants.UI.VOLUMEON:GameConstants.UI.VOLUMEOFF;
             this.SFXOnOffBtn.setTexture(this.SFXLabel);
@@ -113,7 +114,7 @@ class SettingsLevel extends BasicScene {
 
         this.introsOnOffBtn.on('pointerdown', () => { 
             this.DB.intros=!this.DB.intros;
-            store.set(GameConstants.DB.DBNAME, this.DB);
+            this.setDB(this.DB);
             
             this.introsLabel = (this.DB.intros)? this.TG.tr('SETTINGLEVEL.YES'):this.TG.tr('SETTINGLEVEL.NO');
             this.introsOnOffBtn.setText(this.introsLabel);
