@@ -1,145 +1,43 @@
-import BasicScene from "./BasicScene.js";
-import GameConstants from "../services/GameConstants.js";
-import Map from "../gameObjects/Map.js";
-import BackgroundMask from "../gameObjects/BackgroundMask.js";
+import GameConstants from '../services/GameConstants.js';
+import BasicIntroScene from "./BasicIntroScene.js";
 
-class Level6 extends BasicScene {
+class Level6 extends BasicIntroScene  {
     constructor() {
-        super({
-            key: GameConstants.Levels.LEVEL6
-        });
-        this.target = GameConstants.Levels.CREDITS;
-    }
-
-    create() {
-        //Daniela Creation
-        this.createDaniela(GameConstants.Sprites.DanielaTroglo, false);
-        //Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL6);
-        //Finding enemies in json map
-        this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level6);
-        //Deactivate superPowers if were activated on previous levels
-        this.offSuperPowers();
-        //ExtraPoints        
-        this.createCoins();
-        //HealthText
-        this.createHealthText();
-        //OST
-        this.music = this.sound.add(GameConstants.Sound.LEVEL6.OST, {volume: 0.4});
-        this.addEventForMusic(this.music,true,100);
- 
-        this.audioLevel6_DANIELA_OhIBurntMyself_12 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL6.DANIELA);
-        this.addEventForMusic(this.audioLevel6_DANIELA_OhIBurntMyself_12,false);
-        this.audioLevel2_LOLO_LookForTheMap_14 = this.sound.add(this.TG.getActualLang() + "_" + GameConstants.Sound.LEVEL6.LOLO_TASK);
-        this.addEventForMusic(this.audioLevel2_LOLO_LookForTheMap_14,false,6000);
-
-
-
-
-        //Tilemap
-        this.platformLayerLevel6 = this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO);
+        super({key: 'Level6', 
+              target:GameConstants.Levels.MENU});
         
-        //To make collidable only when comes from up
-        let x, y, tile;
-        for (x = 0; x < this.platformLayerLevel6.width; x++) {
-            for (y = 1; y < this.platformLayerLevel6.height; y++) {                
-                tile = this.platformLayerLevel6.getTileAt(x, y);                                
-                if (tile !== null) {                    
-                    tile.setCollision(false, false, true, false); 
-                }
-            }
+    }
+    
+ 
+    create() {        
+        //check if all levels , if all superpowers, if all inventory objects
+        this.checkAllLevels();
+        this.checkAllInventory();
+
+        
+        //this.scene.start(this.target); 
+
+        //Create Music Background (Layer1 + Layer2)
+        this.createBgSounds(GameConstants.Sound.LEVEL5.AMBIENCE);       
+        
+        //Create BackgroundImg 
+        this.createBackgroundImg(GameConstants.Textures.BG_LEVEL5);
+
+
+        if (this.checkContinueLevel()){
+            console.log("OK");
         }
 
-        this.paintLayerAndCreateCollision(GameConstants.Tiles.VOLCANO, GameConstants.Layers.LANDSCAPE, false);
+        //Create Woman 
+        //this.createAllWoman(5000);
 
-        //PRIVATE SCENE ELEMENTS
-        this.findTransparentObjects(GameConstants.Layers.LIMITS, GameConstants.Sprites.Limit.KEY, false, true);
+        //CreateTexts
+        //this.createTexts('LEVEL6.ALLWOMEN',500);
 
-        //Text Dialog
-        this.textDialog = this.add.dynamicBitmapText(20, this.cameras.main.height - 55, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL6.BURNTMYSELF') + "\n\n" + this.TG.tr('LEVEL6.LOOKTHEMAP') ,12 );
-        this.textDialog.setScrollFactor(0);
-        this.textDialog.setDepth(5);  
-        
-        //Objeto mapa
-        let lastMap = {x: this.daniela.x, y: this.daniela.y};
-        let mapGroup = this.physics.add.group();
-        this.map.findObject('Maps', m => {
-            if (m.type === 'Map') {
-                let map = mapGroup.create(m.x, m.y);
-                map.mapId = m.properties[0].value;
-                this.anims.play(GameConstants.Anims.MAP, map);
-                mapGroup.add(map);
-            }
-        });
-        mapGroup.children.iterate(m => m.body.setAllowGravity(false));
+        //Create BAMAK show BAMAKS
+        //this.createBAMAK();
 
-        //Colision y muestra del mapa
-        this.physics.add.overlap(this.daniela, mapGroup, (player, object) => {
-            let mask = new BackgroundMask(this);
-            mask.show();
-            
-            lastMap.x = object.x;
-            lastMap.y = object.y;
-
-            let mapImage = this.add.image(this.daniela.x + 150, this.daniela.y - 75, object.mapId).setDepth(1).setScale(0.35);
-            mapImage.setInteractive();
-            
-            let closed = false;
-            mapImage.on('pointerdown', () => {
-                closed=true; 
-                this.closeMap(mask, mapImage);                
-            });
-            
-            object.destroy();
-
-            this.daniela.body.setVelocity(0, 0);
-            this.scene.scene.physics.pause();
-            this.scene.scene.time.addEvent({
-                delay: 5000,
-                callback: () => {
-                    if (!closed) this.closeMap(mask, mapImage);                 
-                }
-            });
-        });
-
-        //Lava
-        let lava = this.findTransparentObjects('Lava', 'Lava', true);
-        this.physics.add.overlap(this.daniela, lava, () => {
-            this.cameras.main.fadeIn(1500);
-            this.daniela.body.setVelocity(0, 0);
-            this.daniela.x = lastMap.x;
-            this.daniela.y = lastMap.y;
-        });
-
-        //End of level
-        let portal = this.createEndLevelObject('timedoor');
-        this.physics.world.enable(portal);
-        portal[0].setScale(0.5);
-        portal[0].body.setAllowGravity(false);
-       
-        this.physics.add.collider(this.daniela, portal, () => {
-            this.daniela.nextScene();
-        })
-
-    }
-    closeMap(mask, mapImage){
-        mask.hide();
-        mapImage.destroy();
-        this.scene.scene.physics.resume();
-    }
-
-    update(time, delta) {
-        this.daniela.update(time, delta);
-        Object.keys(this.enemyGroups).forEach(enemy => {
-            this.enemyGroups[enemy].update();
-        });
-    }
-
-    showMap(mapId) {
-        //  this.reg.modal.showModal("modal1");
-        // this.add.image(this.daniela.x, this.daniela.y, mapId).setDepth(0).setScale(0.2, 0.2)
-    }
-
+    } 
 
 }
 

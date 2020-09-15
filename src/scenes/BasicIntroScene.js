@@ -25,6 +25,11 @@ class BasicIntroScene extends Phaser.Scene {
         //TypeofBackground        
         this.parallaxBG = 0;   
 
+        //For Level6
+        this.allLevels = true;
+        this.allInventory= true;
+        this.continueLevel = true;
+
         //Screen Size
         this.height = this.cameras.main.height;
         this.width = this.cameras.main.width;   
@@ -116,8 +121,9 @@ class BasicIntroScene extends Phaser.Scene {
         this.cameras.main.on('camerafadeoutcomplete', () => {                        
             this.musicBg.stop();
             if (this.musicBg2 !== undefined) this.musicBg2.stop();
-            this.womanVoice.stop();              
-            this.scene.start(this.target);
+            if (this.womanVoice !== undefined) this.womanVoice.stop();              
+            if (this.continueLevel) this.scene.start(this.target);
+            else this.scene.start(GameConstants.Levels.LEVELSELECT);
         });
 
     }
@@ -279,11 +285,11 @@ class BasicIntroScene extends Phaser.Scene {
      *
      * @param {string} text
      */
-    typewriteBitmapText(text){
+    typewriteBitmapText(text, posX=275, posY=50){
         const length = text.length
         let i = 0
         
-        let textInstructions = this.add.bitmapText(275, 50, 'pixel', '', 14)
+        let textInstructions = this.add.bitmapText(posX, posY, 'pixel', '', 14)
                                                         .setScrollFactor(0)
                                                         .setDepth(3) 
                                                         .setAlpha(1);
@@ -342,6 +348,88 @@ class BasicIntroScene extends Phaser.Scene {
 
 
     }
+
+    checkAllLevels(){
+        this.DB = this.getDB();
+        
+        let numberLevel = 0;
+        let textLevel = "";
+        //LEVELS LOOP
+        for (let i in this.DB.worlds) {
+            numberLevel++;
+            
+            if (numberLevel>=1 && numberLevel<=5){                
+                textLevel += "Level " + numberLevel + ":";
+                textLevel += (this.DB.worlds[i].completed) ? "OK": "KO";
+                textLevel += "\n";                
+
+                if (!this.DB.worlds[i].completed) this.allLevels = false;
+            }
+        }
+
+        const levelsTitle = this.add.dynamicBitmapText(20, 20, 'pixel', 'LEVELS').setTint(0xffffff).setDepth(2);
+        const levelsLabel = this.add.dynamicBitmapText(20, 40, 'pixel', textLevel).setTint(0xffffff).setDepth(2);
+
+    }
+
+    checkAllInventory(){
+        this.DB = this.getDB();
+
+        let textInventory = "";
+
+        textInventory += "Desert Rose : " ;
+        textInventory += (this.DB.inventory.desertRose) ? "OK": "KO";
+        textInventory += "\n";                        
+        if (!this.DB.inventory.desertRose) this.allInventory = false;
+        
+        textInventory += "Shell : " ;
+        textInventory += (this.DB.inventory.shell) ? "OK": "KO";
+        textInventory += "\n";
+        if (!this.DB.inventory.shell) this.allInventory = false;                
+       
+        textInventory += "Lys Flower : " ;
+        textInventory += (this.DB.inventory.lysFlower) ? "OK": "KO";
+        textInventory += "\n";                
+        if (!this.DB.inventory.lysFlower) this.allInventory = false;
+    
+        textInventory += "Pen : " ;
+        textInventory += (this.DB.inventory.pen) ? "OK": "KO";
+        textInventory += "\n";                
+        if (!this.DB.inventory.pen) this.allInventory = false;
+    
+        textInventory += "Star : " ;
+        textInventory += (this.DB.inventory.star) ? "OK": "KO";
+        textInventory += "\n";                
+        if (!this.DB.inventory.star) this.allInventory = false;
+
+        const inventoryTitle = this.add.dynamicBitmapText(300, 20, 'pixel', "INVENTORY").setTint(0xffffff).setDepth(2);
+        const inventoryLabel = this.add.dynamicBitmapText(300, 40, 'pixel', textInventory).setTint(0xffffff).setDepth(2);
+
+    }
+
+
+    checkContinueLevel(){
+        this.continueLevel = this.allLevels && this.allInventory;
+        if (!this.continueLevel){
+            let textContinue ="YOU HAVE TO FINISH ALL LEVELS AND\n\nCOLLECT ALL THE INVENTORY OBJECTS TO CONTINUE"
+            const ContinueLabel = this.add.dynamicBitmapText(20, 150, 'pixel', textContinue).setTint(0xffffff).setDepth(2);
+
+        }
+
+        return this.continueLevel;           
+    }
+
+    getDB(){
+        if (GJAPI.bActive) {
+            //Replace when possible with GameJolt functional code
+            this.fullDB = store.get(GameConstants.DB.DBNAME);
+        } else {
+            this.fullDB = store.get(GameConstants.DB.DBNAME);
+        }
+        //this.DB = store.get(GameConstants.DB.DBNAME);     this.DB = this.getDB();
+        return this.fullDB;
+    }
+
 
 
 }
