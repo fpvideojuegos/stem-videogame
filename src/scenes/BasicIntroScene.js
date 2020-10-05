@@ -354,56 +354,71 @@ class BasicIntroScene extends Phaser.Scene {
         
         let numberLevel = 0;
         let textLevel = "";
+        
+        let levelsTitle = this.add.dynamicBitmapText(20, 50, 'pixel', this.TG.tr('LEVELSELECT.LEVELS') + ":").setTint(0xffffff).setDepth(2);
         //LEVELS LOOP
         for (let i in this.DB.worlds) {
             numberLevel++;
             
             if (numberLevel>=1 && numberLevel<=5){                
-                textLevel += "Level " + numberLevel + ":";
-                textLevel += (this.DB.worlds[i].completed) ? "OK": "KO";
-                textLevel += "\n";                
+                textLevel = "Level " + numberLevel + ":";
+                textLevel += (this.DB.worlds[i].completed) ? this.TG.tr('LEVEL6.COMPLETED') : this.TG.tr('LEVEL6.UNCOMPLETED');                
+                let levelsLabel = this.add.dynamicBitmapText(20, 50 + (numberLevel * 40), 'pixel', textLevel).setDepth(2);                
+                console.log(i + ":" + this.DB.worlds[i].completed);
+                if (this.DB.worlds[i].completed) levelsLabel.setTint(0xffffff);
+                else levelsLabel.setTint(0xff0000);
 
                 if (!this.DB.worlds[i].completed) this.allLevels = false;
             }
         }
 
-        const levelsTitle = this.add.dynamicBitmapText(20, 20, 'pixel', 'LEVELS').setTint(0xffffff).setDepth(2);
-        const levelsLabel = this.add.dynamicBitmapText(20, 40, 'pixel', textLevel).setTint(0xffffff).setDepth(2);
+        
+        
 
     }
 
     checkAllInventory(){
         this.DB = this.getDB();
 
+        const inventoryTitle = this.add.dynamicBitmapText(400, 50, 'pixel', this.TG.tr('LEVELSELECT.INVENTORY') + ":").setTint(0xffffff).setDepth(2);
+
         let textInventory = "";
 
-        textInventory += "Desert Rose : " ;
-        textInventory += (this.DB.inventory.desertRose) ? "OK": "KO";
+        textInventory = this.TG.tr('INVENTORY.DESERTROSE') + ":";
+        textInventory += (this.DB.inventory.desertRose) ? this.TG.tr('LEVEL6.COLLECTED') : this.TG.tr('LEVEL6.UNCOLLECTED');
         textInventory += "\n";                        
         if (!this.DB.inventory.desertRose) this.allInventory = false;
+        let inventoryLabel = this.add.dynamicBitmapText(400, 90, 'pixel', textInventory).setDepth(2);
+        (this.DB.inventory.desertRose) ? inventoryLabel.setTint(0xffffff) : inventoryLabel.setTint(0xff0000);
         
-        textInventory += "Shell : " ;
-        textInventory += (this.DB.inventory.shell) ? "OK": "KO";
+        textInventory = this.TG.tr('INVENTORY.SHELL') + ":";
+        textInventory += (this.DB.inventory.shell) ? this.TG.tr('LEVEL6.COLLECTED') : this.TG.tr('LEVEL6.UNCOLLECTED');
         textInventory += "\n";
-        if (!this.DB.inventory.shell) this.allInventory = false;                
+        if (!this.DB.inventory.shell) this.allInventory = false;
+        inventoryLabel = this.add.dynamicBitmapText(400, 130, 'pixel', textInventory).setDepth(2);
+        (this.DB.inventory.shell) ? inventoryLabel.setTint(0xffffff) : inventoryLabel.setTint(0xff0000);                
        
-        textInventory += "Lys Flower : " ;
-        textInventory += (this.DB.inventory.lysFlower) ? "OK": "KO";
+        textInventory = this.TG.tr('INVENTORY.LYSFLOWER') + ":";
+        textInventory += (this.DB.inventory.lysFlower) ? this.TG.tr('LEVEL6.COLLECTED') : this.TG.tr('LEVEL6.UNCOLLECTED');
         textInventory += "\n";                
         if (!this.DB.inventory.lysFlower) this.allInventory = false;
+        inventoryLabel = this.add.dynamicBitmapText(400, 170, 'pixel', textInventory).setDepth(2);
+        (this.DB.inventory.lysFlower) ? inventoryLabel.setTint(0xffffff) : inventoryLabel.setTint(0xff0000);                
     
-        textInventory += "Pen : " ;
-        textInventory += (this.DB.inventory.pen) ? "OK": "KO";
+        textInventory = this.TG.tr('INVENTORY.PEN') + ":";
+        textInventory += (this.DB.inventory.pen) ? this.TG.tr('LEVEL6.COLLECTED') : this.TG.tr('LEVEL6.UNCOLLECTED');
         textInventory += "\n";                
         if (!this.DB.inventory.pen) this.allInventory = false;
+        inventoryLabel = this.add.dynamicBitmapText(400, 210, 'pixel', textInventory).setDepth(2);
+        (this.DB.inventory.pen) ? inventoryLabel.setTint(0xffffff) : inventoryLabel.setTint(0xff0000);                
     
-        textInventory += "Star : " ;
-        textInventory += (this.DB.inventory.star) ? "OK": "KO";
+        textInventory = this.TG.tr('INVENTORY.STAR') + ":";
+        textInventory += (this.DB.inventory.star) ? this.TG.tr('LEVEL6.COLLECTED') : this.TG.tr('LEVEL6.UNCOLLECTED');
         textInventory += "\n";                
         if (!this.DB.inventory.star) this.allInventory = false;
-
-        const inventoryTitle = this.add.dynamicBitmapText(300, 20, 'pixel', "INVENTORY").setTint(0xffffff).setDepth(2);
-        const inventoryLabel = this.add.dynamicBitmapText(300, 40, 'pixel', textInventory).setTint(0xffffff).setDepth(2);
+        inventoryLabel = this.add.dynamicBitmapText(400, 250, 'pixel', textInventory).setDepth(2);
+        (this.DB.inventory.star) ? inventoryLabel.setTint(0xffffff) : inventoryLabel.setTint(0xff0000);                
+        
 
     }
 
@@ -411,8 +426,8 @@ class BasicIntroScene extends Phaser.Scene {
     checkContinueLevel(){
         this.continueLevel = this.allLevels && this.allInventory;
         if (!this.continueLevel){
-            let textContinue ="YOU HAVE TO FINISH ALL LEVELS AND\n\nCOLLECT ALL THE INVENTORY OBJECTS TO CONTINUE"
-            const ContinueLabel = this.add.dynamicBitmapText(20, 150, 'pixel', textContinue).setTint(0xffffff).setDepth(2);
+            let textContinue = this.TG.tr('LEVEL6.BAMAKCHECK');
+            const ContinueLabel = this.add.dynamicBitmapText(20, 300, 'pixel', textContinue).setTint(0xffffff).setDepth(2);
 
         }
 
