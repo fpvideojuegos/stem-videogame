@@ -38,6 +38,7 @@ const GameConstants = {
         LEVEL4:'Level4',
         LEVEL5:'Level5',
         LEVEL6: 'Level6',
+        BAMAK: 'BamakLevel',
         GAMEOVER: 'GameOver',
         UI: 'UI'
     },
@@ -73,7 +74,8 @@ const GameConstants = {
             AMBIENCE: 'SpaceShipAtmos'
         },
         LEVEL6: {
-            OST: 'Level6_OST'
+            OST: 'Level6_OST',
+            ALLWOMEN: 'Level6_ALLWOMEN'
         },                
         SOUNDS: {            
             PLAYER_JUMP: 'soundJump',
@@ -398,7 +400,13 @@ const GameConstants = {
             OBJECT_NAME: 'Water'
         },
         INVISIBLE: 'invisible',
-        PUZZLEPIECE: 'puzzlepiece'
+        PUZZLEPIECE: 'puzzlepiece',
+        BAMAK:{
+            KEY:'bamak'
+        },
+        RED:{
+            KEY:'red'
+        }
     },
     Enemies_Layers:{
         Level1 : {

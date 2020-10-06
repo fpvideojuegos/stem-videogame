@@ -217,6 +217,29 @@ class BasicIntroScene extends Phaser.Scene {
         });
     }
 
+    /**
+     * All woman voices
+     * @param {*} delayWoman 
+     * @param {*} womanVoiceKey 
+     */
+    createBamakVoices(delayWoman, womanVoiceKey){
+
+        this.delayWoman = delayWoman;
+
+         //SOUNDS
+         this.womanVoice = this.sound.add( this.TG.getActualLang() + "_" + womanVoiceKey, {volume: 2});
+
+         //Show texts
+         this.time.addEvent({
+             delay: this.delayWoman,
+             callback: () => {                                                 
+                 if (this.DB.voices) {
+                     this.womanVoice.play();
+                 }                 
+             },
+             callbackScope: this
+         });
+    }    
 
     /**
      * 
@@ -269,12 +292,12 @@ class BasicIntroScene extends Phaser.Scene {
      * @param textsPrefix - text
      * @param delayText - delayText added to delayWoman, silence time before start talking
      */
-    createTexts(textsPrefix, delayText){                
+    createTexts(textsPrefix, delayText, posX=275, posY=50, lineMAXLength=32){                
         let textToWrite = this.TG.tr(textsPrefix);                
             this.time.addEvent({
                 delay: this.delayWoman + delayText,
                 callback: () => {                                        
-                    this.typewriteBitmapText(textToWrite);                    
+                    this.typewriteBitmapText(textToWrite, posX , posY, lineMAXLength);                    
                 }
               })        
     }
@@ -285,7 +308,7 @@ class BasicIntroScene extends Phaser.Scene {
      *
      * @param {string} text
      */
-    typewriteBitmapText(text, posX=275, posY=50){
+    typewriteBitmapText(text, posX, posY, lineMAXLength){
         const length = text.length
         let i = 0
         
@@ -303,12 +326,14 @@ class BasicIntroScene extends Phaser.Scene {
         this.time.addEvent({
             callback: () => {                
                 if (i==length-1){
-                    this.woman.anims.stop();
-                    this.woman.setTexture(this.womanKey);
+                    if (this.woman !== undefined){ 
+                        this.woman.anims.stop();
+                        this.woman.setTexture(this.womanKey);
+                    }
                 }
                 lineLength++;                
                 textInstructions.text += text[i]
-                if (lineLength>32 && text[i]==" ") {
+                if (lineLength>lineMAXLength && text[i]==" ") {
                     textInstructions.text +="\n\n";
                     lineLength=0;
                 }

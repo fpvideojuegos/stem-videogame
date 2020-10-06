@@ -5,6 +5,9 @@ class Level6 extends BasicIntroScene  {
     constructor() {
         super({key: 'Level6', 
               target:GameConstants.Levels.MENU});
+
+        console.log(this.key);
+
         
     }
     
@@ -24,18 +27,31 @@ class Level6 extends BasicIntroScene  {
         this.createBackgroundImg(GameConstants.Textures.BG_LEVEL5);
 
 
+
+
+
         if (this.checkContinueLevel()){
-            console.log("OK");
+
+            this.time.addEvent({
+                delay: 1000,
+                callback: () => {
+                    //this.target = GameConstants.Levels.BAMAK;
+                    //this.skipIntro(); 
+                    this.cameras.main.fade(700, 0, 0, 0);
+                    this.cameras.main.on('camerafadeoutcomplete', () => {                        
+                        this.musicBg.stop();
+                        if (this.musicBg2 !== undefined) this.musicBg2.stop();
+                        if (this.womanVoice !== undefined) this.womanVoice.stop();              
+                        
+                        this.scene.start(GameConstants.Levels.BAMAK);
+                    });
+                },
+                callbackScope: this
+            });            
+
         }
 
-        //Create Woman 
-        //this.createAllWoman(5000);
-
-        //CreateTexts
-        //this.createTexts('LEVEL6.ALLWOMEN',500);
-
-        //Create BAMAK show BAMAKS
-        //this.createBAMAK();
+        
 
     } 
 

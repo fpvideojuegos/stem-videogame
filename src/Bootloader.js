@@ -248,6 +248,11 @@ class Bootloader extends Phaser.Scene {
         this.load.image('screw', "img/objects/screw.png");
         this.load.image('solarpanel', "img/objects/solarpanel.png");
 
+        //BAMAK
+        this.load.image('bamak', "img/objects/bamak.png");
+        this.load.image('red', "img/objects/red.png");
+
+
         //Star
         this.load.image("star", "img/objects/star.png");
 
