@@ -61,17 +61,17 @@ class LevelSelect extends BasicScene {
             }
             if (this.DB.worlds[i].completed === false) {
                 this.levelButton.setTint(0xFF0000);
-                if (i == "Level1" || this.DB.worlds["Level" + (numberLevel - 1)].completed === true) {
+                //if (i == "Level1" || this.DB.worlds["Level" + (numberLevel - 1)].completed === true) {
                     this.changePlayScene(this.levelButton, numberLevel);
                     this.playButton = this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Play.KEY)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1.25).setAlpha(1); 
                     this.changePlayScene(this.playButton, numberLevel);
-                } else {
+                /*} else {
                     this.changePlayScene(this.levelButton, numberLevel);//TODO: Delete this line is for Testing all levels
                     this.levelButton.setTint(0x9e9e9e);
                     this.add.image(600, 20 + (numberLevel * 50) , GameConstants.Sprites.Lock.KEY)
                     .setScrollFactor(0).setDepth(10).setOrigin(0).setScale(1).setAlpha(1); 
-                }
+                }*/
             } else if (this.DB.worlds[i].completed === true && this.DB.worlds[i].stars < 3) {
                 this.levelButton.setTint(0xFFFF00);
                 this.changePlayScene(this.levelButton, numberLevel);

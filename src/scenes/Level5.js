@@ -16,7 +16,7 @@ class Level5 extends BasicScene {
         this.createPlayer(); 
         this.player.timeLeft=60;
         //Create Repeated Background
-        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5, defaultStatus, defaultStatus,{x:1.15,y:1.15});
+        this.createRepeatedBackground(GameConstants.Textures.BG_LEVEL5, 0, 0,{x:1.15,y:1.15});
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level5);
         //ExtraPoints        
