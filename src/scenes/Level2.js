@@ -24,6 +24,8 @@ class Level2 extends BasicScene {
         this.offSuperPowers();
         //Create superPower
         this.createSuperPowers(GameConstants.Sprites.invencibility.KEY);
+        //create key object (Inventory object)
+        this.createInventoryObjects(GameConstants.Sprites.shell.KEY);
         //Start score text
         this.showLevelScoreText();
         //Tilemap

@@ -29,15 +29,15 @@ class Level6 extends BasicIntroScene  {
 
 
 
-
+        
         if (this.checkContinueLevel()){
+            
+            this.target = GameConstants.Levels.BAMAK;
 
-            this.time.addEvent({
+            /*this.time.addEvent({
                 delay: 1000,
-                callback: () => {
-                    //this.target = GameConstants.Levels.BAMAK;
-                    //this.skipIntro(); 
-                    this.cameras.main.fade(700, 0, 0, 0);
+                callback: () => {                    
+                    this.cameras.main.fade(1200, 0, 0, 0);
                     this.cameras.main.on('camerafadeoutcomplete', () => {                        
                         this.musicBg.stop();
                         if (this.musicBg2 !== undefined) this.musicBg2.stop();
@@ -47,7 +47,7 @@ class Level6 extends BasicIntroScene  {
                     });
                 },
                 callbackScope: this
-            });            
+            });*/            
 
         }
 

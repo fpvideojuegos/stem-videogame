@@ -29,6 +29,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.allLevels = true;
         this.allInventory= true;
         this.continueLevel = true;
+        this.scoreLevel6 = 0;//updated everytime level 6 is played
 
         //Screen Size
         this.height = this.cameras.main.height;
@@ -378,7 +379,7 @@ class BasicIntroScene extends Phaser.Scene {
         this.DB = this.getDB();
         
         let numberLevel = 0;
-        let textLevel = "";
+        let textLevel = "";        
         
         let levelsTitle = this.add.dynamicBitmapText(20, 50, 'pixel', this.TG.tr('LEVELSELECT.LEVELS') + ":").setTint(0xffffff).setDepth(2);
         //LEVELS LOOP
@@ -388,12 +389,14 @@ class BasicIntroScene extends Phaser.Scene {
             if (numberLevel>=1 && numberLevel<=5){                
                 textLevel = "Level " + numberLevel + ":";
                 textLevel += (this.DB.worlds[i].completed) ? this.TG.tr('LEVEL6.COMPLETED') : this.TG.tr('LEVEL6.UNCOMPLETED');                
-                let levelsLabel = this.add.dynamicBitmapText(20, 50 + (numberLevel * 40), 'pixel', textLevel).setDepth(2);                
-                console.log(i + ":" + this.DB.worlds[i].completed);
+                let levelsLabel = this.add.dynamicBitmapText(20, 50 + (numberLevel * 40), 'pixel', textLevel).setDepth(2);                                
                 if (this.DB.worlds[i].completed) levelsLabel.setTint(0xffffff);
                 else levelsLabel.setTint(0xff0000);
 
                 if (!this.DB.worlds[i].completed) this.allLevels = false;
+
+                //sum 5 levels scores
+                this.scoreLevel6 += parseInt(this.DB.worlds[i].score);
             }
         }
 
@@ -454,18 +457,52 @@ class BasicIntroScene extends Phaser.Scene {
             let textContinue = this.TG.tr('LEVEL6.BAMAKCHECK');
             const ContinueLabel = this.add.dynamicBitmapText(20, 300, 'pixel', textContinue).setTint(0xffffff).setDepth(2);
 
+            let textNext = this.TG.tr('LEVEL6.BACK') ;
+            const nextLabel = this.add.dynamicBitmapText(200, 400, 'pixel', textNext).setTint(0xefed00).setDepth(2);
+
+        }else{
+            //if all levels completed update level6 score if higher
+            
+            //if gamejolt update level6
+
+            const score = Phaser.Utils.String.Pad(this.scoreLevel6, 6, '0', 1);
+
+            //If GameJolt Logged Save Score and Trophy at GameJolt
+            if (GJAPI.bActive){                        
+                GJAPI.ScoreAdd(GameConstants.GAMEJOLT.SCORES[this.key], score, score + " points", null);
+                GJAPI.TrophyAchieve(GameConstants.GAMEJOLT.TROPHIES[this.key]);
+            }
+
+            //Save in localstoragge
+            this.DB = store.get(GameConstants.DB.DBNAME);;
+            this.DB.currentLevel = this.key;
+            if (score > this.DB.worlds[this.key].score) {
+                this.DB.worlds[this.key].score = score;
+            }
+            this.DB.worlds[this.key].completed = true;            
+            store.set(GameConstants.DB.DBNAME, this.DB);
+
+            let textContinue = this.TG.tr('LEVEL6.FINALSCORE') + " : " + score ;
+            const ContinueLabel = this.add.dynamicBitmapText(20, 300, 'pixel', textContinue).setTint(0xffffff).setDepth(2);
+
+            let textNext = this.TG.tr('LEVEL6.CONTINUE') ;
+            const nextLabel = this.add.dynamicBitmapText(200, 350, 'pixel', textNext).setTint(0xefed00).setDepth(2);
         }
+
+            
+
+        //continue text
 
         return this.continueLevel;           
     }
 
     getDB(){
-        if (GJAPI.bActive) {
-            //Replace when possible with GameJolt functional code
+         //Replace when possible with GameJolt functional code
+        //if (GJAPI.bActive) {           
+        //    this.fullDB = store.get(GameConstants.DB.DBNAME);
+        //} else {
             this.fullDB = store.get(GameConstants.DB.DBNAME);
-        } else {
-            this.fullDB = store.get(GameConstants.DB.DBNAME);
-        }
+        //}
         //this.DB = store.get(GameConstants.DB.DBNAME);     this.DB = this.getDB();
         return this.fullDB;
     }

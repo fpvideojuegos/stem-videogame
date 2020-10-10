@@ -25,6 +25,8 @@ class Level4 extends BasicScene {
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level4);
         //Deactivate superPowers if were activated on previous levels
         this.offSuperPowers();
+        //create key object (Inventory object)
+        this.createInventoryObjects(GameConstants.Sprites.pen.KEY);            
         //Start score text
         this.showLevelScoreText();
         //ExtraPoints        

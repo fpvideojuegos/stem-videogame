@@ -185,8 +185,8 @@
                  "type":"inventoryObject",
                  "visible":true,
                  "width":0,
-                 "x":2659.51515151515,
-                 "y":209.454545454545
+                 "x":660.51515151515,
+                 "y":348.454545454545
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -830,8 +830,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":39,
- "nextobjectid":162,
+ "nextlayerid":40,
+ "nextobjectid":164,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

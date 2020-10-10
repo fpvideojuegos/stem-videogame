@@ -435,8 +435,8 @@ class BasicScene extends Phaser.Scene {
      * @param objectKey - spriteKey of respective inventory object to print it on Scene/Level
      * @param objectID - ObjectID of respective inventory object
      */
-    createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){        
-        if (!this.DB.inventory[objectKey]) {
+    createInventoryObjects(objectKey, objectID = GameConstants.Sprites.inventoryObjects.OBJECT_ID){                
+        if (!this.DB.inventory[objectKey]) {            
             this.inventoryObjects = this.createEnemies(GameConstants.Sprites.inventoryObjects.OBJECT_NAME, objectID, objectKey);
             this.inventoryObjectsGroup = new ExtraPoints(this.physics.world, this, [], this.inventoryObjects);
             

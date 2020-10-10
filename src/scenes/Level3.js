@@ -32,6 +32,8 @@ class Level3 extends BasicScene {
         this.showLevelScoreText();
         //Deactivate superPowers if were activated on previous levels
         this.offSuperPowers();
+        //create key object (Inventory object)
+        this.createInventoryObjects(GameConstants.Sprites.lysFlower.KEY);        
         
         //Tilemap        
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL3_TILESET, GameConstants.Layers.CLOUDS, false);

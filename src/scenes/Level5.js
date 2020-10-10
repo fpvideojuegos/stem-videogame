@@ -28,6 +28,8 @@ class Level5 extends BasicScene {
         //Create superPower
         //this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY);
         //create key object (Inventory object)
+        this.createInventoryObjects(GameConstants.Sprites.star.KEY);   
+        //create key object (Inventory object)
         //this.createInventoryObjects(GameConstants.Sprites.desertRose.KEY);
         //Start score text
         this.showLevelScoreText();

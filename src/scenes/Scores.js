@@ -72,16 +72,24 @@ class Scores extends BasicScene {
                 
                 this.paintScoreGameJolt(5,pResponse.scores[0]);                               
             });
+
+            GJAPI.ScoreFetch(551882, GJAPI.SCORE_ALL, 1, (pResponse)=>{//Level 6 Score
+                if(!pResponse.scores) return;
+                
+                this.paintScoreGameJolt(6,pResponse.scores[0]);                               
+            });
+
         } else {
             this.DB = this.getDB();
             
             const levelsLabel = this.add.dynamicBitmapText(80, 50, 'pixel', this.TG.tr('MENU.SCORES'), 24).setTint(0x808489);
-            
+                      
             let levelLabel = this.add.dynamicBitmapText(80, 100, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 1 : ' + this.DB.worlds.Level1.score , 24).setTint(0x808489);
             let level2Label = this.add.dynamicBitmapText(80, 150, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 2 : ' + this.DB.worlds.Level2.score , 24).setTint(0x808489);
             let level3Label = this.add.dynamicBitmapText(80, 200, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 3 : ' + this.DB.worlds.Level3.score , 24).setTint(0x808489);
             let level4Label = this.add.dynamicBitmapText(80, 250, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 4 : ' + this.DB.worlds.Level4.score , 24).setTint(0x808489);
             let level5Label = this.add.dynamicBitmapText(80, 300, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 5 : ' + this.DB.worlds.Level5.score , 24).setTint(0x808489);
+            let level6Label = this.add.dynamicBitmapText(80, 350, 'pixel', this.TG.tr('LEVELSELECT.LEVEL') + ' 6 : ' + this.DB.worlds.Level6.score , 24).setTint(0x808489);
             
         }
 
