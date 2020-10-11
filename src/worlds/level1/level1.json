@@ -66,8 +66,8 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":1896,
-                 "y":310.666666666667
+                 "x":1870,
+                 "y":292.666666666667
                 }, 
                 {
                  "height":0,
@@ -162,8 +162,8 @@
                  "type":"collectable",
                  "visible":true,
                  "width":0,
-                 "x":3110,
-                 "y":751
+                 "x":3030,
+                 "y":799
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -185,8 +185,8 @@
                  "type":"inventoryObject",
                  "visible":true,
                  "width":0,
-                 "x":660.51515151515,
-                 "y":348.454545454545
+                 "x":2670.51515151515,
+                 "y":208.454545454545
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -616,8 +616,8 @@
                  "type":"superPower",
                  "visible":true,
                  "width":0,
-                 "x":1745.27272727273,
-                 "y":155.878787878788
+                 "x":1739.27272727273,
+                 "y":149.878787878788
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -750,8 +750,8 @@
                  "type":"extrapoint",
                  "visible":true,
                  "width":0,
-                 "x":1108,
-                 "y":284
+                 "x":3372,
+                 "y":532
                 }, 
                 {
                  "height":0,
@@ -812,6 +812,30 @@
                  "width":0,
                  "x":414,
                  "y":493.333333333333
+                }, 
+                {
+                 "height":0,
+                 "id":164,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":1112,
+                 "y":274
+                }, 
+                {
+                 "height":0,
+                 "id":165,
+                 "name":"extrapoint",
+                 "point":true,
+                 "rotation":0,
+                 "type":"extrapoint",
+                 "visible":true,
+                 "width":0,
+                 "x":2228,
+                 "y":490
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -831,7 +855,7 @@
          "y":0
         }],
  "nextlayerid":40,
- "nextobjectid":164,
+ "nextobjectid":166,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.5",

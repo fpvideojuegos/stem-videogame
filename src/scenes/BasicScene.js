@@ -185,7 +185,7 @@ class BasicScene extends Phaser.Scene {
         this.map = this.make.tilemap({
             key: this.key
         });
-        console.log(this.map);
+        //console.log(this.map);
         //Los bordes del mundo serán las dimensiones del mapa cargado
         this.physics.world.bounds.setTo(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         return this.map;
@@ -330,8 +330,8 @@ class BasicScene extends Phaser.Scene {
 
             }
         });
-        console.log("Se han creado los siguientes grupos de enemigos:");
-        console.log(this.enemyGroups);
+        //console.log("Se han creado los siguientes grupos de enemigos:");
+        //console.log(this.enemyGroups);
     }
 
     /**
@@ -859,11 +859,8 @@ class BasicScene extends Phaser.Scene {
         //2 Stars if Star number 1 and ExtraPoints > 200 (more or equal than 4 coins)
         const star2show = (star1show && this.player.extraPoints >= 200)
         //3 starts if 2 star number 2 and timeleft more than 60 seconds (1 min)
-        const star3show = (star2show && this.player.timeleft > 60);
-
-        console.log("extrapoints =" + this.player.extraPoints);
-        console.log("seconds =" + this.player.secondsLevel)
-
+        const star3show = (star2show && this.player.timeLeft > 60);
+        
         let numstars = 0;
         if (star1show) numstars++;
         if (star2show) numstars++;

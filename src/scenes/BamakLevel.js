@@ -40,7 +40,7 @@ class BamakLevel extends BasicIntroScene  {
         
         //CreateTexts
         this.createBamakVoices(5000, GameConstants.Sound.LEVEL6.ALLWOMEN);
-        this.createTexts('LEVEL6.ALLWOMEN',500 , 50, 50, 50);
+        this.createTexts('LEVEL6.ALLWOMEN',500 , 40, 50, 45);
 
         //show and register the sum of all levels
         

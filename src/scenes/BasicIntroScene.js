@@ -287,12 +287,16 @@ class BasicIntroScene extends Phaser.Scene {
         this.createOverlap();
 
     }
-
-    /**
-     * 
-     * @param textsPrefix - text
-     * @param delayText - delayText added to delayWoman, silence time before start talking
-     */
+    
+     /**
+      * Text with typewrite effect
+      * 
+      * @param {*} textsPrefix the text
+      * @param {*} delayText delayText added to delayWoman, silence time before start talking
+      * @param {*} posX 
+      * @param {*} posY 
+      * @param {*} lineMAXLength 
+      */
     createTexts(textsPrefix, delayText, posX=275, posY=50, lineMAXLength=32){                
         let textToWrite = this.TG.tr(textsPrefix);                
             this.time.addEvent({

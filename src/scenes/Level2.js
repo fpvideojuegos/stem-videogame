@@ -18,6 +18,8 @@ class Level2 extends BasicScene {
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level2);
         //ExtraPoints        
         this.createCoins();
+        //Object Heart for Extralifes
+        this.createExtraLifes();        
         //HealthText
         this.createHealthText();
         //Deactivate superPowers if were activated on previous levels
