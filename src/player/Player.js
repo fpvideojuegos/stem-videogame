@@ -488,8 +488,8 @@ class Player extends Phaser.GameObjects.Sprite {
                 ease: "Cubic.easeOut",
                 callbackScope: this,
                 onComplete: function(){
-                    group.killAndHide(object);
-                    group.remove(object);   
+                    //group.killAndHide(object);
+                    //group.remove(object);   
                     object.destroy();             
                 }
             });

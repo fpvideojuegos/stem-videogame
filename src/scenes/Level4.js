@@ -61,10 +61,10 @@ class Level4 extends BasicScene {
         //TODO at language files
         this.wordsLanguage = this.TG.tr('LEVEL4.WORDS');
         this.words = this.wordsLanguage.split(',');
-
+        
 
         //Choose one word randomly
-        this.word = this.words[Math.floor(Math.random() * this.words.length)];
+        this.word = this.words[Math.floor(Math.random() * this.words.length)];        
         //Split word into chars 
         this.wordArray = this.word.split('');        
         

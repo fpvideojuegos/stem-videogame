@@ -32,6 +32,9 @@ class Level3 extends BasicScene {
         this.showLevelScoreText();
         //Deactivate superPowers if were activated on previous levels
         this.offSuperPowers();
+        //Object Heart for Extralifes
+        this.createExtraLifes();     
+        
         //create key object (Inventory object)
         this.createInventoryObjects(GameConstants.Sprites.lysFlower.KEY);        
         
