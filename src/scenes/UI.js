@@ -8,7 +8,14 @@ class UI extends Phaser.Scene {
     constructor() {
         super({
             key: 'UI'
-        });        
+        });
+        
+        this.invencibilityTime = 10; //Time to use invencibility for level
+        
+        //Boolean to stop time counting (Only use when level finished)
+        this.timeStop = false;
+
+        this.seconds = 1;   
     }
 
     init(data) {
@@ -51,8 +58,10 @@ class UI extends Phaser.Scene {
         //SuperPowersButtons
         this.superSpeedBtn = this.add.image(this.width/2 + 73, 17 , GameConstants.Sprites.superSpeed.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.lowGravityBtn = this.add.image(this.width/2 + 108, 17 , GameConstants.Sprites.lowGravity.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
-        this.superJumpBtn = this.add.image(this.width/2 + 155, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        this.superJumpBtn = this.add.image(this.width/2 + 145, 17 , GameConstants.Sprites.superJump.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
         this.invencibilityBtn = this.add.image(this.width/2 + 180, 17 , GameConstants.Sprites.invencibility.OBJECT_NAME).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
+        let invencibilityTxtTimeLeft = Phaser.Utils.String.Pad(this.invencibilityTime,2,'0',1);
+        this.invencibilityCountDown = this.add.dynamicBitmapText(this.width/2 + 174, 34 ,'pixel',  invencibilityTxtTimeLeft).setScrollFactor(0).setDepth(10).setOrigin(0).setAlpha(0).setScale();
 
         this.DB = store.get(GameConstants.DB.DBNAME);
         //this.DB = this.getDB();   //Non functional yet
@@ -125,10 +134,12 @@ class UI extends Phaser.Scene {
             this.DB = store.get(GameConstants.DB.DBNAME);
             if (this.DB.superPowers.invencibility.status == "OFF") {
                 this.invencibilityBtn.alpha = 1;
+                this.invencibilityCountDown.setAlpha(1);
                 this.DB.superPowers.invencibility.status = "ON";
                 console.log(this.DB.superPowers.invencibility.status);
             } else if (this.DB.superPowers.invencibility.status == "ON") {
                 this.invencibilityBtn.alpha = 0.5;
+                this.invencibilityCountDown.setAlpha(0.5);
                 this.DB.superPowers.invencibility.status = "OFF";
                 console.log(this.DB.superPowers.invencibility.status);
             }
@@ -201,8 +212,8 @@ class UI extends Phaser.Scene {
                 if (this.DB.inventory.lysFlower){
                     this.lysFlower.destroy();
                 }
-                if (this.DB.inventory.lysFlower){
-                    this.lysFlower.destroy();
+                if (this.DB.inventory.pen){
+                    this.pen.destroy();
                 }
                 if (this.DB.inventory.star){
                     this.star.destroy();
@@ -214,6 +225,35 @@ class UI extends Phaser.Scene {
 
   
     }//create
+
+    update(time,delta){
+        //when use show invencibility Time countdown
+        //Only one use when 0 status = "OFF" picked = "false"
+        if (this.DB.superPowers.invencibility.status == "ON"){
+
+            if ((this.seconds != parseInt(Math.abs(time / 1000)) && !this.timeStop)) {
+                this.seconds = parseInt(Math.abs(time / 1000));                            
+                this.invencibilityTime--;                     
+    
+                let invencibilityTxtTimeLeft = Phaser.Utils.String.Pad(this.invencibilityTime,2,'0',1);
+
+                this.invencibilityCountDown.setText(invencibilityTxtTimeLeft).setTint(0xffffff);
+
+                if (this.invencibilityTime == 0){ //If times picked = false , status = OFF
+                    this.DB = store.get(GameConstants.DB.DBNAME);
+                    this.invencibilityBtn.alpha = 0;
+                    this.invencibilityCountDown.setAlpha(0);
+                    this.DB.superPowers.invencibility.status = "OFF";
+                    this.DB.superPowers.invencibility.picked = false;
+                    store.set(GameConstants.DB.DBNAME, this.DB);
+                }
+                
+            }
+            
+
+        }
+
+    }
 
     createSuperPowerImg(superPowerKey){
         if (superPowerKey == 'superSpeed') {            
@@ -227,6 +267,7 @@ class UI extends Phaser.Scene {
             this.superJumpBtn.setInteractive();
         } else if (superPowerKey == 'invencibility') {
             this.invencibilityBtn.setAlpha(0.50);
+            this.invencibilityCountDown.setAlpha(0.50);
             this.invencibilityBtn.setInteractive();
         } 
     }

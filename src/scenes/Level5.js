@@ -20,11 +20,11 @@ class Level5 extends BasicScene {
         //Finding enemies in json map
         this.findAndLoadEnemiesFromMap(GameConstants.Enemies_Layers.Level5);
         //ExtraPoints        
-        //this.createCoins();
+        this.createCoins();
         //Object Heart for Extralifes
-        //this.createExtraLifes();
+        this.createExtraLifes();
         //Deactivate superPowers if were activated on previous levels
-        //this.offSuperPowers();
+        this.offSuperPowers();
         //Create superPower
         //this.createSuperPowers(GameConstants.Sprites.superSpeed.KEY);
         //create key object (Inventory object)
