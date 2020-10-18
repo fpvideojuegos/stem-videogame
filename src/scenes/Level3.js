@@ -34,7 +34,8 @@ class Level3 extends BasicScene {
         this.offSuperPowers();
         //Object Heart for Extralifes
         this.createExtraLifes();     
-        
+        //Create superPower
+        this.createSuperPowers(GameConstants.Sprites.lowGravity.KEY);
         //create key object (Inventory object)
         this.createInventoryObjects(GameConstants.Sprites.lysFlower.KEY);        
         

@@ -31,7 +31,9 @@ class Level4 extends BasicScene {
         this.showLevelScoreText();
         //ExtraPoints        
         this.createCoins();
-        
+        //Create superPower
+        this.createSuperPowers(GameConstants.Sprites.superJump.KEY);
+
         //Object Heart for Extralifes
         this.createExtraLifes();
 
@@ -41,11 +43,12 @@ class Level4 extends BasicScene {
         this.createHealthText();
 
         //Tilemap
-        this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET);
+        //this.platformlayer = this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET);
 
         //PRIVATE SCENE ELEMENTS
         //Creacion de elementos decorativos
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET, GameConstants.Layers.LANDSCAPE, false);        
+        this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET,undefined,undefined,undefined,false);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET, GameConstants.Layers.LANDSCAPEFRONT, false,4);
         this.paintLayerAndCreateCollision(GameConstants.Tiles.LEVEL4_TILESET, GameConstants.Layers.CLOUDS, false);
         
