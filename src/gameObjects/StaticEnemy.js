@@ -19,6 +19,8 @@ class StaticEnemy extends Phaser.Physics.Arcade.Group {
             var  enemy = this.children.entries[i];             
             enemy.body.setAllowGravity(false);
             enemy.setScale(1.5);            
+            enemy.body.setSize(16, 32);
+            //enemy.setOrigin(0,0);
             enemy.setDepth(1);                        
         }        
     }

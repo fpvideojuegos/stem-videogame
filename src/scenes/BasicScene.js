@@ -299,13 +299,14 @@ class BasicScene extends Phaser.Scene {
                 Object.keys(this.enemyGroups).forEach(enemyGroup => {                    
                     this.physics.add.overlap(this.player, this.enemyGroups[enemyGroup], function(player, enemy){
 
+                    //not overlap with candles
+                    if (enemy.name!= GameConstants.Sprites.Candle.OBJECT_ID){
                        // hero is stomping the enemy if:
                         // hero is touching DOWN
                         // enemy is touching UP
                         // except Candle
                         //only if Player velocityY down > 100
-                        if (enemy.name!= GameConstants.Sprites.Candle.OBJECT_ID &&
-                            player.body.velocity.y>100 && 
+                        if (player.body.velocity.y>100 && 
                             enemy.body.touching.up && player.body.touching.down ){                                                             
                             if (!player.hitDelay){                                                                     
                                 let posX = enemy.x;
@@ -323,6 +324,7 @@ class BasicScene extends Phaser.Scene {
                             // any other way to collide on an enemy will restart the game
                             player.enemyCollision();
                         } 
+                    }    
                         
                     }, null, this);
 
