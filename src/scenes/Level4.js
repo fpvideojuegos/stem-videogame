@@ -80,6 +80,10 @@ class Level4 extends BasicScene {
         }
         this.lettersGuessed = 0;
 
+        this.textTIP = this.add.dynamicBitmapText(10, 435, GameConstants.Fonts.PIXEL, this.TG.tr('LEVEL4.TIP'))
+                                .setScrollFactor(0)
+                                .setDepth(5);
+
         //Get letters from TileMap        
         this.letters = this.map.getObjectLayer('Collectables');
         //Create letter group 
