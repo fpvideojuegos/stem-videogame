@@ -80,9 +80,9 @@ class Player extends Phaser.GameObjects.Sprite {
         this.jumping = false;
 
         // Se usa para desacelerar el personaje cuando se sueltan los botones.
-        this.deceleration = 2;
+        this.deceleration = 0.5;
         // Se usa para cuando el personaje tiene que devolverse.
-        this.friction = 10;
+        this.friction = 0.5;
 
         // Animación inicial
         this.anims.play(this.animIDLE);        
