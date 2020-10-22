@@ -109,6 +109,12 @@ class Player extends Phaser.GameObjects.Sprite {
 
         // Control
         this.cursor = this.scene.input.keyboard.createCursorKeys();
+        this.WASDKeys = this.scene.input.keyboard.addKeys({
+            up: Phaser.Input.Keyboard.KeyCodes.W,
+            left: Phaser.Input.Keyboard.KeyCodes.A,
+            down: Phaser.Input.Keyboard.KeyCodes.S,
+            right: Phaser.Input.Keyboard.KeyCodes.D
+        }); 
         this.spacebar = this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.gamepad = null;
         this.scene.input.gamepad.once('down', (pad) => {
@@ -160,10 +166,10 @@ class Player extends Phaser.GameObjects.Sprite {
         }
         
         let control = {
-            left: this.cursor.left.isDown || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
-            right: this.cursor.right.isDown || this.animControl.right || ((this.gamepad !== null) ? this.gamepad.right : false),
-            jump: this.cursor.up.isDown || this.spacebar.isDown ||this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
-            down: this.cursor.down.isDown || this.animControl.down || ((this.gamepad !== null) ? this.gamepad.down : false)
+            left: this.cursor.left.isDown || this.WASDKeys.left.isDown  || this.animControl.left || ((this.gamepad !== null) ? this.gamepad.left : false),
+            right: this.cursor.right.isDown || this.WASDKeys.right.isDown  || this.animControl.right || ((this.gamepad !== null) ? this.gamepad.right : false),
+            jump: this.cursor.up.isDown || this.WASDKeys.up.isDown  || this.spacebar.isDown ||this.animControl.jump || ((this.gamepad !== null) ? this.gamepad.A : false),
+            down: this.cursor.down.isDown || this.WASDKeys.down.isDown  || this.animControl.down || ((this.gamepad !== null) ? this.gamepad.down : false)
         }
 
 
