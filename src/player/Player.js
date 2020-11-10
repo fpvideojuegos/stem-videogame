@@ -33,7 +33,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         //for alarm music        
         this.healthAlarm = this.scene.sound.add(GameConstants.Sound.SOUNDS.ALARM_ON);
-        //this.healthAlarm.setVolume(.2);
+        this.healthAlarm.setVolume(0.5);
         this.healthAlarm.setLoop(true);
         this.alarmON = false;
 
@@ -146,10 +146,16 @@ class Player extends Phaser.GameObjects.Sprite {
             let textTimeLeft = Phaser.Utils.String.Pad(minutes,2,'0',1) + ":" + Phaser.Utils.String.Pad(seconds,2,'0',1);
             if (this.timeLeft>60){
                 this.scene.textTime.setText(textTimeLeft).setTint(0xffffff);
+                this.alarmON = false;
+                this.DB = store.get(GameConstants.DB.DBNAME);
+                if (this.DB.SFX) {
+                    this.healthAlarm.stop();
+                }
             }else{
                 if (!this.gameOver) this.scene.textTime.setText(textTimeLeft).setTint(0xff0000);
-                if (!this.alarmON){
+                if (!this.alarmON){                    
                     this.alarmON = true;
+                    this.DB = store.get(GameConstants.DB.DBNAME);
                     if (this.DB.SFX) {
                         this.healthAlarm.play();
                     }
@@ -342,9 +348,9 @@ class Player extends Phaser.GameObjects.Sprite {
      * Decrease health when touch enemies
      */
     loseHealth() {
+        this.DB = store.get(GameConstants.DB.DBNAME);
         //delete extra lifes if exists
-        if (this.health>5){
-            this.DB = store.get(GameConstants.DB.DBNAME);
+        if (this.health>5){            
             let currentExtraLifes = parseInt(this.DB.extralifes);
             if (this.DB.extralifes>0){
                 this.DB.extralifes = currentExtraLifes - 1;             
@@ -382,6 +388,7 @@ class Player extends Phaser.GameObjects.Sprite {
      */
     recoverHealth(group, object){
 
+        this.DB = store.get(GameConstants.DB.DBNAME);
         //Make disapear the heart with Tween efect
         if (!this.hitHeart) {            
 

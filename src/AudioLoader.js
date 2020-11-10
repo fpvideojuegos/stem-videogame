@@ -43,7 +43,7 @@ class AudioLoader extends Phaser.Scene {
 
         //Sfx sounds
         this.load.audio("collectablePickup","sounds/effects/cluepickup.ogg");
-        this.load.audio("alarmOn","sounds/effects/alarmOn.ogg");
+        this.load.audio("alarmOn","sounds/effects/bassGnote120bpsKeyG.ogg");
         this.load.audio("timePickup", "sounds/effects/timeAlarm.ogg")
 
         
