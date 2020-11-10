@@ -75,7 +75,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         // Configuraciones extras para el movimiento
         // this.jumpForce = 150;
-        this.jumpForce = 350;
+        this.jumpForce = 325;
         this.jumpTimer = 0;
         this.jumping = false;
 
@@ -201,13 +201,12 @@ class Player extends Phaser.GameObjects.Sprite {
                     } else if (this.body.velocity.x < -5 && !this.jumping) {
                         this.animation(GameConstants.Anims.Direction.LEFT, this.animWALK);
                     }
-                    if (Math.abs(this.body.velocity.x) < 10) {
+                    if (Math.abs(this.body.velocity.x) < 140) {
                         // Detener por completo cuando la velocidad es menor de 10
                         this.animation(GameConstants.Anims.Direction.IDLE, this.animIDLE);
                         this.body.setVelocityX(0);
                         this.run(0);
                     } else {
-                        // Si la velocidad es mayor de 10 desacelerar rápido
                         this.run(((this.body.velocity.x > 0) ? -1 : 1) * this.acceleration + this.deceleration);
                     }
                 } else if (!this.body.blocked.down) {
@@ -273,18 +272,13 @@ class Player extends Phaser.GameObjects.Sprite {
     // Métodos usados en la lógica, están separado para mejor orden    
     moverLeftRight(dir) {
         let acceleration = ((dir === GameConstants.Anims.Direction.RIGHT) ? 1 : -1) * this.acceleration;
+     
+        this.run(acceleration);
         if (this.body.velocity.y === 0) {
-            if (Math.abs(this.body.velocity.x) > 100) {
-                this.run(acceleration * this.deceleration * this.friction);
-            } else {
-                this.run(acceleration);
-            }
             this.animation(dir, this.animWALK);
-        } else {
-            // Desacelerar en el aire
-            this.run(acceleration);
-        }        
-        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);                
+        }
+        
+        this.flipX = (dir === GameConstants.Anims.Direction.RIGHT);                        
     }
 
     jump() {
@@ -315,6 +309,13 @@ class Player extends Phaser.GameObjects.Sprite {
     }
 
     run(velocity) {
+        this.DB = store.get(GameConstants.DB.DBNAME);
+        if(this.DB.superPowers.superSpeed.status == "OFF"){ //If superSpeed is not "OFF" can run a lot more 
+            this.body.maxVelocity.x = 150;
+        } else { //Watch out! It runs a LOT more!!
+            this.body.maxVelocity.x = 450;
+        }
+
         this.body.setAccelerationX(velocity);
     }
 
