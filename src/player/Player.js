@@ -75,7 +75,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
         // Configuraciones extras para el movimiento
         // this.jumpForce = 150;
-        this.jumpForce = 325;
+        this.jumpForce = 350;
         this.jumpTimer = 0;
         this.jumping = false;
 

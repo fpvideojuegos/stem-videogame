@@ -9,14 +9,16 @@ const GameConstants = {
             Level2:'532881',
             Level3:'532882',
             Level4:'532883',
-            Level5:'532884'
+            Level5:'532884',
+            Level6:'551882'
         },
         TROPHIES:{
             Level1:'126767',
             Level2:'126768',
             Level3:'126769',
             Level4:'126770',
-            Level5:'126771'       
+            Level5:'126771',
+            Level6:'126772'
         }
     },
     Levels: {
